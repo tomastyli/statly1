@@ -1,0 +1,14 @@
+# robots.txt pro statly.cz
+# https://statly.cz
+
+User-agent: *
+Allow: /
+
+# Blokovat AI scrapery (volitelné — odeberte, pokud chcete být v AI vyhledávání)
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: CCBot
+# Disallow: /
+
+# Sitemap
+Sitemap: https://statly.cz/sitemap.xml

@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zásady ochrany osobních údajů | Statly</title>
+<meta name="description" content="Zásady ochrany osobních údajů a informace o zpracování dat na webu statly.cz. Tomáš Tylich, Statly, Litomyšl.">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="theme-color" content="#0a1410">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://statly.cz/privacy.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ─── RESET & BASE ─────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: #0a1410;
+  color: #e8efe9;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+:root {
+  --green-deep: #0d3d2c;
+  --green: #1B7F5F;
+  --green-light: #2A9F7A;
+  --green-bright: #22c47e;
+  --gold: #FFB800;
+  --teal: #4dd9a2;
+  --bg: #0a1410;
+  --bg-2: #0d1a14;
+  --bg-card: #111e18;
+  --bg-card-2: #142420;
+  --border: rgba(255,255,255,0.06);
+  --border-2: rgba(34,196,126,0.18);
+  --text: #e8efe9;
+  --text-dim: #8aa39a;
+  --text-dimmer: #5a7a6a;
+  --sans: 'Inter Tight', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+::selection { background: var(--green); color: #fff; }
+
+.noise {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ─── NAV ──────────────────────────────────────── */
+nav {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(10,20,16,0.72);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  z-index: 9999;
+  animation: navIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes navIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo img { height: 34px; width: auto; }
+.nav-links { display: flex; gap: 2.4rem; list-style: none; }
+.nav-links a {
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text-dim);
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  left: 0; bottom: -4px; width: 0; height: 1px;
+  background: var(--green-bright);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover { color: #fff; }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--green);
+  color: #fff !important;
+  padding: 0.6rem 1.3rem;
+  border-radius: 100px;
+  font-size: 0.86rem; font-weight: 600;
+  transition: all 0.25s ease;
+  position: relative; overflow: hidden;
+}
+.nav-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--green-light), var(--green-bright));
+  opacity: 0; transition: opacity 0.3s;
+}
+.nav-cta span { position: relative; z-index: 1; }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
+.nav-cta:hover::before { opacity: 1; }
+
+/* ─── DOC HEADER ───────────────────────────────── */
+.doc-header {
+  padding: 9rem 2rem 4rem;
+  position: relative; overflow: hidden;
+  background: var(--bg);
+}
+.doc-header::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 30%, rgba(27,127,95,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(255,184,0,0.04) 0%, transparent 55%);
+  pointer-events: none;
+}
+.doc-header::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(34,196,126,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,196,126,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+  pointer-events: none;
+}
+.doc-header-inner {
+  max-width: 760px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.crumb {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  transition: color 0.2s;
+}
+.crumb:hover { color: var(--green-bright); }
+.crumb-arrow {
+  font-size: 0.85rem;
+  transition: transform 0.2s;
+}
+.crumb:hover .crumb-arrow { transform: translateX(-3px); }
+
+.doc-label {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.74rem; font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--green-bright);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.doc-label::before {
+  content: ''; width: 18px; height: 1px;
+  background: var(--green-bright);
+}
+.doc-h1 {
+  font-family: var(--sans);
+  font-size: clamp(2rem, 4.4vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+.doc-h1 em {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.doc-meta {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--text-dim);
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex; gap: 2rem; flex-wrap: wrap;
+}
+.doc-meta strong {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* ─── DOC CONTENT ──────────────────────────────── */
+.doc-body {
+  padding: 4rem 2rem 6rem;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.doc-content {
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-dim);
+}
+.doc-content > p:first-child {
+  font-size: 1.12rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.doc-content h2 {
+  font-family: var(--sans);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 3rem 0 1rem;
+  display: flex; align-items: baseline; gap: 0.85rem;
+}
+.doc-content h2::before {
+  content: counter(section, decimal-leading-zero);
+  counter-increment: section;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--green-bright);
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  padding-top: 0.45rem;
+}
+.doc-content {
+  counter-reset: section;
+}
+.doc-content h3 {
+  font-family: var(--sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: #fff;
+  margin: 2rem 0 0.6rem;
+}
+.doc-content p {
+  margin-bottom: 1rem;
+}
+.doc-content p:last-child { margin-bottom: 0; }
+.doc-content ul, .doc-content ol {
+  margin: 0.75rem 0 1.25rem 0;
+  padding-left: 0;
+  list-style: none;
+}
+.doc-content li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.55rem;
+}
+.doc-content ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 6px;
+  height: 6px;
+  background: var(--green-bright);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.doc-content ol {
+  counter-reset: item;
+}
+.doc-content ol li {
+  counter-increment: item;
+}
+.doc-content ol li::before {
+  content: counter(item) '.';
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--green-bright);
+  font-weight: 500;
+}
+.doc-content strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.doc-content a {
+  color: var(--green-bright);
+  text-decoration: underline;
+  text-decoration-color: rgba(34,196,126,0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s;
+}
+.doc-content a:hover { text-decoration-color: var(--green-bright); }
+
+/* Highlighted info block */
+.doc-content .info-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 14px;
+  padding: 1.4rem 1.6rem;
+  margin: 1.5rem 0;
+}
+.doc-content .info-box p { margin-bottom: 0; }
+.doc-content .info-box p + p { margin-top: 0.75rem; }
+
+/* Contact card */
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 1.5rem 1.75rem;
+  margin: 1.25rem 0 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem 1.5rem;
+  font-size: 0.95rem;
+}
+.contact-card dt {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-dimmer);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 0.15rem;
+}
+.contact-card dd {
+  color: var(--text);
+}
+
+/* Cookie table */
+.cookie-table-wrap {
+  margin: 1.25rem 0 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.cookie-table th,
+.cookie-table td {
+  text-align: left;
+  padding: 0.85rem 1.2rem;
+  border-bottom: 1px solid var(--border);
+}
+.cookie-table th {
+  background: var(--bg-card-2);
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.cookie-table tr:last-child td { border-bottom: none; }
+.cookie-table td strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.cookie-table .badge-cell {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 5px;
+  background: rgba(34,196,126,0.1);
+  border: 1px solid var(--border-2);
+  color: var(--green-bright);
+}
+
+/* Reopen cookie settings link */
+.reopen-cookies {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.55rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  color: var(--text);
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.reopen-cookies:hover {
+  border-color: var(--border-2);
+  color: var(--green-bright);
+}
+
+/* ─── FOOTER ───────────────────────────────────── */
+footer {
+  background: #060c08;
+  border-top: 1px solid var(--border);
+  padding: 5rem 2rem 2rem;
+}
+.footer-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.footer-logo img { height: 32px; margin-bottom: 1rem; }
+.footer-desc {
+  color: var(--text-dimmer);
+  font-size: 0.88rem; line-height: 1.7;
+  max-width: 250px;
+}
+.footer-h {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 600;
+  color: #fff; margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer-a {
+  color: var(--text-dim);
+  font-size: 0.88rem; display: block;
+  margin-bottom: 0.65rem;
+  transition: color 0.2s, transform 0.2s;
+  width: fit-content;
+  cursor: pointer;
+}
+.footer-a:hover { color: var(--green-bright); transform: translateX(3px); }
+.footer-btm {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  color: var(--text-dimmer); font-size: 0.82rem;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-btm-links {
+  display: flex; gap: 1.5rem;
+}
+.footer-btm-links a {
+  color: var(--text-dimmer);
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer-btm-links a:hover { color: var(--green-bright); }
+
+/* ─── COOKIE BANNER & MODAL ────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  max-width: 480px;
+  background: rgba(13,26,20,0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-2);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,196,126,0.08);
+  z-index: 10000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s;
+}
+.cookie-banner.show { transform: translateY(0); opacity: 1; }
+.cookie-header {
+  display: flex; align-items: center; gap: 0.6rem;
+  margin-bottom: 0.7rem;
+}
+.cookie-icon {
+  width: 32px; height: 32px;
+  background: rgba(34,196,126,0.1);
+  border: 1px solid rgba(34,196,126,0.25);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.cookie-title {
+  font-family: var(--sans);
+  font-size: 0.98rem; font-weight: 700; color: #fff;
+  letter-spacing: -0.01em;
+}
+.cookie-text {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+.cookie-text a {
+  color: var(--green-bright);
+  text-decoration: underline;
+  text-decoration-color: rgba(34,196,126,0.35);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.cookie-text a:hover { text-decoration-color: var(--green-bright); }
+.cookie-actions {
+  display: flex; gap: 0.55rem;
+  flex-wrap: wrap;
+}
+.cookie-btn {
+  flex: 1;
+  min-width: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  font-family: var(--sans);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+  letter-spacing: -0.005em;
+}
+.cookie-btn.primary {
+  background: var(--green-bright);
+  color: var(--green-deep);
+}
+.cookie-btn.primary:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(255,184,0,0.25);
+}
+.cookie-btn.secondary {
+  background: rgba(255,255,255,0.05);
+  color: #fff;
+  border: 1px solid var(--border);
+}
+.cookie-btn.secondary:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: var(--border-2);
+}
+.cookie-btn.text {
+  background: none;
+  color: var(--text-dim);
+  flex: 0 0 auto;
+  padding: 0.7rem 0.5rem;
+}
+.cookie-btn.text:hover { color: #fff; }
+
+.cookie-modal-bg {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,10,8,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.25rem;
+}
+.cookie-modal-bg.show { opacity: 1; pointer-events: auto; }
+.cookie-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 22px;
+  max-width: 540px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.cookie-modal-bg.show .cookie-modal { transform: scale(1) translateY(0); }
+.cookie-modal h3 {
+  font-family: var(--sans);
+  font-size: 1.4rem; font-weight: 700;
+  color: #fff;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+.cookie-modal-sub {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 1.75rem;
+}
+.cookie-cat {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.7rem;
+  transition: border-color 0.25s;
+}
+.cookie-cat:hover { border-color: var(--border-2); }
+.cookie-cat-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 0.45rem;
+}
+.cookie-cat-name {
+  font-family: var(--sans);
+  font-size: 0.95rem; font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.015em;
+}
+.toggle {
+  position: relative;
+  width: 42px; height: 24px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+.toggle::after {
+  content: '';
+  position: absolute;
+  top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+.toggle.on { background: var(--green-bright); }
+.toggle.on::after { transform: translateX(18px); }
+.toggle.locked { background: rgba(34,196,126,0.4); cursor: not-allowed; }
+.toggle.locked::after { background: rgba(255,255,255,0.7); transform: translateX(18px); }
+.cookie-cat-desc {
+  font-size: 0.83rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+}
+.cookie-modal-actions {
+  display: flex; gap: 0.55rem;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+}
+.cookie-modal-actions .cookie-btn { flex: 1; }
+
+.cookie-fab {
+  position: fixed;
+  bottom: 1rem; left: 1rem;
+  width: 40px; height: 40px;
+  background: rgba(13,26,20,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: none;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 9998;
+  transition: all 0.25s;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+}
+.cookie-fab:hover {
+  border-color: var(--border-2);
+  color: var(--green-bright);
+  transform: scale(1.05);
+}
+.cookie-fab.show { display: flex; }
+
+/* ─── RESPONSIVE ───────────────────────────────── */
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .doc-header { padding: 7rem 1.5rem 3rem; }
+  .doc-body { padding: 3rem 1.5rem 5rem; }
+  .doc-content { font-size: 0.98rem; }
+  .doc-content h2 { font-size: 1.3rem; }
+  .doc-meta { gap: 1rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-btm { flex-direction: column; text-align: center; }
+  .cookie-banner { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; padding: 1.25rem; }
+  .contact-card { grid-template-columns: 1fr; gap: 0.25rem 0; }
+  .contact-card dt { padding-top: 0.75rem; }
+  .contact-card dt:first-child { padding-top: 0; }
+  .cookie-table { font-size: 0.82rem; }
+  .cookie-table th, .cookie-table td { padding: 0.7rem 0.85rem; }
+}
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .cookie-actions { flex-direction: column; }
+  .cookie-btn { width: 100%; }
+  .doc-content h2 { flex-direction: column; gap: 0.25rem; }
+  .doc-content h2::before { padding-top: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Statly">
+      <img src="logo.png" alt="Statly">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#sluzby">Služby</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="index.html#postup">Postup</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="index.html#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
+  </div>
+</nav>
+
+<!-- DOC HEADER -->
+<section class="doc-header">
+  <div class="doc-header-inner">
+    <a href="index.html" class="crumb"><span class="crumb-arrow">←</span> Zpět na úvod</a>
+    <span class="doc-label">Právní informace</span>
+    <h1 class="doc-h1">Zásady ochrany <em>osobních údajů.</em></h1>
+    <p style="color: var(--text-dim); font-size: 1.02rem; line-height: 1.7;">
+      Tady najdete vše o tom, jak na webu statly.cz nakládám s vašimi daty —
+      napsáno srozumitelně, bez právničiny.
+    </p>
+    <div class="doc-meta">
+      <span><strong>Účinné od:</strong> 1. 1. 2026</span>
+      <span><strong>Poslední aktualizace:</strong> 10. 5. 2026</span>
+    </div>
+  </div>
+</section>
+
+<!-- DOC BODY -->
+<section class="doc-body">
+  <article class="doc-content">
+
+    <p>
+      Soukromí je důležité a beru ho vážně. Tento dokument popisuje, kdo zpracovává vaše osobní údaje,
+      jaké údaje to jsou, proč je potřebuji, jak dlouho je uchovávám a jaká máte práva.
+      Zpracování probíhá v souladu s nařízením Evropského parlamentu a Rady (EU) 2016/679 (<strong>GDPR</strong>)
+      a zákonem č. 110/2019 Sb., o zpracování osobních údajů.
+    </p>
+
+    <h2>Kdo je správcem vašich údajů</h2>
+    <p>Správcem osobních údajů je:</p>
+    <dl class="contact-card">
+      <dt>Jméno</dt><dd>Tomáš Tylich</dd>
+      <dt>Označení</dt><dd>Statly</dd>
+      <dt>Sídlo</dt><dd>Litomyšl, Pardubický kraj, Česká republika</dd>
+      <dt>IČO</dt><dd>24466492</dd>
+      <dt>E‑mail</dt><dd><a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a></dd>
+      <dt>Telefon</dt><dd><a href="tel:+420737372708">+420 737 372 708</a></dd>
+    </dl>
+
+    <h2>Jaké údaje zpracovávám</h2>
+    <p>V závislosti na tom, jak se mnou komunikujete, mohu zpracovávat tyto kategorie údajů:</p>
+    <ul>
+      <li><strong>Identifikační a kontaktní údaje</strong> — jméno, e‑mail, telefon, případně název firmy a IČO. Získávám je, když mi napíšete nebo zavoláte ohledně poptávky.</li>
+      <li><strong>Údaje o návštěvě webu</strong> — IP adresa, typ prohlížeče, navštívené stránky, doba strávená na webu, zdroj návštěvy. Tyto údaje se zpracovávají v anonymizované podobě (Google Analytics) a pouze s vaším souhlasem.</li>
+      <li><strong>Marketingová data</strong> — interakce s reklamními kampaněmi (Meta Pixel, Google Ads). Pouze s vaším souhlasem.</li>
+      <li><strong>Komunikace</strong> — obsah e‑mailů a zpráv, které mi pošlete.</li>
+    </ul>
+
+    <h2>Proč údaje zpracovávám a na jakém základě</h2>
+    <p>Každé zpracování má svůj jasný účel a právní důvod:</p>
+    <ul>
+      <li><strong>Vyřízení poptávky a uzavření smlouvy</strong> — pokud mě kontaktujete s konkrétním zájmem, zpracovávám vaše údaje na základě <em>plnění smlouvy</em> nebo opatření před jejím uzavřením (čl. 6 odst. 1 písm. b GDPR).</li>
+      <li><strong>Komunikace</strong> — vyřízení vašich dotazů zpracovávám na základě <em>oprávněného zájmu</em> (čl. 6 odst. 1 písm. f GDPR).</li>
+      <li><strong>Plnění zákonných povinností</strong> — zejména účetní a daňové (čl. 6 odst. 1 písm. c GDPR).</li>
+      <li><strong>Analytika a marketing</strong> — měření návštěvnosti a personalizace reklam zpracovávám pouze na základě <em>souhlasu</em> (čl. 6 odst. 1 písm. a GDPR), který můžete kdykoli odvolat.</li>
+    </ul>
+
+    <h2>Jak dlouho údaje uchovávám</h2>
+    <ul>
+      <li><strong>Údaje z poptávek a smluvních vztahů</strong> — po dobu trvání spolupráce a následně 3 roky pro případné nároky.</li>
+      <li><strong>Účetní a daňové doklady</strong> — 10 let v souladu se zákonem o DPH.</li>
+      <li><strong>Analytická a marketingová data</strong> — maximálně 14 měsíců (Google Analytics 4 výchozí nastavení) nebo do odvolání souhlasu.</li>
+      <li><strong>Záznam o souhlasu s cookies</strong> — 365 dní (uložen ve vašem prohlížeči).</li>
+    </ul>
+
+    <h2>Komu údaje předávám</h2>
+    <p>Vaše údaje nikdy neprodávám a předávám je jen tam, kde je to nezbytné pro chod webu a služeb:</p>
+    <ul>
+      <li><strong>Cloudflare, Inc.</strong> — hosting webu a CDN (servery v EU)</li>
+      <li><strong>Google Ireland Limited</strong> — Google Analytics, Google Ads (pouze se souhlasem)</li>
+      <li><strong>Meta Platforms Ireland Limited</strong> — Meta Pixel, Facebook & Instagram Ads (pouze se souhlasem)</li>
+      <li><strong>Účetní</strong> — pro vystavení faktur a daňové povinnosti</li>
+    </ul>
+    <p>U služeb provozovaných mimo EU (např. Google, Meta) je předávání zajištěno na základě <strong>standardních smluvních doložek</strong> schválených Evropskou komisí.</p>
+
+    <h2>Cookies a podobné technologie</h2>
+    <p>Cookies jsou malé textové soubory, které se ukládají ve vašem prohlížeči. Slouží k tomu, aby web fungoval správně a aby bylo možné měřit jeho používání.</p>
+
+    <h3>Kategorie cookies, které používám</h3>
+    <div class="cookie-table-wrap">
+      <table class="cookie-table">
+        <thead>
+          <tr>
+            <th>Kategorie</th>
+            <th>Účel</th>
+            <th>Souhlas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Nezbytné</strong></td>
+            <td>Zajišťují základní funkčnost webu (uložení vašeho souhlasu, technické fungování).</td>
+            <td><span class="badge-cell">Není nutný</span></td>
+          </tr>
+          <tr>
+            <td><strong>Analytické</strong></td>
+            <td>Anonymně měří návštěvnost a chování (Google Analytics 4).</td>
+            <td><span class="badge-cell">Volitelný</span></td>
+          </tr>
+          <tr>
+            <td><strong>Marketingové</strong></td>
+            <td>Personalizace reklam na jiných platformách (Meta Pixel, Google Ads).</td>
+            <td><span class="badge-cell">Volitelný</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Volbu, které cookies povolíte, můžete kdykoli změnit. Stačí kliknout sem:</p>
+    <button type="button" class="reopen-cookies" onclick="openCookieSettings()">⚙ Změnit nastavení cookies</button>
+
+    <h2>Jaká máte práva</h2>
+    <p>V souvislosti se zpracováním vašich osobních údajů máte podle GDPR tato práva:</p>
+    <ul>
+      <li><strong>Právo na přístup</strong> — můžete se mě zeptat, jaké údaje o vás zpracovávám.</li>
+      <li><strong>Právo na opravu</strong> — pokud jsou údaje nepřesné nebo neúplné, máte právo požadovat jejich opravu.</li>
+      <li><strong>Právo na výmaz</strong> („právo být zapomenut") — pokud pominul důvod zpracování, vaše údaje smažu.</li>
+      <li><strong>Právo na omezení zpracování</strong> — můžete požádat, abych údaje dočasně přestal používat.</li>
+      <li><strong>Právo na přenositelnost</strong> — předám vám vaše údaje ve strukturovaném strojově čitelném formátu.</li>
+      <li><strong>Právo vznést námitku</strong> — proti zpracování založenému na oprávněném zájmu.</li>
+      <li><strong>Právo odvolat souhlas</strong> — kdykoli a bez udání důvodu (např. souhlas s cookies, marketingem).</li>
+      <li><strong>Právo podat stížnost</strong> — u <a href="https://www.uoou.cz" target="_blank" rel="noopener">Úřadu pro ochranu osobních údajů</a> (Pplk. Sochora 27, 170 00 Praha 7).</li>
+    </ul>
+
+    <div class="info-box">
+      <p><strong>Jak svá práva uplatnit?</strong></p>
+      <p>Stačí mi napsat na <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a>. Ozvu se vám nejpozději do <strong>30 dnů</strong>. Žádost je zdarma — pokud není zjevně nedůvodná nebo nepřiměřená.</p>
+    </div>
+
+    <h2>Zabezpečení</h2>
+    <p>Vaše údaje chráním v rozumné míře přiměřené povaze zpracování. To zahrnuje šifrované připojení (HTTPS), zabezpečené úložiště, silná hesla a omezený přístup pouze pro mě jako správce. Žádný systém ovšem není 100% bezpečný — pokud bych zaznamenal narušení bezpečnosti dat, budu vás v souladu se zákonem informovat.</p>
+
+    <h2>Děti</h2>
+    <p>Web ani služby nejsou určené pro osoby mladší 16 let. Vědomě nezpracovávám osobní údaje dětí. Pokud zjistíte, že mi takové údaje byly poskytnuty, dejte mi prosím vědět a údaje smažu.</p>
+
+    <h2>Změny zásad</h2>
+    <p>Tyto zásady mohu příležitostně upravit — například při změně používaných nástrojů nebo legislativy. Aktuální verzi vždy najdete na této stránce s datem poslední aktualizace v záhlaví.</p>
+
+    <h2>Kontakt</h2>
+    <p>Máte otázku k těmto zásadám nebo k tomu, jak zacházím s vašimi daty? Napište mi:</p>
+    <dl class="contact-card">
+      <dt>E‑mail</dt><dd><a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a></dd>
+      <dt>Telefon</dt><dd><a href="tel:+420737372708">+420 737 372 708</a></dd>
+    </dl>
+
+  </article>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-logo"><img src="logo.png" alt="Statly"></a>
+      <p class="footer-desc">Statly · Tomáš Tylich.<br>Tvořím weby a marketing pro byznys ve východních Čechách.</p>
+    </div>
+    <div>
+      <p class="footer-h">Služby</p>
+      <a href="index.html#sluzby" class="footer-a">Tvorba webů</a>
+      <a href="index.html#sluzby" class="footer-a">Sociální sítě</a>
+      <a href="index.html#sluzby" class="footer-a">Grafický design</a>
+    </div>
+    <div>
+      <p class="footer-h">Navigace</p>
+      <a href="index.html#portfolio" class="footer-a">Portfolio</a>
+      <a href="index.html#postup" class="footer-a">Jak pracuju</a>
+      <a href="index.html#kontakt" class="footer-a">Kontakt</a>
+    </div>
+    <div>
+      <p class="footer-h">Kontakt</p>
+      <a href="mailto:tomas.tylich@seznam.cz" class="footer-a">tomas.tylich@seznam.cz</a>
+      <a href="tel:+420737372708" class="footer-a">+420 737 372 708</a>
+      <p class="footer-a" style="cursor:default">IČO: 24466492</p>
+      <a href="https://www.instagram.com/statly.cz" target="_blank" rel="noopener" class="footer-a">Instagram ↗</a>
+      <a href="https://www.facebook.com/profile.php?id=61570755123277" target="_blank" rel="noopener" class="footer-a">Facebook ↗</a>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2026 Statly · Tomáš Tylich · Všechna práva vyhrazena</span>
+    <div class="footer-btm-links">
+      <a onclick="openCookieSettings()">Nastavení cookies</a>
+      <a href="privacy.html">Zásady ochrany osobních údajů</a>
+    </div>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText">
+  <div class="cookie-header">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-title" id="cookieTitle">Soubory cookies</div>
+  </div>
+  <p class="cookie-text" id="cookieText">
+    Používám cookies, aby web fungoval správně a abych mohl měřit, co návštěvníky zajímá.
+    Marketingové a analytické cookies se aktivují pouze s vaším souhlasem.
+    <a onclick="openCookieSettings()">Podrobné nastavení</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn primary" onclick="acceptAllCookies()">Přijmout vše</button>
+    <button class="cookie-btn secondary" onclick="acceptNecessaryCookies()">Jen nezbytné</button>
+    <button class="cookie-btn text" onclick="openCookieSettings()">Nastavit</button>
+  </div>
+</div>
+
+<!-- COOKIE SETTINGS MODAL -->
+<div class="cookie-modal-bg" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal" onclick="event.stopPropagation()">
+    <h3 id="cookieModalTitle">Nastavení cookies</h3>
+    <p class="cookie-modal-sub">Vyberte si, jaké typy cookies chcete povolit. Své rozhodnutí můžete kdykoli změnit.</p>
+
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span class="cookie-cat-name">Nezbytné</span>
+        <span class="toggle locked" aria-label="Vždy aktivní"></span>
+      </div>
+      <p class="cookie-cat-desc">Zajišťují základní funkčnost webu. Bez nich web nefunguje, proto je nelze vypnout.</p>
+    </div>
+
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span class="cookie-cat-name">Analytické</span>
+        <span class="toggle" id="toggleAnalytics" onclick="toggleSwitch('toggleAnalytics')" role="switch" aria-checked="false" tabindex="0"></span>
+      </div>
+      <p class="cookie-cat-desc">Pomáhají mi pochopit, jak návštěvníci web používají. Data jsou anonymní (Google Analytics).</p>
+    </div>
+
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span class="cookie-cat-name">Marketingové</span>
+        <span class="toggle" id="toggleMarketing" onclick="toggleSwitch('toggleMarketing')" role="switch" aria-checked="false" tabindex="0"></span>
+      </div>
+      <p class="cookie-cat-desc">Slouží k personalizaci reklam (Meta Pixel, Google Ads) na jiných webech.</p>
+    </div>
+
+    <div class="cookie-modal-actions">
+      <button class="cookie-btn secondary" onclick="acceptNecessaryCookies()">Jen nezbytné</button>
+      <button class="cookie-btn primary" onclick="saveCookieSettings()">Uložit nastavení</button>
+    </div>
+  </div>
+</div>
+
+<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies">🍪</button>
+
+<script>
+/* ─── COOKIE CONSENT ──────────────────────────── */
+const COOKIE_KEY = 'statly_cookie_consent_v1';
+const COOKIE_EXPIRY_DAYS = 365;
+
+function getCookieConsent() {
+  try {
+    const raw = localStorage.getItem(COOKIE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    if (data.timestamp && (Date.now() - data.timestamp) > COOKIE_EXPIRY_DAYS * 86400000) {
+      localStorage.removeItem(COOKIE_KEY);
+      return null;
+    }
+    return data;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setCookieConsent(consent) {
+  const data = {
+    necessary: true,
+    analytics: !!consent.analytics,
+    marketing: !!consent.marketing,
+    timestamp: Date.now(),
+    version: 1
+  };
+  try {
+    localStorage.setItem(COOKIE_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn('Cannot save cookie consent:', e);
+  }
+  applyCookieConsent(data);
+  hideBanner();
+  closeCookieSettings();
+  showFab();
+}
+
+function applyCookieConsent(data) {
+  // Hook for actual scripts: load Google Analytics, Meta Pixel etc. here
+  document.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: data }));
+}
+
+function acceptAllCookies()       { setCookieConsent({ analytics: true, marketing: true }); }
+function acceptNecessaryCookies() { setCookieConsent({ analytics: false, marketing: false }); }
+function saveCookieSettings() {
+  const a = document.getElementById('toggleAnalytics').classList.contains('on');
+  const m = document.getElementById('toggleMarketing').classList.contains('on');
+  setCookieConsent({ analytics: a, marketing: m });
+}
+function toggleSwitch(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('on');
+  el.setAttribute('aria-checked', el.classList.contains('on') ? 'true' : 'false');
+}
+function openCookieSettings() {
+  const consent = getCookieConsent();
+  const a = document.getElementById('toggleAnalytics');
+  const m = document.getElementById('toggleMarketing');
+  a.classList.toggle('on', !!(consent && consent.analytics));
+  m.classList.toggle('on', !!(consent && consent.marketing));
+  a.setAttribute('aria-checked', a.classList.contains('on') ? 'true' : 'false');
+  m.setAttribute('aria-checked', m.classList.contains('on') ? 'true' : 'false');
+  document.getElementById('cookieModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeCookieSettings() {
+  document.getElementById('cookieModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function showBanner() { document.getElementById('cookieBanner').classList.add('show'); }
+function hideBanner() { document.getElementById('cookieBanner').classList.remove('show'); }
+function showFab()    { document.getElementById('cookieFab').classList.add('show'); }
+
+document.getElementById('cookieModal').addEventListener('click', closeCookieSettings);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCookieSettings();
+  if (e.key === 'Enter' || e.key === ' ') {
+    if (e.target.classList && e.target.classList.contains('toggle') && !e.target.classList.contains('locked')) {
+      e.preventDefault();
+      toggleSwitch(e.target.id);
+    }
+  }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = getCookieConsent();
+  if (consent) {
+    applyCookieConsent(consent);
+    showFab();
+  } else {
+    setTimeout(showBanner, 800);
+  }
+});
+</script>
+</body>
+</html>

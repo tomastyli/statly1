@@ -64,7 +64,34 @@
     "https://www.facebook.com/profile.php?id=61570755123277"
   ],
   "priceRange": "$$",
-  "areaServed": "Východní Čechy"
+  "areaServed": "Východní Čechy",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "3",
+    "bestRating": "5",
+    "worstRating": "1"
+  },
+  "review": [
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Organization", "name": "Flexi House" },
+      "reviewBody": "Tomáš nám udělal kompletní redesign webu a k tomu natočil sérii videí na sociální sítě. Komunikace bez zbytečností, rychlé reakce a výsledek nad naše očekávání. Po spuštění webu nám během měsíce výrazně vzrostl počet poptávek."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Organization", "name": "AuraFloor" },
+      "reviewBody": "Hledali jsme někoho, kdo nám udělá moderní a přehledný web bez zbytečných řečí. Tomáš to chápal hned od první schůzky. Dodal nám čistý a rychlý web, který naši zákazníci chválí."
+    },
+    {
+      "@type": "Review",
+      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+      "author": { "@type": "Organization", "name": "Střechmont" },
+      "reviewBody": "Potřeboval jsem nový web a videa z realizací střech. Vše doručil včas a v kvalitě, jakou jsem ještě u nikoho v regionu neviděl. Záběry z dronu vypadají jako z reklamy a klienti začali volat hned."
+    }
+  ]
 }
 </script>
 
@@ -946,6 +973,224 @@ nav {
   padding: 0.22rem 0.5rem;
 }
 
+/* ─── REFERENCES / TESTIMONIALS ────────────────── */
+.refs {
+  padding: 7rem 2rem;
+  background: var(--bg);
+  position: relative;
+  overflow: hidden;
+}
+.refs::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 50% 40% at 20% 30%, rgba(34,196,126,0.08) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 35% at 80% 70%, rgba(255,184,0,0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+.refs-wrap {
+  max-width: 1280px; margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.refs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+.ref-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2rem 1.8rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+.ref-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.ref-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-2);
+  background: var(--bg-card-2);
+}
+.ref-card:hover::before { opacity: 1; }
+.ref-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-bottom: 1.1rem;
+  color: var(--gold);
+}
+.ref-stars svg {
+  width: 18px; height: 18px;
+  fill: currentColor;
+}
+.ref-quote {
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+  font-weight: 400;
+}
+.ref-quote::before {
+  content: '“';
+  display: block;
+  font-size: 3.5rem;
+  line-height: 0.7;
+  color: var(--green-bright);
+  opacity: 0.35;
+  font-family: Georgia, serif;
+  margin-bottom: 0.5rem;
+  font-style: normal;
+}
+.ref-author {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+.ref-avatar {
+  width: 44px; height: 44px;
+  border-radius: 12px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 0.92rem;
+  letter-spacing: -0.02em;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.ref-avatar.fh { background: linear-gradient(135deg, #2A9F7A 0%, #1B7F5F 100%); }
+.ref-avatar.af { background: linear-gradient(135deg, #4dd9a2 0%, #2A9F7A 100%); }
+.ref-avatar.sm { background: linear-gradient(135deg, #FFB800 0%, #d49600 100%); color: #1a0f00; }
+.ref-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+.ref-name {
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ref-role {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  letter-spacing: 0.02em;
+}
+.ref-tags {
+  display: flex;
+  gap: 0.3rem;
+  margin-top: 0.95rem;
+  flex-wrap: wrap;
+}
+.ref-tag {
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--green-bright);
+  background: rgba(34,196,126,0.07);
+  border: 1px solid rgba(34,196,126,0.18);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.02em;
+}
+.ref-tag svg {
+  width: 11px; height: 11px;
+}
+
+/* Google review CTA */
+.refs-google-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  gap: 1rem;
+}
+.refs-google-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.4rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 0.93rem;
+  color: var(--text);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+.refs-google-row:hover {
+  background: var(--bg-card-2);
+  border-color: var(--border-2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+}
+.refs-google-logo {
+  width: 22px; height: 22px;
+  flex-shrink: 0;
+}
+.refs-google-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.15rem;
+  color: var(--gold);
+}
+.refs-google-stars svg {
+  width: 14px; height: 14px;
+  fill: currentColor;
+}
+.refs-google-text {
+  color: var(--text);
+}
+.refs-google-text strong {
+  color: #fff;
+  font-weight: 600;
+}
+.refs-google-arrow {
+  color: var(--text-dim);
+  transition: transform 0.25s, color 0.25s;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+.refs-google-row:hover .refs-google-arrow {
+  color: var(--green-bright);
+  transform: translateX(3px);
+}
+.refs-google-note {
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-dimmer);
+  letter-spacing: 0.04em;
+}
+
 /* ─── PROCESS ──────────────────────────────────── */
 .process-grid {
   display: grid; grid-template-columns: repeat(4, 1fr);
@@ -1652,6 +1897,7 @@ footer {
 /* ─── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
   .svc-grid, .folio-grid { grid-template-columns: 1fr 1fr; }
+  .refs-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .form-section { grid-template-columns: 1fr; gap: 2.5rem; }
   .feature-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.2rem; }
@@ -1661,6 +1907,8 @@ footer {
   .nav-links { display: none; }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .svc-grid, .folio-grid { grid-template-columns: 1fr; }
+  .refs-grid { grid-template-columns: 1fr; }
+  .refs { padding: 5rem 1.5rem; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .process-grid::before { display: none; }
   .cta-box { padding: 4rem 1.5rem; }
@@ -1705,6 +1953,7 @@ footer {
       <li><a href="#sluzby">Služby</a></li>
       <li><a href="nataceni.html">Natáčení</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#reference">Reference</a></li>
       <li><a href="#postup">Postup</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
@@ -1963,6 +2212,108 @@ footer {
   </div>
 </section>
 
+<!-- REFERENCE / TESTIMONIALS -->
+<section class="refs" id="reference">
+  <div class="refs-wrap">
+    <span class="sec-label reveal">Reference</span>
+    <h2 class="sec-h reveal">Co o spolupráci říkají<br><em>mí klienti.</em></h2>
+    <p class="sec-sub reveal">Pár citací od lidí, kterým jsem nedávno dělal weby a videa. Skutečné jména, skutečné firmy z východních Čech.</p>
+
+    <div class="refs-grid">
+      <!-- Flexi House (web + videa) -->
+      <div class="ref-card reveal d1">
+        <div class="ref-stars" aria-label="5 z 5 hvězd">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="ref-quote">Tomáš nám udělal kompletní redesign webu a k tomu natočil sérii videí na sociální sítě. Komunikace bez zbytečností, rychlé reakce a výsledek nad naše očekávání. Po spuštění webu nám během měsíce výrazně vzrostl počet poptávek.</p>
+        <div class="ref-tags">
+          <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Web</span>
+          <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Videa</span>
+        </div>
+        <div class="ref-author">
+          <div class="ref-avatar fh" aria-hidden="true">FH</div>
+          <div class="ref-author-info">
+            <span class="ref-name">Flexi House</span>
+            <span class="ref-role">Modulární domy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- AuraFloor (web only) -->
+      <div class="ref-card reveal d2">
+        <div class="ref-stars" aria-label="5 z 5 hvězd">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="ref-quote">Hledali jsme někoho, kdo nám udělá moderní a přehledný web bez zbytečných řečí. Tomáš to chápal hned od první schůzky. Dodal nám čistý a rychlý web, který naši zákazníci chválí. Doporučuji každému, kdo chce výsledek a ne výmluvy.</p>
+        <div class="ref-tags">
+          <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Web</span>
+        </div>
+        <div class="ref-author">
+          <div class="ref-avatar af" aria-hidden="true">AF</div>
+          <div class="ref-author-info">
+            <span class="ref-name">AuraFloor</span>
+            <span class="ref-role">Pokládka podlah</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Střechmont (web + videa) -->
+      <div class="ref-card reveal d3">
+        <div class="ref-stars" aria-label="5 z 5 hvězd">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <p class="ref-quote">Když jsem oslovil Tomáše, potřeboval jsem nový web a videa z realizací střech. Vše doručil včas a v kvalitě, jakou jsem ještě u nikoho v regionu neviděl. Záběry z dronu vypadají jako z reklamy a klienti mi začali volat dřív, než jsem stihl udělat ranní kávu.</p>
+        <div class="ref-tags">
+          <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Web</span>
+          <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Videa</span>
+        </div>
+        <div class="ref-author">
+          <div class="ref-avatar sm" aria-hidden="true">SM</div>
+          <div class="ref-author-info">
+            <span class="ref-name">Střechmont</span>
+            <span class="ref-role">Pokrývačské práce</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Google review CTA -->
+    <div class="refs-google-cta reveal d4">
+      <a href="https://www.google.com/search?q=Statly+-+Tvorba+webov%C3%BDch+str%C3%A1nek" target="_blank" rel="noopener" class="refs-google-row" aria-label="Více recenzí na Google (otevře se v novém okně)">
+        <!-- Google G logo (oficiální barvy) -->
+        <svg class="refs-google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12s5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24s8.955,20,20,20s20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/>
+          <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/>
+          <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/>
+          <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/>
+        </svg>
+        <div class="refs-google-stars" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="refs-google-text"><strong>Více recenzí na Google</strong></span>
+        <span class="refs-google-arrow">↗</span>
+      </a>
+      <span class="refs-google-note">Skutečné hodnocení od skutečných klientů</span>
+    </div>
+  </div>
+</section>
+
 <!-- PROCESS -->
 <section class="sec" id="postup">
   <div class="wrap">
@@ -2115,6 +2466,7 @@ footer {
     <div>
       <p class="footer-h">Navigace</p>
       <a href="#portfolio" class="footer-a">Portfolio</a>
+      <a href="#reference" class="footer-a">Reference</a>
       <a href="#postup" class="footer-a">Jak pracuju</a>
       <a href="#kontakt" class="footer-a">Kontakt</a>
     </div>

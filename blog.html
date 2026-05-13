@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | Statly — Návody a tipy pro firmy o webu, marketingu a SEO</title>
+<meta name="description" content="Praktické rady pro malé a střední firmy: kolik stojí web, jak na lokální SEO, co měřit, kdy se vyplatí reklama. Píše Tomáš Tylich ze Statly v Litomyšli.">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<meta name="theme-color" content="#0a1410">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://statly.cz/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://statly.cz/blog.html">
+<meta property="og:title" content="Blog | Statly — Návody pro firmy o webu, marketingu a SEO">
+<meta property="og:description" content="Praktické rady pro firmy: kolik stojí web, jak na lokální SEO, co měřit, kdy se vyplatí reklama.">
+<meta property="og:image" content="https://statly.cz/logo.png">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:site_name" content="Statly">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Blog | Statly">
+<meta name="twitter:description" content="Praktické rady pro firmy o webu, marketingu a SEO.">
+<meta name="twitter:image" content="https://statly.cz/logo.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "name": "Statly Blog",
+  "description": "Praktické rady pro malé a střední firmy: web, marketing, SEO a video.",
+  "url": "https://statly.cz/blog.html",
+  "author": { "@type": "Person", "name": "Tomáš Tylich" },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Statly",
+    "logo": { "@type": "ImageObject", "url": "https://statly.cz/logo.png" }
+  }
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter Tight', -apple-system, sans-serif;
+  background: #0a1410;
+  color: #e8efe9;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+:root {
+  --green-deep: #0d3d2c;
+  --green: #1B7F5F;
+  --green-light: #2A9F7A;
+  --green-bright: #22c47e;
+  --gold: #FFB800;
+  --teal: #4dd9a2;
+  --bg: #0a1410;
+  --bg-2: #0d1a14;
+  --bg-card: #111e18;
+  --bg-card-2: #142420;
+  --border: rgba(255,255,255,0.06);
+  --border-2: rgba(34,196,126,0.18);
+  --text: #e8efe9;
+  --text-dim: #8aa39a;
+  --text-dimmer: #5a7a6a;
+  --sans: 'Inter Tight', -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+::selection { background: var(--green); color: #fff; }
+
+.noise {
+  position: fixed; inset: 0; pointer-events: none; z-index: 1;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+nav {
+  position: fixed; top: 0; left: 0; width: 100%;
+  background: rgba(10,20,16,0.72);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border-bottom: 1px solid var(--border);
+  z-index: 9999;
+  animation: navIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes navIn {
+  from { opacity: 0; transform: translateY(-12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.nav-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 1.1rem 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo img { height: 34px; width: auto; }
+.nav-links { display: flex; gap: 2.4rem; list-style: none; }
+.nav-links a {
+  font-size: 0.88rem; font-weight: 500;
+  color: var(--text-dim);
+  position: relative;
+  transition: color 0.2s;
+}
+.nav-links a::after {
+  content: ''; position: absolute;
+  left: 0; bottom: -4px; width: 0; height: 1px;
+  background: var(--green-bright);
+  transition: width 0.3s ease;
+}
+.nav-links a:hover,
+.nav-links a.active { color: #fff; }
+.nav-links a.active::after,
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--green);
+  color: #fff !important;
+  padding: 0.6rem 1.3rem;
+  border-radius: 100px;
+  font-size: 0.86rem; font-weight: 600;
+  transition: all 0.25s ease;
+  position: relative; overflow: hidden;
+}
+.nav-cta::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--green-light), var(--green-bright));
+  opacity: 0; transition: opacity 0.3s;
+}
+.nav-cta span { position: relative; z-index: 1; }
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
+.nav-cta:hover::before { opacity: 1; }
+
+.blog-header {
+  padding: 9rem 2rem 4rem;
+  position: relative; overflow: hidden;
+  background: var(--bg);
+}
+.blog-header::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 30%, rgba(27,127,95,0.16) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 80% 60%, rgba(255,184,0,0.05) 0%, transparent 55%);
+  pointer-events: none;
+}
+.blog-header::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(34,196,126,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,196,126,0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 30%, transparent 80%);
+  pointer-events: none;
+}
+.blog-header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative; z-index: 1;
+}
+.blog-label {
+  display: inline-flex; align-items: center; gap: 0.55rem;
+  font-family: var(--mono);
+  font-size: 0.74rem; font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--green-bright);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.blog-label::before {
+  content: ''; width: 18px; height: 1px;
+  background: var(--green-bright);
+}
+.blog-h1 {
+  font-family: var(--sans);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  max-width: 820px;
+}
+.blog-h1 em {
+  font-style: italic;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+}
+.blog-sub {
+  color: var(--text-dim);
+  font-size: 1.08rem;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+.cat-strip {
+  max-width: 1100px;
+  margin: 2.5rem auto 0;
+  position: relative; z-index: 1;
+  display: flex; flex-wrap: wrap; gap: 0.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+.cat-pill {
+  font-family: var(--mono);
+  font-size: 0.76rem;
+  color: var(--text-dim);
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+.cat-pill:hover,
+.cat-pill.active {
+  color: var(--green-bright);
+  border-color: var(--border-2);
+  background: rgba(34,196,126,0.06);
+}
+
+.blog-body {
+  padding: 5rem 2rem 6rem;
+  background: var(--bg-2);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.blog-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+.blog-card-featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+.blog-card-featured:hover { transform: translateY(-3px); border-color: var(--border-2); box-shadow: 0 24px 50px rgba(0,0,0,0.35); }
+.blog-card-featured .card-visual {
+  background: linear-gradient(135deg, rgba(27,127,95,0.22), rgba(34,196,126,0.04));
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.blog-card-featured .card-visual::before {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(34,196,126,0.28), transparent 45%),
+    radial-gradient(circle at 80% 70%, rgba(255,184,0,0.18), transparent 45%);
+}
+.blog-card-featured .card-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(34,196,126,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,196,126,0.05) 1px, transparent 1px);
+  background-size: 30px 30px;
+  opacity: 0.7;
+}
+.featured-visual-content {
+  position: relative; z-index: 1;
+  text-align: center;
+}
+.featured-visual-num {
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  color: var(--green-bright);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.featured-visual-big {
+  font-family: var(--sans);
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.featured-visual-big .accent {
+  background: linear-gradient(135deg, var(--green-bright), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.featured-visual-sub {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.blog-card-featured .card-content {
+  padding: 2.5rem 2.75rem;
+  display: flex; flex-direction: column; justify-content: center;
+}
+.featured-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+.featured-badge::before { content: '★'; font-size: 0.85rem; }
+
+.blog-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex; flex-direction: column;
+  position: relative;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-2);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+}
+.card-visual {
+  height: 180px;
+  background: linear-gradient(135deg, rgba(27,127,95,0.15), rgba(34,196,126,0.03));
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.card-visual::after {
+  content: ''; position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(34,196,126,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34,196,126,0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  opacity: 0.6;
+}
+.card-visual-icon {
+  position: relative; z-index: 1;
+  font-family: var(--sans);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: rgba(34,196,126,0.55);
+  transition: color 0.3s;
+  text-align: center;
+}
+.blog-card:hover .card-visual-icon { color: var(--green-bright); }
+.card-visual-icon .small {
+  font-size: 0.72rem;
+  font-family: var(--mono);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  display: block;
+  margin-top: 0.4rem;
+}
+
+.card-cat {
+  display: inline-flex; align-items: center;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--green-bright);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.85rem;
+  padding: 0.25rem 0.6rem;
+  background: rgba(34,196,126,0.08);
+  border: 1px solid var(--border-2);
+  border-radius: 6px;
+  width: fit-content;
+}
+.card-content {
+  padding: 1.6rem 1.75rem 1.75rem;
+  display: flex; flex-direction: column;
+  flex: 1;
+}
+.card-title {
+  font-family: var(--sans);
+  font-size: 1.22rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: #fff;
+  margin-bottom: 0.7rem;
+}
+.blog-card-featured .card-title {
+  font-size: 2rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+}
+.blog-card-featured .card-title em { font-style: italic; font-weight: 500; }
+.card-excerpt {
+  color: var(--text-dim);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex: 1;
+}
+.blog-card-featured .card-excerpt { font-size: 1.02rem; line-height: 1.65; }
+.card-meta {
+  display: flex; align-items: center; gap: 1rem;
+  font-family: var(--mono);
+  font-size: 0.74rem;
+  color: var(--text-dimmer);
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+.card-meta span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.card-arrow {
+  margin-left: auto;
+  color: var(--green-bright);
+  font-size: 0.95rem;
+  transition: transform 0.25s;
+}
+.blog-card:hover .card-arrow,
+.blog-card-featured:hover .card-arrow { transform: translateX(4px); }
+
+.newsletter {
+  margin-top: 4rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-card-2));
+  border: 1px solid var(--border-2);
+  border-radius: 22px;
+  padding: 2.75rem 2.75rem;
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.newsletter::before {
+  content: ''; position: absolute;
+  top: -50%; right: -10%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(34,196,126,0.14), transparent 70%);
+  pointer-events: none;
+}
+.newsletter h3 {
+  font-family: var(--sans);
+  font-size: 1.7rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  position: relative;
+  line-height: 1.2;
+}
+.newsletter h3 em { font-style: italic; font-weight: 500; }
+.newsletter p {
+  color: var(--text-dim);
+  font-size: 0.96rem;
+  line-height: 1.6;
+  position: relative;
+}
+.newsletter-cta {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+.newsletter-btn {
+  background: var(--green-bright);
+  color: var(--green-deep);
+  padding: 1rem 1.7rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.newsletter-btn:hover {
+  background: var(--gold);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(255,184,0,0.25);
+}
+
+footer {
+  background: #060c08;
+  border-top: 1px solid var(--border);
+  padding: 5rem 2rem 2rem;
+}
+.footer-grid {
+  max-width: 1280px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+}
+.footer-logo img { height: 32px; margin-bottom: 1rem; }
+.footer-desc {
+  color: var(--text-dimmer);
+  font-size: 0.88rem; line-height: 1.7;
+  max-width: 250px;
+}
+.footer-h {
+  font-family: var(--sans);
+  font-size: 0.78rem; font-weight: 600;
+  color: #fff; margin-bottom: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.footer-a {
+  color: var(--text-dim);
+  font-size: 0.88rem; display: block;
+  margin-bottom: 0.65rem;
+  transition: color 0.2s, transform 0.2s;
+  width: fit-content;
+  cursor: pointer;
+}
+.footer-a:hover { color: var(--green-bright); transform: translateX(3px); }
+.footer-btm {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  color: var(--text-dimmer); font-size: 0.82rem;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-btm-links { display: flex; gap: 1.5rem; }
+.footer-btm-links a { color: var(--text-dimmer); transition: color 0.2s; cursor: pointer; }
+.footer-btm-links a:hover { color: var(--green-bright); }
+
+@media (max-width: 1024px) {
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .blog-card-featured { grid-template-columns: 1fr; }
+  .blog-card-featured .card-visual { min-height: 220px; }
+  .newsletter { grid-template-columns: 1fr; padding: 2rem 1.75rem; }
+  .newsletter-cta { justify-content: flex-start; }
+}
+@media (max-width: 720px) { .blog-grid { grid-template-columns: 1fr; } }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .blog-header { padding: 7rem 1.5rem 3rem; }
+  .blog-body { padding: 3rem 1.5rem 5rem; }
+  .blog-card-featured .card-content { padding: 1.75rem; }
+  .blog-card-featured .card-title { font-size: 1.55rem; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-btm { flex-direction: column; text-align: center; }
+}
+@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo" aria-label="Statly"><img src="logo.png" alt="Statly"></a>
+    <ul class="nav-links">
+      <li><a href="index.html#sluzby">Služby</a></li>
+      <li><a href="nataceni.html">Natáčení</a></li>
+      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="index.html#postup">Postup</a></li>
+      <li><a href="index.html#kontakt">Kontakt</a></li>
+    </ul>
+    <a href="index.html#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
+  </div>
+</nav>
+
+<section class="blog-header">
+  <div class="blog-header-inner">
+    <span class="blog-label">Blog Statly</span>
+    <h1 class="blog-h1">Praktické rady pro firmy o webu, marketingu a <em>online růstu.</em></h1>
+    <p class="blog-sub">
+      Co opravdu funguje, kolik to stojí, čeho se vyvarovat. Píšu pro majitele firem a marketéry,
+      kteří chtějí konkrétní odpovědi — ne teorii z učebnic ani prázdné buzzwordy.
+    </p>
+  </div>
+
+  <div class="cat-strip">
+    <span class="cat-pill active">Všechny</span>
+    <span class="cat-pill">Tvorba webů</span>
+    <span class="cat-pill">SEO</span>
+    <span class="cat-pill">Marketing</span>
+    <span class="cat-pill">Analytika</span>
+    <span class="cat-pill">Pro firmy</span>
+  </div>
+</section>
+
+<section class="blog-body">
+  <div class="blog-grid">
+
+    <a href="blog-1.html" class="blog-card-featured">
+      <div class="card-visual">
+        <div class="featured-visual-content">
+          <div class="featured-visual-num">CENA WEBU 2026</div>
+          <div class="featured-visual-big">25–80<span class="accent"> tis.</span></div>
+          <div class="featured-visual-sub">orientační rozpětí pro malou firmu</div>
+        </div>
+      </div>
+      <div class="card-content">
+        <span class="featured-badge">Doporučený článek</span>
+        <span class="card-cat">Pro firmy</span>
+        <h2 class="card-title">Kolik <em>opravdu</em> stojí firemní web v roce 2026</h2>
+        <p class="card-excerpt">
+          Cenové rozpětí od 5 tisíc po půl milionu — a proč ten rozdíl. Co má být v ceně,
+          co je doplatek, kde se nejčastěji platí dvakrát a jak poznat, jestli vám nabídka
+          dává smysl. Bez bullshitu, s konkrétními čísly.
+        </p>
+        <div class="card-meta">
+          <span>📅 8. 5. 2026</span>
+          <span>⏱ 9 min čtení</span>
+          <span class="card-arrow">Číst článek →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-2.html" class="blog-card">
+      <div class="card-visual">
+        <div class="card-visual-icon">SEO<span class="small">Lokální</span></div>
+      </div>
+      <div class="card-content">
+        <span class="card-cat">SEO</span>
+        <h2 class="card-title">Lokální SEO: jak se dostat na první stranu Googlu ve svém městě</h2>
+        <p class="card-excerpt">
+          Google Maps, recenze, Google Business Profile, lokální klíčová slova. Praktický
+          návod pro malé firmy ve východních Čechách i jinde — bez agentury za 30 tisíc měsíčně.
+        </p>
+        <div class="card-meta">
+          <span>📅 28. 4. 2026</span>
+          <span>⏱ 8 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-3.html" class="blog-card">
+      <div class="card-visual">
+        <div class="card-visual-icon">ROI<span class="small">Reklama na sítích</span></div>
+      </div>
+      <div class="card-content">
+        <span class="card-cat">Marketing</span>
+        <h2 class="card-title">Vyplatí se reklama na sociálních sítích malé firmě? Reálná čísla</h2>
+        <p class="card-excerpt">
+          Kolik investovat, co očekávat, kdy to dává smysl a kdy raději vyhodit peníze
+          oknem. Konkrétní příklady z různých oborů — od řemesel po e-shopy.
+        </p>
+        <div class="card-meta">
+          <span>📅 15. 4. 2026</span>
+          <span>⏱ 7 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-4.html" class="blog-card">
+      <div class="card-visual">
+        <div class="card-visual-icon">7×<span class="small">Checklist</span></div>
+      </div>
+      <div class="card-content">
+        <span class="card-cat">Tvorba webů</span>
+        <h2 class="card-title">7 znaků špatného webu, který odhání vaše zákazníky</h2>
+        <p class="card-excerpt">
+          Pomalé načítání, hrozná mobilní verze, nečitelné fonty, zastaralý design.
+          Checklist, který si projdete za 10 minut — a zjistíte, jestli vám web pomáhá, nebo škodí.
+        </p>
+        <div class="card-meta">
+          <span>📅 2. 4. 2026</span>
+          <span>⏱ 6 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-5.html" class="blog-card">
+      <div class="card-visual">
+        <div class="card-visual-icon">3×<span class="small">Co potřebujete?</span></div>
+      </div>
+      <div class="card-content">
+        <span class="card-cat">Pro firmy</span>
+        <h2 class="card-title">Web, e-shop, nebo landing page? Co která firma opravdu potřebuje</h2>
+        <p class="card-excerpt">
+          Rozdíly v ceně, údržbě, výkonu i přínosu. Rozhodovací průvodce pro majitele
+          firem, kteří váhají, do čeho investovat své peníze a čas.
+        </p>
+        <div class="card-meta">
+          <span>📅 20. 3. 2026</span>
+          <span>⏱ 7 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="blog-6.html" class="blog-card">
+      <div class="card-visual">
+        <div class="card-visual-icon">KPI<span class="small">Měření</span></div>
+      </div>
+      <div class="card-content">
+        <span class="card-cat">Analytika</span>
+        <h2 class="card-title">Jak změřit, jestli vám web vydělává peníze (nebo je to jen vizitka)</h2>
+        <p class="card-excerpt">
+          Konverze, atribuce, návratnost. Co měřit, jak to nastavit a jak interpretovat čísla,
+          která vám Google Analytics ukazuje. Bez technického žargonu.
+        </p>
+        <div class="card-meta">
+          <span>📅 5. 3. 2026</span>
+          <span>⏱ 8 min</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="newsletter">
+    <div>
+      <h3>Máte projekt v hlavě a hledáte parťáka, který <em>to dotáhne?</em></h3>
+      <p>Napište mi pár vět o tom, co plánujete. Během 48 hodin se ozvu s návrhem řešení a orientační cenou — zdarma a bez závazku.</p>
+    </div>
+    <div class="newsletter-cta">
+      <a href="index.html#kontakt" class="newsletter-btn">Pojďme to probrat →</a>
+    </div>
+  </div>
+
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="index.html" class="footer-logo"><img src="logo.png" alt="Statly"></a>
+      <p class="footer-desc">Statly · Tomáš Tylich.<br>Tvořím weby a marketing pro byznys ve východních Čechách.</p>
+    </div>
+    <div>
+      <p class="footer-h">Služby</p>
+      <a href="index.html#sluzby" class="footer-a">Tvorba webů</a>
+      <a href="index.html#sluzby" class="footer-a">Sociální sítě</a>
+      <a href="index.html#sluzby" class="footer-a">Grafický design</a>
+      <a href="nataceni.html" class="footer-a">Natáčení videí</a>
+    </div>
+    <div>
+      <p class="footer-h">Navigace</p>
+      <a href="index.html#portfolio" class="footer-a">Portfolio</a>
+      <a href="blog.html" class="footer-a">Blog</a>
+      <a href="index.html#postup" class="footer-a">Jak pracuju</a>
+      <a href="index.html#kontakt" class="footer-a">Kontakt</a>
+    </div>
+    <div>
+      <p class="footer-h">Kontakt</p>
+      <a href="mailto:tomas.tylich@seznam.cz" class="footer-a">tomas.tylich@seznam.cz</a>
+      <a href="tel:+420737372708" class="footer-a">+420 737 372 708</a>
+      <p class="footer-a" style="cursor:default">IČO: 24466492</p>
+      <a href="https://www.instagram.com/statly.cz" target="_blank" rel="noopener" class="footer-a">Instagram ↗</a>
+      <a href="https://www.facebook.com/profile.php?id=61570755123277" target="_blank" rel="noopener" class="footer-a">Facebook ↗</a>
+    </div>
+  </div>
+  <div class="footer-btm">
+    <span>© 2026 Statly · Tomáš Tylich · Všechna práva vyhrazena</span>
+    <div class="footer-btm-links">
+      <a href="privacy.html">Zásady ochrany osobních údajů</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

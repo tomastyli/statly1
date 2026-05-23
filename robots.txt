@@ -1,7 +1,5 @@
 User-agent: *
 Allow: /
-
-# Hlavní stránka má cookie banner, který se renderuje JS - povoluje se crawl
-# Privacy page má v meta noindex (kvůli duplicitě obsahu), ale je v sitemapě pro úplnost
+Disallow: /privacy.html
 
 Sitemap: https://statly.cz/sitemap.xml

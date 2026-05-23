@@ -3,40 +3,45 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>7 znaků, podle kterých poznáte, že váš web ztrácí zákazníky | Blog Statly</title>
-<meta name="description" content="Pomalé načítání, špatná mobilní verze, fonty z roku 2010. Checklist za 10 minut.">
+<title>AI nástroje pro malé firmy v roce 2026: co se vyplatí | Blog Statly</title>
+<meta name="description" content="Praktický přehled AI nástrojů, které šetří čas a peníze v malé firmě. ChatGPT, Claude, AI psaní textů, generování obrázků, automatizace. Co používat a co nechat být.">
 
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="favicon.png">
 <meta name="theme-color" content="#0a1410">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://statly.cz/blog-4.html">
+<link rel="canonical" href="https://statly.cz/blog-8.html">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://statly.cz/blog-4.html">
-<meta property="og:title" content="7 znaků špatného firemního webu">
-<meta property="og:description" content="Pomalé načítání, špatná mobilní verze, fonty z roku 2010. Checklist za 10 minut.">
+<meta property="og:url" content="https://statly.cz/blog-8.html">
+<meta property="og:title" content="AI nástroje pro malé firmy v roce 2026: co se vyplatí">
+<meta property="og:description" content="Co používat, co nechat být. Praktický přehled bez marketingových frází.">
 <meta property="og:image" content="https://statly.cz/logo.png">
 <meta property="og:locale" content="cs_CZ">
-<meta property="article:published_time" content="2026-04-02">
+<meta property="article:published_time" content="2026-05-15">
 <meta property="article:author" content="Tomáš Tylich">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI nástroje pro malé firmy v roce 2026">
+<meta name="twitter:description" content="Co používat, co nechat být. Bez marketingových frází.">
+<meta name="twitter:image" content="https://statly.cz/logo.png">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "7 znaků špatného firemního webu",
-  "description": "Pomalé načítání, špatná mobilní verze, fonty z roku 2010. Checklist za 10 minut.",
+  "headline": "AI nástroje pro malé firmy v roce 2026: co se vyplatí",
+  "description": "Praktický přehled AI nástrojů, které šetří čas a peníze v malé firmě.",
   "image": "https://statly.cz/logo.png",
-  "datePublished": "2026-04-02",
-  "dateModified": "2026-04-02",
+  "datePublished": "2026-05-15",
+  "dateModified": "2026-05-15",
   "author": { "@type": "Person", "name": "Tomáš Tylich" },
   "publisher": {
     "@type": "Organization",
     "name": "Statly",
     "logo": { "@type": "ImageObject", "url": "https://statly.cz/logo.png" }
   },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://statly.cz/blog-4.html" }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://statly.cz/blog-8.html" }
 }
 </script>
 
@@ -47,11 +52,7 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body {
-  font-family: 'Inter Tight', -apple-system, sans-serif;
-  background: #0a1410; color: #e8efe9; line-height: 1.6;
-  overflow-x: hidden; -webkit-font-smoothing: antialiased;
-}
+body { font-family: 'Inter Tight', -apple-system, sans-serif; background: #0a1410; color: #e8efe9; line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
@@ -66,10 +67,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --mono: 'JetBrains Mono', monospace;
 }
 ::selection { background: var(--green); color: #fff; }
-.noise {
-  position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
+.noise { position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .progress { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: transparent; z-index: 10000; pointer-events: none; }
 .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--green), var(--green-bright), var(--gold)); transition: width 0.1s ease; box-shadow: 0 0 10px rgba(34,196,126,0.5); }
 nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0.72); backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%); border-bottom: 1px solid var(--border); z-index: 9999; }
@@ -123,34 +121,33 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .callout p + p { margin-top: 0.8rem; }
 .callout.warn { border-color: rgba(255,184,0,0.3); }
 .callout.warn .callout-head { color: var(--gold); }
-.checklist { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.75rem; margin: 2rem 0; font-family: var(--sans); }
-.checklist-head { font-family: var(--mono); font-size: 0.72rem; color: var(--green-bright); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; }
-.checklist-item { display: flex; gap: 0.8rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
-.checklist-item:last-child { border-bottom: none; }
-.checklist-check { color: var(--green-bright); font-size: 1.1rem; flex-shrink: 0; line-height: 1.5; }
-.checklist-text { color: var(--text); font-size: 0.95rem; line-height: 1.55; }
-.checklist-text strong { color: #fff; }
-.art-content code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-card); border: 1px solid var(--border); padding: 0.12em 0.45em; border-radius: 5px; color: var(--green-bright); }
+.tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; margin: 1.5rem 0 2rem; font-family: var(--sans); }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.35rem 1.45rem; }
+.tool-tag { display: inline-block; font-family: var(--mono); font-size: 0.66rem; color: var(--green-bright); background: rgba(34,196,126,0.08); border: 1px solid var(--border-2); padding: 0.18rem 0.5rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+.tool-tag.paid { color: var(--gold); border-color: rgba(255,184,0,0.25); background: rgba(255,184,0,0.08); }
+.tool-name { font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; letter-spacing: -0.015em; }
+.tool-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.55; }
 .art-sidebar { position: sticky; top: 100px; font-family: var(--sans); }
 .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.5rem; margin-bottom: 1.5rem; }
 .toc-head { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; display: flex; align-items: center; gap: 0.5rem; }
 .toc-head::before { content: ''; width: 14px; height: 1px; background: var(--green-bright); }
 .toc ol { list-style: none; counter-reset: toc; padding: 0; }
 .toc li { counter-increment: toc; }
-.toc a { display: block; padding: 0.5rem 0 0.5rem 1.75rem; font-size: 0.85rem; color: var(--text-dim); line-height: 1.4; position: relative; border-left: 2px solid transparent; transition: all 0.2s; margin-left: -0.5rem; padding-left: 1.5rem; }
+.toc a { display: block; padding: 0.5rem 0 0.5rem 1.5rem; font-size: 0.85rem; color: var(--text-dim); line-height: 1.4; position: relative; border-left: 2px solid transparent; transition: all 0.2s; margin-left: -0.5rem; }
 .toc a::before { content: counter(toc, decimal-leading-zero); position: absolute; left: 0.4rem; top: 0.55rem; font-family: var(--mono); font-size: 0.7rem; color: var(--text-dimmer); }
 .toc a:hover { color: #fff; border-left-color: var(--green-bright); }
 .toc a.active { color: var(--green-bright); border-left-color: var(--green-bright); font-weight: 500; }
 .share { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem 1.4rem; }
 .share-head { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem; font-weight: 600; }
-.share-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.share-btn { width: 36px; height: 36px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.9rem; font-family: var(--mono); font-weight: 500; cursor: pointer; transition: all 0.2s; }
-.share-btn:hover { color: var(--green-bright); border-color: var(--border-2); transform: translateY(-1px); }
-.related { max-width: 1180px; margin: 0 auto; padding: 4rem 2rem 5rem; background: var(--bg); }
-.related-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
-.related-head h3 { font-family: var(--sans); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.025em; color: #fff; }
-.related-back { font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); transition: color 0.2s; }
-.related-back:hover { color: var(--green-bright); }
+.share-btns { display: flex; gap: 0.5rem; }
+.share-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.2s; color: var(--text-dim); font-weight: 600; font-size: 0.85rem; }
+.share-btn:hover { background: var(--green-bright); color: var(--green-deep); transform: translateY(-2px); border-color: var(--green-bright); }
+.related { background: var(--bg); padding: 4.5rem 2rem; }
+.related-inner { max-width: 1180px; margin: 0 auto; }
+.related-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.related-head h3 { font-family: var(--sans); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; color: #fff; }
+.related-back { font-family: var(--mono); font-size: 0.82rem; color: var(--green-bright); transition: transform 0.2s; }
+.related-back:hover { transform: translateX(3px); }
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .related-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; transition: all 0.3s; display: flex; flex-direction: column; gap: 0.7rem; }
 .related-card:hover { transform: translateY(-3px); border-color: var(--border-2); }
@@ -191,6 +188,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .related-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-btm { flex-direction: column; text-align: center; }
+  .tool-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
@@ -223,12 +221,12 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <section class="art-head">
   <div class="art-head-inner">
     <a href="blog.html" class="crumb"><span class="crumb-arrow">←</span> Zpět na blog</a>
-    <span class="art-cat">Tvorba webů</span>
-    <h1 class="art-h1">7 znaků, podle kterých poznáte, že váš web <em>ztrácí zákazníky.</em></h1>
+    <span class="art-cat">AI · Pro firmy</span>
+    <h1 class="art-h1">AI nástroje pro malou firmu v roce 2026: <em>co se vyplatí</em>, co je hype.</h1>
 
     <div class="art-tldr">
       <strong>Shrnutí pro spěchající</strong>
-      Sedm konkrétních věcí, podle kterých poznáte, že váš web místo zákazníků odhání. Většinu z nich si můžete zkontrolovat sami za 10 minut. Pokud najdete tři a víc, je čas to řešit, protože každý den ztrácíte poptávky, které ani nepoznáte.
+      Většina malých firem si může z AI vzít tři věci, které jí vrátí desítky hodin měsíčně: ChatGPT nebo Claude na psaní e-mailů a textů, Canva s AI funkcemi na grafiku a Otter na přepis schůzek. Všechno ostatní je nadstavba, většinou drahá a často zbytečná. Pokud máte firmu, kde se opakuje stejná komunikace nebo administrativa, AI vám ušetří víc času než kterýkoli nový zaměstnanec.
     </div>
 
     <div class="art-meta">
@@ -236,8 +234,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <div class="author-avatar">TT</div>
         <span class="author-name">Tomáš Tylich</span>
       </div>
-      <span>📅 2. 4. 2026</span>
-      <span>⏱ 5 min čtení</span>
+      <span>📅 15. 5. 2026</span>
+      <span>⏱ 7 min čtení</span>
+      <span>📂 AI</span>
     </div>
   </div>
 </section>
@@ -247,99 +246,126 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
     <article class="art-content">
 
-      <p>Většina majitelů firem se na svůj web podívá jednou za rok. Klienti se na něj dívají denně, a podle toho, co tam vidí, se rozhodují, jestli vás osloví, nebo jdou ke konkurenci. Tady je sedm konkrétních věcí, podle kterých snadno poznáte, že váš web místo pomoci spíš škodí.</p>
+      <p>Kolem AI je dneska tolik hluku, že je těžké najít skutečně užitečné informace. Marketéři vám prodají dvacet nástrojů za 500 dolarů měsíčně, vysvětlují, že bez nich váš byznys do roka nepřežije. Realita je o dost klidnější. V tomhle článku popíšu, co z AI dává smysl pro malou firmu, co je marketingové cvičení, a kolik vás to celé reálně stojí.</p>
 
-      <h2 id="s1">1. Pomalé načítání</h2>
-      <p>Když se web načítá déle než 3 sekundy, <strong>polovina návštěvníků odejde, než vůbec uvidí obsah</strong>. Při 5 sekundách to je 70 %. Není to názor, jsou to měřená data od Googlu.</p>
-      <p>Otestujte si rychlost:</p>
+      <h2 id="kde-pomoze">Kde AI v malé firmě skutečně pomůže</h2>
+      <p>Když si seženete deset majitelů malých firem a zeptáte se jich, kam by mohli ušetřit nejvíc času, většinou se shodují:</p>
       <ul>
-        <li>Otevřete <a href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a> (zdarma od Googlu).</li>
-        <li>Vložte URL svého webu.</li>
-        <li>Podívejte se na skóre Mobile a Desktop. Pod 50 = problém, 50–80 = jde to lépe, 90+ = dobré.</li>
+        <li><strong>Psaní e-mailů, nabídek a smluv</strong> — opakující se text, který zabere hodiny</li>
+        <li><strong>Příprava obsahu na sociální sítě</strong> — popisky, hashtagy, příspěvky</li>
+        <li><strong>Grafické práce</strong> — letáky, prezentace, vizitky, jednoduché obrázky</li>
+        <li><strong>Přepisy schůzek a hovorů</strong> — místo psaní poznámek</li>
+        <li><strong>Vyhledávání informací a sumarizace dokumentů</strong> — místo hledání v PDF</li>
       </ul>
-      <p>Časté příčiny pomalosti: obrázky o velikosti 5 MB, deset různých skriptů sledování, neoptimalizovaný hosting, špatná šablona.</p>
+      <p>Tohle je přesně to, co AI v roce 2026 zvládne výborně. Bez nutnosti technického vzdělání, bez programování, často zdarma nebo za pár stovek měsíčně.</p>
 
-      <h2 id="s2">2. Špatná mobilní verze</h2>
-      <p>Mezi 60–80 % návštěv chodí dnes z mobilu. Pokud na mobilu váš web vypadá jako kdyby ho někdo zapomněl optimalizovat:</p>
+      <h2 id="nastroje">Nástroje, které se vyplatí</h2>
+
+      <h3>1. Chat AI: ChatGPT a Claude</h3>
+      <p>Dva největší hráči. Oba zvládají v podstatě totéž, ale s drobnými rozdíly. Pro malou firmu je nejdůležitější, že psanou češtinu obě umí výborně, takže žádné zápasení s anglickými termíny.</p>
+
+      <div class="tool-grid">
+        <div class="tool-card">
+          <span class="tool-tag">Zdarma / 23 USD měs.</span>
+          <div class="tool-name">ChatGPT (OpenAI)</div>
+          <div class="tool-desc">Nejrozšířenější. Pro malou firmu nejlepší volba na začátek. Pro psaní e-mailů, popisek a brainstorming. Zdarma verze stačí pro většinu lidí.</div>
+        </div>
+        <div class="tool-card">
+          <span class="tool-tag">Zdarma / 17 USD měs.</span>
+          <div class="tool-name">Claude (Anthropic)</div>
+          <div class="tool-desc">Velmi dobrý na delší texty, analýzy dokumentů a kódování. Pro psaní článků a strukturovaných textů přesnější než ChatGPT.</div>
+        </div>
+      </div>
+
+      <p>Co s nimi v malé firmě reálně udělat:</p>
       <ul>
-        <li>Text je tak malý, že ho nelze přečíst bez zoomu.</li>
-        <li>Tlačítka jsou tak blízko, že na ně klepete náhodně.</li>
-        <li>Menu nelze otevřít, nebo se rozpadá.</li>
-        <li>Obrázky přesahují obrazovku a musíte rolovat doprava.</li>
-      </ul>
-      <p>Jak otestovat: vezměte svůj telefon, otevřete web a zkuste se chovat jako návštěvník. Najděte kontakt. Otevřete službu. Zkuste se prokliknout do hlavních sekcí. Pokud vás něco frustruje za 30 vteřin, frustruje to i klienty.</p>
-
-      <div class="pullquote">„Špatná mobilní verze je jako mít kamennou prodejnu, do které se nedá vejít. Lidé se otočí a jdou jinam, vy to ani nezjistíte."</div>
-
-      <h2 id="s3">3. Není jasné, čím se firma zabývá</h2>
-      <p>Klasický test: <strong>otevře váš web cizí člověk a do 5 sekund pozná, co děláte, pro koho a proč by si měl vybrat zrovna vás?</strong> Pokud ne, máte problém.</p>
-      <p>Časté chyby:</p>
-      <ul>
-        <li>Velký banner s krásným obrázkem a textem jako „Vítejte na našich stránkách".</li>
-        <li>Generický slogan typu „Tradice, kvalita, spolehlivost", neříká nic.</li>
-        <li>Hned na úvodu „O nás" místo „Co děláme".</li>
-        <li>Buzzwordy jako „komplexní řešení", „inovativní přístup", „flexibilní servis".</li>
-      </ul>
-      <p>Co tam má být: <strong>jasná věta o tom, co děláte, pro koho, a co z toho klient má.</strong> Třeba: „Tvořím rychlé weby pro malé firmy ve východních Čechách. Hotové do měsíce." Kdo, co, pro koho, kdy. Hotovo.</p>
-
-      <h2 id="s4">4. Vzhled jako z roku 2010</h2>
-      <p>Lidé soudí weby do 0,05 sekundy. Tak rychlou intuici nezačnete obhajovat tím, že máte kvalitní služby. Známky zastaralého designu:</p>
-      <ul>
-        <li><strong>Fonty</strong>, Arial, Times New Roman, Verdana. Dnes se používají moderní webové fonty zdarma od Google Fonts.</li>
-        <li><strong>Stockové fotky</strong> usmívajících se obchodníků v oblecích. Klienti to poznají na první pohled.</li>
-        <li><strong>Gradienty a stíny ve stylu Web 2.0</strong>, kdo ještě používá zaoblené glossy tlačítka, je nejmíň 10 let pozadu.</li>
-        <li><strong>Carousel slidery s 5 různými bannery</strong>, měřeno, klikne na ně sotva 1 % návštěvníků. Zaberou místo, zpomalují web.</li>
-        <li><strong>Hodně barev a font sizes na jedné stránce</strong>, moderní design je střídmý, používá 1–2 fonty a 2–3 barvy.</li>
+        <li>Naformulovat odpověď na nepříjemného zákazníka tak, abyste nepsali zbytečně dlouhý e-mail</li>
+        <li>Vygenerovat 10 variant nadpisu pro reklamu</li>
+        <li>Napsat popis služby na web ze stručných bodů</li>
+        <li>Shrnout 30stránkové PDF do tří odstavců</li>
+        <li>Připravit osnovu prezentace nebo nabídky</li>
       </ul>
 
-      
+      <div class="callout">
+        <div class="callout-head">💡 Jak začít</div>
+        <p>Pokud jste s AI nikdy nepracovali, otevřete si <a href="https://chat.openai.com" target="_blank" rel="noopener">chat.openai.com</a> nebo <a href="https://claude.ai" target="_blank" rel="noopener">claude.ai</a> a zkuste zadat: „Napiš mi krátký e-mail klientovi, který se ptá na cenu mé služby, aniž bych mu hned řekl konkrétní číslo. Chci ho přimět k osobní schůzce." Výsledek vás překvapí.</p>
+      </div>
+
+      <h3>2. Grafika: Canva a její AI funkce</h3>
+      <p>Canva je už roky nejlepší nástroj na grafiku pro malé firmy a teď k tomu přidala AI funkce, které jsou pro běžné použití přelomové. Generování obrázků z textu, automatické odstranění pozadí, magické úpravy fotek, AI psaní textů přímo v grafice.</p>
+
+      <div class="tool-grid">
+        <div class="tool-card">
+          <span class="tool-tag">Zdarma / 380 Kč měs.</span>
+          <div class="tool-name">Canva Pro</div>
+          <div class="tool-desc">Drtivá většina marketingových potřeb malé firmy. Letáky, příspěvky, vizitky, prezentace, generování obrázků. Pro 400 Kč měsíčně neuvěřitelná hodnota.</div>
+        </div>
+        <div class="tool-card">
+          <span class="tool-tag paid">20–30 USD měs.</span>
+          <div class="tool-name">Midjourney</div>
+          <div class="tool-desc">Specializovaná AI na generování krásných obrázků. Pro malou firmu většinou zbytečné, pokud nepotřebujete unikátní vizuály do reklam.</div>
+        </div>
+      </div>
+
+      <h3>3. Přepisy: Otter a alternativy</h3>
+      <p>Schůzku, hovor nebo poradu si nahrát a nechat ji automaticky přepsat do textu. Vrchol toho, co AI v roce 2026 nabízí. Pro řemeslníky, kteří mluví se zákazníky o detailních zadáních, je tohle úžasná pomoc. Zákazník mluví, vy posloucháte, a po schůzce máte v telefonu kompletní text.</p>
+
+      <div class="tool-grid">
+        <div class="tool-card">
+          <span class="tool-tag">Zdarma / 17 USD měs.</span>
+          <div class="tool-name">Otter.ai</div>
+          <div class="tool-desc">Nahraje schůzku a přepíše ji do textu, češtinu zvládá. Zdarma 300 minut měsíčně, což pro malou firmu stačí.</div>
+        </div>
+        <div class="tool-card">
+          <span class="tool-tag">Zdarma</span>
+          <div class="tool-name">Notatka v iPhone / Google Recorder</div>
+          <div class="tool-desc">Vestavěné v telefonu, zdarma, češtinu zvládá. Pro většinu schůzek úplně dostačující.</div>
+        </div>
+      </div>
+
+      <p class="pullquote">Nejlepší AI nástroj je ten, který reálně používáte. Ne ten, který si koupíte a po týdnu zapomenete.</p>
+
+      <h2 id="hype">Co je naopak většinou hype</h2>
+      <p>Některé věci, které vám marketéři budou tlačit, dnes ještě nestojí za peníze ani za čas:</p>
+
+      <h3>AI chatboti na webu</h3>
+      <p>„Postavíme vám AI chatbota, který bude komunikovat za vás 24/7!" Pro malou firmu skoro vždy zbytečné. Buď nemáte tolik zákazníků, aby to dávalo smysl, nebo zákazník stejně chce mluvit s vámi. Klasický kontaktní formulář s rychlou odpovědí funguje lépe a stojí desetkrát míň.</p>
+
+      <h3>Automatizace všeho</h3>
+      <p>Zapier, Make a podobné nástroje s AI rozhraním slibují, že vám zautomatizují celý byznys. Pro firmu s pár zákazníky měsíčně je nastavení složitější než ruční práce.</p>
+
+      <h3>AI generování celých webů</h3>
+      <p>Generátory webových stránek pomocí AI dokážou dnes vygenerovat něco, co vypadá jako web. Ale fakticky to není o moc lepší než šablona z roku 2018. Pro důvěryhodnou prezentaci firmy zatím ne.</p>
+
       <div class="art-cta">
-        <h4>Připadá vám tohle povědomé?</h4>
-        <p>Rád vám zdarma řeknu, kde jsou na vašem webu největší problémy a co s tím udělat. Žádný závazek, jen upřímná zpětná vazba.</p>
-        <a href="index.html#kontakt" class="art-cta-btn">Domluvíme nezávaznou konzultaci →</a>
+        <h4>Chcete vědět, kde konkrétně by vám AI ušetřila čas?</h4>
+        <p>Půlhodinová konzultace zdarma. Projdeme spolu, kde ve vaší firmě nejvíc šijete čas, a navrhnu konkrétní nástroje, které byste mohli začít používat hned.</p>
+        <a href="index.html#kontakt" class="art-cta-btn">Chci konzultaci zdarma →</a>
       </div>
 
-      <h2 id="s5">5. Kontakt zahrabaný v patičce</h2>
-      <p>Kontakt by měl být <strong>vidět z každé stránky bez rolování</strong>. Telefon v navigaci, e‑mail v patičce viditelný, kontaktní formulář dostupný kdykoliv. Časté chyby:</p>
+      <h2 id="rozpocet">Kolik to celé reálně stojí</h2>
+      <p>Tady je realistický rozpočet pro malou firmu, která chce z AI vytěžit maximum:</p>
+
       <ul>
-        <li>Telefon jen na stránce „Kontakt", do které se proklikáte.</li>
-        <li>E‑mail jako obrázek (kvůli „spamu"), nelze zkopírovat.</li>
-        <li>Telefon napsaný jako text, ne jako klikací odkaz. Na mobilu musí stačit ťuknout a začít volat.</li>
-        <li>Adresa bez mapy. Pokud máte kamennou pobočku, mapa musí být.</li>
+        <li><strong>ChatGPT Plus nebo Claude Pro:</strong> 400 až 550 Kč měsíčně. Stačí jeden, ne oba.</li>
+        <li><strong>Canva Pro:</strong> 380 Kč měsíčně, nebo 3 200 Kč ročně.</li>
+        <li><strong>Otter.ai Pro:</strong> 400 Kč měsíčně. Pokud nepotřebujete víc než 300 minut, zdarma verze stačí.</li>
       </ul>
 
-      <h2 id="s6">6. Komplikovaný kontaktní formulář</h2>
-      <p>Pokud na svém webu máte formulář s 12 poli, povinně vyplnit, captcha a dvojí potvrzovací zaškrtnutí, gratuluji, právě jste si zaškrtli 80 % poptávek do kategorie „raději zavolám konkurenci".</p>
-      <p>Co by mělo stačit:</p>
-      <ul>
-        <li>Jméno</li>
-        <li>E‑mail nebo telefon (jedno z toho)</li>
-        <li>Zpráva</li>
-        <li>Souhlas s GDPR</li>
-      </ul>
-      <p>To je vše. Ostatní (firma, IČO, obor, rozpočet, termín, jak nás našli) si můžete dotáhnout v reakci. Cíl formuláře není získat databázi, cíl je otevřít konverzaci.</p>
+      <p>Celkem zhruba 1 000 až 1 300 Kč měsíčně. Za to dostanete nástroje, které vám reálně ušetří 5 až 15 hodin práce. Pro většinu malých firem návratnost mezi prvním a třetím dnem každého měsíce.</p>
 
-      <h2 id="s7">7. Žádné důkazy, že vám lze věřit</h2>
-      <p>Nový návštěvník vás nezná. Musí mu něco dát signál „těmhle můžu důvěřovat". Pokud nemáte:</p>
+      <h2 id="rizika">Na co si dát pozor</h2>
+      <p>AI není kouzlo, je to nástroj. A jako každý nástroj má svá rizika:</p>
       <ul>
-        <li><strong>Reference s konkrétními jmény firem.</strong> Anonymní „spokojený klient" = bez hodnoty. Ideální: jméno, firma, fotka, konkrétní výsledek.</li>
-        <li><strong>Portfolio prací.</strong> Reálné projekty, ne jen vlajka služeb.</li>
-        <li><strong>Loga klientů, certifikace, ocenění.</strong> Pokud máte, ukažte.</li>
-        <li><strong>Fotky lidí ve firmě.</strong> Kdo za tím stojí? Bezejmenné stránky vypadají jako e‑shop z Aliexpressu.</li>
+        <li><strong>Nikdy do AI nenahrávejte citlivá data zákazníků</strong> — rodná čísla, hesla, zdravotní informace. Free verze používají vaše vstupy k učení modelu.</li>
+        <li><strong>Vždy si výsledek přečtěte</strong>, AI občas vymýšlí fakta. U technických věcí je třeba ověřit.</li>
+        <li><strong>Texty z AI vypadají často podobně</strong>. Pokud chcete originalitu, použijte AI jako základ a přepište to svým hlasem.</li>
+        <li><strong>Generované obrázky neumí všechno</strong>. Loga a značkové prvky nechte na grafikovi.</li>
       </ul>
 
-      <h2 id="s8">Co s tím teď?</h2>
-      <div class="checklist">
-        <div class="checklist-head">Rychlý audit za 10 minut</div>
-        <div class="checklist-item"><span class="checklist-check">✓</span><span class="checklist-text"><strong>Otestujte rychlost</strong> na <a href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a></span></div>
-        <div class="checklist-item"><span class="checklist-check">✓</span><span class="checklist-text"><strong>Otevřete web na mobilu</strong> a zkuste se k vám prokliknout ke kontaktu</span></div>
-        <div class="checklist-item"><span class="checklist-check">✓</span><span class="checklist-text"><strong>Ukažte web 3 lidem mimo obor</strong>, co děláte, řeknou do 5 vteřin?</span></div>
-        <div class="checklist-item"><span class="checklist-check">✓</span><span class="checklist-text"><strong>Spočítejte kliky</strong> ke kontaktu z hlavní stránky. Víc než 2 = problém.</span></div>
-        <div class="checklist-item"><span class="checklist-check">✓</span><span class="checklist-text"><strong>Spočítejte pole formuláře</strong>. Víc než 5 povinných = problém.</span></div>
-        <div class="checklist-item"><span class="checklist-check">✓</span><span class="checklist-text"><strong>Najděte reference</strong> s konkrétními jmény. Pokud nemáte žádné, je to red flag.</span></div>
-      </div>
-
-      <p>Pokud jste si tady našli tři a víc, je čas s tím něco udělat. Občas stačí dvě hodiny práce, občas redesign. Záleží, jak hluboko sahá problém.</p>
+      <h2 id="zaver">Závěr</h2>
+      <p>AI v roce 2026 je hotový nástroj, ne magie. Pro malou firmu znamená 1 000 Kč měsíčně a několik hodin učení. Návratnost je ale rychlá a roste, jak se s nástroji sžíváte.</p>
+      <p>Pokud chcete vědět, co konkrétně by ve vaší firmě dávalo smysl, <a href="index.html#kontakt">napište mi</a>. Rád projdu vaše konkrétní procesy a doporučím nástroje, které vám dají hned něco zpátky.</p>
 
     </article>
 
@@ -347,23 +373,21 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <div class="toc">
         <div class="toc-head">Obsah článku</div>
         <ol>
-          <li><a href="#s1">Pomalé načítání</a></li>
-          <li><a href="#s2">Špatná mobilní verze</a></li>
-          <li><a href="#s3">Žádný jasný cíl</a></li>
-          <li><a href="#s4">Zastaralý vzhled</a></li>
-          <li><a href="#s5">Skrytý kontakt</a></li>
-          <li><a href="#s6">Komplikovaný formulář</a></li>
-          <li><a href="#s7">Žádné důkazy</a></li>
-          <li><a href="#s8">Co teď s tím</a></li>
+          <li><a href="#kde-pomoze">Kde AI pomůže</a></li>
+          <li><a href="#nastroje">Nástroje, co se vyplatí</a></li>
+          <li><a href="#hype">Co je hype</a></li>
+          <li><a href="#rozpocet">Kolik to stojí</a></li>
+          <li><a href="#rizika">Na co pozor</a></li>
+          <li><a href="#zaver">Závěr</a></li>
         </ol>
       </div>
       <div class="share">
         <div class="share-head">Sdílet článek</div>
         <div class="share-btns">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://statly.cz/blog-4.html" target="_blank" rel="noopener" class="share-btn" aria-label="Facebook">f</a>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://statly.cz/blog-4.html" target="_blank" rel="noopener" class="share-btn" aria-label="LinkedIn">in</a>
-          <a href="https://twitter.com/intent/tweet?url=https://statly.cz/blog-4.html" target="_blank" rel="noopener" class="share-btn" aria-label="X">𝕏</a>
-          <a href="mailto:?body=https://statly.cz/blog-4.html" class="share-btn" aria-label="E‑mail">@</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://statly.cz/blog-8.html" target="_blank" rel="noopener" class="share-btn" aria-label="Facebook">f</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://statly.cz/blog-8.html" target="_blank" rel="noopener" class="share-btn" aria-label="LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https://statly.cz/blog-8.html" target="_blank" rel="noopener" class="share-btn" aria-label="X">𝕏</a>
+          <a href="mailto:?body=https://statly.cz/blog-8.html" class="share-btn" aria-label="E‑mail">@</a>
         </div>
       </div>
     </aside>
@@ -372,26 +396,28 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 </section>
 
 <section class="related">
-  <div class="related-head">
-    <h3>Další články</h3>
-    <a href="blog.html" class="related-back">Všechny články →</a>
-  </div>
-  <div class="related-grid">
-    <a href="blog-1.html" class="related-card">
-      <span class="related-cat">Tvorba webů</span>
-      <p class="related-title">Kolik by měl stát firemní web v roce 2026</p>
-      <span class="related-meta">⏱ 9 min · 8. 5. 2026</span>
-    </a>
-    <a href="blog-6.html" class="related-card">
-      <span class="related-cat">Pro firmy</span>
-      <p class="related-title">Než zadáte nový web: 10 otázek, na které musíte znát odpověď</p>
-      <span class="related-meta">⏱ 7 min · 5. 3. 2026</span>
-    </a>
-    <a href="blog-2.html" class="related-card">
-      <span class="related-cat">SEO</span>
-      <p class="related-title">Lokální SEO pro malé firmy: 8 věcí, které opravdu fungují</p>
-      <span class="related-meta">⏱ 7 min · 28. 4. 2026</span>
-    </a>
+  <div class="related-inner">
+    <div class="related-head">
+      <h3>Další články</h3>
+      <a href="blog.html" class="related-back">Všechny články →</a>
+    </div>
+    <div class="related-grid">
+      <a href="blog-1.html" class="related-card">
+        <span class="related-cat">Pro firmy</span>
+        <p class="related-title">Kolik opravdu stojí firemní web v roce 2026</p>
+        <span class="related-meta">⏱ 9 min · 8. 5. 2026</span>
+      </a>
+      <a href="blog-7.html" class="related-card">
+        <span class="related-cat">Sociální sítě</span>
+        <p class="related-title">Instagram pro malou firmu: jak na to v roce 2026</p>
+        <span class="related-meta">⏱ 6 min · 18. 2. 2026</span>
+      </a>
+      <a href="blog-6.html" class="related-card">
+        <span class="related-cat">Analytika</span>
+        <p class="related-title">Jak změřit, jestli vám web vydělává peníze</p>
+        <span class="related-meta">⏱ 8 min · 5. 3. 2026</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -438,21 +464,24 @@ window.addEventListener('scroll', () => {
   const scrolled = h.scrollTop;
   const height = h.scrollHeight - h.clientHeight;
   const pct = (scrolled / height) * 100;
-  document.getElementById('progressBar').style.width = pct + '%';
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = pct + '%';
 });
 const headings = document.querySelectorAll('.art-content h2[id]');
 const tocLinks = document.querySelectorAll('.toc a');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      tocLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      });
-    }
-  });
-}, { rootMargin: '-100px 0px -60% 0px' });
-headings.forEach(h => observer.observe(h));
+if (headings.length && tocLinks.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-100px 0px -60% 0px' });
+  headings.forEach(h => observer.observe(h));
+}
 </script>
 
 </body>

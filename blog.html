@@ -548,6 +548,157 @@ footer {
 .footer-btm-links a { color: var(--text-dimmer); transition: color 0.2s; cursor: pointer; }
 .footer-btm-links a:hover { color: var(--green-bright); }
 
+/* ─── COOKIE BANNER & MODAL ────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  max-width: 480px;
+  background: rgba(13,26,20,0.96);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--border-2);
+  border-radius: 18px;
+  padding: 1.5rem;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,196,126,0.08);
+  z-index: 10000;
+  transform: translateY(120%);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s;
+}
+.cookie-banner.show { transform: translateY(0); opacity: 1; }
+.cookie-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
+.cookie-icon {
+  width: 32px; height: 32px;
+  background: rgba(34,196,126,0.1);
+  border: 1px solid rgba(34,196,126,0.25);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.cookie-title {
+  font-family: var(--sans);
+  font-size: 0.98rem; font-weight: 700; color: #fff;
+  letter-spacing: -0.01em;
+}
+.cookie-text {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+.cookie-text a {
+  color: var(--green-bright);
+  text-decoration: underline;
+  text-decoration-color: rgba(34,196,126,0.35);
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+.cookie-actions { display: flex; gap: 0.55rem; flex-wrap: wrap; }
+.cookie-btn {
+  flex: 1; min-width: 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  font-size: 0.84rem; font-weight: 600;
+  font-family: var(--sans);
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+.cookie-btn.primary { background: var(--green-bright); color: var(--green-deep); }
+.cookie-btn.primary:hover { background: var(--gold); transform: translateY(-1px); box-shadow: 0 6px 20px rgba(255,184,0,0.25); }
+.cookie-btn.secondary { background: rgba(255,255,255,0.05); color: #fff; border: 1px solid var(--border); }
+.cookie-btn.secondary:hover { background: rgba(255,255,255,0.09); border-color: var(--border-2); }
+.cookie-btn.text { background: none; color: var(--text-dim); flex: 0 0 auto; padding: 0.7rem 0.5rem; }
+.cookie-btn.text:hover { color: #fff; }
+
+.cookie-modal-bg {
+  position: fixed; inset: 0;
+  background: rgba(5,10,8,0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10001;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+  display: flex; align-items: center; justify-content: center;
+  padding: 1.25rem;
+}
+.cookie-modal-bg.show { opacity: 1; pointer-events: auto; }
+.cookie-modal {
+  background: var(--bg-card);
+  border: 1px solid var(--border-2);
+  border-radius: 22px;
+  max-width: 540px; width: 100%;
+  max-height: 90vh; overflow-y: auto;
+  padding: 2rem;
+  transform: scale(0.95) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+.cookie-modal-bg.show .cookie-modal { transform: scale(1) translateY(0); }
+.cookie-modal h3 {
+  font-family: var(--sans);
+  font-size: 1.4rem; font-weight: 700; color: #fff;
+  letter-spacing: -0.025em;
+  margin-bottom: 0.5rem;
+}
+.cookie-modal-sub { color: var(--text-dim); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.75rem; }
+.cookie-cat {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.7rem;
+  transition: border-color 0.25s;
+}
+.cookie-cat:hover { border-color: var(--border-2); }
+.cookie-cat-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.45rem; }
+.cookie-cat-name { font-family: var(--sans); font-size: 0.95rem; font-weight: 600; color: #fff; }
+.toggle {
+  position: relative;
+  width: 42px; height: 24px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background 0.25s;
+  flex-shrink: 0;
+}
+.toggle::after {
+  content: '';
+  position: absolute; top: 3px; left: 3px;
+  width: 18px; height: 18px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.25s ease;
+}
+.toggle.on { background: var(--green-bright); }
+.toggle.on::after { transform: translateX(18px); }
+.toggle.locked { background: rgba(34,196,126,0.4); cursor: not-allowed; }
+.toggle.locked::after { background: rgba(255,255,255,0.7); transform: translateX(18px); }
+.cookie-cat-desc { font-size: 0.83rem; color: var(--text-dim); line-height: 1.55; }
+.cookie-modal-actions { display: flex; gap: 0.55rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.cookie-modal-actions .cookie-btn { flex: 1; }
+
+.cookie-fab {
+  position: fixed;
+  bottom: 1rem; left: 1rem;
+  width: 40px; height: 40px;
+  background: rgba(13,26,20,0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: none;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 9998;
+  transition: all 0.25s;
+  font-size: 1.1rem;
+  color: var(--text-dim);
+}
+.cookie-fab:hover { border-color: var(--border-2); color: var(--green-bright); transform: scale(1.05); }
+.cookie-fab.show { display: flex; }
+
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -566,26 +717,16 @@ footer {
   .blog-card-featured .card-title { font-size: 1.55rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-btm { flex-direction: column; text-align: center; }
+  .cookie-banner { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; padding: 1.25rem; }
 }
-@media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .cookie-actions { flex-direction: column; }
+  .cookie-btn { width: 100%; }
+}
 </style>
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '26797740659876476');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+
+<!-- Meta Pixel + GA4 se nahrávají po souhlasu v consent skriptu dole -->
 </head>
 <body>
 
@@ -658,9 +799,7 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
     </a>
 
     <a href="blog-2.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">SEO<span class="small">Lokální</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">SEO<span class="small">Lokální</span></div></div>
       <div class="card-content">
         <span class="card-cat">SEO</span>
         <h2 class="card-title">Lokální SEO: jak se dostat na první stranu Googlu ve svém městě</h2>
@@ -668,18 +807,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Google Maps, recenze, Google Business Profile, lokální klíčová slova. Praktický
           návod pro malé firmy ve východních Čechách i jinde, bez agentury za 30 tisíc měsíčně.
         </p>
-        <div class="card-meta">
-          <span>📅 28. 4. 2026</span>
-          <span>⏱ 8 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 28. 4. 2026</span><span>⏱ 8 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-3.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">📹<span class="small">Video</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">📹<span class="small">Video</span></div></div>
       <div class="card-content">
         <span class="card-cat">Video</span>
         <h2 class="card-title">Profesionální video vs natáčení mobilem: kdy se vyplatí co</h2>
@@ -687,18 +820,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Mobil za 25 tisíc dnes natočí překvapivě dobré video. Kdy ale potřebujete
           profesionála, kameru a střih. Praktický pohled na kvalitu, cenu a výsledek.
         </p>
-        <div class="card-meta">
-          <span>📅 15. 4. 2026</span>
-          <span>⏱ 7 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 15. 4. 2026</span><span>⏱ 7 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-4.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">7×<span class="small">Checklist</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">7×<span class="small">Checklist</span></div></div>
       <div class="card-content">
         <span class="card-cat">Tvorba webů</span>
         <h2 class="card-title">7 znaků špatného webu, který odhání vaše zákazníky</h2>
@@ -706,18 +833,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Pomalé načítání, hrozná mobilní verze, nečitelné fonty, zastaralý design.
           Checklist, který si projdete za 10 minut a zjistíte, jestli vám web pomáhá, nebo škodí.
         </p>
-        <div class="card-meta">
-          <span>📅 2. 4. 2026</span>
-          <span>⏱ 6 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 2. 4. 2026</span><span>⏱ 6 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-5.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">ROI<span class="small">Reklama</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">ROI<span class="small">Reklama</span></div></div>
       <div class="card-content">
         <span class="card-cat">Marketing</span>
         <h2 class="card-title">Reklama na Facebooku a Googlu: kolik dát, aby to mělo smysl</h2>
@@ -725,18 +846,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Kolik investovat, co očekávat, kdy to dává smysl a kdy raději vyhodit peníze
           oknem. Konkrétní příklady z různých oborů, od řemesel po e-shopy.
         </p>
-        <div class="card-meta">
-          <span>📅 20. 3. 2026</span>
-          <span>⏱ 8 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 20. 3. 2026</span><span>⏱ 8 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-6.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">KPI<span class="small">Měření</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">KPI<span class="small">Měření</span></div></div>
       <div class="card-content">
         <span class="card-cat">Analytika</span>
         <h2 class="card-title">Jak změřit, jestli vám web vydělává peníze (nebo je to jen vizitka)</h2>
@@ -744,18 +859,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Konverze, atribuce, návratnost. Co měřit, jak to nastavit a jak interpretovat čísla,
           která vám Google Analytics ukazuje. Bez technického žargonu.
         </p>
-        <div class="card-meta">
-          <span>📅 5. 3. 2026</span>
-          <span>⏱ 8 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 5. 3. 2026</span><span>⏱ 8 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-7.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">IG<span class="small">Sociální sítě</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">IG<span class="small">Sociální sítě</span></div></div>
       <div class="card-content">
         <span class="card-cat">Sociální sítě</span>
         <h2 class="card-title">Instagram pro malou firmu: jak na to v roce 2026</h2>
@@ -763,18 +872,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Pro koho má smysl a pro koho ne. Formáty, frekvence, in-house vs agentura,
           placená reklama. Praktické rady pro malé firmy, které nechtějí utopit peníze.
         </p>
-        <div class="card-meta">
-          <span>📅 18. 2. 2026</span>
-          <span>⏱ 6 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 18. 2. 2026</span><span>⏱ 6 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-8.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">AI<span class="small">Nástroje 2026</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">AI<span class="small">Nástroje 2026</span></div></div>
       <div class="card-content">
         <span class="card-cat">AI</span>
         <h2 class="card-title">AI nástroje pro malou firmu: co se vyplatí a co je hype</h2>
@@ -782,18 +885,12 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           ChatGPT, Claude, Canva s AI, Otter. Co reálně šetří hodiny měsíčně a co
           je marketingové cvičení. Konkrétní ceny a doporučení od českého webaře.
         </p>
-        <div class="card-meta">
-          <span>📅 15. 5. 2026</span>
-          <span>⏱ 7 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 15. 5. 2026</span><span>⏱ 7 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
     <a href="blog-9.html" class="blog-card">
-      <div class="card-visual">
-        <div class="card-visual-icon">GBP<span class="small">Google Maps</span></div>
-      </div>
+      <div class="card-visual"><div class="card-visual-icon">GBP<span class="small">Google Maps</span></div></div>
       <div class="card-content">
         <span class="card-cat">SEO</span>
         <h2 class="card-title">Google Business Profile: kompletní návod pro malé firmy</h2>
@@ -801,11 +898,7 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
           Nejlevnější kanál, jak vás v okolí najdou noví zákazníci. Krok za krokem
           od založení, ověření, fotek a recenzí až po pravidelné příspěvky.
         </p>
-        <div class="card-meta">
-          <span>📅 20. 5. 2026</span>
-          <span>⏱ 9 min</span>
-          <span class="card-arrow">→</span>
-        </div>
+        <div class="card-meta"><span>📅 20. 5. 2026</span><span>⏱ 9 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 
@@ -855,11 +948,197 @@ src="https://www.facebook.com/tr?id=26797740659876476&ev=PageView&noscript=1"
   <div class="footer-btm">
     <span>© 2026 Statly · Tomáš Tylich · Všechna práva vyhrazena</span>
     <div class="footer-btm-links">
+      <a onclick="openCookieSettings()">Nastavení cookies</a>
       <a href="privacy.html">Zásady ochrany osobních údajů</a>
       <a href="sitemap.xml">Sitemap</a>
     </div>
   </div>
 </footer>
 
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText">
+  <div class="cookie-header">
+    <div class="cookie-icon">🍪</div>
+    <div class="cookie-title" id="cookieTitle">Soubory cookies</div>
+  </div>
+  <p class="cookie-text" id="cookieText">
+    Používám cookies, aby web fungoval správně a abych mohl měřit, co návštěvníky zajímá.
+    Marketingové a analytické cookies se aktivují pouze s vaším souhlasem.
+    <a onclick="openCookieSettings()">Podrobné nastavení</a>.
+  </p>
+  <div class="cookie-actions">
+    <button class="cookie-btn primary" onclick="acceptAllCookies()">Přijmout vše</button>
+    <button class="cookie-btn secondary" onclick="acceptNecessaryCookies()">Jen nezbytné</button>
+    <button class="cookie-btn text" onclick="openCookieSettings()">Nastavit</button>
+  </div>
+</div>
+
+<!-- COOKIE SETTINGS MODAL -->
+<div class="cookie-modal-bg" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
+  <div class="cookie-modal" onclick="event.stopPropagation()">
+    <h3 id="cookieModalTitle">Nastavení cookies</h3>
+    <p class="cookie-modal-sub">Vyberte si, jaké typy cookies chcete povolit. Své rozhodnutí můžete kdykoli změnit.</p>
+
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span class="cookie-cat-name">Nezbytné</span>
+        <span class="toggle locked" aria-label="Vždy aktivní"></span>
+      </div>
+      <p class="cookie-cat-desc">Zajišťují základní funkčnost webu. Bez nich web nefunguje, proto je nelze vypnout.</p>
+    </div>
+
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span class="cookie-cat-name">Analytické</span>
+        <span class="toggle" id="toggleAnalytics" onclick="toggleSwitch('toggleAnalytics')" role="switch" aria-checked="false" tabindex="0"></span>
+      </div>
+      <p class="cookie-cat-desc">Pomáhají mi pochopit, jak návštěvníci web používají. Data jsou anonymní (Google Analytics).</p>
+    </div>
+
+    <div class="cookie-cat">
+      <div class="cookie-cat-head">
+        <span class="cookie-cat-name">Marketingové</span>
+        <span class="toggle" id="toggleMarketing" onclick="toggleSwitch('toggleMarketing')" role="switch" aria-checked="false" tabindex="0"></span>
+      </div>
+      <p class="cookie-cat-desc">Slouží k personalizaci reklam (Meta Pixel, Google Ads) na jiných webech.</p>
+    </div>
+
+    <div class="cookie-modal-actions">
+      <button class="cookie-btn secondary" onclick="acceptNecessaryCookies()">Jen nezbytné</button>
+      <button class="cookie-btn primary" onclick="saveCookieSettings()">Uložit nastavení</button>
+    </div>
+  </div>
+</div>
+
+<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies">🍪</button>
+
+<script>
+/* ─── COOKIE CONSENT + GA4 + META PIXEL ───────── */
+const COOKIE_KEY = 'statly_cookie_consent_v1';
+const COOKIE_EXPIRY_DAYS = 365;
+
+function getCookieConsent() {
+  try {
+    const raw = localStorage.getItem(COOKIE_KEY);
+    if (!raw) return null;
+    const data = JSON.parse(raw);
+    if (data.timestamp && (Date.now() - data.timestamp) > COOKIE_EXPIRY_DAYS * 86400000) {
+      localStorage.removeItem(COOKIE_KEY);
+      return null;
+    }
+    return data;
+  } catch (e) {
+    return null;
+  }
+}
+
+function setCookieConsent(consent) {
+  const data = {
+    necessary: true,
+    analytics: !!consent.analytics,
+    marketing: !!consent.marketing,
+    timestamp: Date.now(),
+    version: 1
+  };
+  try {
+    localStorage.setItem(COOKIE_KEY, JSON.stringify(data));
+  } catch (e) {
+    console.warn('Cannot save cookie consent:', e);
+  }
+  applyCookieConsent(data);
+  hideBanner();
+  closeCookieSettings();
+  showFab();
+}
+
+function loadGoogleAnalytics() {
+  if (window._gaLoaded) return;
+  const GA_ID = 'G-4PE1SD2TBP';
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_ID, { anonymize_ip: true });
+  window._gaLoaded = true;
+}
+
+function loadMetaPixel() {
+  if (window._fbqLoaded) return;
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq) return; n=f.fbq=function(){
+      n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+    };
+    if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s);
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '26797740659876476');
+  fbq('track', 'PageView');
+  window._fbqLoaded = true;
+}
+
+function applyCookieConsent(data) {
+  if (data.analytics) loadGoogleAnalytics();
+  if (data.marketing) loadMetaPixel();
+  document.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: data }));
+}
+
+function acceptAllCookies()       { setCookieConsent({ analytics: true, marketing: true }); }
+function acceptNecessaryCookies() { setCookieConsent({ analytics: false, marketing: false }); }
+function saveCookieSettings() {
+  const a = document.getElementById('toggleAnalytics').classList.contains('on');
+  const m = document.getElementById('toggleMarketing').classList.contains('on');
+  setCookieConsent({ analytics: a, marketing: m });
+}
+function toggleSwitch(id) {
+  const el = document.getElementById(id);
+  el.classList.toggle('on');
+  el.setAttribute('aria-checked', el.classList.contains('on') ? 'true' : 'false');
+}
+function openCookieSettings() {
+  const consent = getCookieConsent();
+  const a = document.getElementById('toggleAnalytics');
+  const m = document.getElementById('toggleMarketing');
+  a.classList.toggle('on', !!(consent && consent.analytics));
+  m.classList.toggle('on', !!(consent && consent.marketing));
+  a.setAttribute('aria-checked', a.classList.contains('on') ? 'true' : 'false');
+  m.setAttribute('aria-checked', m.classList.contains('on') ? 'true' : 'false');
+  document.getElementById('cookieModal').classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closeCookieSettings() {
+  document.getElementById('cookieModal').classList.remove('show');
+  document.body.style.overflow = '';
+}
+function showBanner() { document.getElementById('cookieBanner').classList.add('show'); }
+function hideBanner() { document.getElementById('cookieBanner').classList.remove('show'); }
+function showFab()    { document.getElementById('cookieFab').classList.add('show'); }
+
+document.getElementById('cookieModal').addEventListener('click', closeCookieSettings);
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeCookieSettings();
+  if (e.key === 'Enter' || e.key === ' ') {
+    if (e.target.classList && e.target.classList.contains('toggle') && !e.target.classList.contains('locked')) {
+      e.preventDefault();
+      toggleSwitch(e.target.id);
+    }
+  }
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  const consent = getCookieConsent();
+  if (consent) {
+    applyCookieConsent(consent);
+    showFab();
+  } else {
+    setTimeout(showBanner, 800);
+  }
+});
+</script>
 </body>
 </html>

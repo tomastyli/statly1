@@ -554,11 +554,26 @@ nav {
   position: relative; overflow: hidden;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
+.why-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent);
+  opacity: 0; transition: opacity 0.4s;
+}
+.why-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(34,196,126,0.08), transparent 40%);
+  opacity: 0; transition: opacity 0.4s;
+  pointer-events: none;
+}
 .why-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-2);
   background: var(--bg-card-2);
 }
+.why-card:hover::before { opacity: 1; }
+.why-card:hover::after { opacity: 1; }
+.why-card > * { position: relative; z-index: 1; }
 .why-icon {
   width: 48px; height: 48px;
   border-radius: 12px;
@@ -689,13 +704,28 @@ nav {
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-  position: relative;
+  position: relative; overflow: hidden;
+}
+.svc-mini-card::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent);
+  opacity: 0; transition: opacity 0.4s;
+}
+.svc-mini-card::after {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(34,196,126,0.08), transparent 40%);
+  opacity: 0; transition: opacity 0.4s;
+  pointer-events: none;
 }
 .svc-mini-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-2);
   background: var(--bg-card-2);
 }
+.svc-mini-card:hover::before { opacity: 1; }
+.svc-mini-card:hover::after { opacity: 1; }
+.svc-mini-card > * { position: relative; z-index: 1; }
 .svc-mini-num {
   font-family: var(--mono);
   font-size: 0.74rem;
@@ -756,12 +786,23 @@ nav {
   opacity: 0;
   transition: opacity 0.4s;
 }
+.ref-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(34,196,126,0.08), transparent 40%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
 .ref-card:hover {
   transform: translateY(-4px);
   border-color: var(--border-2);
   background: var(--bg-card-2);
 }
 .ref-card:hover::before { opacity: 1; }
+.ref-card:hover::after { opacity: 1; }
+.ref-card > * { position: relative; z-index: 1; }
 
 .ref-quote {
   font-family: var(--sans);
@@ -810,22 +851,21 @@ nav {
   object-fit: contain;
   padding: 8px;
 }
-/* Leo Tichý — zelený firemní brand */
+/* Leo Tichý — bílé logo na černém pozadí */
 .ref-logo-leo {
-  background: linear-gradient(135deg, #0d3d2c, #1B7F5F);
-  border-color: rgba(34,196,126,0.35);
+  background: #0a0a0a;
+  border-color: rgba(255,255,255,0.15);
 }
 .ref-logo-leo img {
-  padding: 6px;
-  filter: brightness(0) invert(1); /* zajistí čistě bílé logo i kdyby SVG mělo barvy */
+  padding: 4px;
 }
-/* eXpress Detailing — černé pozadí, logo je bílé */
+/* eXpress Detailing — taky bílé na černém */
 .ref-logo-express {
   background: #0a0a0a;
   border-color: rgba(255,255,255,0.15);
 }
 .ref-logo-express img {
-  padding: 10px;
+  padding: 8px;
 }
 
 /* Google review source link */
@@ -1594,7 +1634,7 @@ footer {
         </p>
         <div class="ref-author">
           <div class="ref-logo ref-logo-leo">
-            <img src="logos/stehovani-leo.svg" alt="Stěhování Leo" loading="lazy">
+            <img src="logos/stehovani-leo.png" alt="Stěhování Leo" loading="lazy">
           </div>
           <div class="ref-meta">
             <span class="ref-name">Leo Tichý</span>
@@ -1783,6 +1823,18 @@ footer {
     });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+})();
+
+/* ─── MOUSE-TRACKING GLOW NA KARTÁCH ────────────── */
+(function() {
+  const cards = document.querySelectorAll('.why-card, .svc-mini-card, .ref-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+      card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+    });
+  });
 })();
 
 /* ─── CONTACT FORM SUBMISSION ─────────────────── */

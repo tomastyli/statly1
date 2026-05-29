@@ -1,0 +1,25 @@
+# Přesměrování .html verzí na čisté URL (301 = trvalé, SEO juice přejde na čistou URL)
+# Cloudflare Pages: vložit do kořene projektu vedle index.html
+
+# Homepage — nutné explicitně před catch-all pravidlem
+/index.html                         /                                   301
+
+# Hlavní stránky
+/litomysl.html                      /litomysl                           301
+/nataceni.html                      /nataceni                           301
+/blog.html                          /blog                               301
+/privacy.html                       /privacy                            301
+
+# Stránky pro lokální SEO — Východní Čechy
+/svitavy.html                       /svitavy                            301
+/policka.html                       /policka                            301
+/vysoke-myto.html                   /vysoke-myto                        301
+/chrudim.html                       /chrudim                            301
+/lanskroun.html                     /lanskroun                          301
+
+# Stránky pro lokální SEO — Slovácko
+/uherske-hradiste.html              /uherske-hradiste                   301
+/uhersky-brod.html                  /uhersky-brod                       301
+/hluk.html                          /hluk                               301
+/stare-mesto.html                   /stare-mesto                        301
+/kunovice.html                      /kunovice                           301

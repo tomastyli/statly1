@@ -21,8 +21,12 @@ const TOPIC_LABELS = {
 };
 
 const ALLOWED_CITIES = [
+  // Východní Čechy
   "Svitavy", "Polička", "Vysoké Mýto", "Chrudim", "Lanškroun",
   "Litomyšl", "Česká Třebová", "Choceň", "Ústí nad Orlicí", "Moravská Třebová",
+  // Slovácko / Morava
+  "Uherské Hradiště", "Uherský Brod", "Hluk", "Staré Město", "Kunovice",
+  "Veselí nad Moravou", "Ostrožská Nová Ves", "Vlčnov", "Buchlovice", "Kyjov",
 ];
 
 function escapeHtml(str = "") {

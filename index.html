@@ -495,7 +495,13 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(34,196,126,0.4); transform: translateY(-2px); }
 .geo-section { position: relative; overflow: hidden; }
 .geo-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 45% 40% at 82% 18%, rgba(34,196,126,0.06), transparent 60%), radial-gradient(ellipse 40% 35% at 15% 90%, rgba(255,184,0,0.04), transparent 60%); }
-.geo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; position: relative; z-index: 1; }
+.geo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 0; position: relative; z-index: 1; }
+.geo-group { margin-top: 2.5rem; position: relative; z-index: 1; }
+.geo-group:first-of-type { margin-top: 3rem; }
+.geo-group-label { display: flex; align-items: center; gap: 0.9rem; font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.1rem; }
+.geo-group-label .tag { color: var(--green-bright); white-space: nowrap; }
+.geo-group-label.morava .tag { color: var(--gold); }
+.geo-group-label .ln { flex: 1; height: 1px; background: var(--border); }
 .geo-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.6rem; transition: all 0.32s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; }
 .geo-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--green-bright), var(--gold)); opacity: 0; transition: opacity 0.3s; }
 .geo-card:hover { transform: translateY(-3px); border-color: var(--border-2); background: var(--bg-card-2); }
@@ -890,35 +896,63 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   <div class="geo-bg"></div>
   <div class="wrap">
     <span class="sec-label reveal">Kde působím</span>
-    <h2 class="sec-h reveal">Nejsem jen z Litomyšle.<br><em>Jezdím po celém kraji.</em></h2>
-    <p class="sec-sub reveal">Sídlím v Litomyšli, ale weby, sociální sítě a videa dělám pro firmy po celých východních Čechách. Mrkni na stránku pro své město, ať víš, na čem jsme.</p>
-    <div class="geo-grid">
-      <a href="litomysl.html" class="geo-card home reveal">
-        <div><div class="geo-card-name">Litomyšl</div><div class="geo-card-meta">domovská základna</div></div>
-        <span class="geo-arrow">→</span>
-      </a>
-      <a href="/svitavy" class="geo-card reveal">
-        <div><div class="geo-card-name">Svitavy</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
-        <span class="geo-arrow">→</span>
-      </a>
-      <a href="/policka" class="geo-card reveal">
-        <div><div class="geo-card-name">Polička</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
-        <span class="geo-arrow">→</span>
-      </a>
-      <a href="/vysoke-myto" class="geo-card reveal">
-        <div><div class="geo-card-name">Vysoké Mýto</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
-        <span class="geo-arrow">→</span>
-      </a>
-      <a href="/lanskroun" class="geo-card reveal">
-        <div><div class="geo-card-name">Lanškroun</div><div class="geo-card-meta">~ 30 min z Litomyšle</div></div>
-        <span class="geo-arrow">→</span>
-      </a>
-      <a href="/chrudim" class="geo-card reveal">
-        <div><div class="geo-card-name">Chrudim</div><div class="geo-card-meta">~ 40 min z Litomyšle</div></div>
-        <span class="geo-arrow">→</span>
-      </a>
+    <h2 class="sec-h reveal">Doma ve <em>východních Čechách</em><br>i na <em>Slovácku.</em></h2>
+    <p class="sec-sub reveal">Statly sídlí v Litomyšli, ale na Slovácku mám druhý domov a jsem tam pravidelně. Mám tak blízko k firmám na obou koncích republiky. Vyber si svoje město.</p>
+    <div class="geo-group">
+      <div class="geo-group-label reveal"><span class="tag">Východní Čechy</span><span class="ln"></span></div>
+      <div class="geo-grid">
+        <a href="litomysl.html" class="geo-card home reveal">
+          <div><div class="geo-card-name">Litomyšl</div><div class="geo-card-meta">domovská základna</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/svitavy" class="geo-card reveal">
+          <div><div class="geo-card-name">Svitavy</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/policka" class="geo-card reveal">
+          <div><div class="geo-card-name">Polička</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/vysoke-myto" class="geo-card reveal">
+          <div><div class="geo-card-name">Vysoké Mýto</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/lanskroun" class="geo-card reveal">
+          <div><div class="geo-card-name">Lanškroun</div><div class="geo-card-meta">~ 30 min z Litomyšle</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/chrudim" class="geo-card reveal">
+          <div><div class="geo-card-name">Chrudim</div><div class="geo-card-meta">~ 40 min z Litomyšle</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+      </div>
     </div>
-    <p class="geo-note reveal">A jezdím i dál: <span>Česká Třebová, Choceň, Ústí nad Orlicí, Moravská Třebová</span> a okolí.</p>
+    <div class="geo-group">
+      <div class="geo-group-label morava reveal"><span class="tag">Slovácko · druhý domov</span><span class="ln"></span></div>
+      <div class="geo-grid">
+        <a href="/hluk" class="geo-card home reveal">
+          <div><div class="geo-card-name">Hluk</div><div class="geo-card-meta">druhý domov na Moravě</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/uherske-hradiste" class="geo-card reveal">
+          <div><div class="geo-card-name">Uherské Hradiště</div><div class="geo-card-meta">brána Slovácka</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/uhersky-brod" class="geo-card reveal">
+          <div><div class="geo-card-name">Uherský Brod</div><div class="geo-card-meta">město Komenského</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/stare-mesto" class="geo-card reveal">
+          <div><div class="geo-card-name">Staré Město</div><div class="geo-card-meta">kolébka Velké Moravy</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+        <a href="/kunovice" class="geo-card reveal">
+          <div><div class="geo-card-name">Kunovice</div><div class="geo-card-meta">letecké město</div></div>
+          <span class="geo-arrow">→</span>
+        </a>
+      </div>
+    </div>
+    <p class="geo-note reveal">A jezdím i dál: <span>Pardubice, Hradec Králové, Veselí nad Moravou, Kyjov</span> a okolí.</p>
   </div>
 </section>
 

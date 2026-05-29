@@ -480,19 +480,36 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .form-status.error { background: rgba(255,82,119,0.08); border: 1px solid rgba(255,82,119,0.28); color: #ff8a9f; }
 .form-status-icon { font-size: 1.05rem; flex-shrink: 0; margin-top: 0.05rem; }
 
-.cta-box { background: linear-gradient(135deg, #0d3d2c 0%, #1B7F5F 60%, #22c47e 130%); border-radius: 28px; padding: 5.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
-.cta-box::before { content: ''; position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.08), transparent 60%); top: -300px; right: -200px; pointer-events: none; animation: ctaFloat 14s ease-in-out infinite; }
-.cta-box::after { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; background: radial-gradient(circle, rgba(255,184,0,0.06), transparent 60%); bottom: -180px; left: -120px; pointer-events: none; animation: ctaFloat 16s ease-in-out infinite reverse; }
+.cta-box { background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-2) 100%); border: 1px solid var(--border-2); border-radius: 28px; padding: 4.75rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.6), rgba(255,184,0,0.5), transparent); pointer-events: none; }
+.cta-box::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 85% at 50% 0%, rgba(34,196,126,0.10), transparent 60%), radial-gradient(ellipse 50% 60% at 82% 100%, rgba(255,184,0,0.05), transparent 60%); pointer-events: none; }
 @keyframes ctaFloat { 0%, 100% { transform: translate(0, 0) scale(1); } 50% { transform: translate(20px, -20px) scale(1.05); } }
-.cta-badge { display: inline-flex; align-items: center; gap: 0.45rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 100px; color: #fff; font-family: var(--mono); font-size: 0.76rem; font-weight: 500; padding: 0.4rem 0.95rem; margin-bottom: 1.75rem; position: relative; z-index: 1; backdrop-filter: blur(8px); }
+.cta-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.76rem; font-weight: 500; padding: 0.4rem 0.95rem; margin-bottom: 1.75rem; position: relative; z-index: 1; backdrop-filter: blur(8px); }
 .cta-h { font-family: var(--sans); font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.035em; position: relative; z-index: 1; }
 .cta-h em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; }
-.cta-p { color: rgba(255,255,255,0.78); font-size: 1.05rem; margin-bottom: 2.4rem; position: relative; z-index: 1; max-width: 460px; margin-left: auto; margin-right: auto; }
+.cta-p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 2.4rem; position: relative; z-index: 1; max-width: 460px; margin-left: auto; margin-right: auto; }
 .cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
-.btn-white { display: inline-flex; align-items: center; gap: 0.5rem; background: #fff; color: var(--green-deep) !important; padding: 1rem 1.9rem; border-radius: 100px; font-weight: 600; font-size: 0.97rem; box-shadow: 0 8px 28px rgba(0,0,0,0.2); transition: all 0.3s ease; }
-.btn-white:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(0,0,0,0.28); }
-.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.1); color: #fff !important; padding: 1rem 1.7rem; border-radius: 100px; font-weight: 500; font-size: 0.97rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; backdrop-filter: blur(8px); }
-.btn-ghost:hover { background: rgba(255,255,255,0.18); transform: translateY(-2px); }
+.btn-white { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--green-bright); color: var(--green-deep) !important; padding: 1rem 1.9rem; border-radius: 100px; font-weight: 600; font-size: 0.97rem; box-shadow: 0 8px 28px rgba(34,196,126,0.22); transition: all 0.3s ease; }
+.btn-white:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(255,184,0,0.3); }
+.btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.04); color: #fff !important; padding: 1rem 1.7rem; border-radius: 100px; font-weight: 500; font-size: 0.97rem; border: 1px solid rgba(255,255,255,0.12); transition: all 0.3s ease; backdrop-filter: blur(8px); }
+.btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(34,196,126,0.4); transform: translateY(-2px); }
+.geo-section { position: relative; overflow: hidden; }
+.geo-bg { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 45% 40% at 82% 18%, rgba(34,196,126,0.06), transparent 60%), radial-gradient(ellipse 40% 35% at 15% 90%, rgba(255,184,0,0.04), transparent 60%); }
+.geo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 3rem; position: relative; z-index: 1; }
+.geo-card { display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.6rem; transition: all 0.32s cubic-bezier(0.22,1,0.36,1); position: relative; overflow: hidden; }
+.geo-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px; background: linear-gradient(180deg, var(--green-bright), var(--gold)); opacity: 0; transition: opacity 0.3s; }
+.geo-card:hover { transform: translateY(-3px); border-color: var(--border-2); background: var(--bg-card-2); }
+.geo-card:hover::before { opacity: 1; }
+.geo-card:hover .geo-arrow { transform: translateX(4px); color: var(--green-bright); }
+.geo-card-name { font-family: var(--sans); font-size: 1.14rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.geo-card-meta { font-family: var(--mono); font-size: 0.74rem; color: var(--text-dim); margin-top: 0.25rem; letter-spacing: 0.02em; }
+.geo-arrow { font-size: 1.1rem; color: var(--text-dimmer); transition: all 0.3s; flex-shrink: 0; }
+.geo-card.home { border-color: rgba(255,184,0,0.25); }
+.geo-card.home .geo-card-name { color: var(--gold); }
+.geo-note { margin-top: 2rem; font-family: var(--mono); font-size: 0.8rem; color: var(--text-dimmer); letter-spacing: 0.02em; position: relative; z-index: 1; }
+.geo-note span { color: var(--text-dim); }
+@media (max-width: 1024px) { .geo-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .geo-grid { grid-template-columns: 1fr; } }
 
 footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem 2rem 2rem; }
 .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
@@ -869,6 +886,42 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
 </section>
 
+<section class="sec-alt geo-section" id="kde-pusobime">
+  <div class="geo-bg"></div>
+  <div class="wrap">
+    <span class="sec-label reveal">Kde působím</span>
+    <h2 class="sec-h reveal">Nejsem jen z Litomyšle.<br><em>Jezdím po celém kraji.</em></h2>
+    <p class="sec-sub reveal">Sídlím v Litomyšli, ale weby, sociální sítě a videa dělám pro firmy po celých východních Čechách. Mrkni na stránku pro své město, ať víš, na čem jsme.</p>
+    <div class="geo-grid">
+      <a href="litomysl.html" class="geo-card home reveal">
+        <div><div class="geo-card-name">Litomyšl</div><div class="geo-card-meta">domovská základna</div></div>
+        <span class="geo-arrow">→</span>
+      </a>
+      <a href="/svitavy" class="geo-card reveal">
+        <div><div class="geo-card-name">Svitavy</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
+        <span class="geo-arrow">→</span>
+      </a>
+      <a href="/policka" class="geo-card reveal">
+        <div><div class="geo-card-name">Polička</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
+        <span class="geo-arrow">→</span>
+      </a>
+      <a href="/vysoke-myto" class="geo-card reveal">
+        <div><div class="geo-card-name">Vysoké Mýto</div><div class="geo-card-meta">~ 20 min z Litomyšle</div></div>
+        <span class="geo-arrow">→</span>
+      </a>
+      <a href="/lanskroun" class="geo-card reveal">
+        <div><div class="geo-card-name">Lanškroun</div><div class="geo-card-meta">~ 30 min z Litomyšle</div></div>
+        <span class="geo-arrow">→</span>
+      </a>
+      <a href="/chrudim" class="geo-card reveal">
+        <div><div class="geo-card-name">Chrudim</div><div class="geo-card-meta">~ 40 min z Litomyšle</div></div>
+        <span class="geo-arrow">→</span>
+      </a>
+    </div>
+    <p class="geo-note reveal">A jezdím i dál: <span>Česká Třebová, Choceň, Ústí nad Orlicí, Moravská Třebová</span> a okolí.</p>
+  </div>
+</section>
+
 <section class="sec" id="postup">
   <div class="wrap">
     <span class="sec-label reveal">Jak pracuju</span>
@@ -889,8 +942,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <h2 class="cta-h">Připraveni posunout<br>byznys <em>online?</em></h2>
       <p class="cta-p">Napište mi přes formulář níže, e‑mailem nebo zavolejte. Rád si na váš projekt udělám čas.</p>
       <div class="cta-row">
-        <a href="mailto:tomas.tylich@seznam.cz" class="btn-white">✉ tomas.tylich@seznam.cz</a>
-        <a href="tel:+420737372708" class="btn-ghost">📞 +420 737 372 708</a>
+        <a href="mailto:tomas.tylich@seznam.cz" class="btn-white">tomas.tylich@seznam.cz</a>
+        <a href="tel:+420737372708" class="btn-ghost">+420 737 372 708</a>
       </div>
     </div>
 

@@ -232,6 +232,7 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .nav-cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--green-light), var(--green-bright)); opacity: 0; transition: opacity 0.3s; }
 .nav-cta span { position: relative; z-index: 1; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
+.nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
 
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: var(--bg); }
@@ -597,6 +598,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-folio-m { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 1rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
+  .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
+  .nav-folio-m:hover { color: var(--green-bright); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
   .svc-grid, .folio-grid { grid-template-columns: 1fr; }
   .refs-grid { grid-template-columns: 1fr; }
@@ -651,6 +655,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <li><a href="#postup">Postup</a></li>
       <li><a href="#kontakt">Kontakt</a></li>
     </ul>
+    <a href="/portfolio" class="nav-folio-m">Portfolio</a>
     <a href="#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
   </div>
 </nav>

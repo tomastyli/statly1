@@ -146,6 +146,7 @@ nav {
 }
 .nav-cta span { position: relative; z-index: 1; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
+.nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
 
 .blog-header {
@@ -717,6 +718,9 @@ footer {
 @media (max-width: 720px) { .blog-grid { grid-template-columns: 1fr; } }
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-folio-m { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 1rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
+  .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
+  .nav-folio-m:hover { color: var(--green-bright); }
   .blog-header { padding: 7rem 1.5rem 3rem; }
   .blog-body { padding: 3rem 1.5rem 5rem; }
   .blog-card-featured .card-content { padding: 1.75rem; }
@@ -749,6 +753,7 @@ footer {
       <li><a href="index.html#postup">Postup</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
+    <a href="/portfolio" class="nav-folio-m">Portfolio</a>
     <a href="index.html#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
   </div>
 </nav>
@@ -801,6 +806,58 @@ footer {
           <span>⏱ 9 min čtení</span>
           <span class="card-arrow">Číst článek →</span>
         </div>
+      </div>
+    </a>
+
+    <a href="blog-13.html" class="blog-card">
+      <div class="card-visual"><div class="card-visual-icon">📍<span class="small">Litomyšl · PK</span></div></div>
+      <div class="card-content">
+        <span class="card-cat">Pro firmy</span>
+        <h2 class="card-title">Webdesigner Litomyšl a Pardubický kraj: jak vybrat a na co se zeptat</h2>
+        <p class="card-excerpt">
+          Konkrétní otázky, které položit před zakázkou, orientační ceny v regionu, agentura
+          vs freelancer a varovné signály. Praktický návod, jak vybrat dobře.
+        </p>
+        <div class="card-meta"><span>📅 5. 6. 2026</span><span>⏱ 8 min</span><span class="card-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="blog-12.html" class="blog-card">
+      <div class="card-visual"><div class="card-visual-icon">▶<span class="small">Web + Video</span></div></div>
+      <div class="card-content">
+        <span class="card-cat">Video</span>
+        <h2 class="card-title">Proč váš nový web potřebuje úvodní video (a co to reálně stojí)</h2>
+        <p class="card-excerpt">
+          Video zvyšuje důvěru a počet poptávek. Kolik reálně stojí natočení, kdy se vyplatí,
+          jak dlouhé má být a proč web s videem konvertuje líp. S konkrétními cenami.
+        </p>
+        <div class="card-meta"><span>📅 3. 6. 2026</span><span>⏱ 8 min</span><span class="card-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="blog-11.html" class="blog-card">
+      <div class="card-visual"><div class="card-visual-icon">🏗<span class="small">Stavební firmy</span></div></div>
+      <div class="card-content">
+        <span class="card-cat">Pro firmy</span>
+        <h2 class="card-title">Webové stránky pro stavební firmu: co musí umět, aby přinášely zakázky</h2>
+        <p class="card-excerpt">
+          Reference s fotkami před a po, krátká poptávka a lokální SEO. Tři věci, které dělají
+          rozdíl mezi webem, co jen visí na internetu, a webem, co přivádí zakázky.
+        </p>
+        <div class="card-meta"><span>📅 1. 6. 2026</span><span>⏱ 9 min</span><span class="card-arrow">→</span></div>
+      </div>
+    </a>
+
+    <a href="blog-10.html" class="blog-card">
+      <div class="card-visual"><div class="card-visual-icon">🦷<span class="small">Zubní ordinace</span></div></div>
+      <div class="card-content">
+        <span class="card-cat">Pro firmy</span>
+        <h2 class="card-title">Kolik stojí web pro zubařskou ordinaci v roce 2026</h2>
+        <p class="card-excerpt">
+          Konkrétní ceny od jednoduché vizitky po web s online objednáním. Co má být v ceně,
+          vyplatí se objednávkový systém a co na webu pacient opravdu hledá.
+        </p>
+        <div class="card-meta"><span>📅 28. 5. 2026</span><span>⏱ 9 min</span><span class="card-arrow">→</span></div>
       </div>
     </a>
 

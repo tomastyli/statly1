@@ -90,6 +90,7 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .nav-links a.active::after, .nav-links a:hover::after { width: 100%; }
 .nav-cta { background: var(--green); color: #fff !important; padding: 0.6rem 1.3rem; border-radius: 100px; font-size: 0.86rem; font-weight: 600; transition: all 0.25s ease; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
+.nav-folio-m { display: none; }
 .art-head { padding: 9rem 2rem 3.5rem; position: relative; overflow: hidden; background: var(--bg); }
 .art-head::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 30% 30%, rgba(27,127,95,0.14) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 80% 60%, rgba(255,184,0,0.05) 0%, transparent 55%); pointer-events: none; }
 .art-head-inner { max-width: 800px; margin: 0 auto; position: relative; z-index: 1; }
@@ -188,6 +189,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-folio-m { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 1rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
+  .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
+  .nav-folio-m:hover { color: var(--green-bright); }
   .art-head { padding: 7rem 1.5rem 2.5rem; }
   .art-body { padding: 2rem 1.5rem 4rem; }
   .art-content { font-size: 1.05rem; }
@@ -223,6 +227,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <li><a href="index.html#postup">Postup</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
+    <a href="/portfolio" class="nav-folio-m">Portfolio</a>
     <a href="index.html#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
   </div>
 </nav>

@@ -125,6 +125,7 @@ nav {
 }
 .nav-cta span { position: relative; z-index: 1; }
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
+.nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
 
 /* ─── DOC HEADER ───────────────────────────────── */
@@ -684,6 +685,9 @@ footer {
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
+  .nav-folio-m { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 1rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
+  .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
+  .nav-folio-m:hover { color: var(--green-bright); }
   .doc-header { padding: 7rem 1.5rem 3rem; }
   .doc-body { padding: 3rem 1.5rem 5rem; }
   .doc-content { font-size: 0.98rem; }
@@ -723,6 +727,7 @@ footer {
       <li><a href="index.html#postup">Postup</a></li>
       <li><a href="index.html#kontakt">Kontakt</a></li>
     </ul>
+    <a href="/portfolio" class="nav-folio-m">Portfolio</a>
     <a href="index.html#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
   </div>
 </nav>

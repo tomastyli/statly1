@@ -1,0 +1,14 @@
+# Cloudflare Pages – cache hlavičky pro statické soubory
+# (HTML se NEcachuje dlouho, aby se změny projevily hned)
+
+/*.webp
+  Cache-Control: public, max-age=2592000
+
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.ico
+  Cache-Control: public, max-age=2592000

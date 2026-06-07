@@ -222,7 +222,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0.72); backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%); border-bottom: 1px solid var(--border); z-index: 9999; transition: padding 0.3s ease; animation: navIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
 @keyframes navIn { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
 .nav-inner { max-width: 1280px; margin: 0 auto; padding: 1.1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.nav-logo { display: inline-flex; align-items: center; gap: 0.6rem; text-decoration: none; }
 .nav-logo img { height: 34px; width: auto; }
+.logo-mark { height: 34px; width: 34px; flex-shrink: 0; display: block; }
+.logo-word { font-family: var(--sans); font-weight: 800; font-size: 1.4rem; letter-spacing: -0.045em; color: #fff; line-height: 1; }
+.footer-logo .logo-mark { height: 30px; width: 30px; }
+.footer-logo .logo-word { font-size: 1.25rem; }
 .nav-links { display: flex; gap: 2.4rem; list-style: none; }
 .nav-links a { font-size: 0.88rem; font-weight: 500; color: var(--text-dim); position: relative; transition: color 0.2s; }
 .nav-links a::after { content: ''; position: absolute; left: 0; bottom: -4px; width: 0; height: 1px; background: var(--green-bright); transition: width 0.3s ease; }
@@ -315,6 +320,18 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .tag { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.55rem; transition: all 0.25s; }
 .card:hover .tag { color: var(--green-bright); border-color: var(--border-2); background: rgba(34,196,126,0.06); }
 
+/* Obory / industries */
+.industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.industry { display: flex; flex-direction: column; gap: 0.45rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.4rem; position: relative; overflow: hidden; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, background 0.35s; }
+.industry::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--green-bright), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
+.industry:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--bg-card-2); }
+.industry:hover::before { transform: scaleX(1); }
+.industry-ico { font-size: 1.7rem; line-height: 1; }
+.industry-name { font-weight: 700; color: #fff; font-size: 0.98rem; letter-spacing: -0.01em; }
+.industry-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); line-height: 1.55; }
+@media (max-width: 900px) { .industry-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .industry-grid { grid-template-columns: 1fr; } }
+
 .feature-card { margin-top: 1.25rem; position: relative; background: linear-gradient(135deg, #0f1f18 0%, #0c1a14 100%); border: 1px solid var(--border-2); border-radius: 24px; padding: 2.6rem 2.6rem; overflow: hidden; display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: center; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
 .feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 0% 50%, rgba(34,196,126,0.10) 0%, transparent 60%), radial-gradient(ellipse 55% 90% at 100% 50%, rgba(255,184,0,0.08) 0%, transparent 60%); pointer-events: none; opacity: 0.85; transition: opacity 0.4s; }
 .feature-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,184,0,0.45), rgba(34,196,126,0.45), transparent); opacity: 0.7; }
@@ -368,7 +385,8 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .browser-dot:nth-child(1) { background: #ff5f57; }
 .browser-dot:nth-child(2) { background: #febc2e; }
 .browser-dot:nth-child(3) { background: #28c840; }
-.browser-url { margin-left: 10px; font-family: var(--mono); font-size: 0.64rem; color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04); border-radius: 5px; padding: 3px 10px; flex: 1; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.browser-url { margin-left: 10px; font-family: var(--mono); font-size: 0.64rem; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); border-radius: 100px; padding: 3px 12px 3px 9px; flex: 0 1 auto; max-width: 70%; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.browser-lock { width: 9px; height: 9px; flex-shrink: 0; color: rgba(255,255,255,0.4); }
 .folio-shot { flex: 1; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; background: #0a1410; }
 .folio-shot { background: linear-gradient(110deg, rgba(255,255,255,0.02) 8%, rgba(255,255,255,0.04) 18%, rgba(255,255,255,0.02) 33%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; }
 .folio-shot[src] { animation: none; background: #0a1410; }
@@ -378,6 +396,10 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .folio:hover .folio-overlay { opacity: 1; }
 .folio-visit { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--green-bright); color: var(--green-deep); font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 100px; transform: translateY(10px); transition: transform 0.4s; }
 .folio:hover .folio-visit { transform: translateY(0); }
+.folio-domain { position: absolute; left: 14px; bottom: 14px; z-index: 5; display: inline-flex; align-items: center; gap: 0.45rem; background: var(--green-bright); color: var(--green-deep); font-family: var(--mono); font-size: 0.76rem; font-weight: 700; letter-spacing: -0.01em; padding: 0.45rem 0.8rem; border-radius: 100px; box-shadow: 0 6px 22px rgba(34,196,126,0.35); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s; }
+.folio:hover .folio-domain { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(34,196,126,0.5); }
+.folio-domain svg { width: 13px; height: 13px; flex-shrink: 0; }
+.fd-arrow { font-weight: 700; opacity: 0.85; }
 
 .folio-info { padding: 1.5rem 1.75rem 1.75rem; }
 .folio-meta { display: flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.7rem; color: var(--text-dimmer); margin-bottom: 0.6rem; letter-spacing: 0.04em; }
@@ -526,6 +548,7 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 
 footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem 2rem 2rem; }
 .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
+.footer-logo { margin-bottom: 1.1rem; }
 .footer-logo img { height: 32px; margin-bottom: 1rem; }
 .footer-desc { color: var(--text-dimmer); font-size: 0.88rem; line-height: 1.7; max-width: 250px; }
 .footer-h { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; color: #fff; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.08em; }
@@ -641,10 +664,13 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
 <div class="noise"></div>
 
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><symbol id="statly-mark" viewBox="0 0 1024 1024"><rect width="1024" height="1024" rx="232" fill="#1B7F5F"/><g transform="translate(0,1024) scale(0.1,-0.1)" fill="#ffffff"><path d="M6390 8884 c-57 -22 -90 -44 -167 -112 -105 -91 -177 -154 -293 -252 -104 -88 -178 -152 -291 -250 -147 -128 -202 -176 -256 -221 -47 -40 -107 -92 -368 -319 -127 -110 -384 -331 -570 -490 -87 -74 -182 -155 -210 -180 -28 -25 -98 -83 -155 -130 -57 -47 -108 -89 -114 -95 -6 -5 -45 -39 -86 -75 -41 -36 -77 -67 -80 -70 -3 -3 -34 -30 -70 -60 -71 -61 -95 -85 -190 -186 -66 -70 -118 -133 -134 -163 -5 -9 -17 -25 -27 -36 -27 -31 -134 -243 -157 -310 -50 -152 -61 -301 -53 -710 6 -292 7 -301 29 -332 14 -20 38 -37 62 -44 66 -20 109 10 323 225 104 105 201 208 214 228 l25 37 -25 58 c-59 140 -63 267 -15 433 47 163 228 395 458 589 30 25 108 93 173 151 65 58 143 125 172 150 76 64 253 220 370 325 55 50 127 112 160 140 33 27 89 77 125 110 36 33 117 105 180 160 63 55 142 125 175 155 64 57 231 207 420 376 61 55 144 128 185 164 41 36 99 88 130 116 30 28 75 68 100 90 169 148 214 204 225 274 14 99 -26 191 -100 230 -39 22 -135 35 -165 24z M6260 6858 c-52 -30 -85 -56 -201 -164 -186 -172 -260 -236 -343 -299 -79 -58 -354 -287 -626 -520 -74 -64 -173 -148 -220 -187 -47 -40 -92 -79 -100 -88 -8 -8 -35 -33 -60 -54 -25 -22 -92 -83 -150 -136 -58 -54 -127 -117 -155 -140 -260 -223 -297 -284 -246 -395 34 -74 102 -115 188 -115 84 0 132 32 343 225 36 33 168 152 295 265 126 113 266 239 310 280 131 121 288 257 395 340 25 19 61 49 80 66 19 18 64 55 100 84 36 28 74 58 85 68 11 9 41 32 66 52 80 61 142 113 200 165 30 27 103 90 161 139 137 113 160 148 162 236 1 49 -4 76 -19 103 -11 20 -22 37 -25 37 -4 0 -15 8 -26 18 -51 46 -152 56 -214 20z M6705 5824 c-46 -7 -131 -53 -183 -98 -26 -23 -94 -78 -151 -121 -57 -44 -135 -106 -175 -138 -39 -32 -78 -64 -86 -70 -29 -23 -125 -102 -130 -107 -3 -3 -30 -25 -60 -50 -30 -24 -75 -62 -100 -85 -25 -22 -72 -62 -105 -90 -33 -27 -95 -81 -139 -120 -43 -38 -98 -86 -121 -105 -39 -33 -141 -122 -319 -280 -79 -70 -229 -205 -366 -329 -129 -118 -385 -347 -475 -426 -44 -39 -94 -84 -110 -100 -34 -33 -230 -207 -344 -305 -125 -107 -169 -157 -182 -203 -23 -86 7 -169 80 -222 40 -30 54 -35 104 -35 40 0 71 7 100 21 37 19 238 189 292 246 11 12 43 41 70 64 28 23 97 86 155 139 58 53 125 115 150 136 25 21 47 41 50 44 3 3 34 32 70 65 36 33 119 110 185 171 66 60 143 130 170 155 62 54 415 389 470 445 22 22 80 83 130 135 49 52 144 150 210 219 66 69 138 145 159 170 21 25 80 88 130 140 50 52 129 138 176 190 46 52 90 96 97 98 11 3 12 -10 7 -60 -6 -62 0 -105 32 -238 34 -138 30 -229 -17 -404 -44 -163 -145 -323 -309 -486 -59 -59 -246 -232 -320 -296 -25 -21 -56 -50 -70 -64 -14 -14 -72 -68 -130 -120 -57 -52 -138 -127 -180 -166 -41 -39 -95 -89 -120 -110 -25 -21 -70 -62 -100 -90 -30 -29 -83 -76 -117 -105 -34 -30 -124 -110 -200 -178 -76 -68 -176 -158 -223 -200 -224 -200 -250 -235 -250 -335 0 -30 5 -58 10 -61 6 -3 10 -13 10 -21 0 -22 69 -93 110 -112 24 -12 60 -17 115 -17 79 0 81 1 142 45 34 25 115 92 180 150 64 58 136 121 159 140 46 38 149 130 414 365 25 23 61 54 80 69 19 16 55 47 80 70 25 22 79 70 120 106 41 36 77 67 80 70 3 3 39 34 80 70 41 36 95 84 120 106 25 23 74 66 109 95 35 30 92 79 127 109 35 30 101 87 146 126 103 88 217 207 286 299 50 66 140 231 156 285 23 78 29 100 37 145 27 147 30 215 24 540 -6 358 -18 518 -42 573 -21 47 -70 100 -114 123 -39 20 -129 31 -184 23z M3961 2052 c-45 -38 -64 -94 -48 -147 20 -70 69 -105 146 -105 40 0 53 5 83 33 47 43 63 95 47 145 -7 20 -28 52 -47 70 -31 28 -42 32 -92 32 -46 0 -61 -5 -89 -28z M3459 1591 c-48 -40 -66 -95 -48 -146 26 -71 85 -104 162 -90 42 8 60 23 86 68 25 45 26 73 5 116 -41 82 -138 107 -205 52z"/></g></symbol></svg>
+
 <nav>
   <div class="nav-inner">
     <a href="#" class="nav-logo" aria-label="Statly">
-      <img src="logo.png" alt="Statly" width="1920" height="1080">
+      <svg class="logo-mark" aria-hidden="true"><use href="#statly-mark"/></svg>
+      <span class="logo-word">statly</span>
     </a>
     <ul class="nav-links">
       <li><a href="#sluzby">Služby</a></li>
@@ -758,6 +784,24 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
 </section>
 
+<section class="sec" id="obory">
+  <div class="wrap">
+    <span class="sec-label reveal">Pro koho tvořím</span>
+    <h2 class="sec-h reveal">Weby na míru<br><em>pro vaši branži.</em></h2>
+    <p class="sec-sub reveal">Nejčastěji pomáhám lokálním firmám, řemeslníkům a živnostníkům. Znám jejich zákazníky i to, jak z návštěvníka udělat poptávku. Nevidíte svůj obor? Princip dobrého webu platí všude, ozvěte se.</p>
+    <div class="industry-grid">
+      <div class="industry reveal d1"><span class="industry-ico">🔨</span><span class="industry-name">Řemesla &amp; stavebnictví</span><span class="industry-sub">Pokrývači, klempíři, tesaři, stavební firmy</span></div>
+      <div class="industry reveal d2"><span class="industry-ico">📦</span><span class="industry-name">Stěhování &amp; logistika</span><span class="industry-sub">Stěhovací služby, autodoprava, vyklízení</span></div>
+      <div class="industry reveal d3"><span class="industry-ico">🚗</span><span class="industry-name">Autoslužby</span><span class="industry-sub">Detailing, autoservis, pneuservis, myčky</span></div>
+      <div class="industry reveal d4"><span class="industry-ico">💼</span><span class="industry-name">Finance &amp; poradenství</span><span class="industry-sub">Finanční poradci, účetní, konzultanti</span></div>
+      <div class="industry reveal d1"><span class="industry-ico">💅</span><span class="industry-name">Krása &amp; péče o tělo</span><span class="industry-sub">Kosmetika, kadeřnictví, nehty, wellness</span></div>
+      <div class="industry reveal d2"><span class="industry-ico">🏡</span><span class="industry-name">Reality &amp; bydlení</span><span class="industry-sub">Makléři, developeři, správa nemovitostí</span></div>
+      <div class="industry reveal d3"><span class="industry-ico">🌳</span><span class="industry-name">Zahrady &amp; exteriéry</span><span class="industry-sub">Zahradnictví, údržba zeleně, bazény</span></div>
+      <div class="industry reveal d4"><span class="industry-ico">🛠️</span><span class="industry-name">Lokální služby</span><span class="industry-sub">Živnostníci, OSVČ a malé firmy všech oborů</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="sec-alt" id="portfolio">
   <div class="wrap">
     <span class="sec-label reveal">Portfolio</span>
@@ -765,13 +809,14 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <p class="sec-sub reveal">Pár ukázek webů, které jsem v poslední době dodal. Každý byl postaven na míru, od strategie po nasazení.</p>
 
     <div class="folio-grid">
-      <a href="https://strechmontmr1.statly.workers.dev/" class="folio reveal d1" target="_blank" rel="noopener">
+      <a href="https://strechmont-mr.cz/" class="folio reveal d1" target="_blank" rel="noopener">
         <div class="folio-img">
           <div class="folio-mock">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">strechmont-mr.cz</span></div>
+            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
             <img src="strechmont.webp" alt="Strechmont MR, pokrývač, klempíř, tesař ve Zlínském kraji" class="folio-shot" loading="lazy" width="1200" height="825">
           </div>
           <div class="folio-overlay"><span class="folio-visit">Otevřít web →</span></div>
+          <span class="folio-domain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>strechmont-mr.cz<span class="fd-arrow">↗</span></span>
         </div>
         <div class="folio-info">
           <div class="folio-meta"><span class="dot"></span><span>Strechmont MR · Hluk</span></div>
@@ -784,10 +829,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <a href="https://www.stehovanileo.cz/" class="folio reveal d2" target="_blank" rel="noopener">
         <div class="folio-img">
           <div class="folio-mock">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">stehovanileo.cz</span></div>
+            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
             <img src="stehovani-leo.webp" alt="Stěhování Leo, profesionální stěhování po celé ČR a EU" class="folio-shot" loading="lazy" width="1200" height="825">
           </div>
           <div class="folio-overlay"><span class="folio-visit">Otevřít web →</span></div>
+          <span class="folio-domain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>stehovanileo.cz<span class="fd-arrow">↗</span></span>
         </div>
         <div class="folio-info">
           <div class="folio-meta"><span class="dot"></span><span>Stěhování Leo</span></div>
@@ -800,10 +846,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <a href="https://expressdetailing.cz/" class="folio reveal d3" target="_blank" rel="noopener">
         <div class="folio-img">
           <div class="folio-mock">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-url">expressdetailing.cz</span></div>
+            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
             <img src="detailing.webp" alt="Express Detailing, Auto Detailing v Litomyšli" class="folio-shot" loading="lazy" width="1500" height="862">
           </div>
           <div class="folio-overlay"><span class="folio-visit">Otevřít web →</span></div>
+          <span class="folio-domain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>expressdetailing.cz<span class="fd-arrow">↗</span></span>
         </div>
         <div class="folio-info">
           <div class="folio-meta"><span class="dot"></span><span>Express Detailing · Litomyšl</span></div>
@@ -1086,7 +1133,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <footer>
   <div class="footer-grid">
     <div>
-      <a href="#" class="footer-logo"><img src="logo.png" alt="Statly" width="1920" height="1080"></a>
+      <a href="#" class="footer-logo nav-logo"><svg class="logo-mark" aria-hidden="true"><use href="#statly-mark"/></svg><span class="logo-word">statly</span></a>
       <p class="footer-desc">Statly · Tomáš Tylich.<br>Tvořím weby a marketing pro byznys ve východních Čechách.</p>
       <div class="footer-firmy">
         <a href="https://www.firmy.cz/detail/13989783-statly-tvorba-webovych-stranek-a-reels-litomysl.html#pridat-hodnoceni" target="_blank" rel="noopener">

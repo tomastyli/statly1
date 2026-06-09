@@ -776,5 +776,370 @@ setLoading(true);
 try{const res=await fetch('/api/mesto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let payload={};try{payload=await res.json();}catch(_){}if(!res.ok){throw new Error(payload.error||'Odeslání se nezdařilo. Zkuste to prosím znovu.');}setStatus('success','Díky! Zpráva dorazila. Ozvu se ti do 48 hodin, často ještě dnes.');form.reset();}catch(err){setStatus('error',err.message||'Něco se pokazilo. Zkus to prosím znovu, nebo mi napiš přímo na e-mail.');}finally{setLoading(false);}});})();
 </script>
 
+<!-- ===== STATLY · Interaktivní průvodce poptávkou (slg) ===== -->
+<style>
+.slg-fab{position:fixed;right:1.25rem;bottom:1.25rem;z-index:9990;display:inline-flex;align-items:center;gap:.6rem;
+  padding:.85rem 1.25rem .85rem 1rem;border:none;cursor:pointer;border-radius:100px;font-family:'Inter Tight',-apple-system,sans-serif;
+  font-size:.92rem;font-weight:700;letter-spacing:-.01em;color:#06140e;background:linear-gradient(135deg,#FFB800,#ffd166);
+  box-shadow:0 12px 34px rgba(255,184,0,.32),0 2px 8px rgba(0,0,0,.25);transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s;
+  animation:slgFabIn .6s cubic-bezier(.22,1,.36,1) both;animation-delay:1.4s}
+.slg-fab:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 18px 44px rgba(255,184,0,.42)}
+.slg-fab:active{transform:translateY(-1px) scale(.99)}
+.slg-fab-ico{position:relative;width:24px;height:24px;display:grid;place-items:center;flex-shrink:0}
+.slg-fab-ico svg{width:20px;height:20px}
+.slg-fab-dot{position:absolute;top:-3px;right:-3px;width:9px;height:9px;border-radius:50%;background:#22c47e;box-shadow:0 0 0 0 rgba(34,196,126,.7);animation:slgPulse 2.2s ease-out infinite}
+@keyframes slgPulse{0%{box-shadow:0 0 0 0 rgba(34,196,126,.6)}70%{box-shadow:0 0 0 9px rgba(34,196,126,0)}100%{box-shadow:0 0 0 0 rgba(34,196,126,0)}}
+@keyframes slgFabIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+.slg-overlay{position:fixed;inset:0;z-index:100001;display:none;align-items:center;justify-content:center;padding:1.25rem;
+  background:rgba(5,12,9,.62);backdrop-filter:blur(10px) saturate(140%);-webkit-backdrop-filter:blur(10px) saturate(140%);
+  opacity:0;transition:opacity .3s ease}
+.slg-overlay.slg-open{display:flex}
+.slg-overlay.slg-in{opacity:1}
+
+.slg-modal{position:relative;width:100%;max-width:560px;max-height:calc(100vh - 2.5rem);display:flex;flex-direction:column;
+  background:linear-gradient(170deg,#111e18 0%,#0c1813 100%);border:1px solid rgba(34,196,126,.18);border-radius:24px;overflow:hidden;
+  box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.03);font-family:'Inter Tight',-apple-system,sans-serif;
+  color:#e8efe9;transform:translateY(24px) scale(.97);opacity:0;transition:transform .42s cubic-bezier(.22,1,.36,1),opacity .42s}
+.slg-overlay.slg-in .slg-modal{transform:translateY(0) scale(1);opacity:1}
+.slg-modal::before{content:'';position:absolute;top:0;left:0;right:0;height:160px;pointer-events:none;
+  background:radial-gradient(ellipse 80% 100% at 50% 0%,rgba(34,196,126,.12),transparent 70%)}
+
+.slg-head{position:relative;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.3rem 1.4rem .9rem}
+.slg-brand{display:inline-flex;align-items:center;gap:.55rem;font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:#8aa39a}
+.slg-brand b{color:#22c47e;font-weight:700}
+.slg-close{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.02);
+  color:#8aa39a;font-size:1.1rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:all .2s}
+.slg-close:hover{background:rgba(255,255,255,.06);color:#fff;border-color:rgba(255,255,255,.18)}
+
+.slg-prog{position:relative;height:4px;margin:0 1.4rem;border-radius:100px;background:rgba(255,255,255,.06);overflow:hidden}
+.slg-prog-fill{position:absolute;inset:0 auto 0 0;width:0;border-radius:100px;background:linear-gradient(90deg,#22c47e,#FFB800);transition:width .45s cubic-bezier(.22,1,.36,1)}
+.slg-step-n{padding:.55rem 1.4rem 0;font-size:.74rem;font-weight:600;color:#5a7a6a;letter-spacing:.02em}
+
+.slg-body{padding:.4rem 1.4rem 1.4rem;overflow-y:auto;-webkit-overflow-scrolling:touch}
+.slg-q{font-size:1.34rem;font-weight:700;letter-spacing:-.025em;line-height:1.2;margin:.5rem 0 .35rem;color:#fff}
+.slg-q em{font-style:italic;font-weight:500;background:linear-gradient(135deg,#FFB800,#ffd166);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.slg-sub{font-size:.92rem;line-height:1.5;color:#8aa39a;margin:0 0 1.15rem}
+
+.slg-opts{display:grid;gap:.6rem}
+.slg-opts.slg-2{grid-template-columns:1fr 1fr}
+.slg-opt{display:flex;align-items:center;gap:.85rem;text-align:left;width:100%;cursor:pointer;
+  padding:.95rem 1rem;border-radius:14px;border:1px solid rgba(255,255,255,.07);background:#0d1a14;color:#e8efe9;
+  font-family:inherit;transition:transform .2s,border-color .2s,background .2s}
+.slg-opt:hover{transform:translateY(-2px);border-color:rgba(34,196,126,.4);background:#142420}
+.slg-opt.slg-sel{border-color:#22c47e;background:#142420;box-shadow:0 0 0 3px rgba(34,196,126,.12)}
+.slg-opt-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:1.25rem;
+  background:linear-gradient(135deg,rgba(34,196,126,.14),rgba(255,184,0,.1));border:1px solid rgba(255,255,255,.05)}
+.slg-opt-tx{display:flex;flex-direction:column;gap:.1rem;min-width:0}
+.slg-opt-t{font-size:.96rem;font-weight:600;letter-spacing:-.01em}
+.slg-opt-d{font-size:.8rem;color:#8aa39a;line-height:1.3}
+.slg-opt-chk{margin-left:auto;flex-shrink:0;width:20px;height:20px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);
+  display:grid;place-items:center;color:#06140e;font-size:.7rem;font-weight:900;transition:all .2s}
+.slg-opt.slg-sel .slg-opt-chk{background:#22c47e;border-color:#22c47e}
+
+.slg-fields{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.slg-field{display:flex;flex-direction:column;gap:.35rem}
+.slg-field.slg-full{grid-column:1/-1}
+.slg-label{font-size:.78rem;font-weight:600;color:#b9ccc3}
+.slg-label span{color:#22c47e}
+.slg-in{width:100%;background:#0d1a14;border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:.78rem .9rem;
+  color:#fff;font-family:inherit;font-size:.94rem;transition:all .2s}
+.slg-in::placeholder{color:#5a7a6a}
+.slg-in:focus{outline:none;border-color:#22c47e;background:#142420;box-shadow:0 0 0 4px rgba(34,196,126,.1)}
+textarea.slg-in{resize:vertical;min-height:74px}
+.slg-consent{grid-column:1/-1;display:flex;align-items:flex-start;gap:.6rem;font-size:.8rem;line-height:1.45;color:#8aa39a;cursor:pointer}
+.slg-consent a{color:#22c47e;text-decoration:none}
+.slg-consent input{appearance:none;-webkit-appearance:none;flex-shrink:0;width:20px;height:20px;margin-top:.05rem;
+  background:#0d1a14;border:1px solid rgba(255,255,255,.14);border-radius:6px;cursor:pointer;position:relative;transition:all .2s}
+.slg-consent input:checked{background:#22c47e;border-color:#22c47e}
+.slg-consent input:checked::after{content:'✓';position:absolute;inset:0;display:grid;place-items:center;color:#06140e;font-size:.72rem;font-weight:900}
+
+.slg-summary{margin:.2rem 0 1.1rem;padding:.85rem 1rem;border-radius:13px;background:rgba(34,196,126,.05);border:1px solid rgba(34,196,126,.14);
+  display:flex;flex-wrap:wrap;gap:.45rem}
+.slg-chip{display:inline-flex;align-items:center;gap:.35rem;font-size:.76rem;font-weight:500;color:#cfe3d9;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:100px;padding:.3rem .7rem}
+.slg-chip b{color:#22c47e;font-weight:700}
+
+.slg-foot{display:flex;align-items:center;gap:.7rem;padding:1rem 1.4rem;border-top:1px solid rgba(255,255,255,.05);background:rgba(0,0,0,.15)}
+.slg-back{display:inline-flex;align-items:center;gap:.4rem;background:none;border:none;cursor:pointer;color:#8aa39a;font-family:inherit;
+  font-size:.9rem;font-weight:600;padding:.6rem .4rem;transition:color .2s}
+.slg-back:hover{color:#fff}
+.slg-back[hidden]{display:none}
+.slg-next{margin-left:auto;display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;border:none;font-family:inherit;
+  font-size:.94rem;font-weight:700;letter-spacing:-.01em;color:#06140e;background:linear-gradient(135deg,#FFB800,#ffd166);
+  padding:.8rem 1.5rem;border-radius:100px;transition:transform .2s,box-shadow .2s,opacity .2s}
+.slg-next:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(255,184,0,.32)}
+.slg-next:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.slg-next .slg-spin{width:15px;height:15px;border:2px solid rgba(6,20,14,.35);border-top-color:#06140e;border-radius:50%;animation:slgSpin .7s linear infinite;display:none}
+.slg-next.slg-loading .slg-spin{display:inline-block}
+.slg-next.slg-loading .slg-next-l{opacity:.7}
+@keyframes slgSpin{to{transform:rotate(360deg)}}
+
+.slg-err{grid-column:1/-1;margin-top:.2rem;font-size:.82rem;color:#ff9b8a;display:none}
+.slg-err.slg-show{display:block}
+
+.slg-done{text-align:center;padding:1.6rem .6rem 1rem}
+.slg-done-ico{width:72px;height:72px;border-radius:50%;margin:0 auto 1.1rem;display:grid;place-items:center;font-size:2rem;
+  background:linear-gradient(135deg,rgba(34,196,126,.2),rgba(255,184,0,.14));border:1px solid rgba(34,196,126,.3);
+  animation:slgPop .5s cubic-bezier(.22,1.4,.36,1) both}
+@keyframes slgPop{from{transform:scale(.5);opacity:0}to{transform:scale(1);opacity:1}}
+.slg-done-h{font-size:1.4rem;font-weight:700;letter-spacing:-.02em;color:#fff;margin:0 0 .5rem}
+.slg-done-p{font-size:.95rem;line-height:1.55;color:#8aa39a;max-width:380px;margin:0 auto 1.4rem}
+
+.slg-step{animation:slgStepIn .35s cubic-bezier(.22,1,.36,1) both}
+@keyframes slgStepIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
+
+@media (max-width:560px){
+  .slg-fab-label{display:none}
+  .slg-fab{padding:.9rem;right:1rem;bottom:1rem}
+  .slg-overlay{padding:0;align-items:flex-end}
+  .slg-modal{max-width:100%;max-height:94vh;border-radius:22px 22px 0 0;border-bottom:none}
+  .slg-opts.slg-2{grid-template-columns:1fr}
+  .slg-fields{grid-template-columns:1fr}
+  .slg-q{font-size:1.18rem}
+}
+@media (prefers-reduced-motion:reduce){
+  .slg-fab,.slg-fab-dot,.slg-modal,.slg-step,.slg-done-ico,.slg-overlay{animation:none!important;transition:opacity .2s!important}
+}
+</style>
+
+<button class="slg-fab" type="button" aria-haspopup="dialog" aria-label="Spustit průvodce nezávaznou poptávkou" data-slg-open>
+  <span class="slg-fab-ico"><span class="slg-fab-dot"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M3 11l18-8-8 18-2-7-8-3z"/></svg>
+  </span>
+  <span class="slg-fab-label">Nezávazná poptávka</span>
+</button>
+
+<div class="slg-overlay" id="slgOverlay" role="dialog" aria-modal="true" aria-label="Průvodce poptávkou">
+  <div class="slg-modal" role="document">
+    <div class="slg-head">
+      <span class="slg-brand"><b>Statly</b> · Průvodce poptávkou</span>
+      <button class="slg-close" type="button" aria-label="Zavřít" data-slg-close>✕</button>
+    </div>
+    <div class="slg-prog"><div class="slg-prog-fill" id="slgProg"></div></div>
+    <div class="slg-step-n" id="slgStepN"></div>
+    <div class="slg-body" id="slgBody"></div>
+    <div class="slg-foot" id="slgFoot">
+      <button class="slg-back" type="button" data-slg-back hidden>← Zpět</button>
+      <button class="slg-next" type="button" data-slg-next>
+        <span class="slg-spin"></span><span class="slg-next-l">Pokračovat →</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  if(window.__statlyGuide) return; window.__statlyGuide=true;
+
+  var STEPS=[
+    {key:'service',q:'S čím vám můžu <em>pomoct</em>?',sub:'Vyberte, co vás teď nejvíc zajímá. Detaily doladíme společně.',
+     opts:[
+       {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
+       {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
+       {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
+       {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
+       {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
+       {v:'Nevím, poradíte mi',ico:'💬',d:'Probereme to spolu'}
+     ]},
+    {key:'goal',q:'Čeho chcete <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
+     opts:[
+       {v:'Víc poptávek a zákazníků',ico:'📈'},
+       {v:'Působit profesionálně',ico:'💼'},
+       {v:'Rozjíždím nový byznys',ico:'🚀'},
+       {v:'Modernizovat zastaralé',ico:'🔧'},
+       {v:'Zatím jen zjišťuji',ico:'🔍'}
+     ]},
+    {key:'timeline',q:'Kdy byste chtěli <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
+     opts:[
+       {v:'Co nejdřív',ico:'⚡'},
+       {v:'Do měsíce',ico:'📅'},
+       {v:'Do tří měsíců',ico:'🗓️'},
+       {v:'Zatím nespěchám',ico:'🍃'}
+     ]},
+    {key:'budget',q:'Orientační <em>rozpočet</em>?',sub:'Pomůže mi navrhnout řešení, které dává smysl. Nezávazné.',
+     opts:[
+       {v:'do 15 000 Kč',ico:'🌱'},
+       {v:'15–30 000 Kč',ico:'🌿'},
+       {v:'30–60 000 Kč',ico:'🌳'},
+       {v:'60 000 Kč a víc',ico:'🏆'},
+       {v:'Nechám na doporučení',ico:'🤝'}
+     ]},
+    {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
+  ];
+
+  var state={i:0,answers:{},done:false};
+  var overlay=document.getElementById('slgOverlay');
+  var body=document.getElementById('slgBody');
+  var prog=document.getElementById('slgProg');
+  var stepN=document.getElementById('slgStepN');
+  var foot=document.getElementById('slgFoot');
+  var backBtn=foot.querySelector('[data-slg-back]');
+  var nextBtn=foot.querySelector('[data-slg-next]');
+  var nextLbl=nextBtn.querySelector('.slg-next-l');
+  var lastFocus=null;
+
+  function esc(s){return String(s||'').replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c];});}
+  function validEmail(v){return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);}
+
+  function open(){
+    lastFocus=document.activeElement;
+    state.i=0;state.done=false;
+    overlay.classList.add('slg-open');
+    document.body.style.overflow='hidden';
+    requestAnimationFrame(function(){overlay.classList.add('slg-in');});
+    render();
+  }
+  function close(){
+    overlay.classList.remove('slg-in');
+    document.body.style.overflow='';
+    setTimeout(function(){overlay.classList.remove('slg-open');},300);
+    if(lastFocus&&lastFocus.focus)lastFocus.focus();
+  }
+
+  function render(){
+    var s=STEPS[state.i];
+    var total=STEPS.length;
+    prog.style.width=Math.round(((state.i)/total)*100+ (100/total)*0.15)+'%';
+    stepN.textContent='Krok '+(state.i+1)+' z '+total;
+    backBtn.hidden = state.i===0;
+    foot.style.display='flex';
+
+    if(s.form){ renderForm(s); return; }
+
+    nextLbl.textContent = state.i===total-1 ? 'Pokračovat →':'Pokračovat →';
+    var sel=state.answers[s.key];
+    var two = s.opts.length>4 ? ' slg-2':'';
+    var html='<div class="slg-step"><h3 class="slg-q">'+s.q+'</h3><p class="slg-sub">'+s.sub+'</p>'
+      +'<div class="slg-opts'+two+'">';
+    s.opts.forEach(function(o){
+      var on = sel===o.v ? ' slg-sel':'';
+      html+='<button type="button" class="slg-opt'+on+'" data-v="'+esc(o.v)+'">'
+        +'<span class="slg-opt-ico">'+o.ico+'</span>'
+        +'<span class="slg-opt-tx"><span class="slg-opt-t">'+esc(o.v)+'</span>'
+        +(o.d?'<span class="slg-opt-d">'+esc(o.d)+'</span>':'')+'</span>'
+        +'<span class="slg-opt-chk">✓</span></button>';
+    });
+    html+='</div></div>';
+    body.innerHTML=html;
+    body.scrollTop=0;
+    nextBtn.disabled = !sel;
+    body.querySelectorAll('.slg-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        state.answers[s.key]=btn.getAttribute('data-v');
+        body.querySelectorAll('.slg-opt').forEach(function(b){b.classList.remove('slg-sel');});
+        btn.classList.add('slg-sel');
+        nextBtn.disabled=false;
+        setTimeout(next,230);
+      });
+    });
+  }
+
+  function renderForm(s){
+    nextLbl.textContent='Odeslat poptávku →';
+    var a=state.answers;
+    var chips='';
+    [['service','Služba'],['goal','Cíl'],['timeline','Termín'],['budget','Rozpočet']].forEach(function(p){
+      if(a[p[0]])chips+='<span class="slg-chip"><b>'+p[1]+':</b> '+esc(a[p[0]])+'</span>';
+    });
+    body.innerHTML='<div class="slg-step"><h3 class="slg-q">'+s.q+'</h3><p class="slg-sub">'+s.sub+'</p>'
+      +(chips?'<div class="slg-summary">'+chips+'</div>':'')
+      +'<div class="slg-fields">'
+      +'<div class="slg-field"><label class="slg-label" for="slgName">Jméno a příjmení <span>*</span></label>'
+      +'<input class="slg-in" id="slgName" type="text" autocomplete="name" placeholder="Jan Novák" maxlength="120" value="'+esc(a.name||'')+'"></div>'
+      +'<div class="slg-field"><label class="slg-label" for="slgCompany">Firma / značka</label>'
+      +'<input class="slg-in" id="slgCompany" type="text" autocomplete="organization" placeholder="Volitelné" maxlength="160" value="'+esc(a.company||'')+'"></div>'
+      +'<div class="slg-field"><label class="slg-label" for="slgEmail">E‑mail <span>*</span></label>'
+      +'<input class="slg-in" id="slgEmail" type="email" autocomplete="email" placeholder="vase@adresa.cz" maxlength="160" value="'+esc(a.email||'')+'"></div>'
+      +'<div class="slg-field"><label class="slg-label" for="slgPhone">Telefon</label>'
+      +'<input class="slg-in" id="slgPhone" type="tel" autocomplete="tel" placeholder="+420 ..." maxlength="40" value="'+esc(a.phone||'')+'"></div>'
+      +'<div class="slg-field slg-full"><label class="slg-label" for="slgIndustry">Obor podnikání <span>*</span></label>'
+      +'<input class="slg-in" id="slgIndustry" type="text" placeholder="např. stavebnictví, kosmetika, e‑shop..." maxlength="160" value="'+esc(a.industry||'')+'"></div>'
+      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chcete něco doplnit?</label>'
+      +'<textarea class="slg-in" id="slgMsg" maxlength="3000" placeholder="Odkaz na stávající web, konkrétní představa, dotaz...">'+esc(a.message||'')+'</textarea></div>'
+      +'<label class="slg-consent"><input type="checkbox" id="slgGdpr"'+(a.gdpr?' checked':'')+'>'
+      +'<span>Souhlasím se zpracováním osobních údajů za účelem vyřízení této poptávky. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách</a>.</span></label>'
+      +'<input type="text" id="slgHp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">'
+      +'<div class="slg-err" id="slgErr"></div>'
+      +'</div></div>';
+    body.scrollTop=0;
+    nextBtn.disabled=false;
+    var nm=document.getElementById('slgName'); if(nm) setTimeout(function(){nm.focus();},60);
+  }
+
+  function next(){
+    if(state.done) return;
+    var s=STEPS[state.i];
+    if(!s.form){
+      if(!state.answers[s.key]) return;
+      state.i++; render(); return;
+    }
+    submit();
+  }
+  function back(){ if(state.i>0){state.i--; render();} }
+
+  function showErr(m){var e=document.getElementById('slgErr'); if(e){e.textContent=m;e.classList.add('slg-show');}}
+
+  function submit(){
+    var a=state.answers;
+    a.name=(document.getElementById('slgName').value||'').trim();
+    a.company=(document.getElementById('slgCompany').value||'').trim();
+    a.email=(document.getElementById('slgEmail').value||'').trim();
+    a.phone=(document.getElementById('slgPhone').value||'').trim();
+    a.industry=(document.getElementById('slgIndustry').value||'').trim();
+    a.message=(document.getElementById('slgMsg').value||'').trim();
+    a.gdpr=document.getElementById('slgGdpr').checked;
+    var hp=document.getElementById('slgHp').value;
+
+    if(a.name.length<2){showErr('Vyplňte prosím své jméno.');document.getElementById('slgName').focus();return;}
+    if(!validEmail(a.email)){showErr('Zadejte platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
+    if(!a.industry){showErr('Vyplňte prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
+    if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
+
+    var msg='— Poptávka přes interaktivního průvodce —\n'
+      +'• Služba: '+(a.service||'—')+'\n'
+      +'• Cíl: '+(a.goal||'—')+'\n'
+      +'• Termín: '+(a.timeline||'—')+'\n'
+      +'• Rozpočet: '+(a.budget||'—')+'\n';
+    if(a.message) msg+='\nPoznámka klienta:\n'+a.message+'\n';
+
+    nextBtn.classList.add('slg-loading');nextBtn.disabled=true;
+    fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({name:a.name,company:a.company,email:a.email,phone:a.phone,
+        industry:a.industry,service:a.service||'Přes průvodce',message:msg,website:hp,gdpr:a.gdpr})})
+    .then(function(res){return res.json().catch(function(){return{};}).then(function(p){
+      if(!res.ok)throw new Error(p.error||'Odeslání se nezdařilo.');return p;});})
+    .then(function(){ state.done=true; success(); })
+    .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false;
+      showErr(err.message||'Něco se pokazilo. Zkuste to znovu, nebo napište na e‑mail.'); });
+  }
+
+  function success(){
+    prog.style.width='100%';
+    stepN.textContent='Hotovo';
+    foot.style.display='none';
+    var nm=esc((state.answers.name||'').split(' ')[0]);
+    body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
+      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
+      +'<p class="slg-done-p">Vaše poptávka dorazila. Ozvu se vám <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
+      +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
+    body.querySelector('[data-slg-close]').addEventListener('click',close);
+  }
+
+  // events
+  document.addEventListener('click',function(e){
+    var o=e.target.closest('[data-slg-open]');
+    if(o){e.preventDefault();open();return;}
+    var c=e.target.closest('[data-slg-close]');
+    if(c){e.preventDefault();close();return;}
+  });
+  nextBtn.addEventListener('click',next);
+  backBtn.addEventListener('click',back);
+  overlay.addEventListener('click',function(e){ if(e.target===overlay) close(); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&overlay.classList.contains('slg-open')) close(); });
+})();
+</script>
+<!-- ===== /STATLY · Průvodce poptávkou ===== -->
 </body>
 </html>

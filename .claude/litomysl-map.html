@@ -1,0 +1,168 @@
+<!-- ===== STATLY · Mapa klientů Litomyšl (slm) ===== -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<section class="sec slm-section" id="moje-weby">
+  <div class="wrap">
+    <span class="sec-label reveal">Naživo v Litomyšli</span>
+    <h2 class="sec-h reveal">Kde už <em>běží moje weby.</em></h2>
+    <p class="sec-sub reveal">Tohle nejsou ukázky z šuplíku. Klikni na špendlík — otevře se web, který právě teď vydělává reálné litomyšlské firmě. Všichni odsud, pár minut od sebe.</p>
+
+    <div class="slm reveal d2">
+      <div class="slm-map">
+        <div class="slm-badge"><svg class="slm-mark" aria-hidden="true"><use href="#statly-mark"/></svg><span>statly · <b>Litomyšl</b></span></div>
+        <div id="slmLeaflet" class="slm-leaflet"></div>
+      </div>
+
+      <div class="slm-legend">
+        <p class="slm-legend-h">Weby, které pro Litomyšl běží:</p>
+        <div class="slm-legend-grid">
+          <a class="slm-leg" data-chip="light" href="https://kosmetika-klejchova.cz" target="_blank" rel="noopener"><span class="slm-leg-ic"><img src="logos/clients/jindra.png" alt=""></span><span><b>Jindra Klejchová</b><small>Kosmetika</small></span></a>
+          <a class="slm-leg" data-chip="dark" href="https://expressdetailing.cz" target="_blank" rel="noopener"><span class="slm-leg-ic"><img src="logos/clients/expressdetailing.png" alt=""></span><span><b>Express Detailing</b><small>Autodetailing</small></span></a>
+          <a class="slm-leg" data-chip="light" href="https://aurafloor.cz" target="_blank" rel="noopener"><span class="slm-leg-ic"><img src="logos/clients/aurafloor.png" alt=""></span><span><b>AuraFloor</b><small>LED 3D panely &amp; technika</small></span></a>
+          <a class="slm-leg" data-chip="light" href="https://flexihouse.cz" target="_blank" rel="noopener"><span class="slm-leg-ic"><img src="logos/clients/flexihouse.png" alt=""></span><span><b>Flexi House</b><small>Modulární domy</small></span></a>
+          <a class="slm-leg" data-chip="light" href="https://lifefinance.cz" target="_blank" rel="noopener"><span class="slm-leg-ic"><img src="logos/clients/lifefinance.webp" alt=""></span><span><b>LifeFinance</b><small>Finance</small></span></a>
+          <a class="slm-leg" data-chip="dark" href="https://stehovanileo.cz" target="_blank" rel="noopener"><span class="slm-leg-ic"><img src="logos/clients/stehovanileo.webp" alt=""></span><span><b>Stěhování Leo</b><small>Stěhování</small></span></a>
+        </div>
+        <a href="#kontakt" class="slm-cta">Chci svůj web na téhle mapě <span>→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.slm-section{position:relative;overflow:hidden}
+.slm{margin-top:2.6rem;position:relative;z-index:1}
+.slm-map{position:relative;border-radius:24px;overflow:hidden;border:1px solid rgba(255,255,255,.08);
+  box-shadow:0 30px 70px rgba(0,0,0,.35);background:#0b1610}
+.slm-leaflet{width:100%;aspect-ratio:16/9;min-height:360px;background:#0b1610}
+@media (max-width:600px){.slm-leaflet{aspect-ratio:4/5;min-height:440px}}
+
+/* leaflet base tweaks */
+.slm-leaflet.leaflet-container{font-family:'Inter Tight',sans-serif;background:#0b1610}
+.slm-leaflet .leaflet-control-attribution{background:rgba(9,16,12,.7);color:#5a7a6a;font-size:10px;border-radius:8px 0 0 0}
+.slm-leaflet .leaflet-control-attribution a{color:#8aa39a}
+.slm-leaflet .leaflet-tile{filter:saturate(1.05)}
+
+.slm-badge{position:absolute;top:14px;left:14px;z-index:500;display:inline-flex;align-items:center;gap:.5rem;
+  padding:.4rem .7rem .4rem .45rem;border-radius:100px;background:rgba(9,16,12,.78);border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:'Inter Tight',sans-serif;font-size:.74rem;color:#8aa39a;letter-spacing:.01em;pointer-events:none}
+.slm-badge b{color:#fff;font-weight:700}
+.slm-mark{width:20px;height:20px;border-radius:5px;display:block}
+
+/* markers (divIcon) */
+.slm-mk{position:relative;display:block;width:46px;height:46px;cursor:pointer}
+.slm-mk .d{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:46px;height:46px;border-radius:50%;display:grid;place-items:center;overflow:hidden;
+  background:#fff;border:2.5px solid #fff;box-shadow:0 5px 16px rgba(0,0,0,.5),0 0 0 4px rgba(34,196,126,.18);
+  transition:transform .2s cubic-bezier(.22,1,.36,1),box-shadow .2s}
+.slm-mk[data-chip="dark"] .d{background:#0c1410;border-color:#2b463a}
+.slm-mk[data-chip="home"] .d{background:#0c1410;border-color:#FFB800;box-shadow:0 6px 20px rgba(0,0,0,.55),0 0 0 5px rgba(255,184,0,.3)}
+.slm-mk .d img,.slm-mk .d svg{width:74%;height:74%;object-fit:contain;display:block}
+.slm-mk:hover .d{transform:translate(-50%,-50%) scale(1.12);box-shadow:0 10px 26px rgba(0,0,0,.6),0 0 0 5px rgba(34,196,126,.3)}
+.slm-mk .nm{position:absolute;top:52px;left:50%;transform:translateX(-50%);white-space:nowrap;
+  font-size:.72rem;font-weight:600;color:#eaf2ec;background:rgba(8,15,11,.88);border:1px solid rgba(255,255,255,.12);
+  padding:.13rem .5rem;border-radius:7px;box-shadow:0 3px 12px rgba(0,0,0,.5);backdrop-filter:blur(4px)}
+.slm-mk.lbl-up .nm{top:auto;bottom:52px}
+.slm-mk[data-chip="home"] .nm{color:#FFB800;border-color:rgba(255,184,0,.5);background:rgba(24,16,0,.9);font-weight:700}
+.slm-mk .ring{position:absolute;left:50%;top:50%;width:46px;height:46px;transform:translate(-50%,-50%);border-radius:50%;
+  border:2px solid rgba(34,196,126,.55);animation:slmPing 2.8s cubic-bezier(0,0,.2,1) infinite;pointer-events:none}
+.slm-mk[data-chip="dark"] .ring,.slm-mk[data-chip="home"] .ring{border-color:rgba(255,184,0,.6)}
+@keyframes slmPing{0%{opacity:.6;transform:translate(-50%,-50%) scale(.85)}70%,100%{opacity:0;transform:translate(-50%,-50%) scale(1.55)}}
+
+/* hover tooltip */
+.leaflet-tooltip.slm-ltip{background:rgba(10,18,14,.98);border:1px solid rgba(34,196,126,.28);color:#e8efe9;
+  border-radius:12px;padding:.6rem .8rem;box-shadow:0 16px 44px rgba(0,0,0,.6);font-family:'Inter Tight',sans-serif;white-space:nowrap}
+.leaflet-tooltip.slm-ltip b{color:#fff;font-size:.92rem;font-weight:700;display:block}
+.leaflet-tooltip.slm-ltip .ob{color:#8aa39a;font-size:.77rem;display:block;margin-top:1px}
+.leaflet-tooltip.slm-ltip .visit{color:#FFB800;font-size:.76rem;font-weight:700;display:block;margin-top:5px}
+.leaflet-tooltip.slm-ltip.leaflet-tooltip-top::before{border-top-color:rgba(10,18,14,.98)}
+.leaflet-tooltip.slm-ltip.leaflet-tooltip-bottom::before{border-bottom-color:rgba(10,18,14,.98)}
+
+/* legend */
+.slm-legend{margin-top:1.5rem}
+.slm-legend-h{font-family:'Inter Tight',sans-serif;font-size:.95rem;font-weight:700;color:#fff;letter-spacing:-.01em;margin:0 0 1rem}
+.slm-legend-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.slm-leg{display:flex;align-items:center;gap:.75rem;padding:.6rem .7rem;border-radius:12px;text-decoration:none;
+  background:#111e18;border:1px solid rgba(255,255,255,.06);transition:background .2s,border-color .2s,transform .2s}
+.slm-leg:hover{background:#142420;border-color:rgba(34,196,126,.28);transform:translateY(-2px)}
+.slm-leg-ic{flex-shrink:0;display:grid;place-items:center;width:42px;height:42px;border-radius:10px;background:#fff;padding:6px}
+.slm-leg[data-chip="dark"] .slm-leg-ic{background:#0c1410;border:1px solid #2b463a}
+.slm-leg-ic img{max-width:100%;max-height:100%;object-fit:contain}
+.slm-leg b{display:block;font-family:'Inter Tight',sans-serif;font-size:.9rem;font-weight:600;color:#e8efe9;letter-spacing:-.01em}
+.slm-leg small{font-size:.76rem;color:#8aa39a}
+.slm-cta{margin-top:1.3rem;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;text-decoration:none;
+  font-family:'Inter Tight',sans-serif;font-size:.92rem;font-weight:700;color:#06140e;
+  background:linear-gradient(135deg,#22c47e,#4dd9a2);padding:.9rem 1.5rem;border-radius:12px;transition:transform .2s,box-shadow .2s}
+.slm-cta span{transition:transform .2s}
+.slm-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,196,126,.3)}
+.slm-cta:hover span{transform:translateX(4px)}
+
+@media (max-width:600px){.slm-mk .nm{display:none}.slm-mk .d,.slm-mk .ring{width:38px;height:38px}}
+@media (max-width:760px){.slm-legend-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:460px){.slm-legend-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.slm-mk .ring{animation:none}.slm-mk .d,.slm-leg,.slm-cta,.slm-cta span{transition:none}}
+</style>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<script>
+(function(){
+  if (window.__slmLeafletInit) return; window.__slmLeafletInit = true;
+
+  var BIZ = [
+    {n:'Jindra Klejchová', o:'Kosmetický salon · Smetanovo nám.', u:'https://kosmetika-klejchova.cz', l:'logos/clients/jindra.png',          c:'light', lat:49.8702975, lng:16.3106038},
+    {n:'Express Detailing',o:'Autodetailing · Smetanovo nám.',    u:'https://expressdetailing.cz',     l:'logos/clients/expressdetailing.png', c:'dark',  lat:49.8701200, lng:16.3116000, up:true},
+    {n:'AuraFloor',        o:'LED 3D panely & technika · pronájem',u:'https://aurafloor.cz',           l:'logos/clients/aurafloor.png',        c:'light', lat:49.8756123, lng:16.2980807},
+    {n:'Flexi House',      o:'Modulární domy · Jana Želivského',   u:'https://flexihouse.cz',           l:'logos/clients/flexihouse.png',       c:'light', lat:49.8753500, lng:16.2990500, up:true},
+    {n:'LifeFinance',      o:'Finanční poradenství · Zelená alej', u:'https://lifefinance.cz',          l:'logos/clients/lifefinance.webp',     c:'light', lat:49.8679631, lng:16.3050328},
+    {n:'Stěhování Leo',    o:'Stěhovací služby · Nedošín',         u:'https://stehovanileo.cz',         l:'logos/clients/stehovanileo.webp',    c:'dark',  lat:49.8809876, lng:16.2782138},
+    {n:'Statly · to jsem já', o:'Tomáš Tylich · tvorba webů & marketing', u:'#kontakt', home:true,      c:'home',  lat:49.8736426, lng:16.3194022}
+  ];
+
+  function markerHtml(b){
+    var inner = b.home
+      ? '<svg width="46" height="46" aria-hidden="true"><use href="#statly-mark"/></svg>'
+      : '<img src="'+b.l+'" alt="" loading="lazy">';
+    return '<span class="slm-mk'+(b.up?' lbl-up':'')+'" data-chip="'+b.c+'">'
+      + '<span class="ring"></span><span class="d">'+inner+'</span>'
+      + '<span class="nm">'+b.n+'</span></span>';
+  }
+
+  function init(){
+    var el = document.getElementById('slmLeaflet');
+    if (!el || typeof L === 'undefined') { return setTimeout(init, 120); }
+
+    var map = L.map(el, {
+      zoomControl:false, attributionControl:true,
+      dragging:false, scrollWheelZoom:false, doubleClickZoom:false,
+      boxZoom:false, keyboard:false, touchZoom:false, tap:false, zoomSnap:0.25
+    });
+    map.attributionControl.setPrefix(false);
+
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution:'&copy; OpenStreetMap &copy; CARTO', subdomains:'abcd', maxZoom:19
+    }).addTo(map);
+
+    var pts = [];
+    BIZ.forEach(function(b){
+      var icon = L.divIcon({ className:'slm-divicon', html:markerHtml(b), iconSize:[46,46], iconAnchor:[23,23] });
+      var m = L.marker([b.lat,b.lng], { icon:icon, riseOnHover:true, zIndexOffset: b.home?1000:0, keyboard:false }).addTo(map);
+      m.bindTooltip('<b>'+b.n+'</b><span class="ob">'+b.o+'</span><span class="visit">'+(b.home?'Domluvit web →':'Navštívit web →')+'</span>',
+        { className:'slm-ltip', direction:'top', offset:[0,-26], opacity:1 });
+      m.on('click', function(){
+        if (b.u.charAt(0)==='#'){ location.hash=b.u; }
+        else { window.open(b.u,'_blank','noopener'); }
+      });
+      pts.push([b.lat,b.lng]);
+    });
+
+    var bounds = L.latLngBounds(pts);
+    function fit(){ map.invalidateSize(false); map.fitBounds(bounds, { padding:[55,55] }); }
+    fit();
+    setTimeout(fit, 80);
+    setTimeout(fit, 400);
+    window.addEventListener('resize', function(){ clearTimeout(window.__slmFitT); window.__slmFitT=setTimeout(fit,200); });
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+</script>
+<!-- ===== /STATLY · Mapa klientů Litomyšl ===== -->

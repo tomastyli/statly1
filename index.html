@@ -1196,6 +1196,95 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
 </section>
 
+<!-- ===== STATLY · Web jako služba / pronájem (waas) ===== -->
+<style>
+.waas-section{padding:7rem 2rem;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 90% 70% at 50% 0%,rgba(34,196,126,.07),transparent 60%),var(--bg);
+  border-top:1px solid var(--border)}
+.waas-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:960px;margin:0 auto;align-items:stretch}
+.waas-card{position:relative;display:flex;flex-direction:column;background:var(--bg-card);border:1px solid var(--border);
+  border-radius:22px;padding:2.4rem 2.1rem;overflow:hidden;transition:transform .35s cubic-bezier(.22,1,.36,1),border-color .35s,background .35s}
+.waas-card:hover{transform:translateY(-4px);border-color:var(--border-2);background:var(--bg-card-2)}
+.waas-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.waas-buy::before{background:linear-gradient(90deg,var(--green-bright),transparent 80%)}
+.waas-rent::before{background:linear-gradient(90deg,var(--gold),transparent 80%)}
+.waas-eyebrow{font-family:var(--mono);font-size:.74rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.waas-buy .waas-eyebrow{color:var(--green-bright)}
+.waas-rent .waas-eyebrow{color:var(--gold)}
+.waas-name{font-family:var(--sans);font-size:1.4rem;font-weight:800;letter-spacing:-.03em;color:#fff;margin:.55rem 0 .7rem}
+.waas-price{display:flex;align-items:baseline;flex-wrap:wrap;gap:.4rem;margin-bottom:.55rem;min-height:2.1rem}
+.waas-price b{font-family:var(--sans);font-size:1.75rem;font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.05}
+.waas-price span{font-size:.9rem;font-weight:500;color:var(--text-dim)}
+.waas-desc{font-size:.93rem;line-height:1.6;color:var(--text-dim);margin:0 0 1.4rem}
+.waas-feats{list-style:none;margin:0 0 1.3rem;padding:0;display:flex;flex-direction:column;gap:.7rem}
+.waas-feats li{display:flex;align-items:flex-start;gap:.65rem;font-size:.93rem;line-height:1.45;color:var(--text)}
+.waas-chk{flex-shrink:0;width:21px;height:21px;margin-top:.05rem;border-radius:50%;display:grid;place-items:center;
+  font-size:.72rem;font-weight:900;color:var(--green-deep);background:var(--green-bright)}
+.waas-rent .waas-chk{color:#3a2a00;background:var(--gold)}
+.waas-con{display:flex;gap:.6rem;align-items:flex-start;font-size:.86rem;line-height:1.5;color:var(--text-dim);
+  margin:0 0 1.5rem;padding-top:1rem;border-top:1px solid var(--border)}
+.waas-con b{flex-shrink:0;color:var(--text-dimmer);font-weight:700;font-size:1.05rem;line-height:1.25}
+.waas-cta{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;width:100%;cursor:pointer;
+  font-family:var(--sans);font-size:.95rem;font-weight:700;letter-spacing:-.01em;padding:.92rem 1.4rem;border-radius:100px;
+  border:none;transition:transform .25s ease,box-shadow .25s ease,filter .25s ease}
+.waas-buy .waas-cta{color:var(--green-deep);background:var(--green-bright);box-shadow:0 10px 28px rgba(34,196,126,.26)}
+.waas-rent .waas-cta{color:#3a2a00;background:linear-gradient(135deg,var(--gold),var(--gold-soft));box-shadow:0 10px 28px rgba(255,184,0,.26)}
+.waas-cta:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.waas-buy .waas-cta:hover{box-shadow:0 16px 38px rgba(34,196,126,.36)}
+.waas-rent .waas-cta:hover{box-shadow:0 16px 38px rgba(255,184,0,.36)}
+.waas-foot{max-width:760px;margin:1.9rem auto 0;text-align:center;font-size:.9rem;line-height:1.6;color:var(--text-dim)}
+.waas-foot b{color:var(--text);font-weight:600}
+.waas-fine{max-width:680px;margin:.8rem auto 0;text-align:center;font-size:.78rem;line-height:1.55;color:var(--text-dimmer)}
+@media (max-width:800px){
+  .waas-grid{grid-template-columns:1fr}
+  .waas-card{padding:2rem 1.6rem}
+}
+</style>
+
+<section class="waas-section" id="pronajem">
+  <div class="wrap">
+    <span class="sec-label reveal">Web na míru</span>
+    <h2 class="sec-h reveal">Web koupit, nebo si ho<br><em>pronajmout?</em></h2>
+    <p class="sec-sub reveal">Obě cesty vedou ke stejně kvalitnímu webu na míru — liší se jen tím, jak za něj zaplatíte. Každá má svoje výhody. Vyberte, co sedí vašemu rozpočtu i cashflow.</p>
+
+    <div class="waas-grid">
+      <div class="waas-card waas-buy reveal d1">
+        <span class="waas-eyebrow">Koupě · jednorázově</span>
+        <h3 class="waas-name">Web jednorázově</h3>
+        <div class="waas-price"><b>Cena podle rozsahu</b></div>
+        <p class="waas-desc">Zaplatíte jednou a web je rovnou váš — kód i doména. Přesnou cenu navrhnu po krátké konzultaci.</p>
+        <ul class="waas-feats">
+          <li><span class="waas-chk">✓</span>Web na míru na klíč</li>
+          <li><span class="waas-chk">✓</span>Vlastníte zdrojový kód i doménu</li>
+          <li><span class="waas-chk">✓</span>Žádné měsíční závazky</li>
+          <li><span class="waas-chk">✓</span>V dlouhodobém součtu nejlevnější</li>
+        </ul>
+        <div class="waas-con"><b>−</b>Vyšší jednorázová částka hned na startu.</div>
+        <button type="button" class="waas-cta" data-slg-open>Chci web jednorázově →</button>
+      </div>
+
+      <div class="waas-card waas-rent reveal d2">
+        <span class="waas-eyebrow">Pronájem · měsíčně</span>
+        <h3 class="waas-name">Web jako služba</h3>
+        <div class="waas-price"><b>od 1 490 Kč</b><span>/ měsíc</span></div>
+        <p class="waas-desc">Rozložíte web do měsíčních plateb. Bez velké částky na začátku — a provoz i péče běží v ceně.</p>
+        <ul class="waas-feats">
+          <li><span class="waas-chk">✓</span>Žádná velká investice předem</li>
+          <li><span class="waas-chk">✓</span>V ceně provoz: hosting, doména, SSL, zálohy, monitoring</li>
+          <li><span class="waas-chk">✓</span>Drobné úpravy textů a fotek průběžně</li>
+          <li><span class="waas-chk">✓</span>Web pořád aktuální a pod dohledem</li>
+        </ul>
+        <div class="waas-con"><b>−</b>V dlouhodobém součtu o něco dražší.</div>
+        <button type="button" class="waas-cta" data-slg-open>Spočítat pronájem →</button>
+      </div>
+    </div>
+
+    <p class="waas-foot reveal">Nevíte, co se vám vyplatí víc? <b>Projděte si nezávazného průvodce</b> — podle vašeho rozpočtu doporučím, jestli web koupit, nebo pronajmout.</p>
+    <p class="waas-fine reveal">Ceny jsou orientační, finální vždy podle rozsahu. U pronájmu (smlouva na 24 měsíců) jsou v ceně drobné úpravy; větší změny a nové funkce řešíme zvlášť s odsouhlasenou cenou.</p>
+  </div>
+</section>
+<!-- ===== /STATLY · Web jako služba / pronájem ===== -->
+
 <section class="sec-alt" id="kontakt">
   <div class="wrap">
     <div class="cta-box reveal">
@@ -1410,6 +1499,21 @@ const io = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* Fallback: některé náhledové / headless prohlížeče nikdy nespustí
+   IntersectionObserver. Otestujeme to sentinelem — když se callback rychle
+   neozve, odhalíme veškerý obsah, ať nic nezůstane neviditelné. Běžné
+   prohlížeče sentinel spustí okamžitě, takže animace při scrollu zůstávají. */
+(function(){
+  var probed = false;
+  var probe = new IntersectionObserver(function(entries){
+    if (entries.some(function(e){ return e.isIntersecting; })) { probed = true; probe.disconnect(); }
+  });
+  probe.observe(document.body);
+  setTimeout(function(){
+    if (!probed) document.querySelectorAll('.reveal:not(.on)').forEach(function(el){ el.classList.add('on'); });
+  }, 1000);
+})();
 
 /* ─── SMOOTH SCROLL ───────────────────────────── */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
@@ -1697,6 +1801,19 @@ window.addEventListener('DOMContentLoaded', () => {
 .slg-q em{font-style:italic;font-weight:500;background:linear-gradient(135deg,#FFB800,#ffd166);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .slg-sub{font-size:.92rem;line-height:1.5;color:#8aa39a;margin:0 0 1.15rem}
 
+.slg-toggle{display:flex;gap:.35rem;padding:.3rem;border-radius:14px;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);margin:0 0 1rem}
+.slg-tg{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;cursor:pointer;border:none;
+  font-family:inherit;font-size:.9rem;font-weight:600;letter-spacing:-.01em;color:#8aa39a;background:transparent;
+  padding:.66rem .6rem;border-radius:11px;transition:color .2s,background .2s,box-shadow .2s}
+.slg-tg-ico{font-size:1rem}
+.slg-tg:hover{color:#cfe3d9}
+.slg-tg-on{background:linear-gradient(135deg,#22c47e,#1aa869);color:#06140e;box-shadow:0 6px 16px rgba(34,196,126,.25)}
+.slg-tg-on:hover{color:#06140e}
+.slg-mode-sub{font-size:.86rem;line-height:1.45;color:#8aa39a;margin:-.4rem 0 .9rem}
+.slg-note{display:flex;gap:.55rem;font-size:.8rem;line-height:1.5;color:#cbdcd3;margin:0 0 1.05rem;padding:.72rem .85rem;
+  border-radius:12px;background:rgba(255,184,0,.06);border:1px solid rgba(255,184,0,.16)}
+.slg-note::before{content:'ⓘ';color:#FFB800;font-weight:700;flex-shrink:0;line-height:1.5}
 .slg-opts{display:grid;gap:.6rem}
 .slg-opts.slg-2{grid-template-columns:1fr 1fr}
 .slg-opt{display:flex;align-items:center;gap:.85rem;text-align:left;width:100%;cursor:pointer;
@@ -1834,13 +1951,24 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'Do tří měsíců',ico:'🗓️'},
        {v:'Zatím nespěchám',ico:'🍃'}
      ]},
-    {key:'budget',q:'Orientační <em>rozpočet</em>?',sub:'Pomůže mi navrhnout řešení, které dává smysl. Nezávazné.',
-     opts:[
-       {v:'do 15 000 Kč',ico:'🌱'},
-       {v:'15–30 000 Kč',ico:'🌿'},
-       {v:'30–60 000 Kč',ico:'🌳'},
-       {v:'60 000 Kč a víc',ico:'🏆'},
-       {v:'Nechám na doporučení',ico:'🤝'}
+    {key:'budget',mode:true,q:'Jak vám sedí <em>investice</em>?',sub:'Vyberte, co vám dává smysl. Vše je orientační a nezávazné.',
+     modes:[
+       {id:'once',label:'Jednorázově',ico:'💳',sub:'Web je váš napořád, zaplatíte jednou.',
+        opts:[
+          {v:'do 15 000 Kč',ico:'🌱'},
+          {v:'15–30 000 Kč',ico:'🌿'},
+          {v:'30–60 000 Kč',ico:'🌳'},
+          {v:'60 000 Kč a víc',ico:'🏆'},
+          {v:'Nechám na doporučení',ico:'🤝'}
+        ]},
+       {id:'rent',label:'Měsíčně',ico:'📆',sub:'Pronájem webu — měsíční paušál bez velké investice předem.',
+        note:'V paušálu je provoz: hosting, doména, zabezpečení, zálohy, monitoring a drobné úpravy textů a fotek. Větší úpravy a nové funkce řešíme zvlášť.',
+        opts:[
+          {v:'do 1 500 Kč / měsíc',ico:'🌱'},
+          {v:'1 500–2 500 Kč / měsíc',ico:'🌿'},
+          {v:'2 500–3 900 Kč / měsíc',ico:'🌳'},
+          {v:'Nechám na doporučení',ico:'🤝'}
+        ]}
      ]},
     {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
   ];
@@ -1883,6 +2011,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     foot.style.display='flex';
 
     if(s.form){ renderForm(s); return; }
+    if(s.mode){ renderMode(s); return; }
 
     nextLbl.textContent = state.i===total-1 ? 'Pokračovat →':'Pokračovat →';
     var sel=state.answers[s.key];
@@ -1912,11 +2041,64 @@ textarea.slg-in{resize:vertical;min-height:74px}
     });
   }
 
+  function renderMode(s){
+    nextLbl.textContent='Pokračovat →';
+    var view = state.budgetView || state.answers.budgetMode || s.modes[0].id;
+    state.budgetView = view;
+    var m = s.modes.filter(function(x){return x.id===view;})[0] || s.modes[0];
+    var sel = state.answers.budgetMode===m.id ? state.answers.budget : null;
+
+    var tabs='<div class="slg-toggle" role="tablist">';
+    s.modes.forEach(function(mm){
+      var on = mm.id===view ? ' slg-tg-on':'';
+      tabs+='<button type="button" class="slg-tg'+on+'" data-mode="'+esc(mm.id)+'" role="tab">'
+        +'<span class="slg-tg-ico">'+mm.ico+'</span>'+esc(mm.label)+'</button>';
+    });
+    tabs+='</div>';
+
+    var html='<div class="slg-step"><h3 class="slg-q">'+s.q+'</h3><p class="slg-sub">'+s.sub+'</p>'
+      +tabs
+      +'<p class="slg-mode-sub">'+esc(m.sub)+'</p>'
+      +(m.note?'<div class="slg-note">'+esc(m.note)+'</div>':'')
+      +'<div class="slg-opts'+(m.opts.length>4?' slg-2':'')+'">';
+    m.opts.forEach(function(o){
+      var on = sel===o.v ? ' slg-sel':'';
+      html+='<button type="button" class="slg-opt'+on+'" data-v="'+esc(o.v)+'">'
+        +'<span class="slg-opt-ico">'+o.ico+'</span>'
+        +'<span class="slg-opt-tx"><span class="slg-opt-t">'+esc(o.v)+'</span></span>'
+        +'<span class="slg-opt-chk">✓</span></button>';
+    });
+    html+='</div></div>';
+    body.innerHTML=html;
+    body.scrollTop=0;
+    nextBtn.disabled = !sel;
+
+    body.querySelectorAll('.slg-tg').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var id=btn.getAttribute('data-mode');
+        if(id===state.budgetView) return;
+        state.budgetView=id;
+        render();
+      });
+    });
+    body.querySelectorAll('.slg-opt').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        state.answers.budgetMode=m.id;
+        state.answers.budget=btn.getAttribute('data-v');
+        body.querySelectorAll('.slg-opt').forEach(function(b){b.classList.remove('slg-sel');});
+        btn.classList.add('slg-sel');
+        nextBtn.disabled=false;
+        setTimeout(next,230);
+      });
+    });
+  }
+
   function renderForm(s){
     nextLbl.textContent='Odeslat poptávku →';
     var a=state.answers;
     var chips='';
-    [['service','Služba'],['goal','Cíl'],['timeline','Termín'],['budget','Rozpočet']].forEach(function(p){
+    var budgetLbl = a.budgetMode==='rent' ? 'Měsíčně' : 'Rozpočet';
+    [['service','Služba'],['goal','Cíl'],['timeline','Termín'],['budget',budgetLbl]].forEach(function(p){
       if(a[p[0]])chips+='<span class="slg-chip"><b>'+p[1]+':</b> '+esc(a[p[0]])+'</span>';
     });
     body.innerHTML='<div class="slg-step"><h3 class="slg-q">'+s.q+'</h3><p class="slg-sub">'+s.sub+'</p>'
@@ -1977,7 +2159,8 @@ textarea.slg-in{resize:vertical;min-height:74px}
       +'• Služba: '+(a.service||'—')+'\n'
       +'• Cíl: '+(a.goal||'—')+'\n'
       +'• Termín: '+(a.timeline||'—')+'\n'
-      +'• Rozpočet: '+(a.budget||'—')+'\n';
+      +'• Forma: '+(a.budgetMode==='rent'?'Pronájem webu (měsíční paušál)':'Jednorázová investice')+'\n'
+      +'• '+(a.budgetMode==='rent'?'Měsíční paušál':'Rozpočet')+': '+(a.budget||'—')+'\n';
     if(a.message) msg+='\nPoznámka klienta:\n'+a.message+'\n';
 
     nextBtn.classList.add('slg-loading');nextBtn.disabled=true;

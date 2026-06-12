@@ -61,7 +61,6 @@ nav { position: sticky; top: 0; z-index: 50; background: rgba(10,20,16,0.72); ba
 .book-feat { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; color: var(--text); }
 .book-feat .chk { color: var(--green-bright); font-weight: 700; }
 
-/* kapacita */
 .capacity { max-width: 420px; margin: 0 auto 0.5rem; background: rgba(255,184,0,0.05); border: 1px solid rgba(255,184,0,0.22); border-radius: 16px; padding: 1.1rem 1.25rem; text-align: left; }
 .capacity-top { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
 .capacity-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(255,184,0,0.6); animation: pulseDot 2s ease-in-out infinite; flex-shrink: 0; }
@@ -72,7 +71,6 @@ nav { position: sticky; top: 0; z-index: 50; background: rgba(10,20,16,0.72); ba
 .capacity-note { font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; }
 .capacity-note strong { color: #fff; font-weight: 600; }
 
-/* calendly */
 .cal-wrap { max-width: 1000px; margin: 1.5rem auto 4rem; background: var(--bg-card); border: 1px solid var(--border-2); border-radius: 24px; padding: 0.6rem; overflow: hidden; }
 .calendly-inline-widget { min-width: 320px; height: 720px; border-radius: 18px; overflow: hidden; }
 .cal-fallback { padding: 2.5rem 1.5rem; text-align: center; color: var(--text-dim); }
@@ -132,7 +130,6 @@ footer a:hover { color: var(--green-bright); }
 
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <script>
-/* Tracking konzistentní s hlavním webem: načti GA4/Meta jen pokud uživatel dříve odsouhlasil (stejný localStorage klíč). */
 (function() {
   var consent = null;
   try { consent = JSON.parse(localStorage.getItem('statly_cookie_consent_v1') || 'null'); } catch (e) {}
@@ -153,7 +150,6 @@ footer a:hover { color: var(--green-bright); }
   }
 })();
 
-/* Konverze: rezervace hovoru přes Calendly = generate_lead */
 window.addEventListener('message', function(e) {
   if (e.data && e.data.event === 'calendly.event_scheduled') {
     try {

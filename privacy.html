@@ -30,7 +30,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
 
 <style>
-/* ─── RESET & BASE ─────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 body {
@@ -74,7 +73,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* ─── NAV ──────────────────────────────────────── */
 nav {
   position: fixed; top: 0; left: 0; width: 100%;
   background: rgba(10,20,16,0.72);
@@ -133,7 +131,6 @@ nav {
 .nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
 
-/* ─── DOC HEADER ───────────────────────────────── */
 .doc-header {
   padding: 9rem 2rem 4rem;
   position: relative; overflow: hidden;
@@ -217,7 +214,6 @@ nav {
   font-weight: 500;
 }
 
-/* ─── DOC CONTENT ──────────────────────────────── */
 .doc-body {
   padding: 4rem 2rem 6rem;
   background: var(--bg-2);
@@ -324,7 +320,6 @@ nav {
 }
 .doc-content a:hover { text-decoration-color: var(--green-bright); }
 
-/* Highlighted info block */
 .doc-content .info-box {
   background: var(--bg-card);
   border: 1px solid var(--border-2);
@@ -335,7 +330,6 @@ nav {
 .doc-content .info-box p { margin-bottom: 0; }
 .doc-content .info-box p + p { margin-top: 0.75rem; }
 
-/* Contact card */
 .contact-card {
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -359,7 +353,6 @@ nav {
   color: var(--text);
 }
 
-/* Cookie table */
 .cookie-table-wrap {
   margin: 1.25rem 0 1.5rem;
   border: 1px solid var(--border);
@@ -402,7 +395,6 @@ nav {
   color: var(--green-bright);
 }
 
-/* Reopen cookie settings link */
 .reopen-cookies {
   display: inline-flex; align-items: center; gap: 0.4rem;
   background: var(--bg-card);
@@ -421,7 +413,6 @@ nav {
   color: var(--green-bright);
 }
 
-/* ─── FOOTER ───────────────────────────────────── */
 footer {
   background: #060c08;
   border-top: 1px solid var(--border);
@@ -475,7 +466,6 @@ footer {
 }
 .footer-btm-links a:hover { color: var(--green-bright); }
 
-/* ─── COOKIE BANNER & MODAL ────────────────────── */
 .cookie-banner {
   position: fixed;
   bottom: 1.25rem;
@@ -685,7 +675,6 @@ footer {
 }
 .cookie-fab.show { display: flex; }
 
-/* ─── RESPONSIVE ───────────────────────────────── */
 @media (max-width: 1024px) {
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
@@ -722,7 +711,6 @@ footer {
 
 <div class="noise"></div>
 
-<!-- NAV -->
 <nav>
   <div class="nav-inner">
     <a href="/" class="nav-logo" aria-label="Statly">
@@ -739,7 +727,6 @@ footer {
   </div>
 </nav>
 
-<!-- DOC HEADER -->
 <section class="doc-header">
   <div class="doc-header-inner">
     <a href="/" class="crumb"><span class="crumb-arrow">←</span> Zpět na úvod</a>
@@ -756,7 +743,6 @@ footer {
   </div>
 </section>
 
-<!-- DOC BODY -->
 <section class="doc-body">
   <article class="doc-content">
 
@@ -887,7 +873,6 @@ footer {
   </article>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div>
@@ -924,7 +909,6 @@ footer {
   </div>
 </footer>
 
-<!-- COOKIE BANNER -->
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText">
   <div class="cookie-header">
     <div class="cookie-icon">🍪</div>
@@ -942,7 +926,6 @@ footer {
   </div>
 </div>
 
-<!-- COOKIE SETTINGS MODAL -->
 <div class="cookie-modal-bg" id="cookieModal" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">
   <div class="cookie-modal" onclick="event.stopPropagation()">
     <h3 id="cookieModalTitle">Nastavení cookies</h3>
@@ -982,7 +965,6 @@ footer {
 <button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies">🍪</button>
 
 <script>
-/* ─── COOKIE CONSENT ──────────────────────────── */
 const COOKIE_KEY = 'statly_cookie_consent_v1';
 const COOKIE_EXPIRY_DAYS = 365;
 
@@ -1077,7 +1059,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
-<!-- ===== STATLY · Interaktivní průvodce poptávkou (slg) ===== -->
 <style>
 .slg-fab{position:fixed;right:1.25rem;bottom:1.25rem;z-index:9990;display:inline-flex;align-items:center;gap:.6rem;
   padding:.85rem 1.25rem .85rem 1rem;border:none;cursor:pointer;border-radius:100px;font-family:'Inter Tight',-apple-system,sans-serif;
@@ -1444,9 +1425,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&overlay.classList.contains('slg-open')) close(); });
 })();
 </script>
-<!-- ===== /STATLY · Průvodce poptávkou ===== -->
 <script>
-/* MIKROKONVERZE: telefon, e-mail, otevreni pruvodce */
 (function(){document.addEventListener('click',function(e){
   var a=e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
   if(a&&window.gtag){var type=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';

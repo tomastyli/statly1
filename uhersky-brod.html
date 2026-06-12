@@ -230,7 +230,6 @@ a.area-city:hover { color: var(--green-bright); border-color: rgba(34,196,126,0.
 .svc-mini-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .svc-mini-tag { font-family: var(--mono); font-size: 0.7rem; padding: 0.25rem 0.6rem; background: rgba(34,196,126,0.07); border: 1px solid rgba(34,196,126,0.2); border-radius: 6px; color: var(--green-bright); }
 
-/* natáčení band */
 .nat-card { margin-top: 1rem; background: linear-gradient(135deg, #0f1f18 0%, #0c1a14 100%); border: 1px solid var(--border-2); border-radius: 24px; padding: 2.75rem; position: relative; overflow: hidden; }
 .nat-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 55% 90% at 100% 0%, rgba(255,184,0,0.08) 0%, transparent 60%), radial-gradient(ellipse 50% 80% at 0% 100%, rgba(34,196,126,0.1) 0%, transparent 60%); pointer-events: none; }
 .nat-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,184,0,0.45), rgba(34,196,126,0.45), transparent); }
@@ -743,7 +742,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
 </div>
 <button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies">🍪</button>
 
-
 <script>
 (function(){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
 (function(){const cards=document.querySelectorAll('.why-card,.svc-mini-card,.ref-card');cards.forEach(c=>{c.addEventListener('mousemove',(e)=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');});});})();
@@ -778,7 +776,6 @@ setLoading(true);
 try{const res=await fetch('/api/mesto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let payload={};try{payload=await res.json();}catch(_){}if(!res.ok){throw new Error(payload.error||'Odeslání se nezdařilo. Zkuste to prosím znovu.');}setStatus('success','Díky! Zpráva dorazila. Ozvu se ti do 48 hodin, často ještě dnes.');form.reset();try{if(window.gtag)gtag('event','generate_lead',{method:'form',form_location:location.pathname});if(window.fbq)fbq('track','Lead');}catch(_){}}catch(err){setStatus('error',err.message||'Něco se pokazilo. Zkus to prosím znovu, nebo mi napiš přímo na e-mail.');}finally{setLoading(false);}});})();(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href^="tel:"], a[href^="mailto:"]');if(a&&window.gtag){var type=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';gtag('event','contact_click',{type:type,location:location.pathname});}var g=e.target.closest('[data-slg-open]');if(g&&window.gtag){gtag('event','guide_open',{location:location.pathname});}},true);})();
 </script>
 
-<!-- ===== STATLY · Interaktivní průvodce poptávkou (slg) ===== -->
 <style>
 .slg-fab{position:fixed;right:1.25rem;bottom:1.25rem;z-index:9990;display:inline-flex;align-items:center;gap:.6rem;
   padding:.85rem 1.25rem .85rem 1rem;border:none;cursor:pointer;border-radius:100px;font-family:'Inter Tight',-apple-system,sans-serif;
@@ -1142,6 +1139,5 @@ textarea.slg-in{resize:vertical;min-height:74px}
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&overlay.classList.contains('slg-open')) close(); });
 })();
 </script>
-<!-- ===== /STATLY · Průvodce poptávkou ===== -->
 </body>
 </html>

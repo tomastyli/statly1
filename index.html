@@ -656,6 +656,32 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .cookie-actions { flex-direction: column; }
   .cookie-btn { width: 100%; }
 }
+
+/* ─── CRO: hero trust row ─── */
+.hero-trust { margin-top: 1.7rem; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); }
+.hero-trust strong { color: #fff; font-weight: 600; }
+.hero-trust .ht-star { color: var(--gold); }
+.hero-trust .ht-sep { color: var(--text-dimmer); opacity: 0.7; }
+
+/* ─── CRO: mid-page CTA strip ─── */
+.mid-cta-wrap { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+.mid-cta { display: inline-flex; align-items: center; gap: 0.6rem; margin: 3.5rem auto 0; width: 100%; justify-content: center; text-align: center;
+  background: linear-gradient(135deg, rgba(34,196,126,0.08), rgba(255,184,0,0.05)); border: 1px solid var(--border-2); border-radius: 16px;
+  padding: 1.05rem 1.5rem; font-size: 1rem; color: var(--text); transition: all 0.3s ease; }
+.mid-cta strong { color: #fff; font-weight: 600; }
+.mid-cta .arrow { color: var(--green-bright); transition: transform 0.3s; }
+.mid-cta:hover { border-color: rgba(255,184,0,0.35); background: linear-gradient(135deg, rgba(34,196,126,0.12), rgba(255,184,0,0.08)); transform: translateY(-2px); }
+.mid-cta:hover .arrow { transform: translateX(4px); }
+
+/* ─── CRO: sticky mobile CTA bar ─── */
+.sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9980; display: none; gap: 0.6rem; padding: 0.7rem 0.85rem calc(0.7rem + env(safe-area-inset-bottom));
+  background: rgba(10,20,16,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-top: 1px solid var(--border-2); transform: translateY(110%); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+.sticky-cta.show { transform: translateY(0); }
+.sticky-cta a { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.85rem 1rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; }
+.sticky-cta .sc-call { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
+.sticky-cta .sc-form { background: var(--green-bright); color: var(--green-deep); }
+@media (max-width: 720px) { .sticky-cta { display: flex; } .slg-fab { bottom: 5.2rem; } }
 </style>
 
 <!-- Meta Pixel + GA4 se nahrávají po souhlasu v consent skriptu dole -->
@@ -705,6 +731,13 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <div class="btn-row">
       <a href="#kontakt" class="btn-primary"><span>Domluvit konzultaci <span class="arrow">→</span></span></a>
       <a href="/portfolio" class="btn-secondary">Prohlédnout práce</a>
+    </div>
+    <div class="hero-trust">
+      <span class="ht-star">★</span> <strong>5,0</strong>&nbsp;Google
+      <span class="ht-sep">·</span>
+      <strong>50+</strong>&nbsp;klientů
+      <span class="ht-sep">·</span>
+      odezva do&nbsp;<strong>48&nbsp;h</strong>
     </div>
   </div>
 </section>
@@ -860,6 +893,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         </div>
       </a>
     </div>
+    <div class="mid-cta-wrap">
+      <a href="#kontakt" class="mid-cta">Líbí se vám výsledky? <strong>Připravím vám návrh do 48 h</strong> <span class="arrow">→</span></a>
+    </div>
   </div>
 </section>
 
@@ -946,6 +982,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <span class="refs-google-arrow">↗</span>
       </a>
       <span class="refs-google-note">Skutečné hodnocení od skutečných klientů</span>
+    </div>
+    <div class="mid-cta-wrap">
+      <a href="#kontakt" class="mid-cta">Chcete podobné výsledky i pro svůj byznys? <strong>Ozvu se do 48 h</strong> <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -1334,8 +1373,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
           </div>
 
           <div class="form-field full">
-            <label class="form-label" for="f-industry">Obor podnikání <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-industry" name="industry" required placeholder="např. stavebnictví, kosmetika, e‑shop s oblečením..." maxlength="160">
+            <label class="form-label" for="f-industry">Obor podnikání</label>
+            <input class="form-input" type="text" id="f-industry" name="industry" placeholder="např. stavebnictví, kosmetika, e‑shop s oblečením..." maxlength="160">
           </div>
 
           <div class="form-field full">
@@ -1387,6 +1426,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     </div>
   </div>
 </section>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="tel:+420737372708" class="sc-call">📞 Zavolat</a>
+  <a href="#kontakt" class="sc-form">✍️ Nezávazná poptávka</a>
+</div>
 
 <footer>
   <div class="footer-grid">
@@ -1717,10 +1761,6 @@ window.addEventListener('DOMContentLoaded', () => {
       setStatus('error', 'Zadejte platnou e‑mailovou adresu.');
       form.email.focus(); return;
     }
-    if (!data.industry) {
-      setStatus('error', 'Vyplňte prosím obor podnikání.');
-      form.industry.focus(); return;
-    }
     if (!data.service) {
       setStatus('error', 'Vyberte prosím typ služby.');
       form.service.focus(); return;
@@ -1747,6 +1787,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
       setStatus('success', 'Děkuji! Vaše zpráva byla odeslána. Ozvu se vám do 48 hodin.');
       form.reset();
+      try {
+        if (window.gtag) gtag('event', 'generate_lead', { method: 'form', form_location: location.pathname });
+        if (window.fbq)  fbq('track', 'Lead');
+      } catch (_) {}
     } catch (err) {
       console.error('Form submit error:', err);
       setStatus('error', err.message || 'Něco se pokazilo. Zkuste to prosím znovu, nebo mi napište přímo na e‑mail.');
@@ -1754,6 +1798,33 @@ window.addEventListener('DOMContentLoaded', () => {
       setLoading(false);
     }
   });
+})();
+
+/* ─── MIKROKONVERZE: telefon, e‑mail, průvodce ─── */
+(function() {
+  document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
+    if (a && window.gtag) {
+      const type = a.getAttribute('href').startsWith('tel:') ? 'phone' : 'email';
+      gtag('event', 'contact_click', { type: type, location: location.pathname });
+    }
+    const g = e.target.closest('[data-slg-open]');
+    if (g && window.gtag) {
+      gtag('event', 'guide_open', { location: location.pathname });
+    }
+  }, true);
+})();
+
+/* ─── CRO: sticky mobilní CTA lišta ─── */
+(function() {
+  var bar = document.getElementById('stickyCta');
+  if (!bar || !('IntersectionObserver' in window)) return;
+  var hero = document.querySelector('.hero');
+  var contact = document.getElementById('kontakt');
+  var heroVisible = true, contactVisible = false;
+  function update() { bar.classList.toggle('show', !heroVisible && !contactVisible); }
+  if (hero) new IntersectionObserver(function(en){ heroVisible = en[0].isIntersecting; update(); }, { threshold: 0 }).observe(hero);
+  if (contact) new IntersectionObserver(function(en){ contactVisible = en[0].isIntersecting; update(); }, { threshold: 0 }).observe(contact);
 })();
 </script>
 <!-- ===== STATLY · Interaktivní průvodce poptávkou (slg) ===== -->
@@ -2169,7 +2240,10 @@ textarea.slg-in{resize:vertical;min-height:74px}
         industry:a.industry,service:a.service||'Přes průvodce',message:msg,website:hp,gdpr:a.gdpr})})
     .then(function(res){return res.json().catch(function(){return{};}).then(function(p){
       if(!res.ok)throw new Error(p.error||'Odeslání se nezdařilo.');return p;});})
-    .then(function(){ state.done=true; success(); })
+    .then(function(){ state.done=true;
+      try { if(window.gtag) gtag('event','generate_lead',{method:'guide',form_location:location.pathname});
+            if(window.fbq)  fbq('track','Lead'); } catch(_){}
+      success(); })
     .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false;
       showErr(err.message||'Něco se pokazilo. Zkuste to znovu, nebo napište na e‑mail.'); });
   }

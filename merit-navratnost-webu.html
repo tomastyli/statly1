@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lokální SEO pro malé firmy: 8 věcí, co fungují | Statly</title>
-<meta name="description" content="Praktický návod, jak se v menším městě dostat na první stranu Googlu bez agentury za 30 tisíc měsíčně.">
+<title>Jak změřit, jestli vám web vydělává peníze | Statly</title>
+<meta name="description" content="Konverze, atribuce, návratnost. Co měřit, jak to nastavit a jak interpretovat čísla z Google Analytics, aniž byste museli být analytik. Praktický návod pro majitele firem.">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -14,35 +14,40 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0a1410">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://statly.cz/blog-2">
+<link rel="canonical" href="https://statly.cz/merit-navratnost-webu">
 
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://statly.cz/blog-2">
-<meta property="og:title" content="Lokální SEO pro malé firmy v roce 2026">
-<meta property="og:description" content="Praktický návod, jak se v menším městě dostat na první stranu Googlu bez agentury za 30 tisíc měsíčně.">
+<meta property="og:url" content="https://statly.cz/merit-navratnost-webu">
+<meta property="og:title" content="Jak změřit, jestli vám web vydělává peníze">
+<meta property="og:description" content="Konverze, atribuce, návratnost. Co měřit, jak to nastavit a jak interpretovat čísla z Google Analytics. Bez technického žargonu.">
 <meta property="og:image" content="https://statly.cz/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="cs_CZ">
-<meta property="article:published_time" content="2026-04-28">
+<meta property="article:published_time" content="2026-03-05">
 <meta property="article:author" content="Tomáš Tylich">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Jak změřit, jestli vám web vydělává peníze">
+<meta name="twitter:description" content="Konverze, atribuce, návratnost. Co měřit a jak to interpretovat.">
+<meta name="twitter:image" content="https://statly.cz/og-image.png">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BlogPosting",
-  "headline": "Lokální SEO pro malé firmy v roce 2026",
-  "description": "Praktický návod, jak se v menším městě dostat na první stranu Googlu bez agentury za 30 tisíc měsíčně.",
+  "headline": "Jak změřit, jestli vám web vydělává peníze",
+  "description": "Konverze, atribuce, návratnost. Co měřit, jak to nastavit a jak interpretovat čísla z Google Analytics.",
   "image": "https://statly.cz/logo.png",
-  "datePublished": "2026-04-28",
-  "dateModified": "2026-04-28",
+  "datePublished": "2026-03-05",
+  "dateModified": "2026-03-05",
   "author": { "@type": "Person", "name": "Tomáš Tylich" },
   "publisher": {
     "@type": "Organization",
     "name": "Statly",
     "logo": { "@type": "ImageObject", "url": "https://statly.cz/logo.png" }
   },
-  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://statly.cz/blog-2" }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://statly.cz/merit-navratnost-webu" }
 }
 </script>
 <script type="application/ld+json">
@@ -65,8 +70,8 @@
     {
       "@type": "ListItem",
       "position": 3,
-      "name": "Lokální SEO pro malé firmy v roce 2026",
-      "item": "https://statly.cz/blog-2"
+      "name": "Jak změřit, jestli vám web vydělává peníze",
+      "item": "https://statly.cz/merit-navratnost-webu"
     }
   ]
 }
@@ -162,13 +167,11 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .callout p + p { margin-top: 0.8rem; }
 .callout.warn { border-color: rgba(255,184,0,0.3); }
 .callout.warn .callout-head { color: var(--gold); }
-.checklist { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem 1.75rem; margin: 2rem 0; font-family: var(--sans); }
-.checklist-head { font-family: var(--mono); font-size: 0.72rem; color: var(--green-bright); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1rem; font-weight: 600; }
-.checklist-item { display: flex; gap: 0.8rem; padding: 0.6rem 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
-.checklist-item:last-child { border-bottom: none; }
-.checklist-check { color: var(--green-bright); font-size: 1.1rem; flex-shrink: 0; line-height: 1.5; }
-.checklist-text { color: var(--text); font-size: 0.95rem; line-height: 1.55; }
-.checklist-text strong { color: #fff; }
+.metric-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.85rem; margin: 1.5rem 0 2rem; font-family: var(--sans); }
+.metric-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.25rem 1.3rem; }
+.metric-name { font-family: var(--mono); font-size: 0.72rem; color: var(--green-bright); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+.metric-val { font-size: 1.6rem; font-weight: 800; color: #fff; letter-spacing: -0.025em; margin-bottom: 0.35rem; }
+.metric-desc { font-size: 0.85rem; color: var(--text-dim); line-height: 1.5; }
 .art-content code { font-family: var(--mono); font-size: 0.9em; background: var(--bg-card); border: 1px solid var(--border); padding: 0.12em 0.45em; border-radius: 5px; color: var(--green-bright); }
 .art-sidebar { position: sticky; top: 100px; font-family: var(--sans); }
 .toc { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.4rem 1.5rem; margin-bottom: 1.5rem; }
@@ -176,20 +179,21 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .toc-head::before { content: ''; width: 14px; height: 1px; background: var(--green-bright); }
 .toc ol { list-style: none; counter-reset: toc; padding: 0; }
 .toc li { counter-increment: toc; }
-.toc a { display: block; padding: 0.5rem 0 0.5rem 1.75rem; font-size: 0.85rem; color: var(--text-dim); line-height: 1.4; position: relative; border-left: 2px solid transparent; transition: all 0.2s; margin-left: -0.5rem; padding-left: 1.5rem; }
+.toc a { display: block; padding: 0.5rem 0 0.5rem 1.5rem; font-size: 0.85rem; color: var(--text-dim); line-height: 1.4; position: relative; border-left: 2px solid transparent; transition: all 0.2s; margin-left: -0.5rem; }
 .toc a::before { content: counter(toc, decimal-leading-zero); position: absolute; left: 0.4rem; top: 0.55rem; font-family: var(--mono); font-size: 0.7rem; color: var(--text-dimmer); }
 .toc a:hover { color: #fff; border-left-color: var(--green-bright); }
 .toc a.active { color: var(--green-bright); border-left-color: var(--green-bright); font-weight: 500; }
 .share { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.2rem 1.4rem; }
 .share-head { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.85rem; font-weight: 600; }
-.share-btns { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.share-btn { width: 36px; height: 36px; border-radius: 10px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-dim); font-size: 0.9rem; font-family: var(--mono); font-weight: 500; cursor: pointer; transition: all 0.2s; }
-.share-btn:hover { color: var(--green-bright); border-color: var(--border-2); transform: translateY(-1px); }
-.related { max-width: 1180px; margin: 0 auto; padding: 4rem 2rem 5rem; background: var(--bg); }
-.related-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
-.related-head h3 { font-family: var(--sans); font-size: 1.4rem; font-weight: 700; letter-spacing: -0.025em; color: #fff; }
-.related-back { font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); transition: color 0.2s; }
-.related-back:hover { color: var(--green-bright); }
+.share-btns { display: flex; gap: 0.5rem; }
+.share-btn { width: 36px; height: 36px; border-radius: 50%; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.2s; color: var(--text-dim); font-weight: 600; font-size: 0.85rem; }
+.share-btn:hover { background: var(--green-bright); color: var(--green-deep); transform: translateY(-2px); border-color: var(--green-bright); }
+.related { background: var(--bg); padding: 4.5rem 2rem; }
+.related-inner { max-width: 1180px; margin: 0 auto; }
+.related-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.related-head h3 { font-family: var(--sans); font-size: 1.5rem; font-weight: 700; letter-spacing: -0.025em; color: #fff; }
+.related-back { font-family: var(--mono); font-size: 0.82rem; color: var(--green-bright); transition: transform 0.2s; }
+.related-back:hover { transform: translateX(3px); }
 .related-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
 .related-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem 1.5rem; transition: all 0.3s; display: flex; flex-direction: column; gap: 0.7rem; }
 .related-card:hover { transform: translateY(-3px); border-color: var(--border-2); }
@@ -234,6 +238,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .related-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-btm { flex-direction: column; text-align: center; }
+  .metric-grid { grid-template-columns: 1fr; }
 }
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
@@ -268,12 +273,12 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <section class="art-head">
   <div class="art-head-inner">
     <a href="/blog" class="crumb"><span class="crumb-arrow">←</span> Zpět na blog</a>
-    <span class="art-cat">SEO · Pro firmy</span>
-    <h1 class="art-h1">Lokální SEO pro malé firmy: 8 věcí, které <em>opravdu</em> fungují.</h1>
+    <span class="art-cat">Analytika · Pro firmy</span>
+    <h1 class="art-h1">Jak změřit, jestli vám web <em>vydělává peníze</em> (nebo je to jen vizitka).</h1>
 
     <div class="art-tldr">
       <strong>Shrnutí pro spěchající</strong>
-      Lokální SEO se skládá ze tří pilířů: Google Business Profile, kvalitní web s lokálními signály, a recenze. Konzistence názvu, adresy a telefonu (NAP) napříč internetem rozhoduje víc, než si lidé myslí. Začněte u Google Business Profilu, zdarma a má největší dopad.
+      Většina firem se na svůj web dívá jen jako na statistiku návštěvnosti, což je úplně k ničemu. Co potřebujete měřit, jsou tři věci: kolik lidí přišlo, kolik z nich projevilo zájem (poptávka, telefon, e-mail) a kolik z těch zájemců se stalo zákazníkem. Bez tohohle propočtu nevíte, jestli vám web vrací peníze, nebo je to jen drahá vizitka.
     </div>
 
     <div class="art-meta">
@@ -281,8 +286,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <div class="author-avatar">TT</div>
         <span class="author-name">Tomáš Tylich</span>
       </div>
-      <span>📅 28. 4. 2026</span>
-      <span>⏱ 7 min čtení</span>
+      <span>📅 5. 3. 2026</span>
+      <span>⏱ 8 min čtení</span>
+      <span>📂 Analytika</span>
     </div>
   </div>
 </section>
@@ -292,97 +298,127 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
     <article class="art-content">
 
-      <p>Pokud máte firmu v Litomyšli, Svitavách, Chrudimi nebo kdekoliv jinde mimo Prahu, lokální SEO je pravděpodobně nejlepší poměr ceny a výkonu, jaký můžete v marketingu dostat. Konkurence je menší, výsledky přijdou rychleji než u celostátních klíčových slov a investice je řádově nižší. Tady je 8 věcí, které opravdu rozhodnou.</p>
+      <p>Když se majitelů firem zeptám, jestli jim web vydělává peníze, většina pokrčí rameny. „Něco tam je v Google Analytics, ale moc se v tom nevyznám." A přitom to nejdůležitější číslo se dá zjistit za jedno odpoledne. V tomhle článku ukážu, jak na to bez analytika za pět tisíc měsíčně.</p>
 
-      <h2 id="s1">1. Co lokální SEO vlastně je</h2>
-      <p>Lokální SEO znamená optimalizaci, díky které vás Google ukáže lidem hledajícím služby <em>ve vašem okolí</em>. Když někdo napíše „elektrikář Litomyšl", Google nejdřív zobrazí mapu se třemi výsledky, pak organické odkazy. Cíl lokálního SEO je dostat se do té mapy a do top 3 organických výsledků.</p>
-      <p>Pravidla jsou jiná než u klasického SEO, Google používá jiné signály a algoritmus. Dobrá zpráva: na lokál to jde rychleji a levněji.</p>
+      <h2 id="proc">Proč většina firem měří úplně špatné věci</h2>
+      <p>Nejčastější odpověď na otázku „jak vám funguje web?" zní: „Máme tam asi 3 tisíce návštěv měsíčně." Skvělé. A kolik z nich poslalo poptávku? „No to nevím." Aha. Návštěvnost sama o sobě neznamená vůbec nic. Můžete mít sto tisíc návštěv měsíčně a nulový obrat z webu. A naopak, můžete mít 400 návštěv a 12 zakázek.</p>
 
-      <h2 id="s2">2. Google Business Profile, základ základu</h2>
-      <p>Bezplatný profil ve službě Google Business Profile (dříve Google My Business) je z 90 % to, co rozhoduje o vašem zobrazení v mapě. Co s ním udělat:</p>
+      <p>Cíl webu není přivést lidi. Cíl webu je <strong>převést návštěvníky na zákazníky</strong>. To, jak dobře to umí, se měří jednou jedinou metrikou: konverzním poměrem.</p>
+
+      <h2 id="konverze">Co je konverze a jak ji nastavit</h2>
+      <p>Konverze je každá akce, která má pro vaši firmu hodnotu. Pro většinu malých firem to znamená:</p>
       <ul>
-        <li><strong>Vyplňte všechno.</strong> Otevírací doba, kategorie, popis služeb, fotky, URL webu, telefon. Ne 80 %, ale 100 %.</li>
-        <li><strong>Kategorie</strong> volte co nejpřesněji. „Elektrikář" je lepší než „Stavební služby". Můžete přidat sekundární kategorie.</li>
-        <li><strong>Fotky pravidelně přidávejte.</strong> Profily s aktivními fotkami mají větší dosah. Stačí pár fotek měsíčně.</li>
-        <li><strong>Zapněte zprávy a Q&amp;A.</strong> Lidé se ptají přímo z mapy, pokud nereagujete, Google to vidí.</li>
-        <li><strong>Posty publikujte.</strong> Funguje to podobně jako sociální sítě. Akce, novinky, ukázky práce.</li>
+        <li><strong>Odeslání kontaktního formuláře</strong> (poptávka)</li>
+        <li><strong>Kliknutí na telefonní číslo</strong> (zejména na mobilu)</li>
+        <li><strong>Kliknutí na e-mailovou adresu</strong></li>
+        <li><strong>Stažení ceníku, katalogu nebo PDF</strong></li>
+        <li><strong>Rezervace schůzky nebo kalendářní termín</strong></li>
       </ul>
+      <p>Pro e-shopy přibývá objednávka a přidání do košíku. Pro služby s vyšší cenou (advokáti, řemeslo, B2B) je hlavní konverzí poptávka.</p>
 
       <div class="callout">
-        <div class="callout-head">💡 Tip pro pokročilé</div>
-        <p>Do popisu profilu zapracujte 2–3 hlavní lokální klíčová slova (např. „elektrikář Litomyšl, revize elektro Pardubický kraj"). Ne natvrdo a uměle, ale tak, aby tam přirozeně byly. Google to čte.</p>
+        <div class="callout-head">💡 Začněte tady</div>
+        <p>Nastavte si Google Analytics 4 (zdarma) a v něm <strong>klíčové události</strong> pro odeslání formuláře a kliknutí na telefon. To je 90 procent toho, co potřebujete vědět. Vše ostatní je nadstavba.</p>
       </div>
 
-      <h2 id="s3">3. NAP konzistence napříč webem</h2>
-      <p>NAP znamená <strong>Name, Address, Phone</strong>, jméno firmy, adresa, telefon. Google porovnává, jak vás zmiňují různé weby. Pokud jste na Firmy.cz „Statly, Litomyšl, +420 737 372 708" a na Living.cz „Statly s.r.o., Litomysl, 737372708", Google si není jistý, jestli jste jedna firma nebo dvě.</p>
-      <p>Pravidlo: <strong>NAP musí být všude úplně stejný.</strong> Stejná velikost písmen, stejné mezery, stejný formát čísla. Zní to malicherně, pro algoritmus je to klíčový signál.</p>
-      <p>Kde NAP zkontrolovat:</p>
+      <h2 id="kpi">Čtyři čísla, která stačí sledovat</h2>
+      <p>Většina firem se utopí v Google Analytics, protože tam je dvě stě grafů. Vy potřebujete znát čtyři.</p>
+
+      <div class="metric-grid">
+        <div class="metric-card">
+          <div class="metric-name">Návštěvy</div>
+          <div class="metric-val">1 250</div>
+          <div class="metric-desc">Kolik lidí přišlo za měsíc. Trend nahoru je dobrý, dolů znamená problém v marketingu.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Konverzní poměr</div>
+          <div class="metric-val">2,4 %</div>
+          <div class="metric-desc">Procento návštěvníků, kteří poptali. Pod 1 % = problém s webem. 2 až 5 % je dobré.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Konverze</div>
+          <div class="metric-val">30</div>
+          <div class="metric-desc">Reálný počet poptávek z webu za měsíc. Tohle číslo přímo souvisí s obratem.</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-name">Cena za poptávku</div>
+          <div class="metric-val">410 Kč</div>
+          <div class="metric-desc">Pokud platíte reklamu, kolik vás stojí jedna poptávka. Porovnejte s ziskem ze zakázky.</div>
+        </div>
+      </div>
+
+      <p>To je všechno. Kdokoli vám vykládá, že musíte sledovat „bounce rate", „průměrnou dobu na stránce" nebo „počet pohledů na stránku produktu", má ve většině případů pravdu jen napůl. Ty metriky mají smysl, když konvertujete dobře a chcete zjistit proč. Když nekonvertujete vůbec, jsou zbytečné.</p>
+
+      <h2 id="cesta">Jak se sleduje cesta od návštěvy k zakázce</h2>
+      <p>Tohle je věc, ve které se ztrácí 95 procent firem. Návštěva webu je teprve začátek. Zákazník projde takhle:</p>
+      <ol>
+        <li><strong>Přijde na web</strong> (z Google, reklamy, doporučení)</li>
+        <li><strong>Něco si přečte nebo zjistí</strong> (cena, kontakt, reference)</li>
+        <li><strong>Pošle poptávku nebo zavolá</strong> (konverze)</li>
+        <li><strong>Vy mu odpovíte a dohodnete schůzku</strong></li>
+        <li><strong>Podepíšete smlouvu a vystavíte fakturu</strong></li>
+      </ol>
+      <p>Google Analytics vám změří krok 1 až 3. Kroky 4 a 5 si musíte zaznamenat vy sami, ideálně do tabulky v Excelu nebo do CRM. Vím, že to zní jako práce navíc. Je to ale jediný způsob, jak zjistit, co web reálně vydělává.</p>
+
+      <h3>Minimalistický model: tabulka v Excelu</h3>
+      <p>Pokud nemáte CRM, založte si jednu tabulku se sloupci: <em>datum poptávky · jméno · zdroj (web/doporučení/sítě) · stav (otevřeno/dohodnuto/odmítnuto) · částka zakázky</em>. Po roce máte přehled, který stojí za víc než drahá analytika.</p>
+
+      <h2 id="navratnost">Jak spočítat, jestli vám web vrátí investici</h2>
+      <p>Tady je matematika, kterou by si měl projít každý majitel firmy. Vezmeme reálná čísla:</p>
+
+      <div class="callout">
+        <div class="callout-head">📊 Konkrétní příklad</div>
+        <p><strong>Firma:</strong> truhlář, kuchyně na míru, průměrná zakázka 80 000 Kč zisku.</p>
+        <p><strong>Web:</strong> stál 50 000 Kč, měsíční hosting 200 Kč.</p>
+        <p><strong>Měsíční čísla:</strong> 800 návštěv, konverzní poměr 2 %, takže 16 poptávek. Z toho 4 zakázky.</p>
+        <p><strong>Výpočet:</strong> 4 × 80 000 = 320 000 Kč zisku z webu měsíčně. Web se zaplatil za první měsíc.</p>
+      </div>
+
+      <p>Tahle čísla nejsou výjimečná. Tohle je normální výkon webu, který je správně nastavený a má za sebou trochu SEO nebo reklamy. Když firma řekne, že jí „web nevydělává", v naprosté většině případů buď nezná konverzní poměr, nebo má technicky špatný web (pomalý, nepřehledný, bez výzev k akci).</p>
+
+      <p class="pullquote">Web, který za rok nevydělá desetinásobek toho, co stál, je technicky špatně postavený. Není to o oboru, je to o nastavení.</p>
+
+      <h2 id="atribuce">Atribuce: odkud zákazníci opravdu přicházejí</h2>
+      <p>Atribuce zní jako složitý pojem, ale ve skutečnosti je to jednoduchá otázka: <em>Kdo si zaslouží kredit za konverzi?</em> Když si zákazník nejdřív přečetl váš blog, pak viděl reklamu na Facebooku, pak hledal vaše jméno v Google a teprve potom poslal poptávku, který kanál to vyhrál?</p>
+
+      <p>Google Analytics 4 v základu používá atribuci založenou na datech, která rozděluje kredit mezi všechny kanály v cestě. To je pro většinu firem dostačující. Co potřebujete vědět:</p>
       <ul>
-        <li>Vlastní web (patička, kontaktní stránka, kontaktní pole)</li>
-        <li>Google Business Profile</li>
-        <li>Firmy.cz, Living.cz, Mapy.cz</li>
-        <li>Facebook stránka</li>
-        <li>Instagram profil</li>
-        <li>LinkedIn</li>
+        <li><strong>Organické vyhledávání</strong> = lidé, kteří vás našli přes Google bez reklamy. Tohle je SEO. Nejlevnější dlouhodobý kanál.</li>
+        <li><strong>Přímý přístup</strong> = lidé, kteří přišli přes zakládku, vizitku nebo vám doporučili. Indikátor síly značky.</li>
+        <li><strong>Placené vyhledávání</strong> = Google Ads. Drahé krátkodobě, ale výsledky hned.</li>
+        <li><strong>Sociální sítě</strong> = Instagram, Facebook, LinkedIn. Často nepřímý kanál, který spíš podporuje povědomí.</li>
+        <li><strong>Doporučující stránky</strong> = jiný web na vás odkazoval. Indikátor toho, že vás internet zná.</li>
       </ul>
 
-      <h2 id="s4">4. Recenze, král lokálu</h2>
-      <p>Recenze jsou pro lokální SEO obrovský faktor. Po Google Business Profilu druhý nejdůležitější. Co s nimi:</p>
-      <ul>
-        <li><strong>Aktivně si je žádejte.</strong> Po každé dokončené zakázce. Ne přes spam, slušně, ideálně osobně nebo SMS odkazem.</li>
-        <li><strong>Odpovídejte na všechny.</strong> I na ty pozitivní. Google vidí aktivitu a hodnotí ji.</li>
-        <li><strong>Negativní recenze nemažte.</strong> Místo toho profesionálně reagujte. Negativní recenze s dobře řešenou odpovědí často udělá lepší dojem než 5 pětihvězdiček.</li>
-        <li><strong>Cílem je objem a aktuálnost.</strong> 50 recenzí starých 3 roky = horší než 20 z posledního půl roku.</li>
-      </ul>
+      <h2 id="chyby">Tři chyby, kterých se firmy dopouštějí</h2>
 
-      <div class="pullquote">„Jedna nová recenze týdně po dobu roku vás v lokálu posune víc než drahá agentura. Jen je potřeba si o ně opravdu říkat."</div>
+      <h3>1. Měří jen návštěvnost</h3>
+      <p>„Mám tisíc návštěv, takže to funguje" je věta, kterou slyším pořád. Tisíc návštěv s konverzním poměrem 0,1 % je deset poptávek měsíčně. Tisíc návštěv s konverzním poměrem 3 % je třicet poptávek. Pětinásobný rozdíl při stejné návštěvnosti.</p>
 
-      <h2 id="s5">5. Lokální klíčová slova na webu</h2>
-      <p>Na svém webu musíte mít texty, které Google jednoznačně přiřadí k vašemu městu nebo regionu. To znamená:</p>
-      <ul>
-        <li><strong>Titulky stránek</strong> ve formátu „Služba | Město", třeba „Tvorba webů Litomyšl | Statly".</li>
-        <li><strong>H1 nadpis</strong> obsahuje název služby a lokalitu.</li>
-        <li><strong>Meta description</strong> zmiňuje lokalitu.</li>
-        <li><strong>Adresa a kontakty viditelně</strong> v patičce každé stránky.</li>
-        <li><strong>Strukturovaná data</strong> typu LocalBusiness, kód, který říká Googlu „tahle firma je v Litomyšli". Setup je jednorázový, dopad zásadní.</li>
-      </ul>
+      <h3>2. Nemají v Analytics zapnuté konverze</h3>
+      <p>Asi 60 procent firem, kterým otevírám jejich Analytics účet, tam má jen základní instalaci. Nikdo nikdy nenastavil události pro odeslání formuláře nebo kliknutí na telefon. Účet sbírá data dva roky a všechny užitečné informace propadly.</p>
 
-      
+      <h3>3. Spoléhají na pocity</h3>
+      <p>„Mám pocit, že nám web funguje" je hezké, ale pocity zákazníka platit nebudou. Dvacet minut s daty vám řekne víc než půl roku odhadů.</p>
+
       <div class="art-cta">
-        <h4>Potřebujete pomoc s lokálním SEO?</h4>
-        <p>Rád vám projedu váš web a Google Business Profile a řeknu vám, kde jsou největší rezervy.</p>
-        <a href="index.html#kontakt" class="art-cta-btn">Domluvíme nezávaznou konzultaci →</a>
+        <h4>Chcete vědět, jak je na tom váš web reálně?</h4>
+        <p>Podívám se vám do Analytics zdarma a do týdne pošlu konkrétní čísla: konverzní poměr, slabá místa, návratnost. Bez závazku.</p>
+        <a href="index.html#kontakt" class="art-cta-btn">Chci audit zdarma →</a>
       </div>
 
-      <h2 id="s6">6. Backlinky z regionálních zdrojů</h2>
-      <p>Odkazy z regionálních webů jsou pro lokální SEO zlato. Kde je sehnat:</p>
+      <h2 id="nastroje">Jaké nástroje stačí</h2>
+      <p>Marketéři vám prodají dvanáct nástrojů za pět tisíc měsíčně. Pro malou firmu stačí tři, a všechny jsou zdarma:</p>
       <ul>
-        <li><strong>Místní katalogy a portály</strong>, Firmy.cz, Najisto.cz, ale i lokální (např. Pardubicky-kraj.cz).</li>
-        <li><strong>Místní noviny a magazíny</strong>, rozhovor, reportáž, sponzoring akce.</li>
-        <li><strong>Profesní svazy a komory</strong>, hospodářská komora, cech, sdružení v oboru.</li>
-        <li><strong>Spolupráce s místními firmami</strong>, vzájemné odkazování, partner pages.</li>
-        <li><strong>Sponzoring místních akcí</strong>, sportovní klub, kulturní akce, často odkaz získáte.</li>
+        <li><strong>Google Analytics 4</strong> — měření návštěvnosti, konverzí, atribuce. Bez nastavení nemá smysl řešit zbytek.</li>
+        <li><strong>Google Search Console</strong> — co lidé hledají, na čem se vám zobrazujete, kde máte problémy s indexací. Skvělé pro SEO.</li>
+        <li><strong>Google Tag Manager</strong> — nástroj na správu měřicích kódů. Když chcete cokoli složitějšího než základ, ušetří hodiny.</li>
       </ul>
+      <p>Pokud máte placenou reklamu, ještě přibude Google Ads a Meta Business Suite. Ale to už je nadstavba pro firmy, které doopravdy chtějí škálovat.</p>
 
-      <h2 id="s7">7. Mobil a rychlost</h2>
-      <p>70 % lokálních hledání chodí z mobilu, člověk stojí v autě, hledá nejbližší kavárnu, klikne na první výsledek. Pokud se vám web na mobilu nenačte za 2–3 sekundy, jste mimo hru. Otestujte si:</p>
-      <ul>
-        <li><strong><a href="https://pagespeed.web.dev" target="_blank" rel="noopener">PageSpeed Insights</a></strong>, Google nástroj zdarma, ukáže problémy.</li>
-        <li><strong>Mobilní použitelnost</strong>, Search Console má sekci, která vám řekne, co nefunguje.</li>
-        <li><strong>Telefon na webu</strong> musí být klikací (<code>tel:</code> odkaz). Stejně tak mapa.</li>
-      </ul>
-
-      <h2 id="s8">8. Co naopak <em>nedělat</em></h2>
-      <ul>
-        <li><strong>Nekupovat falešné recenze.</strong> Google to pozná a smaže celý profil. Hodně lidí už takhle přišlo o roky práce.</li>
-        <li><strong>Neperat klíčová slova do textu nepřirozeně.</strong> „Tvorba webů Litomyšl Pardubice Svitavy Chrudim" v každé větě = penalizace.</li>
-        <li><strong>Neuvádět falešné adresy.</strong> Google si to ověří přes Google Maps a Street View. Adresa musí být reálná.</li>
-        <li><strong>Nevytvářet duplicitní profily.</strong> Jedna firma = jeden Google Business Profile.</li>
-      </ul>
-
-      <h2 id="conclusion">Závěr</h2>
-      <p>Lokální SEO není raketová věda, je to spíš pečlivost a důslednost. Většina firem v regionu na lokálním SEO pracuje jen polovičně, takže i s relativně malou investicí se dostanete před konkurenci. Klíč je začít a dělat to průběžně, ne nárazově.</p>
-      <p>Pokud byste se chtěli pobavit o tom, kde konkrétně začít s vaší firmou, <a href="index.html#kontakt">napište mi</a>. Rád vám během půlhodiny řeknu, na čem stojíte.</p>
+      <h2 id="zaver">Závěr</h2>
+      <p>Měření výkonnosti webu není složité, je to jen práce, kterou většina lidí nikdy neudělá. Hodina nastavení Google Analytics 4 a měsíc sběru dat vám řekne, jestli stojíte na zlatém dolu, nebo na vizitce, která stojí peníze a nic nevrací.</p>
+      <p>A pokud máte v hlavě web, který by takhle měřitelně fungoval od prvního dne, <a href="index.html#kontakt">napište mi</a>. Rád pomůžu.</p>
 
     </article>
 
@@ -390,23 +426,23 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <div class="toc">
         <div class="toc-head">Obsah článku</div>
         <ol>
-          <li><a href="#s1">Co je lokální SEO</a></li>
-          <li><a href="#s2">Google Business Profile</a></li>
-          <li><a href="#s3">Konzistentní NAP</a></li>
-          <li><a href="#s4">Recenze a hodnocení</a></li>
-          <li><a href="#s5">Lokální klíčová slova</a></li>
-          <li><a href="#s6">Backlinky z regionu</a></li>
-          <li><a href="#s7">Mobil a rychlost</a></li>
-          <li><a href="#s8">Co nedělat</a></li>
+          <li><a href="#proc">Co měřit špatně</a></li>
+          <li><a href="#konverze">Co je konverze</a></li>
+          <li><a href="#kpi">Čtyři klíčová čísla</a></li>
+          <li><a href="#cesta">Cesta zákazníka</a></li>
+          <li><a href="#navratnost">Návratnost investice</a></li>
+          <li><a href="#atribuce">Atribuce</a></li>
+          <li><a href="#chyby">Časté chyby</a></li>
+          <li><a href="#nastroje">Jaké nástroje</a></li>
         </ol>
       </div>
       <div class="share">
         <div class="share-head">Sdílet článek</div>
         <div class="share-btns">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://statly.cz/blog-2" target="_blank" rel="noopener" class="share-btn" aria-label="Facebook">f</a>
-          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://statly.cz/blog-2" target="_blank" rel="noopener" class="share-btn" aria-label="LinkedIn">in</a>
-          <a href="https://twitter.com/intent/tweet?url=https://statly.cz/blog-2" target="_blank" rel="noopener" class="share-btn" aria-label="X">𝕏</a>
-          <a href="mailto:?body=https://statly.cz/blog-2" class="share-btn" aria-label="E‑mail">@</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://statly.cz/merit-navratnost-webu" target="_blank" rel="noopener" class="share-btn" aria-label="Facebook">f</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://statly.cz/merit-navratnost-webu" target="_blank" rel="noopener" class="share-btn" aria-label="LinkedIn">in</a>
+          <a href="https://twitter.com/intent/tweet?url=https://statly.cz/merit-navratnost-webu" target="_blank" rel="noopener" class="share-btn" aria-label="X">𝕏</a>
+          <a href="mailto:?body=https://statly.cz/merit-navratnost-webu" class="share-btn" aria-label="E‑mail">@</a>
         </div>
       </div>
     </aside>
@@ -415,26 +451,28 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 </section>
 
 <section class="related">
-  <div class="related-head">
-    <h3>Další články</h3>
-    <a href="/blog" class="related-back">Všechny články →</a>
-  </div>
-  <div class="related-grid">
-    <a href="/blog-1" class="related-card">
-      <span class="related-cat">Tvorba webů</span>
-      <p class="related-title">Kolik by měl stát firemní web v roce 2026</p>
-      <span class="related-meta">⏱ 9 min · 8. 5. 2026</span>
-    </a>
-    <a href="/blog-5" class="related-card">
-      <span class="related-cat">Marketing</span>
-      <p class="related-title">Reklama na Facebooku a Googlu: kolik dát, aby to mělo smysl</p>
-      <span class="related-meta">⏱ 8 min · 20. 3. 2026</span>
-    </a>
-    <a href="/blog-4" class="related-card">
-      <span class="related-cat">Tvorba webů</span>
-      <p class="related-title">7 znaků, podle kterých poznáte, že váš web ztrácí zákazníky</p>
-      <span class="related-meta">⏱ 5 min · 2. 4. 2026</span>
-    </a>
+  <div class="related-inner">
+    <div class="related-head">
+      <h3>Další články</h3>
+      <a href="/blog" class="related-back">Všechny články →</a>
+    </div>
+    <div class="related-grid">
+      <a href="/lokalni-seo-pro-male-firmy" class="related-card">
+        <span class="related-cat">SEO</span>
+        <p class="related-title">Lokální SEO pro malé firmy: 8 věcí, které opravdu fungují</p>
+        <span class="related-meta">⏱ 7 min · 28. 4. 2026</span>
+      </a>
+      <a href="/kolik-stoji-firemni-web" class="related-card">
+        <span class="related-cat">Pro firmy</span>
+        <p class="related-title">Kolik opravdu stojí firemní web v roce 2026</p>
+        <span class="related-meta">⏱ 9 min · 8. 5. 2026</span>
+      </a>
+      <a href="/instagram-pro-male-firmy" class="related-card">
+        <span class="related-cat">Sociální sítě</span>
+        <p class="related-title">Instagram pro malou firmu: jak na to v roce 2026</p>
+        <span class="related-meta">⏱ 6 min · 18. 2. 2026</span>
+      </a>
+    </div>
   </div>
 </section>
 
@@ -481,21 +519,24 @@ window.addEventListener('scroll', () => {
   const scrolled = h.scrollTop;
   const height = h.scrollHeight - h.clientHeight;
   const pct = (scrolled / height) * 100;
-  document.getElementById('progressBar').style.width = pct + '%';
+  const bar = document.getElementById('progressBar');
+  if (bar) bar.style.width = pct + '%';
 });
 const headings = document.querySelectorAll('.art-content h2[id]');
 const tocLinks = document.querySelectorAll('.toc a');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const id = entry.target.id;
-      tocLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-      });
-    }
-  });
-}, { rootMargin: '-100px 0px -60% 0px' });
-headings.forEach(h => observer.observe(h));
+if (headings.length && tocLinks.length) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        tocLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-100px 0px -60% 0px' });
+  headings.forEach(h => observer.observe(h));
+}
 </script>
 
 <!-- ===== STATLY · Interaktivní průvodce poptávkou (slg) ===== -->

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rezervace konzultace zdarma | Statly</title>
+<meta name="description" content="Vyberte si termín krátkého nezávazného hovoru. Probereme váš web nebo marketing a navrhnu další postup. Statly, Litomyšl.">
+
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0a1410">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://statly.cz/rezervace">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://statly.cz/rezervace">
+<meta property="og:title" content="Rezervace konzultace zdarma | Statly">
+<meta property="og:description" content="Vyberte si termín krátkého nezávazného hovoru a probereme váš projekt.">
+<meta property="og:image" content="https://statly.cz/og-image.png">
+<meta property="og:locale" content="cs_CZ">
+<meta property="og:site_name" content="Statly">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter Tight', -apple-system, sans-serif; background: #0a1410; color: #e8efe9; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { text-decoration: none; color: inherit; }
+:root {
+  --green: #1B7F5F; --green-bright: #22c47e; --green-deep: #0d3d2c;
+  --gold: #FFB800; --gold-soft: #ffd166;
+  --bg: #0a1410; --bg-2: #0d1a14; --bg-card: #111e18;
+  --border: rgba(255,255,255,0.06); --border-2: rgba(34,196,126,0.18);
+  --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #5a7a6a;
+  --sans: 'Inter Tight', -apple-system, sans-serif; --mono: 'JetBrains Mono', monospace;
+}
+
+nav { position: sticky; top: 0; z-index: 50; background: rgba(10,20,16,0.72); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border-bottom: 1px solid var(--border); }
+.nav-inner { max-width: 1080px; margin: 0 auto; padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; }
+.logo-word { font-family: var(--sans); font-weight: 800; font-size: 1.35rem; letter-spacing: -0.045em; color: #fff; }
+.logo-word b { color: var(--green-bright); }
+.nav-back { font-size: 0.88rem; color: var(--text-dim); display: inline-flex; align-items: center; gap: 0.4rem; transition: color 0.2s; }
+.nav-back:hover { color: #fff; }
+
+.book-bg { position: relative; overflow: hidden; }
+.book-bg::before { content: ''; position: absolute; inset: 0; pointer-events: none; z-index: 0; background: radial-gradient(ellipse 70% 50% at 25% 0%, rgba(27,127,95,0.20) 0%, transparent 55%), radial-gradient(ellipse 55% 45% at 85% 30%, rgba(255,184,0,0.06) 0%, transparent 55%); }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 1.5rem; position: relative; z-index: 1; }
+
+.book-head { padding: 4rem 0 2rem; text-align: center; }
+.book-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.76rem; font-weight: 500; padding: 0.4rem 0.95rem; margin-bottom: 1.5rem; }
+.book-h { font-family: var(--sans); font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; line-height: 1.04; letter-spacing: -0.04em; color: #fff; margin-bottom: 1rem; }
+.book-h em { font-style: italic; font-weight: 500; }
+.book-h .gold { color: var(--gold); }
+.book-sub { color: var(--text-dim); font-size: 1.08rem; max-width: 560px; margin: 0 auto 2rem; line-height: 1.7; }
+
+.book-feats { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem 1.4rem; max-width: 620px; margin: 0 auto 2rem; }
+.book-feat { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.92rem; color: var(--text); }
+.book-feat .chk { color: var(--green-bright); font-weight: 700; }
+
+/* kapacita */
+.capacity { max-width: 420px; margin: 0 auto 0.5rem; background: rgba(255,184,0,0.05); border: 1px solid rgba(255,184,0,0.22); border-radius: 16px; padding: 1.1rem 1.25rem; text-align: left; }
+.capacity-top { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
+.capacity-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(255,184,0,0.6); animation: pulseDot 2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,0.6); } 50% { box-shadow: 0 0 0 7px rgba(255,184,0,0); } }
+.capacity-count { margin-left: auto; font-weight: 700; color: var(--gold); font-size: 0.95rem; }
+.capacity-bar { height: 6px; border-radius: 100px; background: rgba(255,255,255,0.08); margin: 0.7rem 0 0.6rem; overflow: hidden; }
+.capacity-bar > span { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--gold), var(--gold-soft)); }
+.capacity-note { font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; }
+.capacity-note strong { color: #fff; font-weight: 600; }
+
+/* calendly */
+.cal-wrap { max-width: 1000px; margin: 1.5rem auto 4rem; background: var(--bg-card); border: 1px solid var(--border-2); border-radius: 24px; padding: 0.6rem; overflow: hidden; }
+.calendly-inline-widget { min-width: 320px; height: 720px; border-radius: 18px; overflow: hidden; }
+.cal-fallback { padding: 2.5rem 1.5rem; text-align: center; color: var(--text-dim); }
+.cal-fallback a { color: var(--green-bright); font-weight: 600; }
+
+footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align: center; color: var(--text-dimmer); font-size: 0.85rem; }
+footer a { color: var(--text-dim); }
+footer a:hover { color: var(--green-bright); }
+
+@media (max-width: 600px) { .book-head { padding: 2.5rem 0 1.5rem; } .calendly-inline-widget { height: 640px; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="logo-word">stat<b>ly</b></a>
+    <a href="/" class="nav-back">← Zpět na web</a>
+  </div>
+</nav>
+
+<div class="book-bg">
+  <header class="book-head">
+    <div class="wrap">
+      <span class="book-badge">⚡ Nezávazně &amp; zdarma</span>
+      <h1 class="book-h">Vyberte si termín<br><em class="gold">konzultace zdarma.</em></h1>
+      <p class="book-sub">30 minut po telefonu nebo videohovoru. Probereme, co potřebujete, a navrhnu vám další postup — bez závazků a tlaku na rozhodnutí.</p>
+      <div class="book-feats">
+        <span class="book-feat"><span class="chk">✓</span> 30 minut, bez závazků</span>
+        <span class="book-feat"><span class="chk">✓</span> Konkrétní návrh postupu</span>
+        <span class="book-feat"><span class="chk">✓</span> Férová cena předem</span>
+      </div>
+      <div class="capacity">
+        <div class="capacity-top">
+          <span class="capacity-dot"></span>
+          <span>Volná kapacita tento měsíc</span>
+          <span class="capacity-count">3/5</span>
+        </div>
+        <div class="capacity-bar"><span style="width:60%"></span></div>
+        <p class="capacity-note">Beru max 5 webů měsíčně — zbývají poslední <strong>2 volná místa</strong>.</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="cal-wrap">
+      <div class="calendly-inline-widget" data-url="https://calendly.com/hasci-tomasek/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a1410&text_color=e8efe9&primary_color=22c47e" data-resize="true">
+        <div class="cal-fallback">Načítám kalendář… Pokud se nezobrazí, napište mi na <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a> nebo zavolejte <a href="tel:+420737372708">+420 737 372 708</a>.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 Statly · Tomáš Tylich · <a href="/">statly.cz</a> · <a href="/privacy">Zásady ochrany osobních údajů</a></p>
+</footer>
+
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script>
+/* Tracking konzistentní s hlavním webem: načti GA4/Meta jen pokud uživatel dříve odsouhlasil (stejný localStorage klíč). */
+(function() {
+  var consent = null;
+  try { consent = JSON.parse(localStorage.getItem('statly_cookie_consent_v1') || 'null'); } catch (e) {}
+  if (!consent) return;
+  if (consent.analytics && !window._gaLoaded) {
+    var GA_ID = 'G-4PE1SD2TBP';
+    var s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || []; window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date()); gtag('config', GA_ID, { anonymize_ip: true });
+    window._gaLoaded = true;
+  }
+  if (consent.marketing && !window._fbqLoaded) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '26797740659876476'); fbq('track', 'PageView'); window._fbqLoaded = true;
+  }
+})();
+
+/* Konverze: rezervace hovoru přes Calendly = generate_lead */
+window.addEventListener('message', function(e) {
+  if (e.data && e.data.event === 'calendly.event_scheduled') {
+    try {
+      if (window.gtag) gtag('event', 'generate_lead', { method: 'call_booked', form_location: '/rezervace' });
+      if (window.fbq)  fbq('track', 'Lead');
+    } catch (_) {}
+  }
+});
+</script>
+</body>
+</html>

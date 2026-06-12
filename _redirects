@@ -10,6 +10,7 @@
 /nataceni.html                      /nataceni                           301
 /blog.html                          /blog                               301
 /privacy.html                       /privacy                            301
+/rezervace.html                     /rezervace                          301
 
 # Blogové články — staré URL (blog-N) i .html -> nové slug URL
 /blog-1.html                                /kolik-stoji-firemni-web                    301

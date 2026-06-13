@@ -72,15 +72,15 @@ nav { position: sticky; top: 0; z-index: 50; background: rgba(10,20,16,0.72); ba
 .capacity-note strong { color: #fff; font-weight: 600; }
 
 .cal-wrap { max-width: 1000px; margin: 1.5rem auto 4rem; background: var(--bg-card); border: 1px solid var(--border-2); border-radius: 24px; padding: 0.6rem; overflow: hidden; }
-.calendly-inline-widget { min-width: 320px; height: 720px; border-radius: 18px; overflow: hidden; }
-.cal-fallback { padding: 2.5rem 1.5rem; text-align: center; color: var(--text-dim); }
-.cal-fallback a { color: var(--green-bright); font-weight: 600; }
+#calendly-embed { height: 720px; border-radius: 18px; overflow: hidden; }
+.cal-help { text-align: center; color: var(--text-dimmer); font-size: 0.86rem; max-width: 560px; margin: 0 auto 3.5rem; line-height: 1.6; }
+.cal-help a { color: var(--green-bright); }
 
 footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align: center; color: var(--text-dimmer); font-size: 0.85rem; }
 footer a { color: var(--text-dim); }
 footer a:hover { color: var(--green-bright); }
 
-@media (max-width: 600px) { .book-head { padding: 2.5rem 0 1.5rem; } .calendly-inline-widget { height: 640px; } }
+@media (max-width: 600px) { .book-head { padding: 2.5rem 0 1.5rem; } #calendly-embed { height: 640px; } }
 </style>
 </head>
 <body>
@@ -117,10 +117,9 @@ footer a:hover { color: var(--green-bright); }
 
   <div class="wrap">
     <div class="cal-wrap">
-      <div class="calendly-inline-widget" data-url="https://calendly.com/hasci-tomasek/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a1410&text_color=e8efe9&primary_color=22c47e" data-resize="true">
-        <div class="cal-fallback">Načítám kalendář… Pokud se nezobrazí, napište mi na <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a> nebo zavolejte <a href="tel:+420737372708">+420 737 372 708</a>.</div>
-      </div>
+      <div id="calendly-embed" style="min-width:320px;"></div>
     </div>
+    <p class="cal-help">Nenačítá se kalendář? Někdy ho blokuje rozšíření prohlížeče (adblock) — zkuste anonymní okno, nebo mi napište na <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a> či zavolejte <a href="tel:+420737372708">+420 737 372 708</a>.</p>
   </div>
 </div>
 
@@ -128,7 +127,18 @@ footer a:hover { color: var(--green-bright); }
   <p>© 2026 Statly · Tomáš Tylich · <a href="/">statly.cz</a> · <a href="/privacy">Zásady ochrany osobních údajů</a></p>
 </footer>
 
-<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<script src="https://assets.calendly.com/assets/external/widget.js"></script>
+<script>
+window.addEventListener('load', function() {
+  var el = document.getElementById('calendly-embed');
+  if (window.Calendly && el) {
+    Calendly.initInlineWidget({
+      url: 'https://calendly.com/hasci-tomasek/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0a1410&text_color=e8efe9&primary_color=22c47e',
+      parentElement: el
+    });
+  }
+});
+</script>
 <script>
 (function() {
   var consent = null;

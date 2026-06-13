@@ -233,16 +233,17 @@ nav {
 .nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
 
-.hero { position: relative; overflow: hidden; padding: 9rem 2rem 6rem; background: var(--bg); text-align: center; }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: var(--bg); text-align: center; }
 .hero::before {
   content: ''; position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 30% 30%, rgba(27,127,95,0.18) 0%, transparent 55%),
-    radial-gradient(ellipse 55% 45% at 75% 60%, rgba(255,184,0,0.08) 0%, transparent 55%);
+    radial-gradient(ellipse 70% 55% at 20% 30%, rgba(27,127,95,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 45% at 80% 75%, rgba(255,184,0,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(34,196,126,0.10) 0%, transparent 60%);
   pointer-events: none;
-  animation: heroGlow 14s ease-in-out infinite alternate;
+  animation: heroGlow 12s ease-in-out infinite alternate;
 }
-@keyframes heroGlow { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.08) rotate(2deg); } }
+@keyframes heroGlow { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
 .hero::after {
   content: ''; position: absolute; inset: 0;
   background-image:
@@ -261,11 +262,11 @@ nav {
 .crumb-arrow { font-size: 0.85rem; transition: transform 0.2s; }
 .crumb:hover .crumb-arrow { transform: translateX(-3px); }
 
-.hero-badge { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.28); border-radius: 100px; color: var(--gold); font-family: var(--mono); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 1.05rem; margin-bottom: 2.25rem; backdrop-filter: blur(8px); }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 1.05rem; margin-bottom: 2.25rem; backdrop-filter: blur(8px); }
 .hero-badge .rec-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff5277; animation: recBlink 1.4s ease-in-out infinite; }
 @keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-.hero-h { font-family: var(--sans); font-size: clamp(2.4rem, 5.5vw, 4.4rem); font-weight: 900; letter-spacing: -0.045em; line-height: 1; color: #fff; margin-bottom: 1.5rem; }
+.hero-h { font-family: var(--sans); font-size: clamp(2.6rem, 6.4vw, 5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 0.98; color: #fff; margin-bottom: 1.75rem; }
 .hero-h em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
 .hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); color: var(--text-dim); line-height: 1.65; max-width: 620px; margin: 0 auto 2.5rem; }
 .hero-btn-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
@@ -279,8 +280,23 @@ nav {
 .btn-secondary { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(255,255,255,0.04); color: #fff; border: 1px solid var(--border); padding: 0.95rem 1.7rem; border-radius: 100px; font-weight: 600; font-size: 0.92rem; transition: all 0.25s ease; }
 .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: var(--border-2); transform: translateY(-2px); }
 
-.sec { padding: 6rem 2rem; background: var(--bg); position: relative; }
-.sec-alt { padding: 6rem 2rem; background: var(--bg-2); position: relative; }
+.hero-trust { margin-top: 1.7rem; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); }
+.hero-trust strong { color: #fff; font-weight: 600; }
+.hero-trust .ht-star { color: var(--gold); }
+.hero-trust .ht-sep { color: var(--text-dimmer); opacity: 0.7; }
+
+.stats { background: var(--bg-2); border-top: 1px solid var(--border); padding: 5rem 2rem; position: relative; }
+.stats-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+.stat { background: linear-gradient(180deg, rgba(34,196,126,0.04), transparent); border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; }
+.stat::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--green-bright), transparent); opacity: 0; transition: opacity 0.3s; }
+.stat:hover { border-color: var(--border-2); transform: translateY(-3px); }
+.stat:hover::before { opacity: 1; }
+.stat-n { font-family: var(--sans); font-size: 2.6rem; font-weight: 800; color: #fff; display: block; line-height: 1; letter-spacing: -0.03em; }
+.stat-n .accent { color: var(--green-bright); }
+.stat-l { color: var(--text-dim); font-size: 0.83rem; margin-top: 0.55rem; display: block; font-family: var(--mono); font-weight: 400; letter-spacing: 0.02em; }
+
+.sec { padding: 7rem 2rem; background: var(--bg); position: relative; }
+.sec-alt { padding: 7rem 2rem; background: var(--bg-2); position: relative; }
 .wrap { max-width: 1180px; margin: 0 auto; position: relative; z-index: 1; }
 
 .sec-label { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; color: var(--green-bright); margin-bottom: 1rem; text-transform: uppercase; }
@@ -290,7 +306,7 @@ nav {
 .sec-sub { color: var(--text-dim); font-size: 1.02rem; line-height: 1.7; max-width: 560px; margin-bottom: 3.5rem; }
 
 .gear-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.gear { background: linear-gradient(180deg, #0e1d17 0%, #0b1813 100%); border: 1px solid var(--border); border-radius: 22px; padding: 1.8rem 1.6rem 1.8rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
+.gear { background: var(--bg-card); border: 1px solid var(--border); border-radius: 22px; padding: 1.8rem 1.6rem 1.8rem; position: relative; overflow: hidden; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); display: flex; flex-direction: column; }
 .gear::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.55), transparent); opacity: 0; transition: opacity 0.4s; }
 .gear::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 35%, rgba(34,196,126,0.08), transparent 55%); opacity: 0; transition: opacity 0.45s ease; pointer-events: none; }
 .gear:hover { transform: translateY(-6px); border-color: var(--border-2); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(34,196,126,0.08); }
@@ -330,13 +346,15 @@ nav {
 .fmt-list li { display: flex; align-items: flex-start; gap: 0.55rem; font-size: 0.86rem; color: var(--text-dim); line-height: 1.5; }
 .fmt-list li svg { width: 14px; height: 14px; color: var(--green-bright); margin-top: 0.2rem; flex-shrink: 0; }
 
-.proc-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; position: relative; }
-.proc-grid::before { content: ''; position: absolute; top: 38px; left: 12%; right: 12%; height: 1px; background: linear-gradient(90deg, transparent, var(--border-2), var(--border-2), transparent); z-index: 0; }
-.proc { position: relative; z-index: 1; }
-.proc-num { width: 56px; height: 56px; background: var(--bg-card); border: 1px solid var(--border-2); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 1rem; font-weight: 600; color: var(--green-bright); margin-bottom: 1.1rem; transition: all 0.3s; }
-.proc:hover .proc-num { background: rgba(34,196,126,0.1); transform: translateY(-3px); }
-.proc-h { font-family: var(--sans); font-size: 1.02rem; font-weight: 700; color: #fff; margin-bottom: 0.4rem; letter-spacing: -0.015em; }
-.proc-p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; position: relative; }
+.process-grid::before { content: ''; position: absolute; top: 28px; left: calc(12.5% + 14px); right: calc(12.5% + 14px); height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.3) 15%, rgba(34,196,126,0.6) 50%, rgba(34,196,126,0.3) 85%, transparent); }
+.step { text-align: center; position: relative; z-index: 1; }
+.step-n { width: 56px; height: 56px; border-radius: 50%; border: 1.5px solid var(--border-2); background: var(--bg-2); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; font-family: var(--mono); font-size: 0.85rem; font-weight: 500; color: var(--green-bright); transition: all 0.3s; position: relative; }
+.step-n::before { content: ''; position: absolute; inset: -4px; border-radius: 50%; background: radial-gradient(circle, rgba(34,196,126,0.4), transparent 70%); opacity: 0; transition: opacity 0.3s; z-index: -1; }
+.step:hover .step-n { background: var(--green-bright); border-color: var(--green-bright); color: var(--green-deep); transform: scale(1.08); }
+.step:hover .step-n::before { opacity: 1; }
+.step-h { font-family: var(--sans); font-weight: 700; color: #fff; font-size: 1rem; margin-bottom: 0.5rem; letter-spacing: -0.015em; }
+.step-p { font-size: 0.86rem; color: var(--text-dim); line-height: 1.6; }
 
 .locs { background: var(--bg); padding: 4rem 2rem; border-top: 1px solid var(--border); position: relative; overflow: hidden; }
 .locs::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(34,196,126,0.05) 0%, transparent 65%); pointer-events: none; }
@@ -369,10 +387,14 @@ nav {
 .cta-box { max-width: 1180px; margin: 0 auto; background: linear-gradient(135deg, #102820 0%, #0a1812 100%); border: 1px solid var(--border-2); border-radius: 28px; padding: 4.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
 .cta-box::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 80% at 50% 0%, rgba(34,196,126,0.18) 0%, transparent 60%), radial-gradient(ellipse 60% 80% at 50% 100%, rgba(255,184,0,0.08) 0%, transparent 60%); pointer-events: none; }
 .cta-box-inner { position: relative; z-index: 1; }
+.cta-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.76rem; font-weight: 500; padding: 0.4rem 0.95rem; margin-bottom: 1.75rem; backdrop-filter: blur(8px); }
 .cta-h { font-family: var(--sans); font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.1; color: #fff; margin-bottom: 1rem; }
 .cta-h em { font-style: italic; font-weight: 500; background: linear-gradient(135deg, var(--gold), var(--gold-soft)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 .cta-p { font-size: 1.02rem; color: var(--text-dim); line-height: 1.65; max-width: 540px; margin: 0 auto 2.2rem; }
 .cta-row { display: flex; justify-content: center; gap: 0.75rem; flex-wrap: wrap; }
+.cta-contact { margin-top: 1.5rem; font-size: 0.86rem; color: var(--text-dimmer); }
+.cta-contact a { color: var(--text-dim); text-decoration: underline; text-underline-offset: 2px; transition: color 0.2s; }
+.cta-contact a:hover { color: var(--green-bright); }
 
 footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem 2rem 2rem; }
 .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
@@ -437,8 +459,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 @media (max-width: 1024px) {
   .gear-grid { grid-template-columns: 1fr 1fr; }
   .fmt-grid { grid-template-columns: 1fr 1fr; }
-  .proc-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
-  .proc-grid::before { display: none; }
+  .stats-grid { grid-template-columns: 1fr 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .process-grid::before { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 768px) {
@@ -448,6 +471,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .nav-folio-m:hover { color: var(--green-bright); }
   .hero { padding: 7rem 1.5rem 4rem; }
   .sec, .sec-alt { padding: 4.5rem 1.5rem; }
+  .stats { padding: 3.5rem 1.5rem; }
   .cta { padding: 4.5rem 1.5rem; }
   .cta-box { padding: 3rem 1.5rem; }
   .gear-grid { grid-template-columns: 1fr; }
@@ -460,7 +484,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
-  .proc-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  .stat-n { font-size: 2rem; }
+  .process-grid { grid-template-columns: 1fr; }
   .hero-btn-row, .cta-row { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { justify-content: center; }
   .cookie-actions { flex-direction: column; }
@@ -502,6 +528,22 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <a href="index.html#kontakt" class="btn-primary"><span>Domluvit natáčení <span class="arrow">→</span></span></a>
       <a href="#vybaveni" class="btn-secondary">Co používám →</a>
     </div>
+    <div class="hero-trust">
+      <span class="ht-star">★</span> <strong>5,0</strong>&nbsp;Google
+      <span class="ht-sep">·</span>
+      <strong>4K</strong>&nbsp;dron
+      <span class="ht-sep">·</span>
+      střih&nbsp;<strong>v ceně</strong>
+    </div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal d1"><span class="stat-n">4<span class="accent">K</span></span><span class="stat-l">letecké záběry dronem</span></div>
+    <div class="stat reveal d2"><span class="stat-n">9:16<span class="accent"> · </span>16:9</span><span class="stat-l">vertikální i horizontální</span></div>
+    <div class="stat reveal d3"><span class="stat-n">2–3</span><span class="stat-l">týdny na dodání</span></div>
+    <div class="stat reveal d4"><span class="stat-n">5.0<span class="accent">★</span></span><span class="stat-l">Google hodnocení</span></div>
   </div>
 </section>
 
@@ -698,11 +740,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       Žádné zbytečné komplikace. Postupuji jednoduše, transparentně a vy přesně víte, co a kdy dostanete.
     </p>
 
-    <div class="proc-grid">
-      <div class="proc reveal d1"><div class="proc-num">01</div><h3 class="proc-h">Konzultace</h3><p class="proc-p">Domluvíme se, co potřebujete, kde a komu se bude video přehrávat. Vyjasníme rozpočet a styl.</p></div>
-      <div class="proc reveal d2"><div class="proc-num">02</div><h3 class="proc-h">Příprava</h3><p class="proc-p">Připravím scénář, vyberu lokaci, vychytám časový plán. Jakmile odsouhlasíte, jede se točit.</p></div>
-      <div class="proc reveal d3"><div class="proc-num">03</div><h3 class="proc-h">Natáčení</h3><p class="proc-p">Přijedu s technikou a natočím dohodnuté záběry. Většinou stačí půl dne až jeden celý den.</p></div>
-      <div class="proc reveal d4"><div class="proc-num">04</div><h3 class="proc-h">Střih a dodání</h3><p class="proc-p">Materiál předám svému týmu editorů. Doladí barvy, zvuk, titulky a hudbu. Hotová videa dostanete ve všech potřebných formátech.</p></div>
+    <div class="process-grid">
+      <div class="step reveal d1"><div class="step-n">01</div><h3 class="step-h">Konzultace</h3><p class="step-p">Domluvíme se, co potřebujete, kde a komu se bude video přehrávat. Vyjasníme rozpočet a styl.</p></div>
+      <div class="step reveal d2"><div class="step-n">02</div><h3 class="step-h">Příprava</h3><p class="step-p">Připravím scénář, vyberu lokaci, vychytám časový plán. Jakmile odsouhlasíte, jede se točit.</p></div>
+      <div class="step reveal d3"><div class="step-n">03</div><h3 class="step-h">Natáčení</h3><p class="step-p">Přijedu s technikou a natočím dohodnuté záběry. Většinou stačí půl dne až jeden celý den.</p></div>
+      <div class="step reveal d4"><div class="step-n">04</div><h3 class="step-h">Střih a dodání</h3><p class="step-p">Materiál předám svému týmu editorů. Doladí barvy, zvuk, titulky a hudbu. Hotová videa dostanete ve všech potřebných formátech.</p></div>
     </div>
   </div>
 </section>
@@ -785,28 +827,20 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 </section>
 
 <section class="cta">
-  <div class="cta-box">
+  <div class="cta-box reveal">
     <div class="cta-box-inner">
+      <span class="cta-badge">⚡ Nezávazná konzultace zdarma</span>
       <h2 class="cta-h">Máte v hlavě video?<br><em>Pojďme ho natočit.</em></h2>
       <p class="cta-p">
-        Ozvěte se, krátce probereme, co potřebujete, a do 48 hodin vám pošlu konkrétní návrh i cenu.
-        Bez závazků, bez zbytečností.
+        Vyberte si termín krátké konzultace, nebo mi rovnou pošlete poptávku. Do 48 hodin se ozvu
+        s konkrétním návrhem i cenou. Beru jen pár projektů měsíčně, ať se na váš stihnu pořádně podívat.
       </p>
       <div class="cta-row">
-        <a href="index.html#kontakt" class="btn-primary"><span>Poslat poptávku <span class="arrow">→</span></span></a>
-        <a href="tel:+420737372708" class="btn-secondary">Zavolat: +420 737 372 708</a>
+        <a href="/rezervace" class="btn-primary"><span>Rezervovat hovor <span class="arrow">→</span></span></a>
+        <a href="index.html#kontakt" class="btn-secondary">Poslat poptávku →</a>
       </div>
+      <p class="cta-contact">nebo zavolejte <a href="tel:+420737372708">+420 737 372 708</a> · napište <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a></p>
     </div>
-  </div>
-</section>
-
-<section data-booking-band style="background:#0d1a14;border-top:1px solid rgba(255,255,255,0.06);padding:4.5rem 1.5rem;text-align:center;font-family:'Inter Tight',-apple-system,sans-serif;">
-  <div style="max-width:600px;margin:0 auto;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
-    <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.035em;color:#fff;line-height:1.1;margin:0 0 .85rem;">Pojďme to probrat <em style="font-style:italic;font-weight:500;color:#FFB800;">nezávazně.</em></h2>
-    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyberte si termín 30minutové konzultace. Beru jen pár projektů měsíčně, tak ať se na váš stihnu pořádně podívat.</p>
-    <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;">📅 Rezervovat krátký hovor →</a>
-    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napište na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
   </div>
 </section>
 

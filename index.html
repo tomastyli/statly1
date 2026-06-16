@@ -312,20 +312,26 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .card:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--bg-card-2); }
 .card:hover::before { opacity: 1; }
 .card:hover::after { opacity: 1; }
-.card-ico { width: 52px; height: 52px; background: rgba(34,196,126,0.1); border: 1px solid rgba(34,196,126,0.2); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.45rem; margin-bottom: 1.4rem; transition: all 0.3s; position: relative; z-index: 1; }
+.card-ico { width: 52px; height: 52px; background: rgba(34,196,126,0.1); border: 1px solid rgba(34,196,126,0.2); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.4rem; transition: all 0.3s; position: relative; z-index: 1; }
+.card-ico svg { width: 24px; height: 24px; color: var(--green-bright); }
 .card:hover .card-ico { background: rgba(34,196,126,0.18); border-color: rgba(34,196,126,0.35); transform: scale(1.05) rotate(-3deg); }
 .card-h { font-family: var(--sans); font-size: 1.18rem; font-weight: 700; color: #fff; margin-bottom: 0.55rem; letter-spacing: -0.015em; position: relative; z-index: 1; }
-.card-p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1.2rem; position: relative; z-index: 1; }
+.card-p { font-size: 0.9rem; color: var(--text-dim); line-height: 1.65; margin-bottom: 1.1rem; position: relative; z-index: 1; }
+.card-list { list-style: none; margin: 0 0 1.2rem; padding: 1.1rem 0 0; border-top: 1px solid var(--border); display: flex; flex-direction: column; gap: 0.6rem; position: relative; z-index: 1; }
+.card-list li { display: flex; align-items: center; gap: 0.6rem; font-size: 0.86rem; color: var(--text); }
+.card-list svg { width: 15px; height: 15px; color: var(--green-bright); flex-shrink: 0; }
 .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; position: relative; z-index: 1; }
 .tag { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.55rem; transition: all 0.25s; }
 .card:hover .tag { color: var(--green-bright); border-color: var(--border-2); background: rgba(34,196,126,0.06); }
 
 .industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 .industry { display: flex; flex-direction: column; gap: 0.45rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.4rem; position: relative; overflow: hidden; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, background 0.35s; }
+.industry-ico { width: 42px; height: 42px; border-radius: 11px; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.16); display: flex; align-items: center; justify-content: center; margin-bottom: 0.4rem; transition: all 0.35s; }
+.industry-ico svg { width: 21px; height: 21px; color: var(--green-bright); }
+.industry:hover .industry-ico { background: rgba(34,196,126,0.15); border-color: rgba(34,196,126,0.3); transform: translateY(-2px); }
 .industry::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--green-bright), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
 .industry:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--bg-card-2); }
 .industry:hover::before { transform: scaleX(1); }
-.industry-ico { font-size: 1.7rem; line-height: 1; }
 .industry-name { font-weight: 700; color: #fff; font-size: 0.98rem; letter-spacing: -0.01em; }
 .industry-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); line-height: 1.55; }
 @media (max-width: 900px) { .industry-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -358,7 +364,9 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .feature-visual { position: relative; z-index: 1; height: 280px; display: flex; align-items: center; justify-content: center; }
 .gear-stage { position: relative; width: 100%; height: 100%; }
 .gear-chip { position: absolute; background: rgba(13,26,20,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-2); border-radius: 14px; padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.7rem; box-shadow: 0 12px 30px rgba(0,0,0,0.35); animation: chipFloat 6s ease-in-out infinite; }
-.gear-chip-ico { width: 36px; height: 36px; border-radius: 9px; background: rgba(34,196,126,0.12); display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
+.gear-chip-ico { width: 36px; height: 36px; border-radius: 9px; background: rgba(34,196,126,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.gear-chip-ico svg { width: 19px; height: 19px; color: var(--green-bright); }
+.gear-chip:nth-child(2) .gear-chip-ico svg { color: var(--gold); }
 .gear-chip-text { display: flex; flex-direction: column; gap: 0.1rem; }
 .gear-chip-name { font-family: var(--sans); font-size: 0.82rem; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
 .gear-chip-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); }
@@ -383,7 +391,9 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .folio { flex: 0 0 430px; position: relative; aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s, border-color 0.45s; scroll-snap-align: start; isolation: isolate; }
 .folio:hover { transform: translateY(-8px); border-color: var(--border-2); box-shadow: 0 30px 70px rgba(0,0,0,0.45), 0 0 0 1px rgba(34,196,126,0.15); }
 .folio-shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); background: linear-gradient(135deg, #142420 0%, #0d1a14 100%); }
-.folio:hover .folio-shot { transform: scale(1.05); }
+.folio:hover .folio-shot { transform: scale(1.08); }
+.folio-glow { position: absolute; left: 50%; bottom: -10%; transform: translateX(-50%); width: 130%; height: 55%; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.45s ease; background: radial-gradient(ellipse at center bottom, rgba(34,196,126,0.55) 0%, rgba(34,196,126,0.22) 38%, transparent 70%); filter: blur(14px); }
+.folio:hover .folio-glow { opacity: 1; }
 .folio-shot.ph { background: linear-gradient(110deg, rgba(255,255,255,0.025) 8%, rgba(255,255,255,0.05) 18%, rgba(255,255,255,0.025) 33%), linear-gradient(135deg, #142420 0%, #0d1a14 100%); background-size: 200% 100%, 100% 100%; animation: shimmer 1.8s linear infinite; }
 @keyframes shimmer { to { background-position: -200% 0, 0 0; } }
 .folio-grad { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(7,14,10,0.94) 0%, rgba(7,14,10,0.72) 22%, rgba(7,14,10,0.15) 45%, transparent 62%); pointer-events: none; }
@@ -397,7 +407,14 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .refs { padding: 7rem 2rem; background: var(--bg); position: relative; overflow: hidden; }
 .refs::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 20% 30%, rgba(34,196,126,0.08) 0%, transparent 55%), radial-gradient(ellipse 45% 35% at 80% 70%, rgba(255,184,0,0.05) 0%, transparent 55%); pointer-events: none; }
 .refs-wrap { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
-.refs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 3rem; }
+.refs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; margin-top: 3rem; }
+.ref-card.featured { grid-column: 1 / -1; padding: 2.6rem 2.6rem 2.2rem; background: linear-gradient(135deg, rgba(34,196,126,0.06), rgba(255,184,0,0.03)); border-color: var(--border-2); }
+.ref-card.featured::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--green-bright), rgba(255,184,0,0.6), transparent); }
+.ref-badge { position: absolute; top: 1.5rem; right: 1.8rem; display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.25); border-radius: 100px; padding: 0.3rem 0.7rem; }
+.ref-card.featured .ref-quote { font-size: 1.28rem; line-height: 1.55; max-width: 46rem; }
+.ref-card.featured .ref-quote::before { font-size: 4rem; }
+.ref-card.featured .ref-author { border-top: none; padding-top: 1.4rem; }
+.ref-card.featured .ref-avatar { width: 52px; height: 52px; border-radius: 14px; font-size: 1.05rem; }
 .ref-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2rem 1.8rem; position: relative; display: flex; flex-direction: column; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); overflow: hidden; }
 .ref-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent); opacity: 0; transition: opacity 0.4s; }
 
@@ -545,6 +562,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .footer-btm-links { display: flex; gap: 1.5rem; }
 .footer-btm-links a { color: var(--text-dimmer); transition: color 0.2s; }
 .footer-btm-links a:hover { color: var(--green-bright); }
+.footer-person { display: flex; align-items: center; gap: 0.85rem; margin-top: 1.4rem; }
+.footer-person-photo { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--border); background: #0f1a13; }
+.footer-person-name { font-family: var(--sans); font-weight: 600; color: #fff; font-size: 0.92rem; line-height: 1.3; }
+.footer-person-phone { color: var(--text-dim); font-size: 0.86rem; transition: color 0.2s; }
+.footer-person-phone:hover { color: var(--green-bright); }
 
 .cookie-banner { position: fixed; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; max-width: 480px; background: rgba(13,26,20,0.96); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid var(--border-2); border-radius: 18px; padding: 1.5rem; box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,196,126,0.08); z-index: 10000; transform: translateY(120%); opacity: 0; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s; }
 .cookie-banner.show { transform: translateY(0); opacity: 1; }
@@ -628,7 +650,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .feature-card { padding: 1.8rem 1.5rem; }
   .feature-visual { height: 240px; }
   .gear-chip { padding: 0.65rem 0.8rem; }
-  .gear-chip-ico { width: 30px; height: 30px; font-size: 0.95rem; }
+  .gear-chip-ico { width: 30px; height: 30px; }
+  .gear-chip-ico svg { width: 16px; height: 16px; }
   .gear-chip-name { font-size: 0.76rem; }
   .gear-chip-sub { font-size: 0.62rem; }
 }
@@ -659,14 +682,29 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .mid-cta:hover { border-color: rgba(255,184,0,0.35); background: linear-gradient(135deg, rgba(34,196,126,0.12), rgba(255,184,0,0.08)); transform: translateY(-2px); }
 .mid-cta:hover .arrow { transform: translateX(4px); }
 
-.sticky-cta { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9980; display: none; gap: 0.6rem; padding: 0.7rem 0.85rem calc(0.7rem + env(safe-area-inset-bottom));
-  background: rgba(10,20,16,0.92); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-top: 1px solid var(--border-2); transform: translateY(110%); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
-.sticky-cta.show { transform: translateY(0); }
-.sticky-cta a { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 0.45rem; padding: 0.85rem 1rem; border-radius: 100px; font-weight: 600; font-size: 0.95rem; }
-.sticky-cta .sc-call { background: rgba(255,255,255,0.06); color: #fff; border: 1px solid rgba(255,255,255,0.12); }
-.sticky-cta .sc-form { background: var(--green-bright); color: var(--green-deep); }
-@media (max-width: 720px) { .sticky-cta { display: flex; } .slg-fab { bottom: 5.2rem; } }
+.sticky-cta { position: fixed; left: 50%; bottom: calc(1.25rem + env(safe-area-inset-bottom)); z-index: 9980; display: flex; align-items: center; gap: 0.9rem;
+  width: min(620px, calc(100% - 2rem)); padding: 0.65rem 0.65rem 0.65rem 1rem;
+  background: rgba(13,22,17,0.94); backdrop-filter: blur(22px) saturate(180%); -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--border-2); border-radius: 16px; box-shadow: 0 22px 55px rgba(0,0,0,0.5);
+  transform: translate(-50%, 180%); opacity: 0; pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.22,1,0.36,1), opacity 0.4s ease; }
+.sticky-cta.show { transform: translate(-50%, 0); opacity: 1; pointer-events: auto; }
+.sc-ico { width: 42px; height: 42px; border-radius: 11px; background: rgba(255,184,0,0.12); border: 1px solid rgba(255,184,0,0.25); display: grid; place-items: center; flex-shrink: 0; position: relative; }
+.sc-ico svg { width: 20px; height: 20px; color: var(--gold); }
+.sc-ico-dot { position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; border-radius: 50%; background: #22c47e; box-shadow: 0 0 0 0 rgba(34,196,126,.7); animation: slgPulse 2.2s ease-out infinite; }
+.sc-text { display: flex; flex-direction: column; gap: 0.12rem; min-width: 0; margin-right: auto; }
+.sc-title { font-family: var(--sans); font-size: 0.98rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; line-height: 1.2; }
+.sc-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); }
+.sc-btn { display: inline-flex; align-items: center; gap: 0.4rem; flex-shrink: 0; padding: 0.8rem 1.3rem; border-radius: 100px; font-family: var(--sans); font-weight: 700; font-size: 0.92rem; cursor: pointer; border: none; color: #06140e; background: linear-gradient(135deg, #FFB800, #ffd166); transition: transform 0.25s, box-shadow 0.25s; }
+.sc-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,184,0,0.35); }
+.sc-close { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; border: none; background: transparent; color: var(--text-dim); cursor: pointer; font-size: 1rem; line-height: 1; transition: color 0.2s, background 0.2s; }
+.sc-close:hover { color: #fff; background: rgba(255,255,255,0.06); }
+@media (max-width: 540px) { .sticky-cta { gap: 0.7rem; padding-left: 0.8rem; }
+  .sc-ico { width: 38px; height: 38px; }
+  .sc-sub { display: none; }
+  .sc-btn { padding: 0.7rem 1rem; }
+  .sc-btn .sc-btn-l { display: none; }
+  .sc-close { display: none; } }
 
 .capacity { max-width: 420px; margin: 0 auto 1.9rem; background: rgba(255,184,0,0.05); border: 1px solid rgba(255,184,0,0.22); border-radius: 16px; padding: 1.1rem 1.25rem; position: relative; z-index: 1; text-align: left; }
 .capacity-top { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
@@ -767,21 +805,36 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <p class="sec-sub reveal">Specializace především. Tvořím weby, spravuji sociální sítě a navrhuji grafiku, pokaždé na míru a vždy s důrazem na výsledky. A když je potřeba čerstvý videoobsah, vyrazím ven natáčet.</p>
     <div class="svc-grid">
       <div class="card reveal d1">
-        <div class="card-ico">🌐</div>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></div>
         <div class="card-h">Webové stránky</div>
         <p class="card-p">Moderní, rychlé weby navržené tak, aby přiváděly zákazníky a konvertovaly návštěvníky. Včetně redesignu, SEO a údržby.</p>
+        <ul class="card-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Responzivní na mobilu i počítači</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rychlé načítání a SEO základ</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Formuláře, které sbírají poptávky</li>
+        </ul>
         <div class="tags"><span class="tag">Na míru</span><span class="tag">Mobile-first</span><span class="tag">SEO</span></div>
       </div>
       <div class="card reveal d2">
-        <div class="card-ico">📱</div>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
         <div class="card-h">Sociální sítě</div>
         <p class="card-p">Strategický management Instagramu a Facebooku, od obsahu po reklamní kampaně. Ne jen posty, ale výsledky.</p>
+        <ul class="card-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Plán obsahu na míru oboru</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pravidelné posty a stories</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Placené Meta Ads kampaně</li>
+        </ul>
         <div class="tags"><span class="tag">Instagram</span><span class="tag">Facebook</span><span class="tag">Meta Ads</span></div>
       </div>
       <div class="card reveal d3">
-        <div class="card-ico">🎨</div>
+        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/></svg></div>
         <div class="card-h">Grafický design</div>
         <p class="card-p">Vizitky, letáky, bannery a kompletní brand identity, které zanechají dojem. Od loga až po tištěné materiály.</p>
+        <ul class="card-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Logo a vizuální styl značky</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tisková i digitální grafika</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Jednotný vzhled napříč kanály</li>
+        </ul>
         <div class="tags"><span class="tag">Brand</span><span class="tag">Print</span><span class="tag">Digital</span></div>
       </div>
     </div>
@@ -807,10 +860,10 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <div class="feature-visual" aria-hidden="true">
         <div class="gear-stage">
           <div class="rec-indicator"><span class="rec-dot"></span> REC</div>
-          <div class="gear-chip"><div class="gear-chip-ico">🎬</div><div class="gear-chip-text"><span class="gear-chip-name">Stabilizátor</span><span class="gear-chip-sub">plynulý pohyb</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico">🚁</div><div class="gear-chip-text"><span class="gear-chip-name">Dron</span><span class="gear-chip-sub">letecké záběry</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico">🎙️</div><div class="gear-chip-text"><span class="gear-chip-name">Mikrofony</span><span class="gear-chip-sub">čistý zvuk</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico">✂️</div><div class="gear-chip-text"><span class="gear-chip-name">Tým editorů</span><span class="gear-chip-sub">střih a barvy</span></div></div>
+          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Stabilizátor</span><span class="gear-chip-sub">plynulý pohyb</span></div></div>
+          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.4 6.4l3.1 3.1M17.6 6.4l-3.1 3.1M6.4 17.6l3.1-3.1M17.6 17.6l-3.1-3.1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Dron</span><span class="gear-chip-sub">letecké záběry</span></div></div>
+          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Mikrofony</span><span class="gear-chip-sub">čistý zvuk</span></div></div>
+          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Tým editorů</span><span class="gear-chip-sub">střih a barvy</span></div></div>
         </div>
       </div>
     </a>
@@ -823,14 +876,14 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <h2 class="sec-h reveal">Weby na míru<br><em>pro vaši branži.</em></h2>
     <p class="sec-sub reveal">Nejčastěji pomáhám lokálním firmám, řemeslníkům a živnostníkům. Znám jejich zákazníky i to, jak z návštěvníka udělat poptávku. Nevidíte svůj obor? Princip dobrého webu platí všude, ozvěte se.</p>
     <div class="industry-grid">
-      <div class="industry reveal d1"><span class="industry-ico">🔨</span><span class="industry-name">Řemesla &amp; stavebnictví</span><span class="industry-sub">Pokrývači, klempíři, tesaři, stavební firmy</span></div>
-      <div class="industry reveal d2"><span class="industry-ico">📦</span><span class="industry-name">Stěhování &amp; logistika</span><span class="industry-sub">Stěhovací služby, autodoprava, vyklízení</span></div>
-      <div class="industry reveal d3"><span class="industry-ico">🚗</span><span class="industry-name">Autoslužby</span><span class="industry-sub">Detailing, autoservis, pneuservis, myčky</span></div>
-      <div class="industry reveal d4"><span class="industry-ico">💼</span><span class="industry-name">Finance &amp; poradenství</span><span class="industry-sub">Finanční poradci, účetní, konzultanti</span></div>
-      <div class="industry reveal d1"><span class="industry-ico">💅</span><span class="industry-name">Krása &amp; péče o tělo</span><span class="industry-sub">Kosmetika, kadeřnictví, nehty, wellness</span></div>
-      <div class="industry reveal d2"><span class="industry-ico">🏡</span><span class="industry-name">Reality &amp; bydlení</span><span class="industry-sub">Makléři, developeři, správa nemovitostí</span></div>
-      <div class="industry reveal d3"><span class="industry-ico">🌳</span><span class="industry-name">Zahrady &amp; exteriéry</span><span class="industry-sub">Zahradnictví, údržba zeleně, bazény</span></div>
-      <div class="industry reveal d4"><span class="industry-ico">🛠️</span><span class="industry-name">Lokální služby</span><span class="industry-sub">Živnostníci, OSVČ a malé firmy všech oborů</span></div>
+      <div class="industry reveal d1"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="industry-name">Řemesla &amp; stavebnictví</span><span class="industry-sub">Pokrývači, klempíři, tesaři, stavební firmy</span></div>
+      <div class="industry reveal d2"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l4 4v4a1 1 0 0 1-1 1h-1"/><circle cx="7.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></svg></span><span class="industry-name">Stěhování &amp; logistika</span><span class="industry-sub">Stěhovací služby, autodoprava, vyklízení</span></div>
+      <div class="industry reveal d3"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span><span class="industry-name">Autoslužby</span><span class="industry-sub">Detailing, autoservis, pneuservis, myčky</span></div>
+      <div class="industry reveal d4"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="industry-name">Finance &amp; poradenství</span><span class="industry-sub">Finanční poradci, účetní, konzultanti</span></div>
+      <div class="industry reveal d1"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></span><span class="industry-name">Krása &amp; péče o tělo</span><span class="industry-sub">Kosmetika, kadeřnictví, nehty, wellness</span></div>
+      <div class="industry reveal d2"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg></span><span class="industry-name">Reality &amp; bydlení</span><span class="industry-sub">Makléři, developeři, správa nemovitostí</span></div>
+      <div class="industry reveal d3"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span><span class="industry-name">Zahrady &amp; exteriéry</span><span class="industry-sub">Zahradnictví, údržba zeleně, bazény</span></div>
+      <div class="industry reveal d4"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-5h6v5"/></svg></span><span class="industry-name">Lokální služby</span><span class="industry-sub">Živnostníci, OSVČ a malé firmy všech oborů</span></div>
     </div>
   </div>
 </section>
@@ -850,18 +903,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
     <div class="folio-carousel" id="folioCarousel">
       <div class="folio reveal d1">
-        <img src="strechmont.webp" alt="Strechmont MR web" class="folio-shot" loading="lazy">
-        <div class="folio-grad"></div>
-        <span class="folio-arrow" aria-hidden="true">↗</span>
-        <div class="folio-cap">
-          <div class="folio-logo">Strechmont MR</div>
-          <h3 class="folio-result">Web pro rodinnou firmu, který každý týden vozí nové poptávky</h3>
-        </div>
-      </div>
-
-      <div class="folio reveal d2">
         <img src="stehovani-leo.webp" alt="Stěhování Leo web" class="folio-shot" loading="lazy">
         <div class="folio-grad"></div>
+        <div class="folio-glow"></div>
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
           <div class="folio-logo">Stěhování Leo</div>
@@ -869,39 +913,54 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         </div>
       </div>
 
-      <div class="folio reveal d3">
-        <img src="detailing.webp" alt="Express Detailing web" class="folio-shot" loading="lazy">
+      <div class="folio reveal d2">
+        <img src="flexihouse-web.webp" alt="Flexi House web" class="folio-shot" loading="lazy">
         <div class="folio-grad"></div>
+        <div class="folio-glow"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">Flexi House</div>
+          <h3 class="folio-result">Modulární domy s konfigurátorem, který si zákazník naceňuje sám bez obchodníka</h3>
+        </div>
+      </div>
+
+      <div class="folio reveal d3">
+        <img src="express-detailing.webp" alt="Express Detailing web" class="folio-shot" loading="lazy">
+        <div class="folio-grad"></div>
+        <div class="folio-glow"></div>
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
           <div class="folio-logo">Express Detailing</div>
-          <h3 class="folio-result">Prémiový web pro car detailing, kde zákazník cítí výsledek předem</h3>
+          <h3 class="folio-result">Prémiový web pro car detailing s plným rezervačním systémem — zákazník si termín objedná sám</h3>
         </div>
       </div>
 
       <div class="folio reveal d4">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="AuraFloor web" class="folio-shot ph" loading="lazy" data-placeholder="1">
+        <img src="aurafloor.webp" alt="AuraFloor web" class="folio-shot" loading="lazy">
         <div class="folio-grad"></div>
+        <div class="folio-glow"></div>
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
           <div class="folio-logo">AuraFloor</div>
-          <h3 class="folio-result">Čistý web pro pokládku podlah, který mluví řečí zákazníka</h3>
+          <h3 class="folio-result">Web pro světelné podlahy, který rozsvítí značku ještě dřív než zákazník dočte</h3>
         </div>
       </div>
 
       <div class="folio reveal d5">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="Flexi House web" class="folio-shot ph" loading="lazy" data-placeholder="1">
+        <img src="express-detailing-firmy.webp" alt="Express Detailing pro firmy web" class="folio-shot" loading="lazy">
         <div class="folio-grad"></div>
+        <div class="folio-glow"></div>
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
-          <div class="folio-logo">Flexi House</div>
-          <h3 class="folio-result">Modulární domy s webem, který prodává i bez obchodníka</h3>
+          <div class="folio-logo">Express Detailing pro firmy</div>
+          <h3 class="folio-result">Mobilní web pro firemní vozové parky — objednání svozu rovnou z telefonu</h3>
         </div>
       </div>
 
       <div class="folio reveal d6">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="Kosmetika Klejchová web" class="folio-shot ph" loading="lazy" data-placeholder="1">
+        <img src="kosmetika-klejchova.webp" alt="Kosmetika Klejchová web" class="folio-shot" loading="lazy">
         <div class="folio-grad"></div>
+        <div class="folio-glow"></div>
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
           <div class="folio-logo">Kosmetika Klejchová</div>
@@ -923,7 +982,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <p class="sec-sub reveal">Pár citací od lidí, kterým jsem nedávno dělal weby a videa. Skutečné jména, skutečné firmy z východních Čech.</p>
 
     <div class="refs-grid">
-      <div class="ref-card reveal d1">
+      <div class="ref-card featured reveal d1">
+        <span class="ref-badge"><svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg> Doporučení klienta</span>
         <div class="ref-stars" aria-label="5 z 5 hvězd">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -1446,8 +1506,16 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 </section>
 
 <div class="sticky-cta" id="stickyCta">
-  <a href="tel:+420737372708" class="sc-call">📞 Zavolat</a>
-  <a href="#kontakt" class="sc-form">✍️ Nezávazná poptávka</a>
+  <span class="sc-ico" aria-hidden="true">
+    <span class="sc-ico-dot"></span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+  </span>
+  <span class="sc-text">
+    <span class="sc-title">Chcete nový web?</span>
+    <span class="sc-sub">Nabídku připravím do 15 minut</span>
+  </span>
+  <button type="button" class="sc-btn" data-slg-open aria-haspopup="dialog">Chci nabídku <span class="sc-btn-l">→</span></button>
+  <button type="button" class="sc-close" id="stickyCtaClose" aria-label="Zavřít">✕</button>
 </div>
 
 <footer>
@@ -1455,6 +1523,13 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <div>
       <a href="#" class="footer-logo nav-logo"><svg class="logo-mark" aria-hidden="true"><use href="#statly-mark"/></svg><span class="logo-word">statly</span></a>
       <p class="footer-desc">Statly · Tomáš Tylich.<br>Tvořím weby a marketing pro byznys ve východních Čechách.</p>
+      <div class="footer-person">
+        <img class="footer-person-photo" src="logos/tomas-tylich.jpg" alt="Tomáš Tylich" onerror="this.src='favicon-512.png'" />
+        <div>
+          <div class="footer-person-name">Tomáš Tylich</div>
+          <a href="tel:+420737372708" class="footer-person-phone">+420 737 372 708</a>
+        </div>
+      </div>
       <div class="footer-firmy">
         <a href="https://www.firmy.cz/detail/13989783-statly-tvorba-webovych-stranek-a-reels-litomysl.html#pridat-hodnoceni" target="_blank" rel="noopener">
           <img width="249px" src="https://www.firmy.cz/img/widgets/firmy-ohodnotte-nas-tmave.svg" alt="Statly - Tvorba webových stránek a Reels na Firmy.cz" />
@@ -1848,8 +1923,10 @@ window.addEventListener('DOMContentLoaded', () => {
   if (!bar || !('IntersectionObserver' in window)) return;
   var hero = document.querySelector('.hero');
   var contact = document.getElementById('kontakt');
-  var heroVisible = true, contactVisible = false;
-  function update() { bar.classList.toggle('show', !heroVisible && !contactVisible); }
+  var heroVisible = true, contactVisible = false, dismissed = false;
+  function update() { bar.classList.toggle('show', !dismissed && !heroVisible && !contactVisible); }
+  var closeBtn = document.getElementById('stickyCtaClose');
+  if (closeBtn) closeBtn.addEventListener('click', function(){ dismissed = true; update(); });
   if (hero) new IntersectionObserver(function(en){ heroVisible = en[0].isIntersecting; update(); }, { threshold: 0 }).observe(hero);
   if (contact) new IntersectionObserver(function(en){ contactVisible = en[0].isIntersecting; update(); }, { threshold: 0 }).observe(contact);
 })();
@@ -1992,14 +2069,6 @@ textarea.slg-in{resize:vertical;min-height:74px}
   .slg-fab,.slg-fab-dot,.slg-modal,.slg-step,.slg-done-ico,.slg-overlay{animation:none!important;transition:opacity .2s!important}
 }
 </style>
-
-<button class="slg-fab" type="button" aria-haspopup="dialog" aria-label="Spustit průvodce nezávaznou poptávkou" data-slg-open>
-  <span class="slg-fab-ico"><span class="slg-fab-dot"></span>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-      <path d="M3 11l18-8-8 18-2-7-8-3z"/></svg>
-  </span>
-  <span class="slg-fab-label">Nezávazná poptávka</span>
-</button>
 
 <div class="slg-overlay" id="slgOverlay" role="dialog" aria-modal="true" aria-label="Průvodce poptávkou">
   <div class="slg-modal" role="document">

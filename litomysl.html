@@ -28,7 +28,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://statly.cz/litomysl">
 <meta property="og:title" content="Tvorba webových stránek Litomyšl | Statly · Tomáš Tylich">
-<meta property="og:description" content="Místní webař z Litomyšle‑Záhradí. Weby, sociální sítě a videa pro firmy z východních Čech. Bez agentur z Prahy.">
+<meta property="og:description" content="Tvořím weby, sociální sítě a videa pro firmy z Litomyšle a Pardubického kraje. Osobní přístup a znalost místního trhu. Tomáš Tylich, Statly.">
 <meta property="og:image" content="https://statly.cz/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -38,7 +38,7 @@
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tvorba webových stránek Litomyšl | Statly · Tomáš Tylich">
-<meta name="twitter:description" content="Místní webař z Litomyšle‑Záhradí. Bez agentur z Prahy.">
+<meta name="twitter:description" content="Tvořím weby, sítě a videa pro firmy z Litomyšle a Pardubického kraje. Tomáš Tylich, Statly.">
 <meta name="twitter:image" content="https://statly.cz/og-image.png">
 
 <script type="application/ld+json">
@@ -163,7 +163,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap"></noscript>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -188,7 +188,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --border: rgba(255,255,255,0.06); --border-2: rgba(34,196,126,0.18);
   --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #5a7a6a;
   --sans: 'Inter Tight', -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --mono: 'Inter Tight', -apple-system, sans-serif;
 }
 
 ::selection { background: var(--green); color: #fff; }
@@ -421,31 +421,20 @@ nav {
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transform: rotate(1.5deg);
   transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.hero-card:hover { transform: rotate(0deg) translateY(-4px); }
+.hero-card:hover { transform: translateY(-4px); }
 .hero-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent);
 }
-.hero-card-stamp {
-  position: absolute;
-  top: 1.5rem; right: 1.5rem;
-  width: 70px; height: 70px;
-  border: 1.5px dashed rgba(255,184,0,0.4);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  font-weight: 500;
-  color: var(--gold);
-  text-align: center;
-  line-height: 1.2;
-  transform: rotate(-12deg);
-  letter-spacing: 0.02em;
-  padding: 0.25rem;
+.hero-card-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
 }
 .hero-card-header {
   font-family: var(--mono);
@@ -457,51 +446,75 @@ nav {
 }
 .hero-card-from {
   font-family: var(--sans);
-  font-size: 1.3rem;
-  font-weight: 700;
+  font-size: 1.55rem;
+  font-weight: 800;
   color: #fff;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.25rem;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.4rem;
 }
 .hero-card-loc {
   display: flex; align-items: center; gap: 0.45rem;
   font-family: var(--mono);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--green-bright);
-  margin-bottom: 1.5rem;
 }
 .hero-card-loc::before {
   content: '●';
   font-size: 0.6rem;
 }
-.hero-card-body {
+.hero-card-rating {
+  flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: flex-end;
+  text-align: right;
+}
+.hero-card-rating-num {
   font-family: var(--sans);
-  font-size: 0.95rem;
-  color: var(--text-dim);
-  line-height: 1.65;
-  padding: 1.25rem 0;
-  border-top: 1px dashed var(--border);
-  border-bottom: 1px dashed var(--border);
-}
-.hero-card-body strong { color: var(--text); font-weight: 600; }
-.hero-card-sign {
-  margin-top: 1.25rem;
-  display: flex; justify-content: space-between; align-items: flex-end;
-}
-.hero-card-sign-name {
-  font-family: 'Inter Tight', cursive;
-  font-style: italic;
-  font-size: 1.4rem;
-  font-weight: 500;
+  font-size: 1.5rem;
+  font-weight: 800;
   color: #fff;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+.hero-card-rating-stars {
+  font-size: 0.7rem;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  margin: 0.25rem 0 0.15rem;
+}
+.hero-card-rating-src {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  color: var(--text-dimmer);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.hero-card-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0.85rem;
+}
+.hero-card-list li {
+  display: flex; align-items: flex-start; gap: 0.6rem;
+  font-family: var(--sans);
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+.hero-card-list .hcl-i {
+  color: var(--green-bright);
+  font-size: 0.6rem;
+  line-height: 1.6;
+  flex-shrink: 0;
+}
+.hero-card-sign {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
 }
 .hero-card-sign-meta {
   font-family: var(--mono);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   color: var(--text-dimmer);
-  text-align: right;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
 .sec { padding: 7rem 2rem; background: var(--bg); position: relative; }
@@ -1393,13 +1406,13 @@ footer {
       <span class="hero-badge"><span class="pin">📍</span> Litomyšl · Záhradí</span>
       <h1>Tvorba webů a marketing<br>z <em>Litomyšle</em>, <span class="accent">pro Litomyšl.</span></h1>
       <p class="hero-sub">
-        Jsem <strong>Tomáš</strong> a žiju v Litomyšli‑Záhradí. Dělám weby, sociální sítě a videa
-        pro místní podniky, řemeslníky a živnostníky. Bez agenturního žargonu,
-        bez půlroční čekací doby a hlavně bez Prahy.
+        Jsem <strong>Tomáš a dělám weby</strong> přímo z Litomyšle. Tvořím weby, sociální sítě
+        a videa pro firmy z Pardubického kraje a okolí — s osobním přístupem,
+        znalostí místního trhu a bez půlroční čekací doby.
       </p>
       <div class="hero-cta-row">
         <a href="#kontakt" class="btn-primary">
-          <span>Domluvíme se na kávě <span class="arrow">→</span></span>
+          <span>Konzultace zdarma <span class="arrow">→</span></span>
         </a>
         <a href="/" class="btn-secondary">
           Mrkni na portfolio
@@ -1415,27 +1428,35 @@ footer {
           <span class="hero-meta-value">~ 0 km</span>
         </div>
         <div class="hero-meta-item">
-          <span class="hero-meta-label">První káva</span>
-          <span class="hero-meta-value">na mě</span>
+          <span class="hero-meta-label">Hodnocení</span>
+          <span class="hero-meta-value"><span class="green">5,0 ★</span></span>
         </div>
       </div>
     </div>
 
     <div class="hero-right">
       <div class="hero-card">
-        <div class="hero-card-stamp">PRO<br>MÍSTNÍ<br>★ 2026</div>
-        <div class="hero-card-header">Pohlednice</div>
-        <div class="hero-card-from">Ahoj!</div>
-        <div class="hero-card-loc">Litomyšl‑Záhradí, 570 01</div>
-        <div class="hero-card-body">
-          Máš podnik a tvůj web vypadá, jako by ho navrhoval Word v roce 2009?
-          Nemáš čas se s tím párat? <strong>Klid, pomůžu.</strong>
-          Stačí mi napsat, sejdeme se na kafi a probereme to v klidu.
+        <div class="hero-card-top">
+          <div>
+            <div class="hero-card-header">Tvorba webů & marketing</div>
+            <div class="hero-card-from">Tomáš Tylich</div>
+            <div class="hero-card-loc">Litomyšl · Pardubický kraj</div>
+          </div>
+          <div class="hero-card-rating">
+            <span class="hero-card-rating-num">5,0</span>
+            <span class="hero-card-rating-stars">★★★★★</span>
+            <span class="hero-card-rating-src">Google</span>
+          </div>
         </div>
+        <ul class="hero-card-list">
+          <li><span class="hcl-i">◆</span> Weby, sociální sítě a video pro firmy z regionu</li>
+          <li><span class="hcl-i">◆</span> Osobní jednání po celém okolí do 30 km</li>
+          <li><span class="hcl-i">◆</span> Rozumím východočeskému trhu i konkurenci</li>
+          <li><span class="hcl-i">◆</span> Spolupráci obvykle začínám do týdne</li>
+        </ul>
         <div class="hero-card-sign">
-          <div class="hero-card-sign-name">Tomáš ✍</div>
           <div class="hero-card-sign-meta">
-            Statly<br>
+            Statly · Tomáš Tylich<br>
             +420 737 372 708
           </div>
         </div>
@@ -1446,36 +1467,36 @@ footer {
 
 <section class="sec-alt">
   <div class="wrap">
-    <span class="sec-label reveal">Proč místní</span>
-    <h2 class="sec-h reveal">Tři důvody, proč <em>nebrat agenturu z Prahy.</em></h2>
+    <span class="sec-label reveal">Proč někoho z okolí</span>
+    <h2 class="sec-h reveal">Tři výhody, které <em>vzdálený dodavatel nenabídne.</em></h2>
     <p class="sec-sub reveal">
       Velké agentury mají pěkné prezentace, ale řeší zakázku z 200 km daleka,
-      přes formuláře a hromady e‑mailů. Já bydlím vedle.
+      přes formuláře a hromady e‑mailů. Já jsem přímo tady v regionu.
     </p>
 
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-icon">☕</div>
-        <h3 class="why-h">Káva, ne meeting</h3>
+        <div class="why-icon">🤝</div>
+        <h3 class="why-h">Osobní jednání</h3>
         <p class="why-p">
-          Místo hodinového video callu se prostě potkáme u <strong>Karpíška, Pernštejnu nebo na zámku</strong>.
-          Lépe se domluvíme za 30 minut tváří v tvář než za 3 hodiny na Zoomu.
+          Sejdeme se osobně přímo u tebe nebo v Litomyšli. Půl hodiny tváří v tvář
+          posune projekt dál než <strong>týden e‑mailů a video callů</strong>.
         </p>
       </div>
       <div class="why-card reveal d2">
         <div class="why-icon">🏘</div>
-        <h3 class="why-h">Znám místní kontext</h3>
+        <h3 class="why-h">Znalost regionu</h3>
         <p class="why-p">
-          Vím, že turistická sezóna začíná Smetanovou Litomyšlí. Vím, kdo je tady konkurence
-          a co tu funguje. <strong>To pražákovi nevysvětlíš v briefu.</strong>
+          Znám východočeský trh, sezónnost i místní konkurenci. <strong>Vím, co tu na
+          zákazníky funguje</strong> — a to se ze vzdáleného briefu nevyčte.
         </p>
       </div>
       <div class="why-card gold reveal d3">
         <div class="why-icon">⚡</div>
-        <h3 class="why-h">Žádné fronty</h3>
+        <h3 class="why-h">Rychlý start</h3>
         <p class="why-p">
-          Nejsem agentura s 30 klienty. Mám čas se ti věnovat a <strong>obvykle dokážu
-          začít do týdne</strong>, ne za tři měsíce.
+          Nejsem zavalený desítkami zakázek ve frontě. Mám na tebe čas a
+          <strong>spolupráci obvykle začínám do týdne</strong>, ne za tři měsíce.
         </p>
       </div>
     </div>
@@ -1848,7 +1869,7 @@ footer {
           <ul>
             <li><span class="check">✓</span><span><strong>Odpověď do 48 hodin</strong>, většinou ten samý den</span></li>
             <li><span class="check">✓</span><span><strong>Žádný tlak</strong> na rozhodnutí ani závazky</span></li>
-            <li><span class="check">✓</span><span><strong>Káva v Litomyšli</strong>, pokud chceš, ji platím já</span></li>
+            <li><span class="check">✓</span><span><strong>Osobní schůzka</strong> v Litomyšli nebo u tebe ve firmě</span></li>
             <li><span class="check">✓</span><span><strong>Férová cena</strong>, kterou víš dopředu</span></li>
           </ul>
         </div>
@@ -1863,7 +1884,7 @@ footer {
 
         <div class="form-grid">
           <div class="form-field">
-            <label class="form-label" for="f-name">Jak ti můžu říkat? <span class="req">*</span></label>
+            <label class="form-label" for="f-name">Jméno <span class="req">*</span></label>
             <input class="form-input" type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jan, Anna, ..." maxlength="120">
           </div>
 
@@ -1923,11 +1944,11 @@ footer {
 
 <section data-booking-band style="background:#0d1a14;border-top:1px solid rgba(255,255,255,0.06);padding:4.5rem 1.5rem;text-align:center;font-family:'Inter Tight',-apple-system,sans-serif;">
   <div style="max-width:600px;margin:0 auto;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
+    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'Inter Tight',-apple-system,sans-serif;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
     <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.035em;color:#fff;line-height:1.1;margin:0 0 .85rem;">Pojďme to probrat <em style="font-style:italic;font-weight:500;color:#FFB800;">nezávazně.</em></h2>
-    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyberte si termín 30minutové konzultace. Beru jen pár projektů měsíčně, tak ať se na váš stihnu pořádně podívat.</p>
+    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyber si termín 30minutové konzultace zdarma. Beru jen pár projektů měsíčně, ať se na ten tvůj stihnu pořádně podívat.</p>
     <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;">📅 Rezervovat krátký hovor →</a>
-    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napište na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
+    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napiš na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
   </div>
 </section>
 
@@ -2049,7 +2070,7 @@ footer {
       try { payload = await res.json(); } catch (_) {}
 
       if (!res.ok) {
-        throw new Error(payload.error || 'Odeslání se nezdařilo. Zkuste to prosím znovu.');
+        throw new Error(payload.error || 'Odeslání se nezdařilo. Zkus to prosím znovu.');
       }
 
       setStatus('success', 'Díky! Zpráva dorazila. Ozvu se ti do 48 hodin, často ještě dnes.');
@@ -2238,16 +2259,16 @@ textarea.slg-in{resize:vertical;min-height:74px}
   if(window.__statlyGuide) return; window.__statlyGuide=true;
 
   var STEPS=[
-    {key:'service',q:'S čím vám můžu <em>pomoct</em>?',sub:'Vyberte, co vás teď nejvíc zajímá. Detaily doladíme společně.',
+    {key:'service',q:'S čím ti můžu <em>pomoct</em>?',sub:'Vyber, co tě teď nejvíc zajímá. Detaily doladíme společně.',
      opts:[
        {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
        {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
        {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
        {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
        {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
-       {v:'Nevím, poradíte mi',ico:'💬',d:'Probereme to spolu'}
+       {v:'Nevím, poraď mi',ico:'💬',d:'Probereme to spolu'}
      ]},
-    {key:'goal',q:'Čeho chcete <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
+    {key:'goal',q:'Čeho chceš <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
      opts:[
        {v:'Víc poptávek a zákazníků',ico:'📈'},
        {v:'Působit profesionálně',ico:'💼'},
@@ -2255,7 +2276,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'Modernizovat zastaralé',ico:'🔧'},
        {v:'Zatím jen zjišťuji',ico:'🔍'}
      ]},
-    {key:'timeline',q:'Kdy byste chtěli <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
+    {key:'timeline',q:'Kdy chceš <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
      opts:[
        {v:'Co nejdřív',ico:'⚡'},
        {v:'Do měsíce',ico:'📅'},
@@ -2270,7 +2291,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'60 000 Kč a víc',ico:'🏆'},
        {v:'Nechám na doporučení',ico:'🤝'}
      ]},
-    {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
+    {key:'contact',form:true,q:'Kam se ti mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
   ];
 
   var state={i:0,answers:{},done:false};
@@ -2360,7 +2381,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
       +'<input class="slg-in" id="slgPhone" type="tel" autocomplete="tel" placeholder="+420 ..." maxlength="40" value="'+esc(a.phone||'')+'"></div>'
       +'<div class="slg-field slg-full"><label class="slg-label" for="slgIndustry">Obor podnikání <span>*</span></label>'
       +'<input class="slg-in" id="slgIndustry" type="text" placeholder="např. stavebnictví, kosmetika, e‑shop..." maxlength="160" value="'+esc(a.industry||'')+'"></div>'
-      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chcete něco doplnit?</label>'
+      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chceš něco doplnit?</label>'
       +'<textarea class="slg-in" id="slgMsg" maxlength="3000" placeholder="Odkaz na stávající web, konkrétní představa, dotaz...">'+esc(a.message||'')+'</textarea></div>'
       +'<label class="slg-consent"><input type="checkbox" id="slgGdpr"'+(a.gdpr?' checked':'')+'>'
       +'<span>Souhlasím se zpracováním osobních údajů za účelem vyřízení této poptávky. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách</a>.</span></label>'
@@ -2396,9 +2417,9 @@ textarea.slg-in{resize:vertical;min-height:74px}
     a.gdpr=document.getElementById('slgGdpr').checked;
     var hp=document.getElementById('slgHp').value;
 
-    if(a.name.length<2){showErr('Vyplňte prosím své jméno.');document.getElementById('slgName').focus();return;}
-    if(!validEmail(a.email)){showErr('Zadejte platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
-    if(!a.industry){showErr('Vyplňte prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
+    if(a.name.length<2){showErr('Vyplň prosím své jméno.');document.getElementById('slgName').focus();return;}
+    if(!validEmail(a.email)){showErr('Zadej platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
+    if(!a.industry){showErr('Vyplň prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
     if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 
     var msg='— Poptávka přes interaktivního průvodce —\n'
@@ -2419,7 +2440,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
             if(window.fbq)  fbq('track','Lead'); } catch(_){}
       success(); })
     .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false;
-      showErr(err.message||'Něco se pokazilo. Zkuste to znovu, nebo napište na e‑mail.'); });
+      showErr(err.message||'Něco se pokazilo. Zkus to znovu, nebo napiš na e‑mail.'); });
   }
 
   function success(){
@@ -2429,7 +2450,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     var nm=esc((state.answers.name||'').split(' ')[0]);
     body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
       +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
-      +'<p class="slg-done-p">Vaše poptávka dorazila. Ozvu se vám <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
+      +'<p class="slg-done-p">Tvoje poptávka dorazila. Ozvu se ti <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
       +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
     body.querySelector('[data-slg-close]').addEventListener('click',close);
   }

@@ -182,7 +182,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap"></noscript>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -207,7 +207,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --border: rgba(255,255,255,0.06); --border-2: rgba(34,196,126,0.18);
   --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #5a7a6a;
   --sans: 'Inter Tight', -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --mono: 'Inter Tight', -apple-system, sans-serif;
 }
 
 .italic-accent { font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
@@ -372,42 +372,27 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .rec-indicator .rec-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff5277; animation: recBlink 1.4s ease-in-out infinite; }
 @keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
-.folio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-.folio { position: relative; border-radius: 22px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); cursor: pointer; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); isolation: isolate; }
-.folio:hover { transform: translateY(-6px); border-color: var(--border-2); box-shadow: 0 24px 60px rgba(0,0,0,0.4), 0 0 0 1px rgba(34,196,126,0.15); }
-.folio-img { position: relative; aspect-ratio: 16 / 11; overflow: hidden; background: #0a1410; }
-.folio-mock { position: absolute; inset: 0; display: flex; flex-direction: column; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
-.folio:hover .folio-mock { transform: scale(1.06); }
-
-.browser-bar { height: 30px; background: rgba(20,30,26,0.95); border-bottom: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; padding: 0 12px; gap: 6px; flex-shrink: 0; position: relative; z-index: 2; }
-.browser-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,0.18); }
-.browser-dot:nth-child(1) { background: #ff5f57; }
-.browser-dot:nth-child(2) { background: #febc2e; }
-.browser-dot:nth-child(3) { background: #28c840; }
-.browser-url { margin-left: 10px; font-family: var(--mono); font-size: 0.64rem; color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.05); border-radius: 100px; padding: 3px 12px 3px 9px; flex: 0 1 auto; max-width: 70%; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.browser-lock { width: 9px; height: 9px; flex-shrink: 0; color: rgba(255,255,255,0.4); }
-.folio-shot { flex: 1; width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; background: #0a1410; }
-.folio-shot { background: linear-gradient(110deg, rgba(255,255,255,0.02) 8%, rgba(255,255,255,0.04) 18%, rgba(255,255,255,0.02) 33%); background-size: 200% 100%; animation: shimmer 1.6s linear infinite; }
-.folio-shot[src] { animation: none; background: #0a1410; }
-@keyframes shimmer { to { background-position: -200% 0; } }
-
-.folio-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 30%, rgba(10,20,16,0.9) 100%); opacity: 0; transition: opacity 0.4s; display: flex; align-items: flex-end; padding: 1.5rem; }
-.folio:hover .folio-overlay { opacity: 1; }
-.folio-visit { display: inline-flex; align-items: center; gap: 0.4rem; background: var(--green-bright); color: var(--green-deep); font-size: 0.82rem; font-weight: 600; padding: 0.5rem 1rem; border-radius: 100px; transform: translateY(10px); transition: transform 0.4s; }
-.folio:hover .folio-visit { transform: translateY(0); }
-.folio-domain { position: absolute; left: 14px; bottom: 14px; z-index: 5; display: inline-flex; align-items: center; gap: 0.45rem; background: var(--green-bright); color: var(--green-deep); font-family: var(--mono); font-size: 0.76rem; font-weight: 700; letter-spacing: -0.01em; padding: 0.45rem 0.8rem; border-radius: 100px; box-shadow: 0 6px 22px rgba(34,196,126,0.35); transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s; }
-.folio:hover .folio-domain { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(34,196,126,0.5); }
-.folio-domain svg { width: 13px; height: 13px; flex-shrink: 0; }
-.fd-arrow { font-weight: 700; opacity: 0.85; }
-
-.folio-info { padding: 1.5rem 1.75rem 1.75rem; }
-.folio-meta { display: flex; align-items: center; gap: 0.6rem; font-family: var(--mono); font-size: 0.7rem; color: var(--text-dimmer); margin-bottom: 0.6rem; letter-spacing: 0.04em; }
-.folio-meta .dot { width: 4px; height: 4px; background: var(--green-bright); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
-.folio-title { font-family: var(--sans); font-size: 1.2rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-.folio-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 1rem; }
-.folio-stack { display: flex; flex-wrap: wrap; gap: 0.3rem; }
-.folio-tech { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 5px; padding: 0.22rem 0.5rem; }
+.folio-section-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; gap: 1.5rem; }
+.folio-section-head .sec-sub { margin-bottom: 0; }
+.folio-nav-btns { display: flex; gap: 0.6rem; flex-shrink: 0; padding-bottom: 0.25rem; }
+.folio-nav-btn { width: 52px; height: 52px; border-radius: 50%; border: none; background: var(--green-bright); color: var(--green-deep); font-size: 1.2rem; cursor: pointer; transition: all 0.25s ease; display: flex; align-items: center; justify-content: center; line-height: 1; box-shadow: 0 8px 22px rgba(34,196,126,0.28); }
+.folio-nav-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(34,196,126,0.42); }
+.folio-nav-btn:disabled { background: var(--bg-card-2); color: var(--text-dimmer); box-shadow: none; cursor: not-allowed; transform: none; }
+.folio-carousel { display: flex; gap: 1.6rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; scroll-behavior: smooth; padding: 0.5rem 0; }
+.folio-carousel::-webkit-scrollbar { display: none; }
+.folio { flex: 0 0 430px; position: relative; aspect-ratio: 4 / 5; border-radius: 26px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--border); transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s, border-color 0.45s; scroll-snap-align: start; isolation: isolate; }
+.folio:hover { transform: translateY(-8px); border-color: var(--border-2); box-shadow: 0 30px 70px rgba(0,0,0,0.45), 0 0 0 1px rgba(34,196,126,0.15); }
+.folio-shot { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); background: linear-gradient(135deg, #142420 0%, #0d1a14 100%); }
+.folio:hover .folio-shot { transform: scale(1.05); }
+.folio-shot.ph { background: linear-gradient(110deg, rgba(255,255,255,0.025) 8%, rgba(255,255,255,0.05) 18%, rgba(255,255,255,0.025) 33%), linear-gradient(135deg, #142420 0%, #0d1a14 100%); background-size: 200% 100%, 100% 100%; animation: shimmer 1.8s linear infinite; }
+@keyframes shimmer { to { background-position: -200% 0, 0 0; } }
+.folio-grad { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgba(7,14,10,0.94) 0%, rgba(7,14,10,0.72) 22%, rgba(7,14,10,0.15) 45%, transparent 62%); pointer-events: none; }
+.folio-arrow { position: absolute; top: 18px; right: 18px; z-index: 3; width: 54px; height: 54px; border-radius: 50%; background: var(--green-bright); color: var(--green-deep); display: flex; align-items: center; justify-content: center; font-size: 1.45rem; box-shadow: 0 8px 22px rgba(34,196,126,0.35); transition: transform 0.35s cubic-bezier(0.22,1,0.36,1); }
+.folio:hover .folio-arrow { transform: translate(3px, -3px) rotate(8deg); }
+.folio-cap { position: absolute; left: 26px; right: 26px; bottom: 26px; z-index: 2; }
+.folio-logo { font-family: var(--sans); font-size: 0.95rem; font-weight: 800; color: #fff; letter-spacing: 0.01em; margin-bottom: 0.85rem; display: inline-flex; align-items: center; gap: 0.45rem; opacity: 0.92; }
+.folio-logo img { height: 26px; width: auto; display: block; }
+.folio-result { font-family: var(--sans); font-size: 1.35rem; font-weight: 700; color: #fff; letter-spacing: -0.025em; line-height: 1.22; }
 
 .refs { padding: 7rem 2rem; background: var(--bg); position: relative; overflow: hidden; }
 .refs::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 20% 30%, rgba(34,196,126,0.08) 0%, transparent 55%), radial-gradient(ellipse 45% 35% at 80% 70%, rgba(255,184,0,0.05) 0%, transparent 55%); pointer-events: none; }
@@ -611,7 +596,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .d6 { transition-delay: 0.46s; }
 
 @media (max-width: 1024px) {
-  .svc-grid, .folio-grid { grid-template-columns: 1fr 1fr; }
+  .svc-grid { grid-template-columns: 1fr 1fr; }
+  .folio { flex: 0 0 340px; }
   .refs-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .form-section { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -624,7 +610,10 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
   .nav-folio-m:hover { color: var(--green-bright); }
   .stats-grid { grid-template-columns: 1fr 1fr; }
-  .svc-grid, .folio-grid { grid-template-columns: 1fr; }
+  .svc-grid { grid-template-columns: 1fr; }
+  .folio { flex: 0 0 300px; }
+  .folio-section-head { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
+  .folio-nav-btns { align-self: flex-end; }
   .refs-grid { grid-template-columns: 1fr; }
   .refs { padding: 5rem 1.5rem; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
@@ -848,62 +837,79 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
 <section class="sec-alt" id="portfolio">
   <div class="wrap">
-    <span class="sec-label reveal">Portfolio</span>
-    <h2 class="sec-h reveal">Vybrané projekty,<br><em>na kterých si stojím.</em></h2>
-    <p class="sec-sub reveal">Pár ukázek webů, které jsem v poslední době dodal. Každý byl postaven na míru, od strategie po nasazení.</p>
-
-    <div class="folio-grid">
-      <a href="https://strechmont-mr.cz/" class="folio reveal d1" target="_blank" rel="noopener">
-        <div class="folio-img">
-          <div class="folio-mock">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="strechmont.webp" alt="Strechmont MR, pokrývač, klempíř, tesař ve Zlínském kraji" class="folio-shot" loading="lazy" width="1200" height="825">
-          </div>
-          <div class="folio-overlay"><span class="folio-visit">Otevřít web →</span></div>
-          <span class="folio-domain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>strechmont-mr.cz<span class="fd-arrow">↗</span></span>
-        </div>
-        <div class="folio-info">
-          <div class="folio-meta"><span class="dot"></span><span>Strechmont MR · Hluk</span></div>
-          <div class="folio-title">Pokrývač, klempíř, tesař</div>
-          <p class="folio-desc">Kompletní webová prezentace rodinné firmy ze Slovácka, s důrazem na lokální dosah a poptávky.</p>
-          <div class="folio-stack"><span class="folio-tech">Web na míru</span><span class="folio-tech">Redesign</span><span class="folio-tech">SEO</span></div>
-        </div>
-      </a>
-
-      <a href="https://www.stehovanileo.cz/" class="folio reveal d2" target="_blank" rel="noopener">
-        <div class="folio-img">
-          <div class="folio-mock">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="stehovani-leo.webp" alt="Stěhování Leo, profesionální stěhování po celé ČR a EU" class="folio-shot" loading="lazy" width="1200" height="825">
-          </div>
-          <div class="folio-overlay"><span class="folio-visit">Otevřít web →</span></div>
-          <span class="folio-domain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>stehovanileo.cz<span class="fd-arrow">↗</span></span>
-        </div>
-        <div class="folio-info">
-          <div class="folio-meta"><span class="dot"></span><span>Stěhování Leo</span></div>
-          <div class="folio-title">Profesionální stěhování</div>
-          <p class="folio-desc">Web s důrazem na rychlou poptávku a důvěru, od první návštěvy po objednávku služby.</p>
-          <div class="folio-stack"><span class="folio-tech">Web na míru</span><span class="folio-tech">Redesign</span><span class="folio-tech">SEO</span></div>
-        </div>
-      </a>
-
-      <a href="https://expressdetailing.cz/" class="folio reveal d3" target="_blank" rel="noopener">
-        <div class="folio-img">
-          <div class="folio-mock">
-            <div class="browser-bar"><span class="browser-dot"></span><span class="browser-dot"></span><span class="browser-dot"></span></div>
-            <img src="detailing.webp" alt="Express Detailing, Auto Detailing v Litomyšli" class="folio-shot" loading="lazy" width="1500" height="862">
-          </div>
-          <div class="folio-overlay"><span class="folio-visit">Otevřít web →</span></div>
-          <span class="folio-domain"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 2.6 15.4 0 18M12 3c-2.6 2.6-2.6 15.4 0 18"/></svg>expressdetailing.cz<span class="fd-arrow">↗</span></span>
-        </div>
-        <div class="folio-info">
-          <div class="folio-meta"><span class="dot"></span><span>Express Detailing · Litomyšl</span></div>
-          <div class="folio-title">Express Detailing</div>
-          <p class="folio-desc">Elegantní web pro Car Detailing s důrazem na atmosféru a snadnou objednávku.</p>
-          <div class="folio-stack"><span class="folio-tech">SEO</span><span class="folio-tech">Redesign</span><span class="folio-tech">Video</span></div>
-        </div>
-      </a>
+    <div class="folio-section-head">
+      <div>
+        <span class="sec-label reveal">Projekty</span>
+        <h2 class="sec-h reveal">Takhle může vypadat<br><em>i váš nový web.</em></h2>
+      </div>
+      <div class="folio-nav-btns reveal">
+        <button class="folio-nav-btn" id="folioP" aria-label="Předchozí" disabled>←</button>
+        <button class="folio-nav-btn" id="folioN" aria-label="Další">→</button>
+      </div>
     </div>
+
+    <div class="folio-carousel" id="folioCarousel">
+      <div class="folio reveal d1">
+        <img src="strechmont.webp" alt="Strechmont MR web" class="folio-shot" loading="lazy">
+        <div class="folio-grad"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">Strechmont MR</div>
+          <h3 class="folio-result">Web pro rodinnou firmu, který každý týden vozí nové poptávky</h3>
+        </div>
+      </div>
+
+      <div class="folio reveal d2">
+        <img src="stehovani-leo.webp" alt="Stěhování Leo web" class="folio-shot" loading="lazy">
+        <div class="folio-grad"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">Stěhování Leo</div>
+          <h3 class="folio-result">Web, který prodává důvěru a domluví stěhování za pár kliknutí</h3>
+        </div>
+      </div>
+
+      <div class="folio reveal d3">
+        <img src="detailing.webp" alt="Express Detailing web" class="folio-shot" loading="lazy">
+        <div class="folio-grad"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">Express Detailing</div>
+          <h3 class="folio-result">Prémiový web pro car detailing, kde zákazník cítí výsledek předem</h3>
+        </div>
+      </div>
+
+      <div class="folio reveal d4">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="AuraFloor web" class="folio-shot ph" loading="lazy" data-placeholder="1">
+        <div class="folio-grad"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">AuraFloor</div>
+          <h3 class="folio-result">Čistý web pro pokládku podlah, který mluví řečí zákazníka</h3>
+        </div>
+      </div>
+
+      <div class="folio reveal d5">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="Flexi House web" class="folio-shot ph" loading="lazy" data-placeholder="1">
+        <div class="folio-grad"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">Flexi House</div>
+          <h3 class="folio-result">Modulární domy s webem, který prodává i bez obchodníka</h3>
+        </div>
+      </div>
+
+      <div class="folio reveal d6">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1' height='1'%3E%3C/svg%3E" alt="Kosmetika Klejchová web" class="folio-shot ph" loading="lazy" data-placeholder="1">
+        <div class="folio-grad"></div>
+        <span class="folio-arrow" aria-hidden="true">↗</span>
+        <div class="folio-cap">
+          <div class="folio-logo">Kosmetika Klejchová</div>
+          <h3 class="folio-result">Rezervační web pro kosmetiku s plným kalendářem každý týden</h3>
+        </div>
+      </div>
+    </div>
+
     <div class="mid-cta-wrap">
       <a href="#kontakt" class="mid-cta">Líbí se vám výsledky? <strong>Připravím vám návrh do 48 h</strong> <span class="arrow">→</span></a>
     </div>
@@ -1564,6 +1570,26 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   setTimeout(function(){
     if (!probed) document.querySelectorAll('.reveal:not(.on)').forEach(function(el){ el.classList.add('on'); });
   }, 1000);
+})();
+
+(function(){
+  var carousel = document.getElementById('folioCarousel');
+  var btnP = document.getElementById('folioP');
+  var btnN = document.getElementById('folioN');
+  if (!carousel || !btnP || !btnN) return;
+  function getCardW() {
+    var card = carousel.querySelector('.folio');
+    if (!card) return 400;
+    return card.offsetWidth + parseInt(getComputedStyle(carousel).gap || 24);
+  }
+  function updateBtns() {
+    btnP.disabled = carousel.scrollLeft < 10;
+    btnN.disabled = carousel.scrollLeft + carousel.offsetWidth >= carousel.scrollWidth - 10;
+  }
+  btnP.addEventListener('click', function(){ carousel.scrollBy({ left: -getCardW(), behavior: 'smooth' }); });
+  btnN.addEventListener('click', function(){ carousel.scrollBy({ left: getCardW(), behavior: 'smooth' }); });
+  carousel.addEventListener('scroll', updateBtns, { passive: true });
+  updateBtns();
 })();
 
 document.querySelectorAll('a[href^="#"]').forEach(a => {

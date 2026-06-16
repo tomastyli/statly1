@@ -108,7 +108,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap"></noscript>
 
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -133,7 +133,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --border: rgba(255,255,255,0.06); --border-2: rgba(34,196,126,0.18);
   --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #5a7a6a;
   --sans: 'Inter Tight', -apple-system, sans-serif;
-  --mono: 'JetBrains Mono', monospace;
+  --mono: 'Inter Tight', -apple-system, sans-serif;
 }
 
 .italic-accent { font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
@@ -793,11 +793,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 </section>
 <section data-booking-band style="background:#0d1a14;border-top:1px solid rgba(255,255,255,0.06);padding:4.5rem 1.5rem;text-align:center;font-family:'Inter Tight',-apple-system,sans-serif;">
   <div style="max-width:600px;margin:0 auto;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
+    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'Inter Tight',-apple-system,sans-serif;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
     <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.035em;color:#fff;line-height:1.1;margin:0 0 .85rem;">Pojďme to probrat <em style="font-style:italic;font-weight:500;color:#FFB800;">nezávazně.</em></h2>
-    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyberte si termín 30minutové konzultace. Beru jen pár projektů měsíčně, tak ať se na váš stihnu pořádně podívat.</p>
+    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyber si termín 30minutové konzultace. Beru jen pár projektů měsíčně, tak ať se na tvůj stihnu pořádně podívat.</p>
     <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;">📅 Rezervovat krátký hovor →</a>
-    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napište na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
+    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napiš na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
   </div>
 </section>
 
@@ -1103,19 +1103,19 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     if (!data.name || data.name.length < 2) {
-      setStatus('error', 'Vyplňte prosím své jméno.');
+      setStatus('error', 'Vyplň prosím své jméno.');
       form.name.focus(); return;
     }
     if (!validEmail(data.email)) {
-      setStatus('error', 'Zadejte platnou e‑mailovou adresu.');
+      setStatus('error', 'Zadej platnou e‑mailovou adresu.');
       form.email.focus(); return;
     }
     if (!data.industry) {
-      setStatus('error', 'Vyplňte prosím obor podnikání.');
+      setStatus('error', 'Vyplň prosím obor podnikání.');
       form.industry.focus(); return;
     }
     if (!data.service) {
-      setStatus('error', 'Vyberte prosím typ služby.');
+      setStatus('error', 'Vyber prosím typ služby.');
       form.service.focus(); return;
     }
     if (!data.gdpr) {
@@ -1135,14 +1135,14 @@ window.addEventListener('DOMContentLoaded', () => {
       try { payload = await res.json(); } catch (_) {}
 
       if (!res.ok) {
-        throw new Error(payload.error || 'Odeslání se nezdařilo. Zkuste to prosím znovu.');
+        throw new Error(payload.error || 'Odeslání se nezdařilo. Zkus to prosím znovu.');
       }
 
-      setStatus('success', 'Děkuji! Vaše zpráva byla odeslána. Ozvu se vám do 48 hodin.');
+      setStatus('success', 'Děkuji! Tvoje zpráva byla odeslána. Ozvu se ti do 48 hodin.');
       form.reset();
     } catch (err) {
       console.error('Form submit error:', err);
-      setStatus('error', err.message || 'Něco se pokazilo. Zkuste to prosím znovu, nebo mi napište přímo na e‑mail.');
+      setStatus('error', err.message || 'Něco se pokazilo. Zkus to prosím znovu, nebo mi napiš přímo na e‑mail.');
     } finally {
       setLoading(false);
     }
@@ -1306,16 +1306,16 @@ textarea.slg-in{resize:vertical;min-height:74px}
   if(window.__statlyGuide) return; window.__statlyGuide=true;
 
   var STEPS=[
-    {key:'service',q:'S čím vám můžu <em>pomoct</em>?',sub:'Vyberte, co vás teď nejvíc zajímá. Detaily doladíme společně.',
+    {key:'service',q:'S čím ti můžu <em>pomoct</em>?',sub:'Vyber, co tě teď nejvíc zajímá. Detaily doladíme společně.',
      opts:[
        {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
        {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
        {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
        {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
        {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
-       {v:'Nevím, poradíte mi',ico:'💬',d:'Probereme to spolu'}
+       {v:'Nevím, poraď mi',ico:'💬',d:'Probereme to spolu'}
      ]},
-    {key:'goal',q:'Čeho chcete <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
+    {key:'goal',q:'Čeho chceš <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
      opts:[
        {v:'Víc poptávek a zákazníků',ico:'📈'},
        {v:'Působit profesionálně',ico:'💼'},
@@ -1323,7 +1323,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'Modernizovat zastaralé',ico:'🔧'},
        {v:'Zatím jen zjišťuji',ico:'🔍'}
      ]},
-    {key:'timeline',q:'Kdy byste chtěli <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
+    {key:'timeline',q:'Kdy bys chtěl <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
      opts:[
        {v:'Co nejdřív',ico:'⚡'},
        {v:'Do měsíce',ico:'📅'},
@@ -1338,7 +1338,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'60 000 Kč a víc',ico:'🏆'},
        {v:'Nechám na doporučení',ico:'🤝'}
      ]},
-    {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
+    {key:'contact',form:true,q:'Kam se ti mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
   ];
 
   var state={i:0,answers:{},done:false};
@@ -1428,7 +1428,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
       +'<input class="slg-in" id="slgPhone" type="tel" autocomplete="tel" placeholder="+420 ..." maxlength="40" value="'+esc(a.phone||'')+'"></div>'
       +'<div class="slg-field slg-full"><label class="slg-label" for="slgIndustry">Obor podnikání <span>*</span></label>'
       +'<input class="slg-in" id="slgIndustry" type="text" placeholder="např. stavebnictví, kosmetika, e‑shop..." maxlength="160" value="'+esc(a.industry||'')+'"></div>'
-      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chcete něco doplnit?</label>'
+      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chceš něco doplnit?</label>'
       +'<textarea class="slg-in" id="slgMsg" maxlength="3000" placeholder="Odkaz na stávající web, konkrétní představa, dotaz...">'+esc(a.message||'')+'</textarea></div>'
       +'<label class="slg-consent"><input type="checkbox" id="slgGdpr"'+(a.gdpr?' checked':'')+'>'
       +'<span>Souhlasím se zpracováním osobních údajů za účelem vyřízení této poptávky. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách</a>.</span></label>'
@@ -1464,9 +1464,9 @@ textarea.slg-in{resize:vertical;min-height:74px}
     a.gdpr=document.getElementById('slgGdpr').checked;
     var hp=document.getElementById('slgHp').value;
 
-    if(a.name.length<2){showErr('Vyplňte prosím své jméno.');document.getElementById('slgName').focus();return;}
-    if(!validEmail(a.email)){showErr('Zadejte platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
-    if(!a.industry){showErr('Vyplňte prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
+    if(a.name.length<2){showErr('Vyplň prosím své jméno.');document.getElementById('slgName').focus();return;}
+    if(!validEmail(a.email)){showErr('Zadej platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
+    if(!a.industry){showErr('Vyplň prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
     if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 
     var msg='— Poptávka přes interaktivního průvodce —\n'
@@ -1487,7 +1487,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
             if(window.fbq)  fbq('track','Lead'); } catch(_){}
       success(); })
     .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false;
-      showErr(err.message||'Něco se pokazilo. Zkuste to znovu, nebo napište na e‑mail.'); });
+      showErr(err.message||'Něco se pokazilo. Zkus to znovu, nebo napiš na e‑mail.'); });
   }
 
   function success(){
@@ -1497,7 +1497,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     var nm=esc((state.answers.name||'').split(' ')[0]);
     body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
       +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
-      +'<p class="slg-done-p">Vaše poptávka dorazila. Ozvu se vám <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
+      +'<p class="slg-done-p">Tvoje poptávka dorazila. Ozvu se ti <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
       +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
     body.querySelector('[data-slg-close]').addEventListener('click',close);
   }

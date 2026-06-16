@@ -84,7 +84,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500&display=swap"></noscript>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap"></noscript>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -98,7 +98,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   --bg: #0a1410; --bg-2: #0d1a14; --bg-card: #111e18; --bg-card-2: #142420;
   --border: rgba(255,255,255,0.06); --border-2: rgba(34,196,126,0.18);
   --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #5a7a6a;
-  --sans: 'Inter Tight', -apple-system, sans-serif; --mono: 'JetBrains Mono', monospace;
+  --sans: 'Inter Tight', -apple-system, sans-serif; --mono: 'Inter Tight', -apple-system, sans-serif;
 }
 ::selection { background: var(--green); color: #fff; }
 .noise { position: fixed; inset: 0; pointer-events: none; z-index: 1; opacity: 0.025; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
@@ -156,19 +156,23 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .hero-meta-value { font-family: var(--sans); font-size: 1rem; font-weight: 600; color: #fff; letter-spacing: -0.015em; }
 .hero-meta-value .green { color: var(--green-bright); }
 
-.hero-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; transform: rotate(1.5deg); transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
-.hero-card:hover { transform: rotate(0deg) translateY(-4px); }
+.hero-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1); }
+.hero-card:hover { transform: translateY(-4px); }
 .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent); }
-.hero-card-stamp { position: absolute; top: 1.5rem; right: 1.5rem; width: 70px; height: 70px; border: 1.5px dashed rgba(255,184,0,0.4); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-size: 0.62rem; font-weight: 500; color: var(--gold); text-align: center; line-height: 1.2; transform: rotate(-12deg); letter-spacing: 0.02em; padding: 0.25rem; }
+.hero-card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding-bottom: 1.5rem; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); }
 .hero-card-header { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
-.hero-card-from { font-family: var(--sans); font-size: 1.3rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
-.hero-card-loc { display: flex; align-items: center; gap: 0.45rem; font-family: var(--mono); font-size: 0.82rem; color: var(--green-bright); margin-bottom: 1.5rem; }
+.hero-card-from { font-family: var(--sans); font-size: 1.55rem; font-weight: 800; color: #fff; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
+.hero-card-loc { display: flex; align-items: center; gap: 0.45rem; font-family: var(--mono); font-size: 0.8rem; color: var(--green-bright); }
 .hero-card-loc::before { content: '●'; font-size: 0.6rem; }
-.hero-card-body { font-family: var(--sans); font-size: 0.95rem; color: var(--text-dim); line-height: 1.65; padding: 1.25rem 0; border-top: 1px dashed var(--border); border-bottom: 1px dashed var(--border); }
-.hero-card-body strong { color: var(--text); font-weight: 600; }
-.hero-card-sign { margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: flex-end; }
-.hero-card-sign-name { font-family: 'Inter Tight', cursive; font-style: italic; font-size: 1.4rem; font-weight: 500; color: #fff; letter-spacing: -0.02em; }
-.hero-card-sign-meta { font-family: var(--mono); font-size: 0.7rem; color: var(--text-dimmer); text-align: right; line-height: 1.5; }
+.hero-card-rating { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; text-align: right; }
+.hero-card-rating-num { font-family: var(--sans); font-size: 1.5rem; font-weight: 800; color: #fff; line-height: 1; letter-spacing: -0.03em; }
+.hero-card-rating-stars { font-size: 0.7rem; color: var(--gold); letter-spacing: 0.05em; margin: 0.25rem 0 0.15rem; }
+.hero-card-rating-src { font-family: var(--mono); font-size: 0.62rem; color: var(--text-dimmer); text-transform: uppercase; letter-spacing: 0.08em; }
+.hero-card-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 0.85rem; }
+.hero-card-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-family: var(--sans); font-size: 0.92rem; color: var(--text-dim); line-height: 1.5; }
+.hero-card-list .hcl-i { color: var(--green-bright); font-size: 0.6rem; line-height: 1.6; flex-shrink: 0; }
+.hero-card-sign { margin-top: 1.5rem; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+.hero-card-sign-meta { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dimmer); line-height: 1.6; }
 
 .sec { padding: 7rem 2rem; background: var(--bg); position: relative; }
 .sec-alt { padding: 7rem 2rem; background: var(--bg-2); position: relative; }
@@ -463,25 +467,37 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
         sociální sítě a videa pro firmy v Hluku a v okolí. Místní přístup a cit pro kraj, ne agentura z Prahy přes formuláře.
       </p>
       <div class="hero-cta-row">
-        <a href="#kontakt" class="btn-primary"><span>Domluvíme se na kávě <span class="arrow">→</span></span></a>
+        <a href="#kontakt" class="btn-primary"><span>Konzultace zdarma <span class="arrow">→</span></span></a>
         <a href="index.html#portfolio" class="btn-secondary">Mrkni na portfolio</a>
       </div>
       <div class="hero-meta">
         <div class="hero-meta-item"><span class="hero-meta-label">Odezva</span><span class="hero-meta-value"><span class="green">do 48 h</span></span></div>
         <div class="hero-meta-item"><span class="hero-meta-label">Na Slovácku</span><span class="hero-meta-value">doma</span></div>
-        <div class="hero-meta-item"><span class="hero-meta-label">První káva</span><span class="hero-meta-value">na mě</span></div>
+        <div class="hero-meta-item"><span class="hero-meta-label">Hodnocení</span><span class="hero-meta-value"><span class="green">5,0 ★</span></span></div>
       </div>
     </div>
     <div class="hero-right">
       <div class="hero-card">
-        <div class="hero-card-stamp">SLOVÁCKO<br>★ 2026</div>
-        <div class="hero-card-header">Pohlednice ze Slovácka</div>
-        <div class="hero-card-from">Ahoj!</div>
-        <div class="hero-card-loc">Hluk · Slovácko</div>
-        <div class="hero-card-body">Hluk je srdce mého druhého domova na Moravě. Máš tady podnik a starý nebo žádný web? Stav se na kafe, jsem doma, domluvíme se na rovinu.</div>
+        <div class="hero-card-top">
+          <div>
+            <div class="hero-card-header">Tvorba webů & marketing</div>
+            <div class="hero-card-from">Tomáš Tylich</div>
+            <div class="hero-card-loc">Hluk · Slovácko</div>
+          </div>
+          <div class="hero-card-rating">
+            <span class="hero-card-rating-num">5,0</span>
+            <span class="hero-card-rating-stars">★★★★★</span>
+            <span class="hero-card-rating-src">Google</span>
+          </div>
+        </div>
+        <ul class="hero-card-list">
+          <li><span class="hcl-i">◆</span> Weby, sociální sítě a video pro firmy z okolí</li>
+          <li><span class="hcl-i">◆</span> Na Slovácku jsem pravidelně — sejdeme se osobně</li>
+          <li><span class="hcl-i">◆</span> Rozumím místnímu trhu i konkurenci</li>
+          <li><span class="hcl-i">◆</span> Spolupráci obvykle začínám do týdne</li>
+        </ul>
         <div class="hero-card-sign">
-          <div class="hero-card-sign-name">Tomáš ✍</div>
-          <div class="hero-card-sign-meta">Statly<br>+420 737 372 708</div>
+          <div class="hero-card-sign-meta">Statly · Tomáš Tylich<br>+420 737 372 708</div>
         </div>
       </div>
     </div>
@@ -490,8 +506,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
 
 <section class="sec-alt">
   <div class="wrap">
-    <span class="sec-label reveal">Proč místní</span>
-    <h2 class="sec-h reveal">Tři důvody, proč <em>nebrat agenturu z Prahy.</em></h2>
+    <span class="sec-label reveal">Proč někoho z okolí</span>
+    <h2 class="sec-h reveal">Tři výhody, které <em>vzdálený dodavatel nenabídne.</em></h2>
     <p class="sec-sub reveal">Velké agentury mají pěkné prezentace, ale řeší zakázku z dálky přes formuláře a hromady e-mailů. Já mám na Slovácku druhý domov.</p>
     <div class="why-grid">
       <div class="why-card reveal">
@@ -507,7 +523,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
       <div class="why-card gold reveal d3">
         <div class="why-icon">⚡</div>
         <h3 class="why-h">Žádné fronty</h3>
-        <p class="why-p">Nejsem agentura s 30 klienty. Mám čas se vám věnovat a <strong>obvykle dokážu začít do týdne</strong>, ne za tři měsíce.</p>
+        <p class="why-p">Nejsem zavalený zakázkami. Mám čas se ti věnovat a <strong>obvykle dokážu začít do týdne</strong>, ne za tři měsíce.</p>
       </div>
     </div>
   </div>
@@ -564,7 +580,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
       <div class="svc-mini-card reveal d2">
         <div class="svc-mini-num">/ 02</div>
         <h3 class="svc-mini-h">Sociální sítě</h3>
-        <p class="svc-mini-p">Instagram a Facebook bez šablon a kopírování konkurence. Obsah, který dává smysl pro vaše zákazníky na Slovácku.</p>
+        <p class="svc-mini-p">Instagram a Facebook bez šablon a kopírování konkurence. Obsah, který dává smysl pro tvoje zákazníky na Slovácku.</p>
         <div class="svc-mini-tags"><span class="svc-mini-tag">Instagram</span><span class="svc-mini-tag">Facebook</span><span class="svc-mini-tag">Reels</span></div>
       </div>
       <div class="svc-mini-card reveal d3">
@@ -580,11 +596,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
 <section class="sec">
   <div class="wrap">
     <span class="sec-label reveal">Natáčení</span>
-    <h2 class="sec-h reveal">A když je potřeba video,<br><em>vyrazím za vámi natáčet.</em></h2>
+    <h2 class="sec-h reveal">A když je potřeba video,<br><em>vyrazím za tebou natáčet.</em></h2>
     <div class="nat-card reveal">
       <div class="nat-inner">
         <span class="nat-badge"><span class="rec-dot"></span> Videoprodukce</span>
-        <h3 class="nat-h">Natočím vám obsah, <em>na který se kouká.</em></h3>
+        <h3 class="nat-h">Natočím ti obsah, <em>na který se kouká.</em></h3>
         <p class="nat-p">Reels, reklamy, produktová videa nebo letecké záběry dronem, přímo v Hluku a po Slovácku. Natáčím na špičkový telefon se stabilizátorem a profi mikrofony, finální střih a barvy řeší můj tým editorů.</p>
         <div class="nat-row">
           <div class="nat-item"><div class="nat-item-ico">🎬</div><div class="nat-item-h">Reels &amp; sítě</div><div class="nat-item-p">Krátká vertikální videa, která zaujmou v prvních dvou sekundách.</div></div>
@@ -642,7 +658,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
           <ul>
             <li><span class="check">✓</span><span><strong>Odpověď do 48 hodin</strong>, většinou ten samý den</span></li>
             <li><span class="check">✓</span><span><strong>Žádný tlak</strong> na rozhodnutí ani závazky</span></li>
-            <li><span class="check">✓</span><span><strong>Káva u vás</strong> v Hluku, až budu zase na Slovácku</span></li>
+            <li><span class="check">✓</span><span><strong>Osobní schůzka</strong> u tebe v Hluku, až budu zase na Slovácku</span></li>
             <li><span class="check">✓</span><span><strong>Férová cena</strong>, kterou víš dopředu</span></li>
           </ul>
         </div>
@@ -653,7 +669,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
         <p class="form-card-sub">Stačí pár základních informací. Žádný dlouhý dotazník.</p>
         <div class="form-grid">
           <div class="form-field">
-            <label class="form-label" for="f-name">Jak ti můžu říkat? <span class="req">*</span></label>
+            <label class="form-label" for="f-name">Jméno <span class="req">*</span></label>
             <input class="form-input" type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jan, Anna, ..." maxlength="120">
           </div>
           <div class="form-field">
@@ -693,11 +709,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
 
 <section data-booking-band style="background:#0d1a14;border-top:1px solid rgba(255,255,255,0.06);padding:4.5rem 1.5rem;text-align:center;font-family:'Inter Tight',-apple-system,sans-serif;">
   <div style="max-width:600px;margin:0 auto;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'JetBrains Mono',monospace;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
+    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'Inter Tight',-apple-system,sans-serif;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
     <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.035em;color:#fff;line-height:1.1;margin:0 0 .85rem;">Pojďme to probrat <em style="font-style:italic;font-weight:500;color:#FFB800;">nezávazně.</em></h2>
-    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyberte si termín 30minutové konzultace. Beru jen pár projektů měsíčně, tak ať se na váš stihnu pořádně podívat.</p>
+    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyber si termín 30minutové konzultace zdarma. Beru jen pár projektů měsíčně, ať se na ten tvůj stihnu pořádně podívat.</p>
     <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;">📅 Rezervovat krátký hovor →</a>
-    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napište na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
+    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napiš na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
   </div>
 </section>
 
@@ -781,7 +797,7 @@ if(!data.name||data.name.length<2){setStatus('error','Napiš mi prosím své jm�
 if(!data.contact||data.contact.length<5){setStatus('error','Doplň prosím e-mail nebo telefon, ať se ti můžu ozvat.');form.contact.focus();return;}
 if(!data.gdpr){setStatus('error','Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 setLoading(true);
-try{const res=await fetch('/api/mesto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let payload={};try{payload=await res.json();}catch(_){}if(!res.ok){throw new Error(payload.error||'Odeslání se nezdařilo. Zkuste to prosím znovu.');}setStatus('success','Díky! Zpráva dorazila. Ozvu se ti do 48 hodin, často ještě dnes.');form.reset();try{if(window.gtag)gtag('event','generate_lead',{method:'form',form_location:location.pathname});if(window.fbq)fbq('track','Lead');}catch(_){}}catch(err){setStatus('error',err.message||'Něco se pokazilo. Zkus to prosím znovu, nebo mi napiš přímo na e-mail.');}finally{setLoading(false);}});})();(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href^="tel:"], a[href^="mailto:"]');if(a&&window.gtag){var type=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';gtag('event','contact_click',{type:type,location:location.pathname});}var g=e.target.closest('[data-slg-open]');if(g&&window.gtag){gtag('event','guide_open',{location:location.pathname});}},true);})();
+try{const res=await fetch('/api/mesto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});let payload={};try{payload=await res.json();}catch(_){}if(!res.ok){throw new Error(payload.error||'Odeslání se nezdařilo. Zkus to prosím znovu.');}setStatus('success','Díky! Zpráva dorazila. Ozvu se ti do 48 hodin, často ještě dnes.');form.reset();try{if(window.gtag)gtag('event','generate_lead',{method:'form',form_location:location.pathname});if(window.fbq)fbq('track','Lead');}catch(_){}}catch(err){setStatus('error',err.message||'Něco se pokazilo. Zkus to prosím znovu, nebo mi napiš přímo na e-mail.');}finally{setLoading(false);}});})();(function(){document.addEventListener('click',function(e){var a=e.target.closest('a[href^="tel:"], a[href^="mailto:"]');if(a&&window.gtag){var type=a.getAttribute('href').indexOf('tel:')===0?'phone':'email';gtag('event','contact_click',{type:type,location:location.pathname});}var g=e.target.closest('[data-slg-open]');if(g&&window.gtag){gtag('event','guide_open',{location:location.pathname});}},true);})();
 </script>
 
 <style>
@@ -941,16 +957,16 @@ textarea.slg-in{resize:vertical;min-height:74px}
   if(window.__statlyGuide) return; window.__statlyGuide=true;
 
   var STEPS=[
-    {key:'service',q:'S čím vám můžu <em>pomoct</em>?',sub:'Vyberte, co vás teď nejvíc zajímá. Detaily doladíme společně.',
+    {key:'service',q:'S čím ti můžu <em>pomoct</em>?',sub:'Vyber, co tě teď nejvíc zajímá. Detaily doladíme společně.',
      opts:[
        {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
        {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
        {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
        {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
        {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
-       {v:'Nevím, poradíte mi',ico:'💬',d:'Probereme to spolu'}
+       {v:'Nevím, poraď mi',ico:'💬',d:'Probereme to spolu'}
      ]},
-    {key:'goal',q:'Čeho chcete <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
+    {key:'goal',q:'Čeho chceš <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
      opts:[
        {v:'Víc poptávek a zákazníků',ico:'📈'},
        {v:'Působit profesionálně',ico:'💼'},
@@ -958,7 +974,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'Modernizovat zastaralé',ico:'🔧'},
        {v:'Zatím jen zjišťuji',ico:'🔍'}
      ]},
-    {key:'timeline',q:'Kdy byste chtěli <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
+    {key:'timeline',q:'Kdy chceš <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
      opts:[
        {v:'Co nejdřív',ico:'⚡'},
        {v:'Do měsíce',ico:'📅'},
@@ -973,7 +989,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
        {v:'60 000 Kč a víc',ico:'🏆'},
        {v:'Nechám na doporučení',ico:'🤝'}
      ]},
-    {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
+    {key:'contact',form:true,q:'Kam se ti mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
   ];
 
   var state={i:0,answers:{},done:false};
@@ -1063,7 +1079,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
       +'<input class="slg-in" id="slgPhone" type="tel" autocomplete="tel" placeholder="+420 ..." maxlength="40" value="'+esc(a.phone||'')+'"></div>'
       +'<div class="slg-field slg-full"><label class="slg-label" for="slgIndustry">Obor podnikání <span>*</span></label>'
       +'<input class="slg-in" id="slgIndustry" type="text" placeholder="např. stavebnictví, kosmetika, e‑shop..." maxlength="160" value="'+esc(a.industry||'')+'"></div>'
-      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chcete něco doplnit?</label>'
+      +'<div class="slg-field slg-full"><label class="slg-label" for="slgMsg">Chceš něco doplnit?</label>'
       +'<textarea class="slg-in" id="slgMsg" maxlength="3000" placeholder="Odkaz na stávající web, konkrétní představa, dotaz...">'+esc(a.message||'')+'</textarea></div>'
       +'<label class="slg-consent"><input type="checkbox" id="slgGdpr"'+(a.gdpr?' checked':'')+'>'
       +'<span>Souhlasím se zpracováním osobních údajů za účelem vyřízení této poptávky. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách</a>.</span></label>'
@@ -1099,9 +1115,9 @@ textarea.slg-in{resize:vertical;min-height:74px}
     a.gdpr=document.getElementById('slgGdpr').checked;
     var hp=document.getElementById('slgHp').value;
 
-    if(a.name.length<2){showErr('Vyplňte prosím své jméno.');document.getElementById('slgName').focus();return;}
-    if(!validEmail(a.email)){showErr('Zadejte platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
-    if(!a.industry){showErr('Vyplňte prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
+    if(a.name.length<2){showErr('Vyplň prosím své jméno.');document.getElementById('slgName').focus();return;}
+    if(!validEmail(a.email)){showErr('Zadej platnou e‑mailovou adresu.');document.getElementById('slgEmail').focus();return;}
+    if(!a.industry){showErr('Vyplň prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
     if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 
     var msg='— Poptávka přes interaktivního průvodce —\n'
@@ -1119,7 +1135,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
       if(!res.ok)throw new Error(p.error||'Odeslání se nezdařilo.');return p;});})
     .then(function(){ state.done=true;try{if(window.gtag)gtag('event','generate_lead',{method:'guide',form_location:location.pathname});if(window.fbq)fbq('track','Lead');}catch(_){} success(); })
     .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false;
-      showErr(err.message||'Něco se pokazilo. Zkuste to znovu, nebo napište na e‑mail.'); });
+      showErr(err.message||'Něco se pokazilo. Zkus to znovu, nebo napiš na e‑mail.'); });
   }
 
   function success(){
@@ -1129,7 +1145,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     var nm=esc((state.answers.name||'').split(' ')[0]);
     body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
       +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
-      +'<p class="slg-done-p">Vaše poptávka dorazila. Ozvu se vám <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
+      +'<p class="slg-done-p">Tvoje poptávka dorazila. Ozvu se ti <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
       +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
     body.querySelector('[data-slg-close]').addEventListener('click',close);
   }

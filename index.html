@@ -16,7 +16,6 @@
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="Tomáš Tylich · Statly">
-<meta name="keywords" content="tvorba webů Litomyšl, webdesign východní Čechy, digitální marketing, SEO, PPC kampaně, redesign webu, správa sociálních sítí, natáčení videí Litomyšl, kameraman Litomyšl, natáčení reklam Pardubický kraj, video produkce východní Čechy, natáčení dronem">
 <link rel="canonical" href="https://statly.cz/">
 
 <meta property="og:type" content="website">
@@ -247,9 +246,6 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .hero-bg::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(34,196,126,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,196,126,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%); }
 .hero-inner { max-width: 920px; width: 100%; text-align: center; position: relative; z-index: 2; animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s; }
 @keyframes heroIn { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
-.heart-badge { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 1.05rem; margin-bottom: 2.25rem; backdrop-filter: blur(8px); }
-.heart-badge .heart { color: #ff5277; animation: heartBeat 1.5s ease-in-out infinite; font-size: 0.9rem; }
-@keyframes heartBeat { 0%, 50%, 100% { transform: scale(1); } 25%, 75% { transform: scale(1.18); } }
 .hero h1 { font-family: var(--sans); font-size: clamp(2.6rem, 6.8vw, 5.4rem); font-weight: 800; line-height: 0.98; letter-spacing: -0.04em; color: #fff; margin-bottom: 1.75rem; }
 .hero h1 em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; }
 .gold { color: var(--gold); }
@@ -268,22 +264,12 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .btn-secondary { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(255,255,255,0.04); color: #fff; padding: 1rem 1.7rem; border-radius: 100px; font-weight: 500; font-size: 0.97rem; border: 1px solid rgba(255,255,255,0.12); transition: all 0.25s ease; backdrop-filter: blur(8px); }
 .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(34,196,126,0.4); transform: translateY(-2px); }
 
-.stats { background: var(--bg-2); border-top: 1px solid var(--border); padding: 5rem 2rem; position: relative; }
-.stats-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.stat { background: linear-gradient(180deg, rgba(34,196,126,0.04), transparent); border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; }
-.stat::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--green-bright), transparent); opacity: 0; transition: opacity 0.3s; }
-.stat:hover { border-color: var(--border-2); transform: translateY(-3px); }
-.stat:hover::before { opacity: 1; }
-.stat-n { font-family: var(--sans); font-size: 2.6rem; font-weight: 800; color: #fff; display: block; line-height: 1; letter-spacing: -0.03em; }
-.stat-n .accent { color: var(--green-bright); }
-.stat-l { color: var(--text-dim); font-size: 0.83rem; margin-top: 0.55rem; display: block; font-family: var(--mono); font-weight: 400; letter-spacing: 0.02em; }
-
 .sec { padding: 7rem 2rem; background: var(--bg); position: relative; }
 .sec-alt { padding: 7rem 2rem; background: var(--bg-2); position: relative; }
 .wrap { max-width: 1280px; margin: 0 auto; }
 
 .sec-label { display: inline-flex; align-items: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; color: var(--green-bright); margin-bottom: 1rem; text-transform: uppercase; }
-.sec-label::before { content: ''; width: 18px; height: 1px; background: var(--green-bright); }
+.sec-label::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green-bright); }
 .sec-h { font-family: var(--sans); font-size: clamp(2rem, 3.6vw, 3rem); font-weight: 800; letter-spacing: -0.035em; line-height: 1.05; color: #fff; margin-bottom: 1rem; }
 .sec-h em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; }
 .sec-sub { color: var(--text-dim); font-size: 1.02rem; line-height: 1.7; max-width: 540px; margin-bottom: 4rem; }
@@ -305,8 +291,15 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 @keyframes particleDrift { 0% { transform: translate(0, 0); opacity: 0; } 20% { opacity: 0.7; } 50% { transform: translate(40px, -50px); opacity: 0.9; } 80% { opacity: 0.5; } 100% { transform: translate(80px, -100px); opacity: 0; } }
 .svc-section .wrap { position: relative; z-index: 1; }
 
-.svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-.card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2.2rem; position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.svc-grid { display: grid; grid-template-columns: 1.25fr 1fr; grid-auto-rows: 1fr; gap: 1.25rem; }
+.card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2.2rem; position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.card .tags { margin-top: auto; padding-top: 1.1rem; }
+.card-feat { grid-row: 1 / span 2; }
+.card-feat .card-ico { width: 60px; height: 60px; border-radius: 16px; }
+.card-feat .card-ico svg { width: 28px; height: 28px; }
+.card-feat .card-h { font-size: 1.5rem; }
+.card-feat .card-p { font-size: 1rem; }
+@media (max-width: 1024px) { .svc-grid .card-feat { grid-row: auto; } }
 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent); opacity: 0; transition: opacity 0.4s; }
 .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(34,196,126,0.08), transparent 40%); opacity: 0; transition: opacity 0.4s; pointer-events: none; }
 .card:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--bg-card-2); }
@@ -323,19 +316,6 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; position: relative; z-index: 1; }
 .tag { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.55rem; transition: all 0.25s; }
 .card:hover .tag { color: var(--green-bright); border-color: var(--border-2); background: rgba(34,196,126,0.06); }
-
-.industry-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.industry { display: flex; flex-direction: column; gap: 0.45rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.4rem; position: relative; overflow: hidden; transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s, background 0.35s; }
-.industry-ico { width: 42px; height: 42px; border-radius: 11px; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.16); display: flex; align-items: center; justify-content: center; margin-bottom: 0.4rem; transition: all 0.35s; }
-.industry-ico svg { width: 21px; height: 21px; color: var(--green-bright); }
-.industry:hover .industry-ico { background: rgba(34,196,126,0.15); border-color: rgba(34,196,126,0.3); transform: translateY(-2px); }
-.industry::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--green-bright), transparent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
-.industry:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--bg-card-2); }
-.industry:hover::before { transform: scaleX(1); }
-.industry-name { font-weight: 700; color: #fff; font-size: 0.98rem; letter-spacing: -0.01em; }
-.industry-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); line-height: 1.55; }
-@media (max-width: 900px) { .industry-grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 520px) { .industry-grid { grid-template-columns: 1fr; } }
 
 .feature-card { margin-top: 1.25rem; position: relative; background: linear-gradient(135deg, #0f1f18 0%, #0c1a14 100%); border: 1px solid var(--border-2); border-radius: 24px; padding: 2.6rem 2.6rem; overflow: hidden; display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: center; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
 .feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 0% 50%, rgba(34,196,126,0.10) 0%, transparent 60%), radial-gradient(ellipse 55% 90% at 100% 50%, rgba(255,184,0,0.08) 0%, transparent 60%); pointer-events: none; opacity: 0.85; transition: opacity 0.4s; }
@@ -458,58 +438,6 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .step-h { font-family: var(--sans); font-weight: 700; color: #fff; font-size: 1rem; margin-bottom: 0.5rem; letter-spacing: -0.015em; }
 .step-p { font-size: 0.86rem; color: var(--text-dim); line-height: 1.6; }
 
-.form-section { display: grid; grid-template-columns: 1fr 1.2fr; gap: 4rem; align-items: start; margin-top: 3rem; }
-.form-side .sec-label { margin-bottom: 1.25rem; }
-.form-features { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem; }
-.form-features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.95rem; color: var(--text-dim); }
-.form-features .check { flex-shrink: 0; width: 22px; height: 22px; background: rgba(34,196,126,0.12); border: 1px solid rgba(34,196,126,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--green-bright); font-size: 0.75rem; font-weight: 700; margin-top: 0.15rem; }
-.form-features strong { color: var(--text); font-weight: 600; }
-
-.form-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 22px; padding: 2.5rem; position: relative; overflow: hidden; }
-.form-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent); }
-.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.1rem; }
-.form-field { display: flex; flex-direction: column; gap: 0.45rem; }
-.form-field.full { grid-column: 1 / -1; }
-.form-label { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.06em; display: flex; align-items: center; gap: 0.4rem; }
-.form-label .req { color: var(--green-bright); }
-.form-input, .form-select, .form-textarea { width: 100%; background: var(--bg-2); border: 1px solid var(--border); border-radius: 11px; padding: 0.85rem 1rem; color: #fff; font-family: var(--sans); font-size: 0.95rem; transition: all 0.2s ease; font-weight: 400; }
-.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dimmer); }
-.form-input:hover, .form-select:hover, .form-textarea:hover { border-color: rgba(255,255,255,0.12); }
-.form-input:focus, .form-select:focus, .form-textarea:focus { outline: none; border-color: var(--green-bright); background: var(--bg-card-2); box-shadow: 0 0 0 4px rgba(34,196,126,0.08); }
-.form-textarea { min-height: 130px; resize: vertical; font-family: var(--sans); line-height: 1.55; }
-.form-select { appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%2322c47e' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; cursor: pointer; }
-.form-select option { background: var(--bg-2); color: #fff; }
-.form-hp { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; pointer-events: none !important; tab-index: -1; }
-
-.form-consent { display: flex; gap: 0.7rem; align-items: flex-start; font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; cursor: pointer; margin-top: 0.4rem; }
-.form-consent input[type="checkbox"] { appearance: none; -webkit-appearance: none; flex-shrink: 0; width: 20px; height: 20px; margin-top: 0.1rem; background: var(--bg-2); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; position: relative; transition: all 0.2s; }
-.form-consent input[type="checkbox"]:hover { border-color: rgba(34,196,126,0.4); }
-.form-consent input[type="checkbox"]:checked { background: var(--green-bright); border-color: var(--green-bright); }
-.form-consent input[type="checkbox"]:checked::after { content: ''; position: absolute; left: 5px; top: 1px; width: 6px; height: 11px; border: solid var(--green-deep); border-width: 0 2px 2px 0; transform: rotate(45deg); }
-.form-consent a { color: var(--green-bright); text-decoration: underline; text-decoration-color: rgba(34,196,126,0.35); text-underline-offset: 2px; }
-.form-consent a:hover { text-decoration-color: var(--green-bright); }
-
-.form-submit { margin-top: 0.4rem; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem; background: var(--green-bright); color: var(--green-deep); padding: 1.05rem 1.9rem; border-radius: 12px; font-weight: 700; font-size: 0.97rem; font-family: var(--sans); letter-spacing: -0.01em; box-shadow: 0 8px 28px rgba(34,196,126,0.22); transition: all 0.3s ease; position: relative; overflow: hidden; }
-.form-submit::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold), var(--gold-soft)); opacity: 0; transition: opacity 0.3s; }
-.form-submit span { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 0.55rem; }
-.form-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(255,184,0,0.32); }
-.form-submit:hover:not(:disabled)::before { opacity: 1; }
-.form-submit:hover:not(:disabled) .arrow { transform: translateX(4px); }
-.form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-.form-submit .arrow { transition: transform 0.3s; }
-.form-submit .spinner { width: 16px; height: 16px; border: 2px solid rgba(13,61,44,0.25); border-top-color: var(--green-deep); border-radius: 50%; animation: spin 0.7s linear infinite; display: none; }
-.form-submit.loading .spinner { display: inline-block; }
-.form-submit.loading .arrow, .form-submit.loading .label-default { display: none; }
-.form-submit .label-loading { display: none; }
-.form-submit.loading .label-loading { display: inline; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.form-status { margin-top: 1rem; padding: 0.95rem 1.1rem; border-radius: 11px; font-size: 0.9rem; line-height: 1.5; display: none; align-items: flex-start; gap: 0.65rem; }
-.form-status.show { display: flex; }
-.form-status.success { background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); color: var(--green-bright); }
-.form-status.error { background: rgba(255,82,119,0.08); border: 1px solid rgba(255,82,119,0.28); color: #ff8a9f; }
-.form-status-icon { font-size: 1.05rem; flex-shrink: 0; margin-top: 0.05rem; }
-
 .cta-box { background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-2) 100%); border: 1px solid var(--border-2); border-radius: 28px; padding: 4.75rem 3rem; text-align: center; position: relative; overflow: hidden; }
 .cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.6), rgba(255,184,0,0.5), transparent); pointer-events: none; }
 .cta-box::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 85% at 50% 0%, rgba(34,196,126,0.10), transparent 60%), radial-gradient(ellipse 50% 60% at 82% 100%, rgba(255,184,0,0.05), transparent 60%); pointer-events: none; }
@@ -551,16 +479,16 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
 .footer-logo { margin-bottom: 1.1rem; }
 .footer-logo img { height: 32px; margin-bottom: 1rem; }
-.footer-desc { color: var(--text-dimmer); font-size: 0.88rem; line-height: 1.7; max-width: 250px; }
+.footer-desc { color: var(--text-dim); font-size: 0.88rem; line-height: 1.7; max-width: 250px; }
 .footer-h { font-family: var(--sans); font-size: 0.78rem; font-weight: 600; color: #fff; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 0.08em; }
 .footer-a { color: var(--text-dim); font-size: 0.88rem; display: block; margin-bottom: 0.65rem; transition: color 0.2s, transform 0.2s; width: fit-content; }
 .footer-a:hover { color: var(--green-bright); transform: translateX(3px); }
 .footer-firmy { margin-top: 1.25rem; opacity: 0.85; transition: opacity 0.2s; }
 .footer-firmy:hover { opacity: 1; }
 .footer-firmy img { max-width: 200px; height: auto; }
-.footer-btm { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: var(--text-dimmer); font-size: 0.82rem; flex-wrap: wrap; gap: 1rem; }
+.footer-btm { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; color: var(--text-dim); font-size: 0.82rem; flex-wrap: wrap; gap: 1rem; }
 .footer-btm-links { display: flex; gap: 1.5rem; }
-.footer-btm-links a { color: var(--text-dimmer); transition: color 0.2s; }
+.footer-btm-links a { color: var(--text-dim); transition: color 0.2s; }
 .footer-btm-links a:hover { color: var(--green-bright); }
 .footer-person { display: flex; align-items: center; gap: 0.85rem; margin-top: 1.4rem; }
 .footer-person-photo { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; flex-shrink: 0; border: 1px solid var(--border); background: #0f1a13; }
@@ -622,7 +550,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .folio { flex: 0 0 340px; }
   .refs-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .form-section { grid-template-columns: 1fr; gap: 2.5rem; }
   .feature-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.2rem; }
   .feature-visual { height: 220px; max-width: 460px; margin: 0 auto; }
 }
@@ -631,7 +558,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .nav-folio-m { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 1rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
   .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
   .nav-folio-m:hover { color: var(--green-bright); }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
   .svc-grid { grid-template-columns: 1fr; }
   .folio { flex: 0 0 300px; }
   .folio-section-head { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
@@ -641,8 +567,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .process-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .process-grid::before { display: none; }
   .cta-box { padding: 4rem 1.5rem; }
-  .form-card { padding: 1.75rem 1.5rem; }
-  .form-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
   .footer-btm { flex-direction: column; text-align: center; }
   .sec, .sec-alt { padding: 5rem 1.5rem; }
@@ -658,9 +582,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 @media (max-width: 480px) {
   .btn-row { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { justify-content: center; }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .stat { padding: 1.5rem 1rem; }
-  .stat-n { font-size: 2rem; }
   .process-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
   .nav-cta { padding: 0.5rem 1rem; font-size: 0.8rem; }
@@ -709,10 +630,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .capacity { max-width: 420px; margin: 0 auto 1.9rem; background: rgba(255,184,0,0.05); border: 1px solid rgba(255,184,0,0.22); border-radius: 16px; padding: 1.1rem 1.25rem; position: relative; z-index: 1; text-align: left; }
 .capacity-top { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
 .capacity-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(255,184,0,0.6); animation: pulseDot 2s ease-in-out infinite; flex-shrink: 0; }
-.capacity-count { margin-left: auto; font-weight: 700; color: var(--gold); font-size: 0.95rem; }
-.capacity-bar { height: 6px; border-radius: 100px; background: rgba(255,255,255,0.08); margin: 0.7rem 0 0.6rem; overflow: hidden; }
-.capacity-bar > span { display: block; height: 100%; border-radius: 100px; background: linear-gradient(90deg, var(--gold), var(--gold-soft)); }
-.capacity-note { font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; margin: 0; }
+.capacity-note { font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; margin: 0.6rem 0 0; }
 .capacity-note strong { color: #fff; font-weight: 600; }
 
 .btn-book { font-size: 1.02rem !important; padding: 1.05rem 2.1rem !important; }
@@ -753,10 +671,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="heart-badge">
-      <span class="heart">❤</span>
-      <span>Made with love in Litomyšl</span>
-    </div>
     <h1>
       Vdechnu <em class="gold">vašemu</em><br>
       byznysu nový<br>
@@ -764,7 +678,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     </h1>
     <p class="hero-sub">
       Tvořím moderní weby a marketingové strategie, které skutečně fungují.
-      Z Litomyšle pro celé východní Čechy, férově, srozumitelně, s výsledky.
+      Z Litomyšle pro celé východní Čechy, s výsledky, které poznáte na počtu poptávek.
     </p>
     <div class="btn-row">
       <a href="#kontakt" class="btn-primary"><span>Domluvit konzultaci <span class="arrow">→</span></span></a>
@@ -780,12 +694,70 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
 </section>
 
-<section class="stats">
-  <div class="stats-grid">
-    <div class="stat reveal d1"><span class="stat-n">50<span class="accent">+</span></span><span class="stat-l">spokojených klientů</span></div>
-    <div class="stat reveal d2"><span class="stat-n">5.0<span class="accent">★</span></span><span class="stat-l">Google hodnocení</span></div>
-    <div class="stat reveal d3"><span class="stat-n">100<span class="accent">%</span></span><span class="stat-l">lokální podpora</span></div>
-    <div class="stat reveal d4"><span class="stat-n">48<span class="accent">h</span></span><span class="stat-l">průměrná odezva</span></div>
+<style>
+.founder-section{position:relative;overflow:hidden}
+.founder-grid{display:grid;grid-template-columns:0.82fr 1fr;gap:3.5rem;align-items:center}
+.founder-media{position:relative;padding-bottom:2.4rem}
+.founder-photo{position:relative;aspect-ratio:4/5;border-radius:22px;overflow:hidden;border:1px solid var(--border);background:radial-gradient(ellipse 80% 55% at 50% 28%,rgba(34,196,126,0.13),transparent 70%),var(--bg-card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.1rem}
+.founder-mono{width:100px;height:100px;border-radius:26px;overflow:hidden;border:1px solid var(--border-2);box-shadow:0 16px 40px rgba(0,0,0,0.35)}
+.founder-mono svg{width:100%;height:100%;display:block}
+.founder-photo-note{font-family:var(--mono);font-size:0.78rem;color:var(--text-dimmer);letter-spacing:0.04em}
+.founder-quote{position:absolute;right:-1.6rem;bottom:0;max-width:330px;margin:0;background:var(--bg-card-2);border:1px solid var(--border-2);border-radius:18px;padding:1.5rem 1.55rem;box-shadow:0 26px 60px rgba(0,0,0,0.5)}
+.founder-quote-avatar{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:var(--sans);font-weight:800;font-size:0.95rem;color:var(--green-deep);background:var(--green-bright);margin-bottom:0.95rem}
+.founder-quote blockquote{margin:0 0 0.95rem;font-size:0.95rem;line-height:1.62;color:var(--text);font-style:italic}
+.founder-quote figcaption{display:flex;flex-direction:column;gap:0.12rem}
+.founder-quote figcaption b{font-family:var(--sans);font-weight:700;color:#fff;font-size:0.9rem}
+.founder-quote figcaption span{font-family:var(--mono);font-size:0.74rem;color:var(--text-dim)}
+.founder-body p{color:var(--text-dim);font-size:1.04rem;line-height:1.75;margin-bottom:1.1rem;max-width:520px}
+.founder-body p strong{color:var(--text);font-weight:600}
+.founder-promises{list-style:none;margin:1.9rem 0 0;padding:0;display:flex;flex-direction:column}
+.founder-promises li{display:flex;gap:1rem;align-items:flex-start;padding:1.15rem 0;border-top:1px solid var(--border)}
+.founder-promises li:first-child{padding-top:0;border-top:none}
+.fp-ic{flex-shrink:0;display:grid;place-items:center;width:28px;height:28px;margin-top:0.05rem}
+.fp-ic svg{width:28px;height:28px;color:var(--green-bright)}
+.founder-promises b{display:block;font-family:var(--sans);font-weight:700;color:#fff;font-size:0.98rem;letter-spacing:-0.01em;margin-bottom:0.18rem}
+.founder-promises span{display:block;font-size:0.88rem;line-height:1.55;color:var(--text-dim)}
+@media (max-width:900px){
+  .founder-grid{grid-template-columns:1fr;gap:2.6rem}
+  .founder-media{max-width:440px;margin:0 auto;padding-bottom:0}
+  .founder-quote{position:relative;right:auto;bottom:auto;max-width:none;margin:-2.2rem 0.5rem 0 1.5rem}
+}
+@media (max-width:520px){ .founder-quote{margin-left:0.5rem} }
+</style>
+
+<section class="sec founder-section" id="o-mne">
+  <div class="wrap founder-grid">
+    <div class="founder-media reveal">
+      <div class="founder-photo">
+        <span class="founder-mono"><svg viewBox="0 0 1024 1024" aria-hidden="true"><use href="#statly-mark"/></svg></span>
+        <span class="founder-photo-note">Tady budu brzy já</span>
+      </div>
+      <figure class="founder-quote">
+        <div class="founder-quote-avatar" aria-hidden="true">TT</div>
+        <blockquote>„Beru to tak, že váš úspěch je i můj. Když vám web přivede zákazníky, je to přesně důvod, proč to dělám. Proto u vás zůstávám i po spuštění. Ne že web předám a zmizím."</blockquote>
+        <figcaption><b>Tomáš Tylich</b><span>zakladatel Statly</span></figcaption>
+      </figure>
+    </div>
+    <div class="founder-body reveal d1">
+      <span class="sec-label">Kdo to staví</span>
+      <h2 class="sec-h">Vaše jméno na webu.<br><em>Pro mě i moje.</em></h2>
+      <p>Za Statly nestojí tým cizích lidí ani šablona z internetu. Jsem to <strong>já</strong>, kdo navrhuje, staví i odpovídá na vaše maily. Když mi svěříte svůj byznys, beru to osobně.</p>
+      <p>Záleží mi na tom, co vám předávám. Nechci vám web prodat a zmizet. Chci, aby vám reálně vydělával a abyste se za pár měsíců ozvali, že to funguje.</p>
+      <ul class="founder-promises">
+        <li>
+          <span class="fp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+          <span><b>Spuštěním to nekončí</b><span>Po předání vás v tom nenechám. Drobné úpravy a dohled nad webem běží dál.</span></span>
+        </li>
+        <li>
+          <span class="fp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <span><b>Rychlý web v bezpečí</b><span>Běží na infrastruktuře Cloudflare, takže nespadne ani při náporu a je chráněný 24/7.</span></span>
+        </li>
+        <li>
+          <span class="fp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></span>
+          <span><b>Mluvíte přímo se mnou</b><span>Žádný prostředník ani call centrum. Píšete tomu, kdo váš web staví.</span></span>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -801,35 +773,36 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
   <div class="wrap">
     <span class="sec-label reveal">Služby</span>
-    <h2 class="sec-h reveal">Tři pilíře, na kterých<br><em>stavím vaši značku.</em></h2>
-    <p class="sec-sub reveal">Specializace především. Tvořím weby, spravuji sociální sítě a navrhuji grafiku, pokaždé na míru a vždy s důrazem na výsledky. A když je potřeba čerstvý videoobsah, vyrazím ven natáčet.</p>
+    <h2 class="sec-h reveal">Tři věci, co pro vás dělám<br>pořádně.</h2>
+    <p class="sec-sub reveal">Nedělám všechno pro všechny. Soustředím se na weby, sociální sítě a grafiku, pokaždé na míru tomu, co děláte. A když je potřeba čerstvý videoobsah, vyrazím ven natáčet sám.</p>
     <div class="svc-grid">
-      <div class="card reveal d1">
+      <div class="card card-feat reveal d1">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></div>
         <div class="card-h">Webové stránky</div>
-        <p class="card-p">Moderní, rychlé weby navržené tak, aby přiváděly zákazníky a konvertovaly návštěvníky. Včetně redesignu, SEO a údržby.</p>
+        <p class="card-p">Postavím vám web, za který se nebudete stydět a který vám pracuje, i když zrovna spíte. Rychlý, přehledný a postavený od základu pod to, co děláte. Hlavně mi jde o to, aby vám reálně nosil poptávky, ne aby jen hezky vypadal. Součástí je i redesign starého webu, SEO základ a údržba.</p>
         <ul class="card-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Responzivní na mobilu i počítači</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rychlé načítání a SEO základ</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Formuláře, které sbírají poptávky</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Na míru vaší firmě, ne ze šablony</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Funguje na mobilu stejně dobře jako na počítači</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rychlé načítání a základ pro Google</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Formuláře, co vám vážně nosí poptávky</li>
         </ul>
         <div class="tags"><span class="tag">Na míru</span><span class="tag">Mobile-first</span><span class="tag">SEO</span></div>
       </div>
       <div class="card reveal d2">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
         <div class="card-h">Sociální sítě</div>
-        <p class="card-p">Strategický management Instagramu a Facebooku, od obsahu po reklamní kampaně. Ne jen posty, ale výsledky.</p>
+        <p class="card-p">Postarám se vám o Instagram a Facebook tak, aby z nich chodily reálné poptávky, ne aby jen přibývaly lajky. Obsah, který sedí vašemu oboru, a kampaně, co mají hlavu a patu.</p>
         <ul class="card-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Plán obsahu na míru oboru</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Plán obsahu na míru vašemu oboru</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Pravidelné posty a stories</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Placené Meta Ads kampaně</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Placené kampaně na Meta</li>
         </ul>
         <div class="tags"><span class="tag">Instagram</span><span class="tag">Facebook</span><span class="tag">Meta Ads</span></div>
       </div>
       <div class="card reveal d3">
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/></svg></div>
         <div class="card-h">Grafický design</div>
-        <p class="card-p">Vizitky, letáky, bannery a kompletní brand identity, které zanechají dojem. Od loga až po tištěné materiály.</p>
+        <p class="card-p">Logo, vizitky, letáky i kompletní vizuál značky. Všechno, co vaší firmě dá jednotný a zapamatovatelný vzhled, ať vás lidi poznají na první pohled, kdekoli vás potkají.</p>
         <ul class="card-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Logo a vizuální styl značky</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tisková i digitální grafika</li>
@@ -867,24 +840,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         </div>
       </div>
     </a>
-  </div>
-</section>
-
-<section class="sec" id="obory">
-  <div class="wrap">
-    <span class="sec-label reveal">Pro koho tvořím</span>
-    <h2 class="sec-h reveal">Weby na míru<br><em>pro vaši branži.</em></h2>
-    <p class="sec-sub reveal">Nejčastěji pomáhám lokálním firmám, řemeslníkům a živnostníkům. Znám jejich zákazníky i to, jak z návštěvníka udělat poptávku. Nevidíte svůj obor? Princip dobrého webu platí všude, ozvěte se.</p>
-    <div class="industry-grid">
-      <div class="industry reveal d1"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><span class="industry-name">Řemesla &amp; stavebnictví</span><span class="industry-sub">Pokrývači, klempíři, tesaři, stavební firmy</span></div>
-      <div class="industry reveal d2"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h2"/><path d="M14 9h4l4 4v4a1 1 0 0 1-1 1h-1"/><circle cx="7.5" cy="18.5" r="2.5"/><circle cx="17.5" cy="18.5" r="2.5"/></svg></span><span class="industry-name">Stěhování &amp; logistika</span><span class="industry-sub">Stěhovací služby, autodoprava, vyklízení</span></div>
-      <div class="industry reveal d3"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 17h2c.6 0 1-.4 1-1v-3c0-.9-.7-1.7-1.5-1.9C18.7 10.6 16 10 16 10s-1.3-1.4-2.2-2.3c-.5-.4-1.1-.7-1.8-.7H5c-.6 0-1.1.4-1.4.9l-1.4 2.9A3.7 3.7 0 0 0 2 12v4c0 .6.4 1 1 1h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/></svg></span><span class="industry-name">Autoslužby</span><span class="industry-sub">Detailing, autoservis, pneuservis, myčky</span></div>
-      <div class="industry reveal d4"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="industry-name">Finance &amp; poradenství</span><span class="industry-sub">Finanční poradci, účetní, konzultanti</span></div>
-      <div class="industry reveal d1"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M18.5 15.5l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z"/></svg></span><span class="industry-name">Krása &amp; péče o tělo</span><span class="industry-sub">Kosmetika, kadeřnictví, nehty, wellness</span></div>
-      <div class="industry reveal d2"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5"/><path d="M5 10v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V10"/><path d="M9 21v-6h6v6"/></svg></span><span class="industry-name">Reality &amp; bydlení</span><span class="industry-sub">Makléři, developeři, správa nemovitostí</span></div>
-      <div class="industry reveal d3"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></span><span class="industry-name">Zahrady &amp; exteriéry</span><span class="industry-sub">Zahradnictví, údržba zeleně, bazény</span></div>
-      <div class="industry reveal d4"><span class="industry-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l1-5h16l1 5"/><path d="M4 9v11h16V9"/><path d="M9 20v-5h6v5"/></svg></span><span class="industry-name">Lokální služby</span><span class="industry-sub">Živnostníci, OSVČ a malé firmy všech oborů</span></div>
-    </div>
   </div>
 </section>
 
@@ -931,7 +886,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
           <div class="folio-logo">Express Detailing</div>
-          <h3 class="folio-result">Prémiový web pro car detailing s plným rezervačním systémem — zákazník si termín objedná sám</h3>
+          <h3 class="folio-result">Prémiový web pro car detailing s plným rezervačním systémem, kde si zákazník termín objedná sám</h3>
         </div>
       </div>
 
@@ -953,7 +908,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <span class="folio-arrow" aria-hidden="true">↗</span>
         <div class="folio-cap">
           <div class="folio-logo">Express Detailing pro firmy</div>
-          <h3 class="folio-result">Mobilní web pro firemní vozové parky — objednání svozu rovnou z telefonu</h3>
+          <h3 class="folio-result">Mobilní web pro firemní vozové parky s objednáním svozu rovnou z telefonu</h3>
         </div>
       </div>
 
@@ -1028,7 +983,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <p class="ref-quote">Když jsem oslovil Tomáše, potřeboval jsem nový web a videa z realizací střech. Vše doručil včas a v kvalitě, jakou jsem ještě u nikoho v regionu neviděl. Záběry z dronu vypadají jako z reklamy a klienti mi začali volat dřív, než jsem stihl udělat ranní kávu.</p>
+        <p class="ref-quote">Když jsem oslovil Tomáše, potřeboval jsem nový web a videa z realizací střech. Vše doručil včas a v kvalitě, jakou jsem v regionu ještě neviděl. Záběry z dronu nám hned po zveřejnění zvedly poptávky a noví klienti se začali ozývat sami.</p>
         <div class="ref-tags">
           <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Web</span>
           <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Videa</span>
@@ -1066,12 +1021,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
 </section>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <section class="sec slm-section" id="moje-weby">
   <div class="wrap">
     <span class="sec-label reveal">Naživo v Litomyšli</span>
-    <h2 class="sec-h reveal">Kde už <em>běží moje weby.</em></h2>
-    <p class="sec-sub reveal">Tohle nejsou ukázky z šuplíku. Klikni na špendlík — otevře se web, který právě teď vydělává reálné litomyšlské firmě. Všichni odsud, pár minut od sebe.</p>
+    <h2 class="sec-h reveal">Kde už běží moje weby.</h2>
+    <p class="sec-sub reveal">Tohle nejsou ukázky z šuplíku. Klikni na špendlík a otevře se web, který právě teď vydělává reálné litomyšlské firmě. Všichni odsud, pár minut od sebe.</p>
 
     <div class="slm reveal d2">
       <div class="slm-map">
@@ -1164,7 +1118,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 @media (prefers-reduced-motion:reduce){.slm-mk .ring{animation:none}.slm-mk .d,.slm-leg,.slm-cta,.slm-cta span{transition:none}}
 </style>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 (function(){
   if (window.__slmLeafletInit) return; window.__slmLeafletInit = true;
@@ -1224,8 +1177,30 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     window.addEventListener('resize', function(){ clearTimeout(window.__slmFitT); window.__slmFitT=setTimeout(fit,200); });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  function loadLeaflet(cb){
+    if (window.L) return cb();
+    if (window.__slmLoading){ var t=setInterval(function(){ if(window.L){ clearInterval(t); cb(); } }, 80); return; }
+    window.__slmLoading = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; css.crossOrigin = '';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; js.crossOrigin = ''; js.onload = cb;
+    document.head.appendChild(js);
+  }
+
+  function arm(){
+    var el = document.getElementById('slmLeaflet');
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { loadLeaflet(init); return; }
+    var io = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting){ io.disconnect(); loadLeaflet(init); }
+    }, { rootMargin: '400px' });
+    io.observe(el);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arm);
+  else arm();
 })();
 </script>
 
@@ -1296,12 +1271,12 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <section class="sec" id="postup">
   <div class="wrap">
     <span class="sec-label reveal">Jak pracuju</span>
-    <h2 class="sec-h reveal">Čtyři kroky k webu,<br><em>který funguje.</em></h2>
+    <h2 class="sec-h reveal">Čtyři kroky k webu,<br>který funguje.</h2>
     <div class="process-grid">
       <div class="step reveal d1"><div class="step-n">01</div><div class="step-h">Konzultace</div><p class="step-p">Nezávazný hovor o vašem byznysu, cílech a zákaznících.</p></div>
       <div class="step reveal d2"><div class="step-n">02</div><div class="step-h">Strategie</div><p class="step-p">Navrhuju strukturu a design postavený na vašich zákaznících.</p></div>
       <div class="step reveal d3"><div class="step-n">03</div><div class="step-h">Tvorba</div><p class="step-p">Stavím rychle, s průběžnou komunikací a bez průtahů.</p></div>
-      <div class="step reveal d4"><div class="step-n">04</div><div class="step-h">Růst</div><p class="step-p">Sleduju výsledky a pomáhám vám růst dál.</p></div>
+      <div class="step reveal d4"><div class="step-n">04</div><div class="step-h">Péče i potom</div><p class="step-p">Spuštěním to nekončí. Hlídám výsledky, ladím detaily a jsem vám po ruce dál.</p></div>
     </div>
   </div>
 </section>
@@ -1354,14 +1329,14 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   <div class="wrap">
     <span class="sec-label reveal">Web na míru</span>
     <h2 class="sec-h reveal">Web koupit, nebo si ho<br><em>pronajmout?</em></h2>
-    <p class="sec-sub reveal">Obě cesty vedou ke stejně kvalitnímu webu na míru — liší se jen tím, jak za něj zaplatíte. Každá má svoje výhody. Vyberte, co sedí vašemu rozpočtu i cashflow.</p>
+    <p class="sec-sub reveal">Obě cesty vedou ke stejně kvalitnímu webu na míru, liší se jen tím, jak za něj zaplatíte. Každá má svoje výhody. Vyberte, co sedí vašemu rozpočtu i cashflow.</p>
 
     <div class="waas-grid">
       <div class="waas-card waas-buy reveal d1">
         <span class="waas-eyebrow">Koupě · jednorázově</span>
         <h3 class="waas-name">Web jednorázově</h3>
         <div class="waas-price"><b>Cena podle rozsahu</b></div>
-        <p class="waas-desc">Zaplatíte jednou a web je rovnou váš — kód i doména. Přesnou cenu navrhnu po krátké konzultaci.</p>
+        <p class="waas-desc">Zaplatíte jednou a web je rovnou váš, kód i doména. Přesnou cenu navrhnu po krátké konzultaci.</p>
         <ul class="waas-feats">
           <li><span class="waas-chk">✓</span>Web na míru na klíč</li>
           <li><span class="waas-chk">✓</span>Vlastníte zdrojový kód i doménu</li>
@@ -1376,7 +1351,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <span class="waas-eyebrow">Pronájem · měsíčně</span>
         <h3 class="waas-name">Web jako služba</h3>
         <div class="waas-price"><b>od 1 490 Kč</b><span>/ měsíc</span></div>
-        <p class="waas-desc">Rozložíte web do měsíčních plateb. Bez velké částky na začátku — a provoz i péče běží v ceně.</p>
+        <p class="waas-desc">Rozložíte web do měsíčních plateb. Bez velké částky na začátku a provoz i péče běží v ceně.</p>
         <ul class="waas-feats">
           <li><span class="waas-chk">✓</span>Žádná velká investice předem</li>
           <li><span class="waas-chk">✓</span>V ceně provoz: hosting, doména, SSL, zálohy, monitoring</li>
@@ -1388,7 +1363,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       </div>
     </div>
 
-    <p class="waas-foot reveal">Nevíte, co se vám vyplatí víc? <b>Projděte si nezávazného průvodce</b> — podle vašeho rozpočtu doporučím, jestli web koupit, nebo pronajmout.</p>
+    <p class="waas-foot reveal">Nevíte, co se vám vyplatí víc? <b>Projděte si nezávazného průvodce</b> a podle vašeho rozpočtu doporučím, jestli web koupit, nebo pronajmout.</p>
     <p class="waas-fine reveal">Ceny jsou orientační, finální vždy podle rozsahu. U pronájmu (smlouva na 24 měsíců) jsou v ceně drobné úpravy; větší změny a nové funkce řešíme zvlášť s odsouhlasenou cenou.</p>
   </div>
 </section>
@@ -1396,111 +1371,20 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <section class="sec-alt" id="kontakt">
   <div class="wrap">
     <div class="cta-box reveal">
-      <span class="cta-badge">⚡ První konzultace zdarma</span>
+      <span class="cta-badge">První konzultace zdarma</span>
       <h2 class="cta-h">Připraveni posunout<br>byznys <em>online?</em></h2>
       <p class="cta-p">Vyberte si termín 30minutové konzultace, která vám sedne. Probereme váš projekt nezávazně a navrhnu další postup.</p>
       <div class="capacity">
         <div class="capacity-top">
           <span class="capacity-dot"></span>
-          <span>Volná kapacita tento měsíc</span>
-          <span class="capacity-count">3/5</span>
+          <span>Beru jen pár zakázek měsíčně</span>
         </div>
-        <div class="capacity-bar"><span style="width:60%"></span></div>
-        <p class="capacity-note">Beru max 5 webů měsíčně — zbývají poslední <strong>2 volná místa</strong>.</p>
+        <p class="capacity-note">Záměrně neberu víc, než stíhám pořádně. Díky tomu mám na váš web reálně čas a vy moji plnou pozornost.</p>
       </div>
       <div class="cta-row">
-        <a href="/rezervace" class="btn-white btn-book"><span>📅 Rezervovat krátký hovor</span> <span class="arrow">→</span></a>
+        <a href="/rezervace" class="btn-white btn-book"><span>Rezervovat krátký hovor</span> <span class="arrow">→</span></a>
       </div>
-      <p class="cta-alt">Radši napsat? <a href="#contactForm">Vyplňte formulář níže</a> · <a href="mailto:tomas.tylich@seznam.cz">e‑mail</a> · <a href="tel:+420737372708">+420 737 372 708</a></p>
-    </div>
-
-    <div class="form-section">
-      <div class="form-side reveal">
-        <span class="sec-label">Poptávka</span>
-        <h2 class="sec-h">Pár otázek a <em>ozvu se vám.</em></h2>
-        <p class="sec-sub" style="margin-bottom: 0;">
-          Stačí mi pár základních informací o vás a vašem byznysu. Do 48 hodin se vám
-          ozvu s návrhem dalšího postupu, bez závazků a zdarma.
-        </p>
-        <ul class="form-features">
-          <li><span class="check">✓</span><span><strong>Odezva do 48 hodin</strong>, většinou ještě ten den</span></li>
-          <li><span class="check">✓</span><span><strong>Nezávazně</strong>, žádný tlak na rozhodnutí</span></li>
-          <li><span class="check">✓</span><span><strong>Férová cena</strong>, předem víte, kolik vás to vyjde</span></li>
-          <li><span class="check">✓</span><span><strong>Soukromí</strong>, vaše data nikam neputují</span></li>
-        </ul>
-      </div>
-
-      <form class="form-card reveal d2" id="contactForm" novalidate>
-        <div class="form-grid">
-          <div class="form-field">
-            <label class="form-label" for="f-name">Jméno a příjmení <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jan Novák" maxlength="120">
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="f-company">Firma / značka</label>
-            <input class="form-input" type="text" id="f-company" name="company" autocomplete="organization" placeholder="Volitelné" maxlength="160">
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="f-email">E‑mail <span class="req">*</span></label>
-            <input class="form-input" type="email" id="f-email" name="email" required autocomplete="email" placeholder="vase@adresa.cz" maxlength="160">
-          </div>
-          <div class="form-field">
-            <label class="form-label" for="f-phone">Telefon</label>
-            <input class="form-input" type="tel" id="f-phone" name="phone" autocomplete="tel" placeholder="+420 ..." maxlength="40">
-          </div>
-
-          <div class="form-field full">
-            <label class="form-label" for="f-industry">Obor podnikání</label>
-            <input class="form-input" type="text" id="f-industry" name="industry" placeholder="např. stavebnictví, kosmetika, e‑shop s oblečením..." maxlength="160">
-          </div>
-
-          <div class="form-field full">
-            <label class="form-label" for="f-service">Typ služby, o kterou máte zájem <span class="req">*</span></label>
-            <select class="form-select" id="f-service" name="service" required>
-              <option value="">Vyberte službu</option>
-              <option value="Webové stránky (nový web)">Webové stránky (nový web)</option>
-              <option value="Redesign stávajícího webu">Redesign stávajícího webu</option>
-              <option value="Správa sociálních sítí">Správa sociálních sítí</option>
-              <option value="Grafický design (logo, vizitky, tisk)">Grafický design (logo, vizitky, tisk)</option>
-              <option value="Natáčení videí (Reels, reklamy, dron)">Natáčení videí (Reels, reklamy, dron)</option>
-              <option value="Kombinace více služeb">Kombinace více služeb</option>
-              <option value="Ještě nevím, potřebuji poradit">Ještě nevím, potřebuji poradit</option>
-            </select>
-          </div>
-
-          <div class="form-field full">
-            <label class="form-label" for="f-message">Zpráva</label>
-            <textarea class="form-textarea" id="f-message" name="message" placeholder="Napište mi krátce, co plánujete, jaký máte rozpočet nebo časový rámec..." maxlength="3000"></textarea>
-          </div>
-
-          <div class="form-hp" aria-hidden="true">
-            <label>Pokud nejste robot, nevyplňujte: <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          </div>
-
-          <div class="form-field full">
-            <label class="form-consent">
-              <input type="checkbox" id="f-gdpr" name="gdpr" required>
-              <span>Souhlasím se zpracováním osobních údajů za účelem vyřízení této poptávky. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách ochrany osobních údajů</a>.</span>
-            </label>
-          </div>
-
-          <div class="form-field full">
-            <button type="submit" class="form-submit" id="formSubmit">
-              <span>
-                <span class="spinner"></span>
-                <span class="label-default">Odeslat poptávku</span>
-                <span class="label-loading">Odesílám…</span>
-                <span class="arrow">→</span>
-              </span>
-            </button>
-            <div class="form-status" id="formStatus" role="status" aria-live="polite">
-              <span class="form-status-icon"></span>
-              <span class="form-status-text"></span>
-            </div>
-          </div>
-        </div>
-      </form>
+      <p class="cta-alt">Radši napsat? <a href="/rezervace#contactForm">Vyplňte formulář</a> · <a href="mailto:tomas.tylich@seznam.cz">e‑mail</a> · <a href="tel:+420737372708">+420 737 372 708</a></p>
     </div>
   </div>
 </section>
@@ -1603,7 +1487,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <div class="cookie-cat">
       <div class="cookie-cat-head">
         <span class="cookie-cat-name">Analytické</span>
-        <span class="toggle" id="toggleAnalytics" onclick="toggleSwitch('toggleAnalytics')" role="switch" aria-checked="false" tabindex="0"></span>
+        <span class="toggle" id="toggleAnalytics" onclick="toggleSwitch('toggleAnalytics')" role="switch" aria-checked="false" aria-label="Analytické cookies" tabindex="0"></span>
       </div>
       <p class="cookie-cat-desc">Pomáhají mi pochopit, jak návštěvníci web používají. Data jsou anonymní (Google Analytics).</p>
     </div>
@@ -1611,7 +1495,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <div class="cookie-cat">
       <div class="cookie-cat-head">
         <span class="cookie-cat-name">Marketingové</span>
-        <span class="toggle" id="toggleMarketing" onclick="toggleSwitch('toggleMarketing')" role="switch" aria-checked="false" tabindex="0"></span>
+        <span class="toggle" id="toggleMarketing" onclick="toggleSwitch('toggleMarketing')" role="switch" aria-checked="false" aria-label="Marketingové cookies" tabindex="0"></span>
       </div>
       <p class="cookie-cat-desc">Slouží k personalizaci reklam (Meta Pixel, Google Ads) na jiných webech.</p>
     </div>
@@ -1816,95 +1700,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 (function() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  const submitBtn  = document.getElementById('formSubmit');
-  const statusEl   = document.getElementById('formStatus');
-  const statusIcon = statusEl.querySelector('.form-status-icon');
-  const statusText = statusEl.querySelector('.form-status-text');
-
-  function setStatus(type, message) {
-    statusEl.classList.remove('success', 'error', 'show');
-    if (!type) return;
-    statusEl.classList.add('show', type);
-    statusIcon.textContent = type === 'success' ? '✓' : '⚠';
-    statusText.textContent = message;
-  }
-
-  function setLoading(loading) {
-    submitBtn.disabled = loading;
-    submitBtn.classList.toggle('loading', loading);
-  }
-
-  function validEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    setStatus(null);
-
-    const data = {
-      name:     form.name.value.trim(),
-      company:  form.company.value.trim(),
-      email:    form.email.value.trim(),
-      phone:    form.phone.value.trim(),
-      industry: form.industry.value.trim(),
-      service:  form.service.value,
-      message:  form.message.value.trim(),
-      website:  form.website.value,
-      gdpr:     form.gdpr.checked
-    };
-
-    if (!data.name || data.name.length < 2) {
-      setStatus('error', 'Vyplňte prosím své jméno.');
-      form.name.focus(); return;
-    }
-    if (!validEmail(data.email)) {
-      setStatus('error', 'Zadejte platnou e‑mailovou adresu.');
-      form.email.focus(); return;
-    }
-    if (!data.service) {
-      setStatus('error', 'Vyberte prosím typ služby.');
-      form.service.focus(); return;
-    }
-    if (!data.gdpr) {
-      setStatus('error', 'Pro odeslání je nutný souhlas se zpracováním údajů.');
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      let payload = {};
-      try { payload = await res.json(); } catch (_) {}
-
-      if (!res.ok) {
-        throw new Error(payload.error || 'Odeslání se nezdařilo. Zkuste to prosím znovu.');
-      }
-
-      setStatus('success', 'Děkuji! Vaše zpráva byla odeslána. Ozvu se vám do 48 hodin.');
-      form.reset();
-      try {
-        if (window.gtag) gtag('event', 'generate_lead', { method: 'form', form_location: location.pathname });
-        if (window.fbq)  fbq('track', 'Lead');
-      } catch (_) {}
-    } catch (err) {
-      console.error('Form submit error:', err);
-      setStatus('error', err.message || 'Něco se pokazilo. Zkuste to prosím znovu, nebo mi napište přímo na e‑mail.');
-    } finally {
-      setLoading(false);
-    }
-  });
-})();
-
-(function() {
   document.addEventListener('click', (e) => {
     const a = e.target.closest('a[href^="tel:"], a[href^="mailto:"]');
     if (a && window.gtag) {
@@ -1980,7 +1775,8 @@ window.addEventListener('DOMContentLoaded', () => {
 .slg-tg{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:.45rem;cursor:pointer;border:none;
   font-family:inherit;font-size:.9rem;font-weight:600;letter-spacing:-.01em;color:#8aa39a;background:transparent;
   padding:.66rem .6rem;border-radius:11px;transition:color .2s,background .2s,box-shadow .2s}
-.slg-tg-ico{font-size:1rem}
+.slg-tg-ico{font-size:1rem;display:inline-flex}
+.slg-tg-ico svg{width:18px;height:18px}
 .slg-tg:hover{color:#cfe3d9}
 .slg-tg-on{background:linear-gradient(135deg,#22c47e,#1aa869);color:#06140e;box-shadow:0 6px 16px rgba(34,196,126,.25)}
 .slg-tg-on:hover{color:#06140e}
@@ -1995,8 +1791,9 @@ window.addEventListener('DOMContentLoaded', () => {
   font-family:inherit;transition:transform .2s,border-color .2s,background .2s}
 .slg-opt:hover{transform:translateY(-2px);border-color:rgba(34,196,126,.4);background:#142420}
 .slg-opt.slg-sel{border-color:#22c47e;background:#142420;box-shadow:0 0 0 3px rgba(34,196,126,.12)}
-.slg-opt-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:1.25rem;
+.slg-opt-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
   background:linear-gradient(135deg,rgba(34,196,126,.14),rgba(255,184,0,.1));border:1px solid rgba(255,255,255,.05)}
+.slg-opt-ico svg{width:22px;height:22px;color:#22c47e}
 .slg-opt-tx{display:flex;flex-direction:column;gap:.1rem;min-width:0}
 .slg-opt-t{font-size:.96rem;font-weight:600;letter-spacing:-.01em}
 .slg-opt-d{font-size:.8rem;color:#8aa39a;line-height:1.3}
@@ -2092,48 +1889,74 @@ textarea.slg-in{resize:vertical;min-height:74px}
 (function(){
   if(window.__statlyGuide) return; window.__statlyGuide=true;
 
+  var SI=function(d){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';};
+  var IC={
+    web:SI('<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/>'),
+    redesign:SI('<path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 14.5l.55 1.45 1.45.55-1.45.55-.55 1.45-.55-1.45-1.45-.55 1.45-.55z"/>'),
+    social:SI('<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18h3"/>'),
+    design:SI('<path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/>'),
+    video:SI('<path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/>'),
+    chat:SI('<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>'),
+    trend:SI('<path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/>'),
+    briefcase:SI('<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>'),
+    rocket:SI('<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>'),
+    wrench:SI('<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'),
+    search:SI('<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>'),
+    zap:SI('<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>'),
+    cal:SI('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>'),
+    calDays:SI('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4M8 14h.01M12 14h.01M16 14h.01"/>'),
+    leaf:SI('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>'),
+    card:SI('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>'),
+    repeat:SI('<path d="m17 2 4 4-4 4"/><path d="M3 11v-1a4 4 0 0 1 4-4h14"/><path d="m7 22-4-4 4-4"/><path d="M21 13v1a4 4 0 0 1-4 4H3"/>'),
+    sprout:SI('<path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12C12 8 9.5 6 6 6c0 3.5 2.5 6 6 6z"/><path d="M12 11c0-2.8 2-5 5-5 0 2.8-2 5-5 5z"/>'),
+    herb:SI('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>'),
+    tree:SI('<path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19z"/><path d="M12 19v3"/>'),
+    trophy:SI('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>'),
+    handshake:SI('<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>')
+  };
+
   var STEPS=[
     {key:'service',q:'S čím vám můžu <em>pomoct</em>?',sub:'Vyberte, co vás teď nejvíc zajímá. Detaily doladíme společně.',
      opts:[
-       {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
-       {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
-       {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
-       {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
-       {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
-       {v:'Nevím, poradíte mi',ico:'💬',d:'Probereme to spolu'}
+       {v:'Nový web',ico:IC.web,d:'Web na míru od nuly'},
+       {v:'Redesign webu',ico:IC.redesign,d:'Vylepšit stávající web'},
+       {v:'Sociální sítě',ico:IC.social,d:'Obsah a správa IG / FB'},
+       {v:'Grafika a logo',ico:IC.design,d:'Logo, vizitky, tisk'},
+       {v:'Natáčení videí',ico:IC.video,d:'Reels, reklamy, dron'},
+       {v:'Nevím, poradíte mi',ico:IC.chat,d:'Probereme to spolu'}
      ]},
     {key:'goal',q:'Čeho chcete <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
      opts:[
-       {v:'Víc poptávek a zákazníků',ico:'📈'},
-       {v:'Působit profesionálně',ico:'💼'},
-       {v:'Rozjíždím nový byznys',ico:'🚀'},
-       {v:'Modernizovat zastaralé',ico:'🔧'},
-       {v:'Zatím jen zjišťuji',ico:'🔍'}
+       {v:'Víc poptávek a zákazníků',ico:IC.trend},
+       {v:'Působit profesionálně',ico:IC.briefcase},
+       {v:'Rozjíždím nový byznys',ico:IC.rocket},
+       {v:'Modernizovat zastaralé',ico:IC.wrench},
+       {v:'Zatím jen zjišťuji',ico:IC.search}
      ]},
     {key:'timeline',q:'Kdy byste chtěli <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
      opts:[
-       {v:'Co nejdřív',ico:'⚡'},
-       {v:'Do měsíce',ico:'📅'},
-       {v:'Do tří měsíců',ico:'🗓️'},
-       {v:'Zatím nespěchám',ico:'🍃'}
+       {v:'Co nejdřív',ico:IC.zap},
+       {v:'Do měsíce',ico:IC.cal},
+       {v:'Do tří měsíců',ico:IC.calDays},
+       {v:'Zatím nespěchám',ico:IC.leaf}
      ]},
     {key:'budget',mode:true,q:'Jak vám sedí <em>investice</em>?',sub:'Vyberte, co vám dává smysl. Vše je orientační a nezávazné.',
      modes:[
-       {id:'once',label:'Jednorázově',ico:'💳',sub:'Web je váš napořád, zaplatíte jednou.',
+       {id:'once',label:'Jednorázově',ico:IC.card,sub:'Web je váš napořád, zaplatíte jednou.',
         opts:[
-          {v:'do 15 000 Kč',ico:'🌱'},
-          {v:'15–30 000 Kč',ico:'🌿'},
-          {v:'30–60 000 Kč',ico:'🌳'},
-          {v:'60 000 Kč a víc',ico:'🏆'},
-          {v:'Nechám na doporučení',ico:'🤝'}
+          {v:'do 15 000 Kč',ico:IC.sprout},
+          {v:'15–30 000 Kč',ico:IC.herb},
+          {v:'30–60 000 Kč',ico:IC.tree},
+          {v:'60 000 Kč a víc',ico:IC.trophy},
+          {v:'Nechám na doporučení',ico:IC.handshake}
         ]},
-       {id:'rent',label:'Měsíčně',ico:'📆',sub:'Pronájem webu — měsíční paušál bez velké investice předem.',
+       {id:'rent',label:'Měsíčně',ico:IC.repeat,sub:'Pronájem webu, měsíční paušál bez velké investice předem.',
         note:'V paušálu je provoz: hosting, doména, zabezpečení, zálohy, monitoring a drobné úpravy textů a fotek. Větší úpravy a nové funkce řešíme zvlášť.',
         opts:[
-          {v:'do 1 500 Kč / měsíc',ico:'🌱'},
-          {v:'1 500–2 500 Kč / měsíc',ico:'🌿'},
-          {v:'2 500–3 900 Kč / měsíc',ico:'🌳'},
-          {v:'Nechám na doporučení',ico:'🤝'}
+          {v:'do 1 500 Kč / měsíc',ico:IC.sprout},
+          {v:'1 500–2 500 Kč / měsíc',ico:IC.herb},
+          {v:'2 500–3 900 Kč / měsíc',ico:IC.tree},
+          {v:'Nechám na doporučení',ico:IC.handshake}
         ]}
      ]},
     {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
@@ -2321,12 +2144,12 @@ textarea.slg-in{resize:vertical;min-height:74px}
     if(!a.industry){showErr('Vyplňte prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
     if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 
-    var msg='— Poptávka přes interaktivního průvodce —\n'
-      +'• Služba: '+(a.service||'—')+'\n'
-      +'• Cíl: '+(a.goal||'—')+'\n'
-      +'• Termín: '+(a.timeline||'—')+'\n'
+    var msg='Poptávka přes interaktivního průvodce\n'
+      +'• Služba: '+(a.service||'neuvedeno')+'\n'
+      +'• Cíl: '+(a.goal||'neuvedeno')+'\n'
+      +'• Termín: '+(a.timeline||'neuvedeno')+'\n'
       +'• Forma: '+(a.budgetMode==='rent'?'Pronájem webu (měsíční paušál)':'Jednorázová investice')+'\n'
-      +'• '+(a.budgetMode==='rent'?'Měsíční paušál':'Rozpočet')+': '+(a.budget||'—')+'\n';
+      +'• '+(a.budgetMode==='rent'?'Měsíční paušál':'Rozpočet')+': '+(a.budget||'neuvedeno')+'\n';
     if(a.message) msg+='\nPoznámka klienta:\n'+a.message+'\n';
 
     nextBtn.classList.add('slg-loading');nextBtn.disabled=true;
@@ -2349,7 +2172,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     foot.style.display='none';
     var nm=esc((state.answers.name||'').split(' ')[0]);
     body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
-      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
+      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'!</h3>'
       +'<p class="slg-done-p">Vaše poptávka dorazila. Ozvu se vám <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
       +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
     body.querySelector('[data-slg-close]').addEventListener('click',close);

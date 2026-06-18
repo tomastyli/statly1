@@ -321,9 +321,9 @@ nav {
   backdrop-filter: blur(8px);
 }
 .hero-badge .pin {
-  display: inline-block;
-  font-size: 0.85rem;
+  display: inline-flex;
 }
+.hero-badge .pin svg { width: 13px; height: 13px; display: block; }
 .hero h1 {
   font-family: var(--sans);
   font-size: clamp(2.4rem, 5.4vw, 4.2rem);
@@ -501,10 +501,11 @@ nav {
 }
 .hero-card-list .hcl-i {
   color: var(--green-bright);
-  font-size: 0.6rem;
   line-height: 1.6;
   flex-shrink: 0;
+  display: inline-flex;
 }
+.hero-card-list .hcl-i svg { width: 14px; height: 14px; display: block; margin-top: 0.15rem; }
 .hero-card-sign {
   margin-top: 1.5rem;
   padding-top: 1.25rem;
@@ -531,7 +532,7 @@ nav {
   text-transform: uppercase;
 }
 .sec-label::before {
-  content: ''; width: 18px; height: 1px;
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
   background: var(--green-bright);
 }
 .sec-h {
@@ -595,12 +596,13 @@ nav {
   border: 1px solid rgba(34,196,126,0.25);
   display: flex; align-items: center; justify-content: center;
   margin-bottom: 1.5rem;
-  font-size: 1.4rem;
 }
+.why-icon svg { width: 24px; height: 24px; color: var(--green-bright); }
 .why-card.gold .why-icon {
   background: rgba(255,184,0,0.08);
   border-color: rgba(255,184,0,0.25);
 }
+.why-card.gold .why-icon svg { color: var(--gold); }
 .why-h {
   font-family: var(--sans);
   font-size: 1.15rem;
@@ -980,293 +982,29 @@ nav {
   text-underline-offset: 3px;
 }
 
-.form-section {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: 4rem;
-  align-items: start;
-  margin-top: 3rem;
-}
-.form-side {
-  position: sticky;
-  top: 6rem;
-}
-.form-promise {
-  margin-top: 2rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 1.5rem 1.75rem;
-}
-.form-promise-h {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--green-bright);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-.form-promise ul {
-  list-style: none;
-  display: flex; flex-direction: column; gap: 0.75rem;
-}
-.form-promise li {
-  display: flex; align-items: flex-start; gap: 0.65rem;
-  font-size: 0.93rem;
-  color: var(--text-dim);
-}
-.form-promise .check {
-  flex-shrink: 0; width: 20px; height: 20px;
-  background: rgba(34,196,126,0.12);
-  border: 1px solid rgba(34,196,126,0.3);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  color: var(--green-bright);
-  font-size: 0.7rem; font-weight: 700;
-  margin-top: 0.1rem;
-}
-.form-promise strong { color: var(--text); font-weight: 600; }
-
-.form-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 22px;
-  padding: 2.5rem;
-  position: relative; overflow: hidden;
-}
-.form-card::before {
-  content: ''; position: absolute;
-  top: 0; left: 0; right: 0; height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent);
-}
-.form-tag {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  font-family: var(--mono);
-  font-size: 0.74rem;
-  color: var(--green-bright);
-  background: rgba(34,196,126,0.08);
-  border: 1px solid rgba(34,196,126,0.25);
-  padding: 0.32rem 0.75rem;
-  border-radius: 100px;
-  margin-bottom: 1.25rem;
-}
-.form-card-h {
-  font-family: var(--sans);
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: -0.025em;
-  margin-bottom: 0.5rem;
-}
-.form-card-sub {
-  font-size: 0.95rem;
-  color: var(--text-dim);
-  line-height: 1.6;
-  margin-bottom: 1.75rem;
-}
-.form-grid {
-  display: flex; flex-direction: column;
-  gap: 1.1rem;
-}
-.form-field { display: flex; flex-direction: column; gap: 0.45rem; }
-.form-label {
-  font-family: var(--mono);
-  font-size: 0.72rem; font-weight: 500;
-  color: var(--text-dim);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  display: flex; align-items: center; gap: 0.4rem;
-}
-.form-label .req { color: var(--green-bright); }
-.form-input, .form-textarea {
-  width: 100%;
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: 11px;
-  padding: 0.95rem 1rem;
-  color: #fff;
-  font-family: var(--sans);
-  font-size: 16px;
-  transition: all 0.2s ease;
-  font-weight: 400;
-}
-.form-input::placeholder, .form-textarea::placeholder { color: var(--text-dimmer); }
-.form-input:hover, .form-textarea:hover { border-color: rgba(255,255,255,0.12); }
-.form-input:focus, .form-textarea:focus {
-  outline: none;
-  border-color: var(--green-bright);
-  background: var(--bg-card-2);
-  box-shadow: 0 0 0 4px rgba(34,196,126,0.08);
-}
-.form-textarea {
-  min-height: 110px;
-  resize: vertical;
-  line-height: 1.55;
-}
-
-.form-topic {
-  display: flex; flex-wrap: wrap; gap: 0.5rem;
-}
-.topic-chip {
-  position: relative;
-  cursor: pointer;
-}
-.topic-chip input {
-  position: absolute;
-  opacity: 0;
-  pointer-events: none;
-}
-.topic-chip span {
-  display: inline-flex; align-items: center; gap: 0.4rem;
-  padding: 0.55rem 1rem;
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: 100px;
-  font-family: var(--sans);
-  font-size: 0.87rem;
-  color: var(--text-dim);
-  transition: all 0.2s ease;
-}
-.topic-chip:hover span {
-  border-color: rgba(255,255,255,0.18);
-  color: #fff;
-}
-.topic-chip input:checked + span {
-  background: rgba(34,196,126,0.12);
-  border-color: var(--green-bright);
-  color: var(--green-bright);
-}
-
-.form-hp {
-  position: absolute !important;
-  left: -9999px !important;
-  width: 1px !important;
-  height: 1px !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-.form-consent {
-  display: flex; gap: 0.7rem;
-  align-items: flex-start;
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  line-height: 1.55;
-  cursor: pointer;
-  margin-top: 0.4rem;
-}
-.form-consent input[type="checkbox"] {
-  appearance: none; -webkit-appearance: none;
-  flex-shrink: 0;
-  width: 20px; height: 20px;
-  margin-top: 0.1rem;
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  cursor: pointer;
-  position: relative;
-  transition: all 0.2s;
-}
-.form-consent input[type="checkbox"]:hover { border-color: rgba(34,196,126,0.4); }
-.form-consent input[type="checkbox"]:checked { background: var(--green-bright); border-color: var(--green-bright); }
-.form-consent input[type="checkbox"]:checked::after {
-  content: ''; position: absolute;
-  left: 5px; top: 1px;
-  width: 6px; height: 11px;
-  border: solid var(--green-deep);
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.form-consent a {
-  color: var(--green-bright);
-  text-decoration: underline;
-  text-decoration-color: rgba(34,196,126,0.35);
-  text-underline-offset: 2px;
-}
-.form-consent a:hover { text-decoration-color: var(--green-bright); }
-
-.form-submit {
-  margin-top: 0.6rem;
-  width: 100%;
-  display: inline-flex; align-items: center; justify-content: center;
-  gap: 0.6rem;
-  background: var(--green-bright);
-  color: var(--green-deep);
-  padding: 1.1rem 1.9rem;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 0.97rem;
-  font-family: var(--sans);
-  letter-spacing: -0.01em;
-  box-shadow: 0 8px 28px rgba(34,196,126,0.22);
-  transition: all 0.3s ease;
-  position: relative; overflow: hidden;
-}
-.form-submit::before {
-  content: ''; position: absolute; inset: 0;
-  background: linear-gradient(135deg, var(--gold), var(--gold-soft));
-  opacity: 0; transition: opacity 0.3s;
-}
-.form-submit span { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 0.55rem; }
-.form-submit:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 14px 38px rgba(255,184,0,0.32); }
-.form-submit:hover:not(:disabled)::before { opacity: 1; }
-.form-submit:hover:not(:disabled) .arrow { transform: translateX(4px); }
-.form-submit:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
-.form-submit .arrow { transition: transform 0.3s; }
-.form-submit .spinner {
-  width: 16px; height: 16px;
-  border: 2px solid rgba(13,61,44,0.25);
-  border-top-color: var(--green-deep);
-  border-radius: 50%;
-  animation: spin 0.7s linear infinite;
-  display: none;
-}
-.form-submit.loading .spinner { display: inline-block; }
-.form-submit.loading .arrow,
-.form-submit.loading .label-default { display: none; }
-.form-submit .label-loading { display: none; }
-.form-submit.loading .label-loading { display: inline; }
-@keyframes spin { to { transform: rotate(360deg); } }
-
-.form-status {
-  margin-top: 1rem;
-  padding: 0.95rem 1.1rem;
-  border-radius: 11px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  display: none;
-  align-items: flex-start;
-  gap: 0.65rem;
-}
-.form-status.show { display: flex; }
-.form-status.success {
-  background: rgba(34,196,126,0.08);
-  border: 1px solid rgba(34,196,126,0.28);
-  color: var(--green-bright);
-}
-.form-status.error {
-  background: rgba(255,82,119,0.08);
-  border: 1px solid rgba(255,82,119,0.28);
-  color: #ff8a9f;
-}
-.form-status-icon { font-size: 1.05rem; flex-shrink: 0; margin-top: 0.05rem; }
-
-.form-direct {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  border-top: 1px dashed var(--border);
-  font-size: 0.9rem;
-  color: var(--text-dim);
-  text-align: center;
-}
-.form-direct a {
-  color: var(--green-bright);
-  font-weight: 500;
-  text-decoration: underline;
-  text-decoration-color: rgba(34,196,126,0.35);
-  text-underline-offset: 3px;
-}
-.form-direct a:hover { text-decoration-color: var(--green-bright); }
+.cta-box { background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-2) 100%); border: 1px solid var(--border-2); border-radius: 28px; padding: 4.75rem 3rem; text-align: center; position: relative; overflow: hidden; }
+.cta-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.6), rgba(255,184,0,0.5), transparent); pointer-events: none; }
+.cta-box::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 85% at 50% 0%, rgba(34,196,126,0.10), transparent 60%), radial-gradient(ellipse 50% 60% at 82% 100%, rgba(255,184,0,0.05), transparent 60%); pointer-events: none; }
+.cta-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.76rem; font-weight: 500; padding: 0.4rem 0.95rem; margin-bottom: 1.75rem; position: relative; z-index: 1; backdrop-filter: blur(8px); }
+.cta-h { font-family: var(--sans); font-size: clamp(1.9rem, 3.6vw, 2.8rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.035em; position: relative; z-index: 1; }
+.cta-h em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; color: var(--gold); }
+.cta-p { color: var(--text-dim); font-size: 1.05rem; margin-bottom: 2.4rem; position: relative; z-index: 1; max-width: 460px; margin-left: auto; margin-right: auto; }
+.cta-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; position: relative; z-index: 1; }
+.btn-white { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--green-bright); color: var(--green-deep) !important; padding: 1rem 1.9rem; border-radius: 100px; font-weight: 600; font-size: 0.97rem; box-shadow: 0 8px 28px rgba(34,196,126,0.22); transition: all 0.3s ease; text-decoration: none; }
+.btn-white:hover { background: var(--gold); transform: translateY(-2px); box-shadow: 0 14px 40px rgba(255,184,0,0.3); }
+.btn-book { font-size: 1.02rem; padding: 1.05rem 2.1rem; }
+.btn-book .arrow { transition: transform 0.3s; }
+.btn-book:hover .arrow { transform: translateX(4px); }
+.capacity { max-width: 420px; margin: 0 auto 1.9rem; background: rgba(255,184,0,0.05); border: 1px solid rgba(255,184,0,0.22); border-radius: 16px; padding: 1.1rem 1.25rem; position: relative; z-index: 1; text-align: left; }
+.capacity-top { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
+.capacity-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(255,184,0,0.6); animation: pulseDot 2s ease-in-out infinite; flex-shrink: 0; }
+@keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,0.6); } 50% { box-shadow: 0 0 0 7px rgba(255,184,0,0); } }
+.capacity-note { font-size: 0.84rem; color: var(--text-dim); line-height: 1.5; margin: 0.6rem 0 0; }
+.capacity-note strong { color: #fff; font-weight: 600; }
+.cta-alt { margin-top: 1.1rem; font-size: 0.86rem; color: var(--text-dim); position: relative; z-index: 1; }
+.cta-alt a { color: var(--text-dim); text-decoration: underline; text-decoration-color: rgba(255,255,255,0.2); text-underline-offset: 2px; }
+.cta-alt a:hover { color: var(--green-bright); }
+@media (max-width: 768px) { .cta-box { padding: 4rem 1.5rem; } }
 
 footer {
   background: #060c08;
@@ -1285,7 +1023,7 @@ footer {
 .footer-logo { margin-bottom: 1.1rem; }
 .footer-logo img { height: 32px; margin-bottom: 1rem; }
 .footer-desc {
-  color: var(--text-dimmer);
+  color: var(--text-dim);
   font-size: 0.88rem; line-height: 1.7;
   max-width: 280px;
 }
@@ -1307,11 +1045,11 @@ footer {
 .footer-btm {
   max-width: 1280px; margin: 0 auto;
   display: flex; justify-content: space-between; align-items: center;
-  color: var(--text-dimmer); font-size: 0.82rem;
+  color: var(--text-dim); font-size: 0.82rem;
   flex-wrap: wrap; gap: 1rem;
 }
 .footer-btm-links { display: flex; gap: 1.5rem; }
-.footer-btm-links a { color: var(--text-dimmer); transition: color 0.2s; cursor: pointer; }
+.footer-btm-links a { color: var(--text-dim); transition: color 0.2s; cursor: pointer; }
 .footer-btm-links a:hover { color: var(--green-bright); }
 
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1); }
@@ -1333,8 +1071,6 @@ footer {
   .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
   .hero-right { max-width: 440px; }
   .area-grid { grid-template-columns: 1fr; gap: 3rem; }
-  .form-section { grid-template-columns: 1fr; gap: 3rem; }
-  .form-side { position: static; }
   .why-grid, .svc-mini { grid-template-columns: repeat(2, 1fr); }
   .refs-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -1351,8 +1087,6 @@ footer {
   .why-card, .svc-mini-card { padding: 1.75rem; }
   .ref-card { padding: 1.75rem; }
   .ref-quote { font-size: 0.97rem; }
-  .form-card { padding: 1.75rem; }
-  .form-card-h { font-size: 1.3rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .footer-btm { flex-direction: column; text-align: center; }
   .nav-pill { display: none; }
@@ -1364,15 +1098,11 @@ footer {
   .hero-card-from { font-size: 1.15rem; }
   .hero-card-sign-name { font-size: 1.2rem; }
   .area-map { max-width: 360px; }
-  .form-promise { padding: 1.25rem 1.5rem; }
 }
 @media (max-width: 480px) {
   .hero-cta-row { flex-direction: column; }
   .btn-primary, .btn-secondary { width: 100%; justify-content: center; }
   .hero-meta { flex-direction: column; gap: 1rem; align-items: flex-start; }
-  .form-topic { gap: 0.4rem; }
-  .topic-chip span { padding: 0.5rem 0.85rem; font-size: 0.82rem; }
-  .form-card { padding: 1.5rem 1.25rem; }
   .area-map svg .map-label { font-size: 13px; }
 }
 </style>
@@ -1403,16 +1133,16 @@ footer {
   <div class="hero-bg"></div>
   <div class="hero-inner">
     <div class="hero-left">
-      <span class="hero-badge"><span class="pin">📍</span> Litomyšl · Záhradí</span>
+      <span class="hero-badge"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Litomyšl · Záhradí</span>
       <h1>Tvorba webů a marketing<br>z <em>Litomyšle</em>, <span class="accent">pro Litomyšl.</span></h1>
       <p class="hero-sub">
         Jsem <strong>Tomáš a dělám weby</strong> přímo z Litomyšle. Tvořím weby, sociální sítě
-        a videa pro firmy z Pardubického kraje a okolí — s osobním přístupem,
-        znalostí místního trhu a bez půlroční čekací doby.
+        a videa pro firmy z Pardubického kraje a okolí, s osobním přístupem,
+        znalostí místního trhu a se začátkem obvykle do týdne.
       </p>
       <div class="hero-cta-row">
-        <a href="#kontakt" class="btn-primary">
-          <span>Konzultace zdarma <span class="arrow">→</span></span>
+        <a href="/rezervace" class="btn-primary">
+          <span>Rezervovat hovor <span class="arrow">→</span></span>
         </a>
         <a href="/" class="btn-secondary">
           Mrkni na portfolio
@@ -1449,10 +1179,10 @@ footer {
           </div>
         </div>
         <ul class="hero-card-list">
-          <li><span class="hcl-i">◆</span> Weby, sociální sítě a video pro firmy z regionu</li>
-          <li><span class="hcl-i">◆</span> Osobní jednání po celém okolí do 30 km</li>
-          <li><span class="hcl-i">◆</span> Rozumím východočeskému trhu i konkurenci</li>
-          <li><span class="hcl-i">◆</span> Spolupráci obvykle začínám do týdne</li>
+          <li><span class="hcl-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Weby, sociální sítě a video pro firmy z regionu</li>
+          <li><span class="hcl-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Osobní jednání po celém okolí do 30 km</li>
+          <li><span class="hcl-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Znám zdejší trh i zákazníky</li>
+          <li><span class="hcl-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span> Spolupráci obvykle začínám do týdne</li>
         </ul>
         <div class="hero-card-sign">
           <div class="hero-card-sign-meta">
@@ -1467,36 +1197,36 @@ footer {
 
 <section class="sec-alt">
   <div class="wrap">
-    <span class="sec-label reveal">Proč někoho z okolí</span>
-    <h2 class="sec-h reveal">Tři výhody, které <em>vzdálený dodavatel nenabídne.</em></h2>
+    <span class="sec-label reveal">Proč Statly</span>
+    <h2 class="sec-h reveal">Web od někoho, koho <em>potkáš osobně.</em></h2>
     <p class="sec-sub reveal">
-      Velké agentury mají pěkné prezentace, ale řeší zakázku z 200 km daleka,
-      přes formuláře a hromady e‑mailů. Já jsem přímo tady v regionu.
+      Sídlím přímo v Litomyšli, takže se sejdeme u kávy, ne jen přes formulář.
+      Znám zdejší trh a se začátkem obvykle nečekáš měsíce.
     </p>
 
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="why-icon">🤝</div>
-        <h3 class="why-h">Osobní jednání</h3>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+        <h3 class="why-h">Sejdeme se osobně</h3>
         <p class="why-p">
-          Sejdeme se osobně přímo u tebe nebo v Litomyšli. Půl hodiny tváří v tvář
-          posune projekt dál než <strong>týden e‑mailů a video callů</strong>.
+          U tebe ve firmě nebo v Litomyšli. <strong>Půl hodiny tváří v tvář</strong>
+          posune projekt nejvíc a hned víme, na čem jsme.
         </p>
       </div>
       <div class="why-card reveal d2">
-        <div class="why-icon">🏘</div>
-        <h3 class="why-h">Znalost regionu</h3>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2z"/><path d="M9 3v16M15 5v16"/></svg></div>
+        <h3 class="why-h">Znám místní trh</h3>
         <p class="why-p">
-          Znám východočeský trh, sezónnost i místní konkurenci. <strong>Vím, co tu na
-          zákazníky funguje</strong> — a to se ze vzdáleného briefu nevyčte.
+          Vím, co na zdejší zákazníky funguje, <strong>od sezónnosti po to, co lidi
+          v regionu reálně řeší</strong>. Píšu weby pro lidi odsud.
         </p>
       </div>
       <div class="why-card gold reveal d3">
-        <div class="why-icon">⚡</div>
+        <div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7z"/></svg></div>
         <h3 class="why-h">Rychlý start</h3>
         <p class="why-p">
-          Nejsem zavalený desítkami zakázek ve frontě. Mám na tebe čas a
-          <strong>spolupráci obvykle začínám do týdne</strong>, ne za tři měsíce.
+          Beru jen pár zakázek měsíčně, ať mám na tu tvoji čas.
+          <strong>Spolupráci obvykle začínáme do týdne.</strong>
         </p>
       </div>
     </div>
@@ -1565,7 +1295,7 @@ footer {
 <section class="sec-alt">
   <div class="wrap">
     <span class="sec-label reveal">S čím pomůžu</span>
-    <h2 class="sec-h reveal">Tvorba webu, sítě a video —<br><em>tři věci, ve kterých se vyznám.</em></h2>
+    <h2 class="sec-h reveal">Tvorba webu, sítě a video,<br><em>tři věci, ve kterých se vyznám.</em></h2>
     <p class="sec-sub reveal">
       Žádný seznam dvaceti služeb. Dělám to, co umím dobře, a zbytek
       nechávám lidem, co to umí líp.
@@ -1590,8 +1320,8 @@ footer {
         <div class="svc-mini-num">/ 02</div>
         <h3 class="svc-mini-h">Sociální sítě</h3>
         <p class="svc-mini-p">
-          Instagram a Facebook bez šablon a kopírování konkurence.
-          Obsah, který má smysl pro tvoje zákazníky.
+          Instagram a Facebook s obsahem na míru tvým zákazníkům.
+          Žádné šablony, jen to, co dává smysl pro tvůj byznys.
         </p>
         <div class="svc-mini-tags">
           <span class="svc-mini-tag">Instagram</span>
@@ -1617,12 +1347,11 @@ footer {
   </div>
 </section>
 
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
 <section class="sec slm-section" id="moje-weby">
   <div class="wrap">
     <span class="sec-label reveal">Naživo v Litomyšli</span>
     <h2 class="sec-h reveal">Kde už <em>běží moje weby.</em></h2>
-    <p class="sec-sub reveal">Tohle nejsou ukázky z šuplíku. Klikni na špendlík — otevře se web, který právě teď vydělává reálné litomyšlské firmě. Všichni odsud, pár minut od sebe.</p>
+    <p class="sec-sub reveal">Tohle nejsou ukázky z šuplíku. Klikni na špendlík a otevře se web, který právě teď vydělává reálné litomyšlské firmě. Všichni odsud, pár minut od sebe.</p>
 
     <div class="slm reveal d2">
       <div class="slm-map">
@@ -1715,7 +1444,6 @@ footer {
 @media (prefers-reduced-motion:reduce){.slm-mk .ring{animation:none}.slm-mk .d,.slm-leg,.slm-cta,.slm-cta span{transition:none}}
 </style>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <script>
 (function(){
   if (window.__slmLeafletInit) return; window.__slmLeafletInit = true;
@@ -1775,8 +1503,30 @@ footer {
     window.addEventListener('resize', function(){ clearTimeout(window.__slmFitT); window.__slmFitT=setTimeout(fit,200); });
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
+  function loadLeaflet(cb){
+    if (window.L) return cb();
+    if (window.__slmLoading){ var t=setInterval(function(){ if(window.L){ clearInterval(t); cb(); } }, 80); return; }
+    window.__slmLoading = true;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'; css.crossOrigin = '';
+    document.head.appendChild(css);
+    var js = document.createElement('script');
+    js.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js'; js.crossOrigin = ''; js.onload = cb;
+    document.head.appendChild(js);
+  }
+
+  function arm(){
+    var el = document.getElementById('slmLeaflet');
+    if (!el) return;
+    if (!('IntersectionObserver' in window)) { loadLeaflet(init); return; }
+    var io = new IntersectionObserver(function(entries){
+      if (entries[0].isIntersecting){ io.disconnect(); loadLeaflet(init); }
+    }, { rootMargin: '400px' });
+    io.observe(el);
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', arm);
+  else arm();
 })();
 </script>
 
@@ -1855,102 +1605,26 @@ footer {
 
 <section class="sec-alt" id="kontakt">
   <div class="wrap">
-    <div class="form-section">
-      <div class="form-side">
-        <span class="sec-label reveal">Sejdeme se</span>
-        <h2 class="sec-h reveal">Napiš mi pár vět<br>a já se <em>ozvu.</em></h2>
-        <p class="sec-sub reveal" style="margin-bottom: 0;">
-          Nemusíš mít připravený brief ani vědět přesně, co potřebuješ.
-          Stačí krátká zpráva, sejdeme se a probereme to.
-        </p>
-
-        <div class="form-promise reveal d2">
-          <div class="form-promise-h">Co můžeš čekat</div>
-          <ul>
-            <li><span class="check">✓</span><span><strong>Odpověď do 48 hodin</strong>, většinou ten samý den</span></li>
-            <li><span class="check">✓</span><span><strong>Žádný tlak</strong> na rozhodnutí ani závazky</span></li>
-            <li><span class="check">✓</span><span><strong>Osobní schůzka</strong> v Litomyšli nebo u tebe ve firmě</span></li>
-            <li><span class="check">✓</span><span><strong>Férová cena</strong>, kterou víš dopředu</span></li>
-          </ul>
+    <div class="cta-box reveal">
+      <span class="cta-badge">Konzultace zdarma</span>
+      <h2 class="cta-h">Pojďme to probrat<br><em>nezávazně.</em></h2>
+      <p class="cta-p">Vyber si termín 30minutové konzultace zdarma. Probereme tvůj projekt a navrhnu další postup, bez závazků a tlaku.</p>
+      <div class="capacity">
+        <div class="capacity-top">
+          <span class="capacity-dot"></span>
+          <span>Beru jen pár zakázek měsíčně</span>
         </div>
+        <p class="capacity-note">Záměrně neberu víc, než stíhám pořádně. Díky tomu mám na ten tvůj projekt reálně čas.</p>
       </div>
-
-      <form class="form-card reveal d2" id="contactForm" novalidate>
-        <span class="form-tag">⚡ Ozvu se do 48 h</span>
-        <h3 class="form-card-h">Pojďme se poznat.</h3>
-        <p class="form-card-sub">
-          Stačí pár základních informací. Žádný dlouhý dotazník.
-        </p>
-
-        <div class="form-grid">
-          <div class="form-field">
-            <label class="form-label" for="f-name">Jméno <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-name" name="name" required autocomplete="name" placeholder="Jan, Anna, ..." maxlength="120">
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="f-contact">E‑mail nebo telefon <span class="req">*</span></label>
-            <input class="form-input" type="text" id="f-contact" name="contact" required placeholder="vase@adresa.cz nebo +420 ..." maxlength="160">
-          </div>
-
-          <div class="form-field">
-            <label class="form-label">S čím můžu pomoct?</label>
-            <div class="form-topic">
-              <label class="topic-chip"><input type="checkbox" name="topic" value="web"><span>🌐 Web</span></label>
-              <label class="topic-chip"><input type="checkbox" name="topic" value="social"><span>📱 Sociální sítě</span></label>
-              <label class="topic-chip"><input type="checkbox" name="topic" value="video"><span>🎬 Video</span></label>
-              <label class="topic-chip"><input type="checkbox" name="topic" value="poradit"><span>🤷 Poradit</span></label>
-            </div>
-          </div>
-
-          <div class="form-field">
-            <label class="form-label" for="f-message">Pár vět o tom, co řešíš</label>
-            <textarea class="form-textarea" id="f-message" name="message" placeholder="Třeba: Mám malý penzion v Litomyšli a starý web. Chtěl bych něco modernějšího..." maxlength="2000"></textarea>
-          </div>
-
-          <div class="form-hp" aria-hidden="true">
-            <label>Pokud nejste robot, nevyplňujte: <input type="text" name="website" tabindex="-1" autocomplete="off"></label>
-          </div>
-
-          <label class="form-consent">
-            <input type="checkbox" id="f-gdpr" name="gdpr" required>
-            <span>Souhlasím se zpracováním osobních údajů pro vyřízení této zprávy. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách ochrany osobních údajů</a>.</span>
-          </label>
-
-          <button type="submit" class="form-submit" id="formSubmit">
-            <span>
-              <span class="spinner"></span>
-              <span class="label-default">Pošli mi zprávu</span>
-              <span class="label-loading">Odesílám…</span>
-              <span class="arrow">→</span>
-            </span>
-          </button>
-
-          <div class="form-status" id="formStatus" role="status" aria-live="polite">
-            <span class="form-status-icon"></span>
-            <span class="form-status-text"></span>
-          </div>
-        </div>
-
-        <div class="form-direct">
-          Nebo přímo: <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a> · <a href="tel:+420737372708">+420 737 372 708</a>
-        </div>
-      </form>
+      <div class="cta-row">
+        <a href="/rezervace" class="btn-white btn-book"><span>Rezervovat krátký hovor</span> <span class="arrow">→</span></a>
+      </div>
+      <p class="cta-alt">Radši napsat? <a href="mailto:tomas.tylich@seznam.cz">e‑mail</a> · <a href="tel:+420737372708">+420 737 372 708</a></p>
     </div>
   </div>
 </section>
 
 </main>
-
-<section data-booking-band style="background:#0d1a14;border-top:1px solid rgba(255,255,255,0.06);padding:4.5rem 1.5rem;text-align:center;font-family:'Inter Tight',-apple-system,sans-serif;">
-  <div style="max-width:600px;margin:0 auto;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'Inter Tight',-apple-system,sans-serif;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
-    <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.035em;color:#fff;line-height:1.1;margin:0 0 .85rem;">Pojďme to probrat <em style="font-style:italic;font-weight:500;color:#FFB800;">nezávazně.</em></h2>
-    <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyber si termín 30minutové konzultace zdarma. Beru jen pár projektů měsíčně, ať se na ten tvůj stihnu pořádně podívat.</p>
-    <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;">📅 Rezervovat krátký hovor →</a>
-    <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napiš na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
-  </div>
-</section>
 
 <footer>
   <div class="footer-grid">
@@ -2003,88 +1677,6 @@ footer {
       card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
       card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
     });
-  });
-})();
-
-(function() {
-  const form = document.getElementById('contactForm');
-  if (!form) return;
-
-  const submitBtn  = document.getElementById('formSubmit');
-  const statusEl   = document.getElementById('formStatus');
-  const statusIcon = statusEl.querySelector('.form-status-icon');
-  const statusText = statusEl.querySelector('.form-status-text');
-
-  function setStatus(type, message) {
-    statusEl.classList.remove('success', 'error', 'show');
-    if (!type) return;
-    statusEl.classList.add('show', type);
-    statusIcon.textContent = type === 'success' ? '✓' : '⚠';
-    statusText.textContent = message;
-  }
-
-  function setLoading(loading) {
-    submitBtn.disabled = loading;
-    submitBtn.classList.toggle('loading', loading);
-  }
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    setStatus(null);
-
-    // collect selected topics
-    const topics = Array.from(form.querySelectorAll('input[name="topic"]:checked'))
-      .map(i => i.value);
-
-    const data = {
-      name:     form.name.value.trim(),
-      contact:  form.contact.value.trim(),
-      topics:   topics,
-      message:  form.message.value.trim(),
-      website:  form.website.value,
-      gdpr:     form.gdpr.checked
-    };
-
-    if (!data.name || data.name.length < 2) {
-      setStatus('error', 'Napiš mi prosím své jméno.');
-      form.name.focus(); return;
-    }
-    if (!data.contact || data.contact.length < 5) {
-      setStatus('error', 'Doplň prosím e‑mail nebo telefon, ať se ti můžu ozvat.');
-      form.contact.focus(); return;
-    }
-    if (!data.gdpr) {
-      setStatus('error', 'Pro odeslání je nutný souhlas se zpracováním údajů.');
-      return;
-    }
-
-    setLoading(true);
-    try {
-      const res = await fetch('/api/litomysl', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
-      });
-
-      let payload = {};
-      try { payload = await res.json(); } catch (_) {}
-
-      if (!res.ok) {
-        throw new Error(payload.error || 'Odeslání se nezdařilo. Zkus to prosím znovu.');
-      }
-
-      setStatus('success', 'Díky! Zpráva dorazila. Ozvu se ti do 48 hodin, často ještě dnes.');
-      form.reset();
-      try {
-        if (window.gtag) gtag('event', 'generate_lead', { method: 'form', form_location: location.pathname });
-        if (window.fbq)  fbq('track', 'Lead');
-      } catch (_) {}
-    } catch (err) {
-      console.error('Form submit error:', err);
-      setStatus('error', err.message || 'Něco se pokazilo. Zkus to prosím znovu, nebo mi napiš přímo na e‑mail.');
-    } finally {
-      setLoading(false);
-    }
   });
 })();
 
@@ -2153,8 +1745,9 @@ footer {
   font-family:inherit;transition:transform .2s,border-color .2s,background .2s}
 .slg-opt:hover{transform:translateY(-2px);border-color:rgba(34,196,126,.4);background:#142420}
 .slg-opt.slg-sel{border-color:#22c47e;background:#142420;box-shadow:0 0 0 3px rgba(34,196,126,.12)}
-.slg-opt-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:1.25rem;
+.slg-opt-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;
   background:linear-gradient(135deg,rgba(34,196,126,.14),rgba(255,184,0,.1));border:1px solid rgba(255,255,255,.05)}
+.slg-opt-ico svg{width:22px;height:22px;color:#22c47e}
 .slg-opt-tx{display:flex;flex-direction:column;gap:.1rem;min-width:0}
 .slg-opt-t{font-size:.96rem;font-weight:600;letter-spacing:-.01em}
 .slg-opt-d{font-size:.8rem;color:#8aa39a;line-height:1.3}
@@ -2258,38 +1851,62 @@ textarea.slg-in{resize:vertical;min-height:74px}
 (function(){
   if(window.__statlyGuide) return; window.__statlyGuide=true;
 
+  var SI=function(d){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';};
+  var IC={
+    web:SI('<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/>'),
+    redesign:SI('<path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 14.5l.55 1.45 1.45.55-1.45.55-.55 1.45-.55-1.45-1.45-.55 1.45-.55z"/>'),
+    social:SI('<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18h3"/>'),
+    design:SI('<path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/>'),
+    video:SI('<path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/>'),
+    chat:SI('<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>'),
+    trend:SI('<path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/>'),
+    briefcase:SI('<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>'),
+    rocket:SI('<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>'),
+    wrench:SI('<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'),
+    search:SI('<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>'),
+    zap:SI('<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>'),
+    cal:SI('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>'),
+    calDays:SI('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4M8 14h.01M12 14h.01M16 14h.01"/>'),
+    leaf:SI('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>'),
+    sprout:SI('<path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12C12 8 9.5 6 6 6c0 3.5 2.5 6 6 6z"/><path d="M12 11c0-2.8 2-5 5-5 0 2.8-2 5-5 5z"/>'),
+    herb:SI('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>'),
+    tree:SI('<path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19z"/><path d="M12 19v3"/>'),
+    trophy:SI('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>'),
+    handshake:SI('<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>')
+  };
+
   var STEPS=[
     {key:'service',q:'S čím ti můžu <em>pomoct</em>?',sub:'Vyber, co tě teď nejvíc zajímá. Detaily doladíme společně.',
      opts:[
-       {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
-       {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
-       {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
-       {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
-       {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
-       {v:'Nevím, poraď mi',ico:'💬',d:'Probereme to spolu'}
+       {v:'Nový web',ico:IC.web,d:'Web na míru od nuly'},
+       {v:'Redesign webu',ico:IC.redesign,d:'Vylepšit stávající web'},
+       {v:'Sociální sítě',ico:IC.social,d:'Obsah a správa IG / FB'},
+       {v:'Grafika a logo',ico:IC.design,d:'Logo, vizitky, tisk'},
+       {v:'Natáčení videí',ico:IC.video,d:'Reels, reklamy, dron'},
+       {v:'Nevím, poraď mi',ico:IC.chat,d:'Probereme to spolu'}
      ]},
     {key:'goal',q:'Čeho chceš <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
      opts:[
-       {v:'Víc poptávek a zákazníků',ico:'📈'},
-       {v:'Působit profesionálně',ico:'💼'},
-       {v:'Rozjíždím nový byznys',ico:'🚀'},
-       {v:'Modernizovat zastaralé',ico:'🔧'},
-       {v:'Zatím jen zjišťuji',ico:'🔍'}
+       {v:'Víc poptávek a zákazníků',ico:IC.trend},
+       {v:'Působit profesionálně',ico:IC.briefcase},
+       {v:'Rozjíždím nový byznys',ico:IC.rocket},
+       {v:'Modernizovat zastaralé',ico:IC.wrench},
+       {v:'Zatím jen zjišťuji',ico:IC.search}
      ]},
     {key:'timeline',q:'Kdy chceš <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
      opts:[
-       {v:'Co nejdřív',ico:'⚡'},
-       {v:'Do měsíce',ico:'📅'},
-       {v:'Do tří měsíců',ico:'🗓️'},
-       {v:'Zatím nespěchám',ico:'🍃'}
+       {v:'Co nejdřív',ico:IC.zap},
+       {v:'Do měsíce',ico:IC.cal},
+       {v:'Do tří měsíců',ico:IC.calDays},
+       {v:'Zatím nespěchám',ico:IC.leaf}
      ]},
     {key:'budget',q:'Orientační <em>rozpočet</em>?',sub:'Pomůže mi navrhnout řešení, které dává smysl. Nezávazné.',
      opts:[
-       {v:'do 15 000 Kč',ico:'🌱'},
-       {v:'15–30 000 Kč',ico:'🌿'},
-       {v:'30–60 000 Kč',ico:'🌳'},
-       {v:'60 000 Kč a víc',ico:'🏆'},
-       {v:'Nechám na doporučení',ico:'🤝'}
+       {v:'do 15 000 Kč',ico:IC.sprout},
+       {v:'15–30 000 Kč',ico:IC.herb},
+       {v:'30–60 000 Kč',ico:IC.tree},
+       {v:'60 000 Kč a víc',ico:IC.trophy},
+       {v:'Nechám na doporučení',ico:IC.handshake}
      ]},
     {key:'contact',form:true,q:'Kam se ti mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
   ];
@@ -2422,11 +2039,11 @@ textarea.slg-in{resize:vertical;min-height:74px}
     if(!a.industry){showErr('Vyplň prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
     if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 
-    var msg='— Poptávka přes interaktivního průvodce —\n'
-      +'• Služba: '+(a.service||'—')+'\n'
-      +'• Cíl: '+(a.goal||'—')+'\n'
-      +'• Termín: '+(a.timeline||'—')+'\n'
-      +'• Rozpočet: '+(a.budget||'—')+'\n';
+    var msg='Poptávka přes interaktivního průvodce\n'
+      +'• Služba: '+(a.service||'neuvedeno')+'\n'
+      +'• Cíl: '+(a.goal||'neuvedeno')+'\n'
+      +'• Termín: '+(a.timeline||'neuvedeno')+'\n'
+      +'• Rozpočet: '+(a.budget||'neuvedeno')+'\n';
     if(a.message) msg+='\nPoznámka klienta:\n'+a.message+'\n';
 
     nextBtn.classList.add('slg-loading');nextBtn.disabled=true;
@@ -2449,7 +2066,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     foot.style.display='none';
     var nm=esc((state.answers.name||'').split(' ')[0]);
     body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
-      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
+      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'!</h3>'
       +'<p class="slg-done-p">Tvoje poptávka dorazila. Ozvu se ti <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
       +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
     body.querySelector('[data-slg-close]').addEventListener('click',close);

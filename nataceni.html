@@ -123,7 +123,7 @@
     },
     {
       "@type": "Question",
-      "name": "Kam jezdíš natáčet?",
+      "name": "Kam jezdíte natáčet?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Působím primárně ve východních Čechách: Litomyšl, Pardubice, Svitavy, Vysoké Mýto, Choceň, Polička, Česká Třebová a okolí. Po domluvě dojedu i dál."
@@ -134,12 +134,12 @@
       "name": "Kdo dělá střih a jak dlouho trvá dodání?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Po natočení předávám materiál svému týmu profesionálních editorů, kteří se starají o střih, barvy, zvuk, titulky i hudbu. U kratších formátů jako Reels nebo krátké reklamy počítej s 5 až 10 pracovními dny od natočení. U delších videí 2 až 3 týdny. Pokud spěcháš, dá se zařídit i expresní termín."
+        "text": "Po natočení předávám materiál svému týmu profesionálních editorů, kteří se starají o střih, barvy, zvuk, titulky i hudbu. U kratších formátů jako Reels nebo krátké reklamy počítejte s 5 až 10 pracovními dny od natočení. U delších videí 2 až 3 týdny. Pokud spěcháte, dá se zařídit i expresní termín."
       }
     },
     {
       "@type": "Question",
-      "name": "Na co natáčíš? Není to jen telefon?",
+      "name": "Na co natáčíte? Není to jen telefon?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Natáčím na špičkový telefon ve spojení s gimbalem Insta360 Flow 2 Pro, bezdrátovými mikrofony DJI Mic 3 a dronem DJI Lito. Moderní telefony nabízejí kvalitu, která ještě před pár lety patřila profesionálním kamerám. Důležitější než typ kamery je stabilizace, čistý zvuk a vyladěný střih."
@@ -147,7 +147,7 @@
     },
     {
       "@type": "Question",
-      "name": "Provozuješ dron legálně?",
+      "name": "Provozujete dron legálně?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Ano. Mám registraci provozovatele bezpilotního systému u Úřadu pro civilní letectví a držím se pravidel EU pro provoz dronů v otevřené kategorii. Tam, kde je potřeba zvláštní povolení, vyřídím ho předem."
@@ -155,10 +155,10 @@
     },
     {
       "@type": "Question",
-      "name": "Můžeš natáčení spojit s tvorbou webu nebo správou sociálních sítí?",
+      "name": "Můžete natáčení spojit s tvorbou webu nebo správou sociálních sítí?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ano. Pokud u mě řešíš zároveň web nebo správu sociálních sítí, můžeme natáčení napojit přímo na obsahový plán. Z jednoho dne natáčení vznikne materiál na týdny dopředu."
+        "text": "Ano. Pokud u mě řešíte zároveň web nebo správu sociálních sítí, můžeme natáčení napojit přímo na obsahový plán. Z jednoho dne natáčení vznikne materiál na týdny dopředu."
       }
     }
   ]
@@ -233,18 +233,18 @@ nav {
 .nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
 
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: var(--bg); text-align: center; }
-.hero::before {
+.hero { min-height: 100vh; display: flex; align-items: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: var(--bg); }
+.hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.hero-bg::before {
   content: ''; position: absolute; inset: 0;
   background:
-    radial-gradient(ellipse 70% 55% at 20% 30%, rgba(27,127,95,0.22) 0%, transparent 50%),
-    radial-gradient(ellipse 55% 45% at 80% 75%, rgba(255,184,0,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 55% at 18% 28%, rgba(27,127,95,0.22) 0%, transparent 50%),
+    radial-gradient(ellipse 55% 45% at 82% 78%, rgba(255,184,0,0.07) 0%, transparent 55%),
     radial-gradient(ellipse 80% 60% at 50% 100%, rgba(34,196,126,0.10) 0%, transparent 60%);
-  pointer-events: none;
-  animation: heroGlow 12s ease-in-out infinite alternate;
+  animation: heroGlow 14s ease-in-out infinite alternate;
 }
-@keyframes heroGlow { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
-.hero::after {
+@keyframes heroGlow { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.08) rotate(1.5deg); } }
+.hero-bg::after {
   content: ''; position: absolute; inset: 0;
   background-image:
     linear-gradient(rgba(34,196,126,0.04) 1px, transparent 1px),
@@ -252,24 +252,26 @@ nav {
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
-  pointer-events: none;
 }
-.hero-inner { max-width: 880px; margin: 0 auto; position: relative; z-index: 2; animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s; }
-@keyframes heroIn { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
-.crumb { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.76rem; color: var(--text-dim); margin-bottom: 1.75rem; transition: color 0.2s; }
-.crumb-wrap { display: block; margin-bottom: 0.5rem; }
+.hero-inner { max-width: 1180px; width: 100%; margin: 0 auto; position: relative; z-index: 2; display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+.hero-left { animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s; }
+.hero-right { animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) both 0.35s; }
+@keyframes heroIn { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+.crumb { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.76rem; color: var(--text-dim); margin-bottom: 1.4rem; transition: color 0.2s; }
 .crumb:hover { color: var(--green-bright); }
 .crumb-arrow { font-size: 0.85rem; transition: transform 0.2s; }
 .crumb:hover .crumb-arrow { transform: translateX(-3px); }
 
-.hero-badge { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 1.05rem; margin-bottom: 2.25rem; backdrop-filter: blur(8px); }
-.hero-badge .rec-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff5277; animation: recBlink 1.4s ease-in-out infinite; }
-@keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+.hero-badge { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 1.05rem; margin-bottom: 1.6rem; backdrop-filter: blur(8px); }
+.hero-badge svg { width: 13px; height: 13px; display: block; }
+@keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
 
-.hero-h { font-family: var(--sans); font-size: clamp(2.6rem, 6.4vw, 5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 0.98; color: #fff; margin-bottom: 1.75rem; }
-.hero-h em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; background: linear-gradient(135deg, var(--gold) 0%, var(--gold-soft) 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; display: inline-block; }
-.hero-sub { font-size: clamp(1rem, 1.4vw, 1.18rem); color: var(--text-dim); line-height: 1.65; max-width: 620px; margin: 0 auto 2.5rem; }
-.hero-btn-row { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; }
+.hero h1 { font-family: var(--sans); font-size: clamp(2.4rem, 5.2vw, 4rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; color: #fff; margin-bottom: 1.6rem; }
+.hero h1 em { font-style: italic; font-weight: 500; letter-spacing: -0.025em; }
+.hero h1 .accent { color: var(--gold); }
+.hero-sub { font-size: 1.1rem; color: var(--text-dim); line-height: 1.7; max-width: 520px; margin: 0 0 2.4rem; }
+.hero-sub strong { color: var(--text); font-weight: 600; }
+.hero-cta-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 .btn-primary { display: inline-flex; align-items: center; gap: 0.55rem; background: var(--gold); color: #1a0f00; padding: 0.95rem 1.7rem; border-radius: 100px; font-weight: 700; font-size: 0.92rem; letter-spacing: -0.005em; transition: all 0.25s ease; position: relative; overflow: hidden; }
 .btn-primary::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--gold-soft), var(--gold)); opacity: 0; transition: opacity 0.3s; }
 .btn-primary span { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 0.55rem; }
@@ -280,20 +282,29 @@ nav {
 .btn-secondary { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(255,255,255,0.04); color: #fff; border: 1px solid var(--border); padding: 0.95rem 1.7rem; border-radius: 100px; font-weight: 600; font-size: 0.92rem; transition: all 0.25s ease; }
 .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: var(--border-2); transform: translateY(-2px); }
 
-.hero-trust { margin-top: 1.7rem; display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); }
-.hero-trust strong { color: #fff; font-weight: 600; }
-.hero-trust .ht-star { color: var(--gold); }
-.hero-trust .ht-sep { color: var(--text-dimmer); opacity: 0.7; }
+.hero-meta { display: flex; gap: 2.4rem; margin-top: 2.4rem; padding-top: 1.9rem; border-top: 1px solid var(--border); flex-wrap: wrap; }
+.hero-meta-item { display: flex; flex-direction: column; gap: 0.32rem; }
+.hero-meta-label { font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dimmer); }
+.hero-meta-value { font-family: var(--sans); font-size: 1.04rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
+.hero-meta-value .green { color: var(--green-bright); }
 
-.stats { background: var(--bg-2); border-top: 1px solid var(--border); padding: 5rem 2rem; position: relative; }
-.stats-grid { max-width: 1080px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
-.stat { background: linear-gradient(180deg, rgba(34,196,126,0.04), transparent); border: 1px solid var(--border); border-radius: 18px; padding: 2rem 1.5rem; text-align: center; position: relative; overflow: hidden; transition: all 0.3s ease; }
-.stat::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 1px; background: linear-gradient(90deg, transparent, var(--green-bright), transparent); opacity: 0; transition: opacity 0.3s; }
-.stat:hover { border-color: var(--border-2); transform: translateY(-3px); }
-.stat:hover::before { opacity: 1; }
-.stat-n { font-family: var(--sans); font-size: 2.6rem; font-weight: 800; color: #fff; display: block; line-height: 1; letter-spacing: -0.03em; }
-.stat-n .accent { color: var(--green-bright); }
-.stat-l { color: var(--text-dim); font-size: 0.83rem; margin-top: 0.55rem; display: block; font-family: var(--mono); font-weight: 400; letter-spacing: 0.02em; }
+.hero-card { position: relative; background: linear-gradient(165deg, #0d1f18 0%, #0a1712 100%); border: 1px solid var(--border-2); border-radius: 22px; padding: 1.1rem; box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,196,126,0.05); overflow: hidden; }
+.hero-card-bar { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; margin-bottom: 0.85rem; font-family: var(--mono); font-size: 0.72rem; }
+.hero-card-rec { display: inline-flex; align-items: center; gap: 0.42rem; color: #ff5277; font-weight: 600; letter-spacing: 0.1em; }
+.hero-card-rec .dot { width: 8px; height: 8px; border-radius: 50%; background: #ff5277; animation: recBlink 1.4s ease-in-out infinite; }
+.hero-card-tc { color: var(--text-dim); letter-spacing: 0.06em; }
+.hero-card-res { color: var(--green-bright); font-weight: 600; letter-spacing: 0.05em; }
+.hero-frame { position: relative; aspect-ratio: 16 / 10; border-radius: 13px; overflow: hidden; background: radial-gradient(ellipse 72% 62% at 50% 42%, rgba(34,196,126,0.16), transparent 72%), #0a1410; display: grid; place-items: center; }
+.hero-frame svg { width: 100%; height: 100%; display: block; }
+.hero-frame-tag, .hero-frame-bat { position: absolute; font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.06em; color: var(--text-dim); }
+.hero-frame-tag { left: 0.7rem; bottom: 0.6rem; display: inline-flex; align-items: center; gap: 0.3rem; color: var(--green-bright); }
+.hero-frame-tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green-bright); }
+.hero-frame-bat { right: 0.7rem; bottom: 0.6rem; }
+.hero-card-list { list-style: none; margin: 1rem 0 0; padding: 0; display: flex; flex-direction: column; gap: 0.6rem; }
+.hero-card-list li { display: flex; align-items: center; gap: 0.65rem; font-size: 0.86rem; color: var(--text-dim); line-height: 1.4; }
+.hero-card-list li svg { width: 16px; height: 16px; flex-shrink: 0; color: var(--green-bright); }
+.hero-card-sign { margin-top: 1.05rem; padding-top: 0.95rem; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 0.72rem; line-height: 1.6; color: var(--text-dimmer); }
+.hero-card-sign b { color: var(--text-dim); font-weight: 600; }
 
 .sec { padding: 7rem 2rem; background: var(--bg); position: relative; }
 .sec-alt { padding: 7rem 2rem; background: var(--bg-2); position: relative; }
@@ -456,10 +467,15 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .d3 { transition-delay: 0.22s; }
 .d4 { transition-delay: 0.30s; }
 
+@media (max-width: 960px) {
+  .hero { min-height: 0; padding: 8rem 2rem 4.5rem; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.8rem; }
+  .hero-right { max-width: 440px; }
+  .hero-sub { max-width: none; }
+}
 @media (max-width: 1024px) {
   .gear-grid { grid-template-columns: 1fr 1fr; }
   .fmt-grid { grid-template-columns: 1fr 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .process-grid::before { display: none; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -484,10 +500,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 @media (max-width: 480px) {
   .footer-grid { grid-template-columns: 1fr; }
   .gear-grid { grid-template-columns: 1fr; }
-  .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-  .stat-n { font-size: 2rem; }
   .process-grid { grid-template-columns: 1fr; }
-  .hero-btn-row, .cta-row { flex-direction: column; align-items: stretch; }
+  .hero-cta-row, .cta-row { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-secondary { justify-content: center; }
   .cookie-actions { flex-direction: column; }
   .cookie-btn { width: 100%; }
@@ -517,33 +531,76 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 </nav>
 
 <section class="hero">
+  <div class="hero-bg"></div>
   <div class="hero-inner">
-    <div class="crumb-wrap"><a href="/" class="crumb"><span class="crumb-arrow">←</span> Zpět na úvod</a></div>
-    <span class="hero-badge"><span class="rec-dot"></span> Profesionální videoprodukce</span>
-    <h1 class="hero-h">Natočím ti obsah,<br><em>na který se krásně kouká.</em></h1>
-    <p class="hero-sub">
-      Reels, reklamy, produktová videa nebo letecké záběry dronem. Natáčím v <strong style="color: var(--text); font-weight: 600;">Litomyšli a okolních městech</strong> ve východních Čechách. Na špičkový telefon se stabilizátorem a profi mikrofony, finální střih a barvy řeší můj tým editorů. Ty dostaneš videa, která vypadají profesionálně a fungují.
-    </p>
-    <div class="hero-btn-row">
-      <a href="index.html#kontakt" class="btn-primary"><span>Domluvit natáčení <span class="arrow">→</span></span></a>
-      <a href="#vybaveni" class="btn-secondary">Co používám →</a>
+    <div class="hero-left">
+      <a href="/" class="crumb"><span class="crumb-arrow">←</span> Zpět na úvod</a>
+      <span class="hero-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg> Videoprodukce · východní Čechy</span>
+      <h1>Natočím vám videa,<br>na která se <em>dobře dívá</em><br>a která <span class="accent">prodávají.</span></h1>
+      <p class="hero-sub">
+        Reels, reklamy, produktová videa i letecké záběry dronem. Točím v <strong>Litomyšli a okolí</strong> na špičkový telefon se stabilizátorem a profi mikrofony. Střih, barvy a zvuk doladí můj tým editorů. Vy dostanete videa hotová pro sociální sítě i web.
+      </p>
+      <div class="hero-cta-row">
+        <a href="/rezervace" class="btn-primary"><span>Domluvit natáčení <span class="arrow">→</span></span></a>
+        <a href="#vybaveni" class="btn-secondary">Co používám →</a>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Dodání</span>
+          <span class="hero-meta-value">5–10 dní</span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Záběry z dronu</span>
+          <span class="hero-meta-value"><span class="green">4K</span></span>
+        </div>
+        <div class="hero-meta-item">
+          <span class="hero-meta-label">Google</span>
+          <span class="hero-meta-value"><span class="green">5,0 ★</span></span>
+        </div>
+      </div>
     </div>
-    <div class="hero-trust">
-      <span class="ht-star">★</span> <strong>5,0</strong>&nbsp;Google
-      <span class="ht-sep">·</span>
-      <strong>4K</strong>&nbsp;dron
-      <span class="ht-sep">·</span>
-      střih&nbsp;<strong>v ceně</strong>
-    </div>
-  </div>
-</section>
 
-<section class="stats">
-  <div class="stats-grid">
-    <div class="stat reveal d1"><span class="stat-n">4<span class="accent">K</span></span><span class="stat-l">letecké záběry dronem</span></div>
-    <div class="stat reveal d2"><span class="stat-n">9:16<span class="accent"> · </span>16:9</span><span class="stat-l">vertikální i horizontální</span></div>
-    <div class="stat reveal d3"><span class="stat-n">2–3</span><span class="stat-l">týdny na dodání</span></div>
-    <div class="stat reveal d4"><span class="stat-n">5.0<span class="accent">★</span></span><span class="stat-l">Google hodnocení</span></div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-bar">
+          <span class="hero-card-rec"><span class="dot"></span> REC</span>
+          <span class="hero-card-tc">00:12:48:04</span>
+          <span class="hero-card-res">4K · 50p</span>
+        </div>
+        <div class="hero-frame">
+          <svg viewBox="0 0 320 200" fill="none" aria-hidden="true">
+            <g stroke="#ffffff" stroke-width="1" opacity="0.08">
+              <line x1="106.7" y1="14" x2="106.7" y2="186"/>
+              <line x1="213.3" y1="14" x2="213.3" y2="186"/>
+              <line x1="20" y1="66.7" x2="300" y2="66.7"/>
+              <line x1="20" y1="133.3" x2="300" y2="133.3"/>
+            </g>
+            <g stroke="#e8efe9" stroke-width="2" opacity="0.5" stroke-linecap="round">
+              <path d="M20 34 V14 H40"/>
+              <path d="M300 34 V14 H280"/>
+              <path d="M20 166 V186 H40"/>
+              <path d="M300 166 V186 H280"/>
+            </g>
+            <rect x="128" y="74" width="64" height="52" rx="4" stroke="#22c47e" stroke-width="1.6" stroke-dasharray="11 7" opacity="0.9"/>
+            <g stroke="#22c47e" stroke-width="1.6" stroke-linecap="round">
+              <line x1="160" y1="90" x2="160" y2="110"/>
+              <line x1="150" y1="100" x2="170" y2="100"/>
+            </g>
+          </svg>
+          <span class="hero-frame-tag"><span class="dot"></span> AF-C</span>
+          <span class="hero-frame-bat">f/1.8</span>
+        </div>
+        <ul class="hero-card-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Střih, barvy a zvuk v ceně</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Titulky, grafika a hudba bez licence</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Hotové formáty pro sítě i web</li>
+        </ul>
+        <div class="hero-card-sign">
+          <b>Statly · Tomáš Tylich</b><br>
+          natáčím osobně, z Litomyšle
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -711,7 +768,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <div class="fmt reveal d2">
         <span class="fmt-ratio">16:9 · Horizontální</span>
         <h3 class="fmt-h">Reklamy &amp; web</h3>
-        <p class="fmt-p">Promo videa, prezentace služeb, headery na tvůj web. Profesionální vzhled, který buduje důvěru.</p>
+        <p class="fmt-p">Promo videa, prezentace služeb, headery na váš web. Profesionální vzhled, který buduje důvěru.</p>
         <ul class="fmt-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Storyboard a scénář</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Profi voiceover (volitelně)</li>
@@ -737,12 +794,12 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <span class="sec-label reveal">Jak to probíhá</span>
     <h2 class="sec-h reveal">Čtyři kroky<br><em>od nápadu k hotovému videu.</em></h2>
     <p class="sec-sub reveal">
-      Žádné zbytečné komplikace. Postupuji jednoduše, transparentně a ty přesně víš, co a kdy dostaneš.
+      Žádné zbytečné komplikace. Postupuji jednoduše, transparentně a vy přesně víte, co a kdy dostanete.
     </p>
 
     <div class="process-grid">
-      <div class="step reveal d1"><div class="step-n">01</div><h3 class="step-h">Konzultace</h3><p class="step-p">Domluvíme se, co potřebuješ, kde a komu se bude video přehrávat. Vyjasníme rozpočet a styl.</p></div>
-      <div class="step reveal d2"><div class="step-n">02</div><h3 class="step-h">Příprava</h3><p class="step-p">Připravím scénář, vyberu lokaci, vychytám časový plán. Jakmile odsouhlasíš, jede se točit.</p></div>
+      <div class="step reveal d1"><div class="step-n">01</div><h3 class="step-h">Konzultace</h3><p class="step-p">Domluvíme se, co potřebujete, kde a komu se bude video přehrávat. Vyjasníme rozpočet a styl.</p></div>
+      <div class="step reveal d2"><div class="step-n">02</div><h3 class="step-h">Příprava</h3><p class="step-p">Připravím scénář, vyberu lokaci, vychytám časový plán. Jakmile odsouhlasíte, jede se točit.</p></div>
       <div class="step reveal d3"><div class="step-n">03</div><h3 class="step-h">Natáčení</h3><p class="step-p">Přijedu s technikou a natočím dohodnuté záběry. Většinou stačí půl dne až jeden celý den.</p></div>
       <div class="step reveal d4"><div class="step-n">04</div><h3 class="step-h">Střih a dodání</h3><p class="step-p">Materiál předám svému týmu editorů. Doladí barvy, zvuk, titulky a hudbu. Hotová videa dostaneš ve všech potřebných formátech.</p></div>
     </div>
@@ -774,7 +831,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <div style="max-width: 760px; margin: 0 auto;">
       <span class="sec-label reveal">Časté otázky</span>
       <h2 class="sec-h reveal">Co se mě<br><em>nejvíc ptají.</em></h2>
-      <p class="sec-sub reveal">Pár věcí, co je dobré vědět ještě před tím, než mě oslovíš.</p>
+      <p class="sec-sub reveal">Pár věcí, co je dobré vědět ještě před tím, než mě oslovíte.</p>
     </div>
 
     <div class="faq-wrap">
@@ -782,11 +839,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <summary>Kolik to stojí?</summary>
         <div class="faq-body">
           <p>Cena se odvíjí od rozsahu. Jiné je natočit jedno krátké Reels a jiné celodenní reklamní spot s dronem a několika lokacemi. Vždy se domluvíme na konkrétním rozpočtu předem, žádné dodatečné navyšování.</p>
-          <p>Pro představu: kratší jednoduchá produkce začíná v řádu tisíců korun, komplexnější produkce s dronem a delším střihem v desítkách tisíc. Konkrétní cenovku rád pošlu po krátké konzultaci.</p>
+          <p>Pro představu: kratší jednoduchá produkce začíná v řádu tisíců korun, komplexnější produkce s dronem a delším střihem v desítkách tisíc. Konkrétní cenovku vám rád pošlu po krátké konzultaci.</p>
         </div>
       </details>
       <details class="faq reveal d2">
-        <summary>Kam jezdíš natáčet?</summary>
+        <summary>Kam jezdíte natáčet?</summary>
         <div class="faq-body">
           <p>Působím primárně ve východních Čechách: Litomyšl, Pardubice, Svitavy, Vysoké Mýto, Choceň a okolí. Po domluvě se rád domluvím i na delší cestě.</p>
         </div>
@@ -795,17 +852,17 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <summary>Kdo dělá střih a jak dlouho trvá dodání?</summary>
         <div class="faq-body">
           <p>Po natočení předávám materiál svému týmu profesionálních editorů. Postarají se o střih, barevné korekce, zvuk, titulky i hudbu. Mám tak jistotu, že každé video projde rukama člověka, který se na to specializuje.</p>
-          <p>U kratších formátů (Reels, krátké reklamy) počítej obvykle s 5 až 10 pracovními dny od natočení. U delších videí 2 až 3 týdny. Pokud spěcháš, dá se zařídit i expresní termín.</p>
+          <p>U kratších formátů (Reels, krátké reklamy) počítejte obvykle s 5 až 10 pracovními dny od natočení. U delších videí 2 až 3 týdny. Pokud spěcháte, dá se zařídit i expresní termín.</p>
         </div>
       </details>
       <details class="faq reveal d4">
-        <summary>Na co natáčíš? Není to jen telefon?</summary>
+        <summary>Na co natáčíte? Není to jen telefon?</summary>
         <div class="faq-body">
           <p>Natáčím na špičkový telefon ve spojení s gimbalem Insta360 Flow 2 Pro, bezdrátovými mikrofony DJI Mic 3 a dronem DJI Lito. Moderní telefony dnes nabízejí kvalitu, která ještě před pár lety patřila kamerám za desítky tisíc, takže výsledek vypadá profesionálně. Důležitější než typ kamery je dobrý zvuk, stabilizace a hlavně vyladěný střih, a o to se postarám.</p>
         </div>
       </details>
       <details class="faq reveal d4">
-        <summary>Provozuješ dron legálně?</summary>
+        <summary>Provozujete dron legálně?</summary>
         <div class="faq-body">
           <p>Ano. Mám registraci provozovatele bezpilotního systému u Úřadu pro civilní letectví a držím se pravidel EU pro provoz dronů v otevřené kategorii. Tam, kde je potřeba zvláštní povolení, vyřídím ho předem.</p>
         </div>
@@ -817,9 +874,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         </div>
       </details>
       <details class="faq reveal d4">
-        <summary>Můžeš to natočit jako součást většího balíčku?</summary>
+        <summary>Můžete to natočit jako součást většího balíčku?</summary>
         <div class="faq-body">
-          <p>Jasně, a často to dává smysl. Pokud u mě řešíš zároveň web nebo správu sociálních sítí, můžeme natáčení napojit přímo na obsahový plán. Z jednoho dne tak vznikne materiál na týdny dopředu.</p>
+          <p>Jasně, a často to dává smysl. Pokud u mě řešíte zároveň web nebo správu sociálních sítí, můžeme natáčení napojit přímo na obsahový plán. Z jednoho dne tak vznikne materiál na týdny dopředu.</p>
         </div>
       </details>
     </div>
@@ -829,11 +886,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 <section class="cta">
   <div class="cta-box reveal">
     <div class="cta-box-inner">
-      <span class="cta-badge">⚡ Nezávazná konzultace zdarma</span>
-      <h2 class="cta-h">Máš v hlavě video?<br><em>Pojďme ho natočit.</em></h2>
+      <span class="cta-badge">Nezávazná konzultace zdarma</span>
+      <h2 class="cta-h">Máte v hlavě video?<br><em>Pojďme ho natočit.</em></h2>
       <p class="cta-p">
-        Vyber si termín krátké konzultace, nebo mi rovnou pošli poptávku. Do 48 hodin se ozvu
-        s konkrétním návrhem i cenou. Beru jen pár projektů měsíčně, ať se na tvůj stihnu pořádně podívat.
+        Vyberte si termín krátké konzultace, nebo mi rovnou pošlete poptávku. Do 48 hodin se ozvu
+        s konkrétním návrhem i cenou. Beru jen pár projektů měsíčně, ať se na ten váš stihnu pořádně podívat.
       </p>
       <div class="cta-row">
         <a href="/rezervace" class="btn-primary"><span>Rezervovat hovor <span class="arrow">→</span></span></a>

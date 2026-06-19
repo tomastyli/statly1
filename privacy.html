@@ -44,6 +44,11 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
 
 :root {
   --green-deep: #0d3d2c;
@@ -495,8 +500,10 @@ footer {
   border: 1px solid rgba(34,196,126,0.25);
   border-radius: 9px;
   display: flex; align-items: center; justify-content: center;
-  font-size: 1rem;
+  color: var(--green-bright);
 }
+.cookie-icon svg { width: 18px; height: 18px; }
+.cookie-fab svg { width: 18px; height: 18px; }
 .cookie-title {
   font-family: var(--sans);
   font-size: 0.98rem; font-weight: 700; color: #fff;
@@ -834,7 +841,7 @@ footer {
     </div>
 
     <p>Volbu, které cookies povolíte, můžete kdykoli změnit. Stačí kliknout sem:</p>
-    <button type="button" class="reopen-cookies" onclick="openCookieSettings()">⚙ Změnit nastavení cookies</button>
+    <button type="button" class="reopen-cookies" onclick="openCookieSettings()"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.14em" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg> Změnit nastavení cookies</button>
 
     <h2>Jaká máte práva</h2>
     <p>V souvislosti se zpracováním vašich osobních údajů máte podle GDPR tato práva:</p>
@@ -875,10 +882,10 @@ footer {
 
 <section data-booking-band style="background:#0d1a14;border-top:1px solid rgba(255,255,255,0.06);padding:4.5rem 1.5rem;text-align:center;font-family:'Inter Tight',-apple-system,sans-serif;">
   <div style="max-width:600px;margin:0 auto;">
-    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'Inter Tight',-apple-system,sans-serif;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;">⚡ Konzultace zdarma</span>
+    <span style="display:inline-flex;align-items:center;gap:.5rem;background:rgba(34,196,126,0.08);border:1px solid rgba(34,196,126,0.28);border-radius:100px;padding:.4rem .95rem;font-family:'Inter Tight',-apple-system,sans-serif;font-size:.78rem;color:#22c47e;margin-bottom:1.4rem;"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.14em" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg> Konzultace zdarma</span>
     <h2 style="font-size:clamp(1.7rem,4vw,2.4rem);font-weight:800;letter-spacing:-0.035em;color:#fff;line-height:1.1;margin:0 0 .85rem;">Pojďme to probrat <em style="font-style:italic;font-weight:500;color:#FFB800;">nezávazně.</em></h2>
     <p style="color:#8aa39a;font-size:1.02rem;line-height:1.65;margin:0 auto 2rem;max-width:480px;">Vyberte si termín 30minutové konzultace. Beru jen pár projektů měsíčně, tak ať se na váš stihnu pořádně podívat.</p>
-    <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;">📅 Rezervovat krátký hovor →</a>
+    <a href="/rezervace" style="display:inline-flex;align-items:center;gap:.5rem;background:#22c47e;color:#0d3d2c;padding:1.05rem 2.1rem;border-radius:100px;font-weight:600;font-size:1rem;text-decoration:none;"><svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.14em" aria-hidden="true"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg> Rezervovat krátký hovor →</a>
     <p style="margin:1.1rem 0 0;font-size:.86rem;color:#5a7a6a;">nebo napište na <a href="mailto:tomas.tylich@seznam.cz" style="color:#8aa39a;text-decoration:underline;">tomas.tylich@seznam.cz</a></p>
   </div>
 </section>
@@ -921,7 +928,7 @@ footer {
 
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText">
   <div class="cookie-header">
-    <div class="cookie-icon">🍪</div>
+    <div class="cookie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="9.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.6" fill="currentColor"/><circle cx="9" cy="15" r="0.6" fill="currentColor"/></svg></div>
     <div class="cookie-title" id="cookieTitle">Soubory cookies</div>
   </div>
   <p class="cookie-text" id="cookieText">
@@ -972,7 +979,7 @@ footer {
   </div>
 </div>
 
-<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies">🍪</button>
+<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="9.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.6" fill="currentColor"/><circle cx="9" cy="15" r="0.6" fill="currentColor"/></svg></button>
 
 <script>
 const COOKIE_KEY = 'statly_cookie_consent_v1';
@@ -1012,8 +1019,40 @@ function setCookieConsent(consent) {
   showFab();
 }
 
+function loadGoogleAnalytics() {
+  if (window._gaLoaded) return;
+  const GA_ID = 'G-4PE1SD2TBP';
+  const s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', GA_ID, { anonymize_ip: true });
+  window._gaLoaded = true;
+}
+
+function loadMetaPixel() {
+  if (window._fbqLoaded) return;
+  !function(f,b,e,v,n,t,s){
+    if(f.fbq) return; n=f.fbq=function(){
+      n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
+    };
+    if(!f._fbq) f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+    n.queue=[]; t=b.createElement(e); t.async=!0;
+    t.src=v; s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s);
+  }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '26797740659876476');
+  fbq('track', 'PageView');
+  window._fbqLoaded = true;
+}
+
 function applyCookieConsent(data) {
-  // Hook for actual scripts: load Google Analytics, Meta Pixel etc. here
+  if (data.analytics) loadGoogleAnalytics();
+  if (data.marketing) loadMetaPixel();
   document.dispatchEvent(new CustomEvent('cookieConsentUpdated', { detail: data }));
 }
 
@@ -1122,6 +1161,7 @@ window.addEventListener('DOMContentLoaded', () => {
 .slg-opt.slg-sel{border-color:#22c47e;background:#142420;box-shadow:0 0 0 3px rgba(34,196,126,.12)}
 .slg-opt-ico{flex-shrink:0;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:1.25rem;
   background:linear-gradient(135deg,rgba(34,196,126,.14),rgba(255,184,0,.1));border:1px solid rgba(255,255,255,.05)}
+.slg-opt-ico svg{width:22px;height:22px;color:#22c47e}
 .slg-opt-tx{display:flex;flex-direction:column;gap:.1rem;min-width:0}
 .slg-opt-t{font-size:.96rem;font-weight:600;letter-spacing:-.01em}
 .slg-opt-d{font-size:.8rem;color:#8aa39a;line-height:1.3}
@@ -1225,38 +1265,62 @@ textarea.slg-in{resize:vertical;min-height:74px}
 (function(){
   if(window.__statlyGuide) return; window.__statlyGuide=true;
 
+  var SI=function(d){return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';};
+  var IC={
+    web:SI('<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/>'),
+    redesign:SI('<path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9z"/><path d="M19 14.5l.55 1.45 1.45.55-1.45.55-.55 1.45-.55-1.45-1.45-.55 1.45-.55z"/>'),
+    social:SI('<rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10.5 18h3"/>'),
+    design:SI('<path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/>'),
+    video:SI('<path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/>'),
+    chat:SI('<path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>'),
+    trend:SI('<path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/>'),
+    briefcase:SI('<rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>'),
+    rocket:SI('<path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/>'),
+    wrench:SI('<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>'),
+    search:SI('<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>'),
+    zap:SI('<path d="M13 2L3 14h7l-1 8 10-12h-7z"/>'),
+    cal:SI('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4"/>'),
+    calDays:SI('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18M8 2v4M16 2v4M8 14h.01M12 14h.01M16 14h.01"/>'),
+    leaf:SI('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/>'),
+    sprout:SI('<path d="M7 20h10"/><path d="M12 20v-8"/><path d="M12 12C12 8 9.5 6 6 6c0 3.5 2.5 6 6 6z"/><path d="M12 11c0-2.8 2-5 5-5 0 2.8-2 5-5 5z"/>'),
+    herb:SI('<path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>'),
+    tree:SI('<path d="M8 19a4 4 0 0 1-2.24-7.32A3.5 3.5 0 0 1 9 6.03V6a3 3 0 1 1 6 0v.04a3.5 3.5 0 0 1 3.24 5.65A4 4 0 0 1 16 19z"/><path d="M12 19v3"/>'),
+    trophy:SI('<path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>'),
+    handshake:SI('<path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/>')
+  };
+
   var STEPS=[
     {key:'service',q:'S čím vám můžu <em>pomoct</em>?',sub:'Vyberte, co vás teď nejvíc zajímá. Detaily doladíme společně.',
      opts:[
-       {v:'Nový web',ico:'🌐',d:'Web na míru od nuly'},
-       {v:'Redesign webu',ico:'✨',d:'Vylepšit stávající web'},
-       {v:'Sociální sítě',ico:'📱',d:'Obsah a správa IG / FB'},
-       {v:'Grafika a logo',ico:'🎨',d:'Logo, vizitky, tisk'},
-       {v:'Natáčení videí',ico:'🎬',d:'Reels, reklamy, dron'},
-       {v:'Nevím, poradíte mi',ico:'💬',d:'Probereme to spolu'}
+       {v:'Nový web',ico:IC.web,d:'Web na míru od nuly'},
+       {v:'Redesign webu',ico:IC.redesign,d:'Vylepšit stávající web'},
+       {v:'Sociální sítě',ico:IC.social,d:'Obsah a správa IG / FB'},
+       {v:'Grafika a logo',ico:IC.design,d:'Logo, vizitky, tisk'},
+       {v:'Natáčení videí',ico:IC.video,d:'Reels, reklamy, dron'},
+       {v:'Nevím, poradíte mi',ico:IC.chat,d:'Probereme to spolu'}
      ]},
     {key:'goal',q:'Čeho chcete <em>dosáhnout</em>?',sub:'Ať vím, kam má řešení mířit.',
      opts:[
-       {v:'Víc poptávek a zákazníků',ico:'📈'},
-       {v:'Působit profesionálně',ico:'💼'},
-       {v:'Rozjíždím nový byznys',ico:'🚀'},
-       {v:'Modernizovat zastaralé',ico:'🔧'},
-       {v:'Zatím jen zjišťuji',ico:'🔍'}
+       {v:'Víc poptávek a zákazníků',ico:IC.trend},
+       {v:'Působit profesionálně',ico:IC.briefcase},
+       {v:'Rozjíždím nový byznys',ico:IC.rocket},
+       {v:'Modernizovat zastaralé',ico:IC.wrench},
+       {v:'Zatím jen zjišťuji',ico:IC.search}
      ]},
     {key:'timeline',q:'Kdy byste chtěli <em>začít</em>?',sub:'Orientačně, klidně to upřesníme.',
      opts:[
-       {v:'Co nejdřív',ico:'⚡'},
-       {v:'Do měsíce',ico:'📅'},
-       {v:'Do tří měsíců',ico:'🗓️'},
-       {v:'Zatím nespěchám',ico:'🍃'}
+       {v:'Co nejdřív',ico:IC.zap},
+       {v:'Do měsíce',ico:IC.cal},
+       {v:'Do tří měsíců',ico:IC.calDays},
+       {v:'Zatím nespěchám',ico:IC.leaf}
      ]},
     {key:'budget',q:'Orientační <em>rozpočet</em>?',sub:'Pomůže mi navrhnout řešení, které dává smysl. Nezávazné.',
      opts:[
-       {v:'do 15 000 Kč',ico:'🌱'},
-       {v:'15–30 000 Kč',ico:'🌿'},
-       {v:'30–60 000 Kč',ico:'🌳'},
-       {v:'60 000 Kč a víc',ico:'🏆'},
-       {v:'Nechám na doporučení',ico:'🤝'}
+       {v:'do 15 000 Kč',ico:IC.sprout},
+       {v:'15–30 000 Kč',ico:IC.herb},
+       {v:'30–60 000 Kč',ico:IC.tree},
+       {v:'60 000 Kč a víc',ico:IC.trophy},
+       {v:'Nechám na doporučení',ico:IC.handshake}
      ]},
     {key:'contact',form:true,q:'Kam se vám mám <em>ozvat</em>?',sub:'Do 48 hodin se ozvu s návrhem postupu. Nezávazně a zdarma.'}
   ];
@@ -1389,11 +1453,11 @@ textarea.slg-in{resize:vertical;min-height:74px}
     if(!a.industry){showErr('Vyplňte prosím obor podnikání.');document.getElementById('slgIndustry').focus();return;}
     if(!a.gdpr){showErr('Pro odeslání je nutný souhlas se zpracováním údajů.');return;}
 
-    var msg='— Poptávka přes interaktivního průvodce —\n'
-      +'• Služba: '+(a.service||'—')+'\n'
-      +'• Cíl: '+(a.goal||'—')+'\n'
-      +'• Termín: '+(a.timeline||'—')+'\n'
-      +'• Rozpočet: '+(a.budget||'—')+'\n';
+    var msg='Poptávka přes interaktivního průvodce\n'
+      +'• Služba: '+(a.service||'neuvedeno')+'\n'
+      +'• Cíl: '+(a.goal||'neuvedeno')+'\n'
+      +'• Termín: '+(a.timeline||'neuvedeno')+'\n'
+      +'• Rozpočet: '+(a.budget||'neuvedeno')+'\n';
     if(a.message) msg+='\nPoznámka klienta:\n'+a.message+'\n';
 
     nextBtn.classList.add('slg-loading');nextBtn.disabled=true;
@@ -1416,7 +1480,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     foot.style.display='none';
     var nm=esc((state.answers.name||'').split(' ')[0]);
     body.innerHTML='<div class="slg-done"><div class="slg-done-ico">✓</div>'
-      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'! 🎉</h3>'
+      +'<h3 class="slg-done-h">Děkuji'+(nm?', '+nm:'')+'!</h3>'
       +'<p class="slg-done-p">Vaše poptávka dorazila. Ozvu se vám <strong style="color:#cfe3d9">do 48 hodin</strong> s návrhem dalšího postupu, nejčastěji ještě týž den.</p>'
       +'<button type="button" class="slg-next" style="margin:0 auto" data-slg-close>Zavřít</button></div>';
     body.querySelector('[data-slg-close]').addEventListener('click',close);

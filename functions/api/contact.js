@@ -19,18 +19,28 @@ const recentSubmissions = new Map();
 const RATE_LIMIT_WINDOW_MS = 60_000; // 1 minuta
 const RATE_LIMIT_MAX       = 3;       // max 3 odeslání z jedné IP za minutu
 
-function corsHeaders() {
+// Povolené originy: produkce + Cloudflare Pages preview (*.pages.dev)
+function isAllowedOrigin(origin) {
+  if (!origin) return true; // same-origin požadavky často Origin neposílají
+  return origin === 'https://statly.cz'
+      || origin === 'https://www.statly.cz'
+      || /^https:\/\/[a-z0-9-]+\.pages\.dev$/.test(origin);
+}
+
+function corsHeaders(origin) {
+  const allow = isAllowedOrigin(origin) && origin ? origin : 'https://statly.cz';
   return {
-    'Access-Control-Allow-Origin':  '*',
+    'Access-Control-Allow-Origin':  allow,
     'Access-Control-Allow-Methods': 'POST, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type'
+    'Access-Control-Allow-Headers': 'Content-Type',
+    'Vary': 'Origin'
   };
 }
 
-function jsonResponse(status, body) {
+function jsonResponse(status, body, origin) {
   return new Response(JSON.stringify(body), {
     status,
-    headers: { 'Content-Type': 'application/json; charset=utf-8', ...corsHeaders() }
+    headers: { 'Content-Type': 'application/json; charset=utf-8', ...corsHeaders(origin) }
   });
 }
 
@@ -68,16 +78,23 @@ function checkRateLimit(ip) {
 }
 
 // ── CORS preflight ───────────────────────────────────────
-export async function onRequestOptions() {
-  return new Response(null, { status: 204, headers: corsHeaders() });
+export async function onRequestOptions({ request }) {
+  return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('Origin')) });
 }
 
 // ── POST /api/contact ────────────────────────────────────
 export async function onRequestPost({ request, env }) {
+  const origin = request.headers.get('Origin');
+
+  // 0) Odmítnout požadavky z cizích originů (ochrana proti zneužití z jiných webů)
+  if (!isAllowedOrigin(origin)) {
+    return jsonResponse(403, { error: 'Neplatný původ požadavku.' }, origin);
+  }
+
   // 1) Rate limit podle IP
   const ip = request.headers.get('CF-Connecting-IP') || 'unknown';
   if (!checkRateLimit(ip)) {
-    return jsonResponse(429, { error: 'Příliš mnoho pokusů. Zkuste to za chvíli prosím.' });
+    return jsonResponse(429, { error: 'Příliš mnoho pokusů. Zkuste to za chvíli prosím.' }, origin);
   }
 
   // 2) Parse JSON
@@ -102,6 +119,7 @@ export async function onRequestPost({ request, env }) {
   const industry = clip(data.industry, 160);
   const service  = clip(data.service,  160);
   const message  = clip(data.message,  3000);
+  const mesto    = clip(data.mesto,    80);
   const gdpr     = !!data.gdpr;
 
   if (!name || name.length < 2)  return jsonResponse(400, { error: 'Chybí jméno.' });
@@ -121,7 +139,9 @@ export async function onRequestPost({ request, env }) {
   const from = env.CONTACT_FROM || DEFAULT_FROM;
 
   // 6) Sestavení e-mailu
-  const subject = `Nová poptávka na statly.cz — ${name}`;
+  const subject = mesto
+    ? `Nová poptávka z webu (${mesto}) — ${name}`
+    : `Nová poptávka na statly.cz — ${name}`;
 
   const html = `
 <!DOCTYPE html>
@@ -147,6 +167,9 @@ export async function onRequestPost({ request, env }) {
                 <td style="padding:8px 0;color:#0a1410;">${escapeHtml(industry)}</td></tr>
             <tr><td style="padding:8px 0;color:#5a7a6a;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;vertical-align:top;">Služba</td>
                 <td style="padding:8px 0;color:#0a1410;"><strong>${escapeHtml(service)}</strong></td></tr>
+            ${mesto ? `
+            <tr><td style="padding:8px 0;color:#5a7a6a;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;vertical-align:top;">Stránka</td>
+                <td style="padding:8px 0;color:#0a1410;">${escapeHtml(mesto)}</td></tr>` : ''}
           </table>
           ${message ? `
           <div style="margin-top:24px;padding-top:24px;border-top:1px solid #eef0ef;">
@@ -155,7 +178,7 @@ export async function onRequestPost({ request, env }) {
           </div>` : ''}
         </td></tr>
         <tr><td style="padding:18px 32px;background:#f4f6f5;color:#5a7a6a;font-size:12px;border-top:1px solid #eef0ef;">
-          Odesláno z formuláře na <a href="https://statly.cz" style="color:#1B7F5F;text-decoration:none;">statly.cz</a> · IP: ${escapeHtml(ip)}
+          Odesláno z formuláře na <a href="https://statly.cz" style="color:#1B7F5F;text-decoration:none;">statly.cz</a>
         </td></tr>
       </table>
     </td></tr>
@@ -171,12 +194,11 @@ Jméno:    ${name}
 ${company ? `Firma:    ${company}\n` : ''}E-mail:   ${email}
 ${phone ? `Telefon:  ${phone}\n` : ''}Obor:     ${industry}
 Služba:   ${service}
-
+${mesto ? `Stránka:  ${mesto}\n` : ''}
 ${message ? `Zpráva:\n${message}\n` : '(bez zprávy)'}
 
 ---
 Odesláno z https://statly.cz
-IP: ${ip}
 `;
 
   // 7) Volání Resend API
@@ -210,9 +232,7 @@ IP: ${ip}
   }
 }
 
-// jakákoli jiná metoda
-export async function onRequest({ request }) {
-  if (request.method === 'OPTIONS') return onRequestOptions();
-  if (request.method === 'POST')    return onRequestPost(arguments[0]);
+// Ostatní metody (GET, PUT, ...) — metodově specifické handlery výše mají přednost
+export async function onRequest() {
   return jsonResponse(405, { error: 'Method not allowed' });
 }

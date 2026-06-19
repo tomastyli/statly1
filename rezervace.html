@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Rezervace konzultace zdarma | Statly</title>
-<meta name="description" content="Vyber si termín krátkého nezávazného hovoru. Probereme tvůj web nebo marketing a navrhnu další postup. Statly, Litomyšl.">
+<meta name="description" content="Vyberte si termín krátkého nezávazného hovoru. Probereme váš web nebo marketing a navrhnu další postup. Statly, Litomyšl.">
 
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
@@ -16,13 +16,14 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://statly.cz/rezervace">
 <meta property="og:title" content="Rezervace konzultace zdarma | Statly">
-<meta property="og:description" content="Vyber si termín krátkého nezávazného hovoru a probereme tvůj projekt.">
+<meta property="og:description" content="Vyberte si termín krátkého nezávazného hovoru a probereme váš projekt.">
 <meta property="og:image" content="https://statly.cz/og-image.png">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:site_name" content="Statly">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://assets.calendly.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap"></noscript>
 
 <style>
@@ -30,6 +31,11 @@
 html { scroll-behavior: smooth; }
 body { font-family: 'Inter Tight', -apple-system, sans-serif; background: #0a1410; color: #e8efe9; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 a { text-decoration: none; color: inherit; }
+:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
 :root {
   --green: #1B7F5F; --green-bright: #22c47e; --green-deep: #0d3d2c;
   --gold: #FFB800; --gold-soft: #ffd166;
@@ -77,7 +83,7 @@ footer { border-top: 1px solid var(--border); padding: 2.5rem 1.5rem; text-align
 footer a { color: var(--text-dim); }
 footer a:hover { color: var(--green-bright); }
 
-@media (max-width: 600px) { .book-head { padding: 2.5rem 0 1.5rem; } #calendly-embed { height: 640px; } }
+@media (max-width: 600px) { .book-head { padding: 2.5rem 0 1.5rem; } #calendly-embed { height: 640px; } .form-input, .form-select, .form-textarea { font-size: 16px; } }
 
 .write-section { padding: 0.5rem 0 4rem; }
 .write-divider { max-width: 1000px; margin: 0 auto 3rem; display: flex; align-items: center; gap: 1.2rem; color: var(--text-dimmer); font-family: var(--mono); font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; }
@@ -150,8 +156,8 @@ footer a:hover { color: var(--green-bright); }
   <header class="book-head">
     <div class="wrap">
       <span class="book-badge">Nezávazně &amp; zdarma</span>
-      <h1 class="book-h">Vyber si termín<br><em class="gold">konzultace zdarma.</em></h1>
-      <p class="book-sub">30 minut po telefonu nebo videohovoru. Probereme, co potřebuješ, a navrhnu ti další postup, bez závazků a tlaku na rozhodnutí.</p>
+      <h1 class="book-h">Vyberte si termín<br><em class="gold">konzultace zdarma.</em></h1>
+      <p class="book-sub">30 minut po telefonu nebo videohovoru. Probereme, co potřebujete, a navrhnu vám další postup, bez závazků a tlaku na rozhodnutí.</p>
       <div class="book-feats">
         <span class="book-feat"><span class="chk">✓</span> 30 minut, bez závazků</span>
         <span class="book-feat"><span class="chk">✓</span> Konkrétní návrh postupu</span>
@@ -171,7 +177,7 @@ footer a:hover { color: var(--green-bright); }
     <div class="cal-wrap">
       <div id="calendly-embed" style="min-width:320px;"></div>
     </div>
-    <p class="cal-help">Nenačítá se kalendář? Někdy ho blokuje rozšíření prohlížeče (adblock), zkus anonymní okno, nebo mi napiš na <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a> či zavolej <a href="tel:+420737372708">+420 737 372 708</a>.</p>
+    <p class="cal-help">Nenačítá se kalendář? Někdy ho blokuje rozšíření prohlížeče (adblock), zkuste anonymní okno, nebo mi napište na <a href="mailto:tomas.tylich@seznam.cz">tomas.tylich@seznam.cz</a> či zavolej <a href="tel:+420737372708">+420 737 372 708</a>.</p>
   </div>
 </div>
 
@@ -326,7 +332,7 @@ window.addEventListener('message', function(e) {
     statusEl.classList.remove('success', 'error', 'show');
     if (!type) return;
     statusEl.classList.add('show', type);
-    statusIcon.textContent = type === 'success' ? '✓' : '⚠';
+    statusIcon.textContent = type === 'success' ? '✓' : '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.14em" aria-hidden="true"><path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><path d="M12 9v4M12 17h.01"/></svg>';
     statusText.textContent = message;
   }
 

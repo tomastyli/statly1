@@ -64,34 +64,7 @@
     "https://www.facebook.com/profile.php?id=61570755123277"
   ],
   "priceRange": "$$",
-  "areaServed": "Východní Čechy",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "3",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "review": [
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Organization", "name": "Flexi House" },
-      "reviewBody": "Tomáš nám udělal kompletní redesign webu a k tomu natočil sérii videí na sociální sítě. Komunikace bez zbytečností, rychlé reakce a výsledek nad naše očekávání. Po spuštění webu nám během měsíce výrazně vzrostl počet poptávek."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Organization", "name": "AuraFloor" },
-      "reviewBody": "Hledali jsme někoho, kdo nám udělá moderní a přehledný web bez zbytečných řečí. Tomáš to chápal hned od první schůzky. Dodal nám čistý a rychlý web, který naši zákazníci chválí."
-    },
-    {
-      "@type": "Review",
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "author": { "@type": "Organization", "name": "Střechmont" },
-      "reviewBody": "Potřeboval jsem nový web a videa z realizací střech. Vše doručil včas a v kvalitě, jakou jsem ještě u nikoho v regionu neviděl. Záběry z dronu vypadají jako z reklamy a klienti začali volat hned."
-    }
-  ]
+  "areaServed": "Východní Čechy"
 }
 </script>
 
@@ -181,6 +154,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="dns-prefetch" href="https://unpkg.com">
+<link rel="dns-prefetch" href="https://basemaps.cartocdn.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap"></noscript>
 
 <style>
@@ -198,13 +173,18 @@ body {
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
 
 :root {
   --green-deep: #0d3d2c; --green: #1B7F5F; --green-light: #2A9F7A; --green-bright: #22c47e;
   --gold: #FFB800; --gold-soft: #ffd166; --teal: #4dd9a2;
   --bg: #0a1410; --bg-2: #0d1a14; --bg-card: #111e18; --bg-card-2: #142420;
   --border: rgba(255,255,255,0.06); --border-2: rgba(34,196,126,0.18);
-  --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #5a7a6a;
+  --text: #e8efe9; --text-dim: #8aa39a; --text-dimmer: #6f8f81;
   --sans: 'Inter Tight', -apple-system, sans-serif;
   --mono: 'Inter Tight', -apple-system, sans-serif;
 }
@@ -238,6 +218,17 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(34,196,126,0.25); }
 .nav-folio-m { display: none; }
 .nav-cta:hover::before { opacity: 1; }
+.nav-burger { display: none; width: 44px; height: 44px; flex-direction: column; justify-content: center; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 0; margin-left: 0.5rem; flex-shrink: 0; }
+.nav-burger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: transform 0.3s ease, opacity 0.2s ease; }
+.nav-burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.nav-drawer { position: fixed; inset: 0; z-index: 9998; background: rgba(8,15,12,0.97); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 6rem 1.5rem 2.5rem; overflow-y: auto; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+.nav-drawer.open { opacity: 1; pointer-events: auto; }
+.nav-drawer-links { display: flex; flex-direction: column; align-items: center; gap: 1.6rem; text-align: center; }
+.nav-drawer-links a { font-family: var(--sans); font-size: 1.5rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
+.nav-drawer-links a:hover { color: var(--green-bright); }
+.nav-drawer-cta { margin-top: 0.8rem; background: var(--green); color: #fff !important; padding: 0.85rem 2.2rem; border-radius: 100px; font-size: 1.15rem !important; }
 
 .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 2rem 5rem; position: relative; overflow: hidden; background: var(--bg); }
 .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
@@ -499,7 +490,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .cookie-banner { position: fixed; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; max-width: 480px; background: rgba(13,26,20,0.96); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid var(--border-2); border-radius: 18px; padding: 1.5rem; box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,196,126,0.08); z-index: 10000; transform: translateY(120%); opacity: 0; transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s; }
 .cookie-banner.show { transform: translateY(0); opacity: 1; }
 .cookie-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
-.cookie-icon { width: 32px; height: 32px; background: rgba(34,196,126,0.1); border: 1px solid rgba(34,196,126,0.25); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.cookie-icon { width: 32px; height: 32px; background: rgba(34,196,126,0.1); border: 1px solid rgba(34,196,126,0.25); border-radius: 9px; display: flex; align-items: center; justify-content: center; color: var(--green-bright); }
+.cookie-icon svg { width: 18px; height: 18px; }
+.cookie-fab svg { width: 18px; height: 18px; }
 .cookie-title { font-family: var(--sans); font-size: 0.98rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; }
 .cookie-text { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 1.25rem; }
 .cookie-text a { color: var(--green-bright); text-decoration: underline; text-decoration-color: rgba(34,196,126,0.35); text-underline-offset: 2px; }
@@ -555,9 +548,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
-  .nav-folio-m { display: inline-flex; align-items: center; gap: 0.4rem; margin-left: auto; margin-right: 1rem; font-family: var(--sans); font-size: 0.86rem; font-weight: 600; color: var(--text); transition: color 0.2s; }
-  .nav-folio-m::after { content: '\2197'; font-size: 0.9rem; color: var(--green-bright); }
-  .nav-folio-m:hover { color: var(--green-bright); }
+  .nav-folio-m { display: none; }
+  .nav-cta { margin-left: auto; }
+  .nav-burger { display: flex; }
   .svc-grid { grid-template-columns: 1fr; }
   .folio { flex: 0 0 300px; }
   .folio-section-head { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
@@ -618,14 +611,17 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 .sc-sub { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); }
 .sc-btn { display: inline-flex; align-items: center; gap: 0.4rem; flex-shrink: 0; padding: 0.8rem 1.3rem; border-radius: 100px; font-family: var(--sans); font-weight: 700; font-size: 0.92rem; cursor: pointer; border: none; color: #06140e; background: linear-gradient(135deg, #FFB800, #ffd166); transition: transform 0.25s, box-shadow 0.25s; }
 .sc-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(255,184,0,0.35); }
-.sc-close { flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px; border: none; background: transparent; color: var(--text-dim); cursor: pointer; font-size: 1rem; line-height: 1; transition: color 0.2s, background 0.2s; }
+.sc-close { flex-shrink: 0; width: 40px; height: 40px; border-radius: 10px; border: none; background: transparent; color: var(--text-dim); cursor: pointer; font-size: 1rem; line-height: 1; transition: color 0.2s, background 0.2s; display: grid; place-items: center; }
 .sc-close:hover { color: #fff; background: rgba(255,255,255,0.06); }
 @media (max-width: 540px) { .sticky-cta { gap: 0.7rem; padding-left: 0.8rem; }
   .sc-ico { width: 38px; height: 38px; }
   .sc-sub { display: none; }
   .sc-btn { padding: 0.7rem 1rem; }
   .sc-btn .sc-btn-l { display: none; }
-  .sc-close { display: none; } }
+  .sc-close { width: 36px; height: 36px; } }
+/* Když je vidět sticky CTA, schovej plovoucí FAB tlačítka, ať se nepřekrývají */
+body.sticky-cta-on .slg-fab,
+body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
 
 .capacity { max-width: 420px; margin: 0 auto 1.9rem; background: rgba(255,184,0,0.05); border: 1px solid rgba(255,184,0,0.22); border-radius: 16px; padding: 1.1rem 1.25rem; position: relative; z-index: 1; text-align: left; }
 .capacity-top { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text); }
@@ -665,8 +661,22 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     </ul>
     <a href="/portfolio" class="nav-folio-m">Portfolio</a>
     <a href="#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
+    <button class="nav-burger" id="navBurger" aria-label="Otevřít menu" aria-expanded="false" aria-controls="navDrawer"><span></span><span></span><span></span></button>
   </div>
 </nav>
+
+<div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="nav-drawer-links" role="navigation" aria-label="Hlavní menu">
+    <a href="#sluzby">Služby</a>
+    <a href="/nataceni">Natáčení</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="#reference">Reference</a>
+    <a href="/blog">Blog</a>
+    <a href="#postup">Postup</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="#kontakt" class="nav-drawer-cta">Chci nabídku →</a>
+  </div>
+</div>
 
 <section class="hero">
   <div class="hero-bg"></div>
@@ -741,7 +751,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     <div class="founder-body reveal d1">
       <span class="sec-label">Kdo to staví</span>
       <h2 class="sec-h">Vaše jméno na webu.<br><em>Pro mě i moje.</em></h2>
-      <p>Za Statly nestojí tým cizích lidí ani šablona z internetu. Jsem to <strong>já</strong>, kdo navrhuje, staví i odpovídá na vaše maily. Když mi svěříte svůj byznys, beru to osobně.</p>
+      <p>Statly jsem <strong>já</strong>. Sám navrhuju, stavím i odpovídám na vaše maily. Když mi svěříte svůj byznys, beru to osobně.</p>
       <p>Záleží mi na tom, co vám předávám. Nechci vám web prodat a zmizet. Chci, aby vám reálně vydělával a abyste se za pár měsíců ozvali, že to funguje.</p>
       <ul class="founder-promises">
         <li>
@@ -781,7 +791,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <div class="card-h">Webové stránky</div>
         <p class="card-p">Postavím vám web, za který se nebudete stydět a který vám pracuje, i když zrovna spíte. Rychlý, přehledný a postavený od základu pod to, co děláte. Hlavně mi jde o to, aby vám reálně nosil poptávky, ne aby jen hezky vypadal. Součástí je i redesign starého webu, SEO základ a údržba.</p>
         <ul class="card-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Na míru vaší firmě, ne ze šablony</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Na míru vaší firmě a oboru</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Funguje na mobilu stejně dobře jako na počítači</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rychlé načítání a základ pro Google</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Formuláře, co vám vážně nosí poptávky</li>
@@ -817,7 +827,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <span class="feature-badge"><span class="pulse-dot"></span> Novinka · Bonus k službám</span>
         <h3 class="feature-h">Natočím vám video <em>jako z reklamy.</em></h3>
         <p class="feature-p">
-          Stabilizovaný telefon, profi mikrofony a dron v terénu. Střih a barvy doladí můj tým editorů.
+          Stabilizovaný telefon, profi mikrofony a dron v terénu. Střih a barvy dolaďuju s ověřenými editory, se kterými spolupracuji.
           Reels, reklamy, produktová videa i letecké záběry, vše připravené pro sociální sítě i váš web.
         </p>
         <div class="feature-tags">
@@ -836,7 +846,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
           <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Stabilizátor</span><span class="gear-chip-sub">plynulý pohyb</span></div></div>
           <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.4 6.4l3.1 3.1M17.6 6.4l-3.1 3.1M6.4 17.6l3.1-3.1M17.6 17.6l-3.1-3.1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Dron</span><span class="gear-chip-sub">letecké záběry</span></div></div>
           <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Mikrofony</span><span class="gear-chip-sub">čistý zvuk</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Tým editorů</span><span class="gear-chip-sub">střih a barvy</span></div></div>
+          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Editoři</span><span class="gear-chip-sub">střih a barvy</span></div></div>
         </div>
       </div>
     </a>
@@ -1338,7 +1348,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
         <div class="waas-price"><b>Cena podle rozsahu</b></div>
         <p class="waas-desc">Zaplatíte jednou a web je rovnou váš, kód i doména. Přesnou cenu navrhnu po krátké konzultaci.</p>
         <ul class="waas-feats">
-          <li><span class="waas-chk">✓</span>Web na míru na klíč</li>
+          <li><span class="waas-chk">✓</span>Web navržený přesně pro vaši firmu</li>
           <li><span class="waas-chk">✓</span>Vlastníte zdrojový kód i doménu</li>
           <li><span class="waas-chk">✓</span>Žádné měsíční závazky</li>
           <li><span class="waas-chk">✓</span>V dlouhodobém součtu nejlevnější</li>
@@ -1396,7 +1406,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </span>
   <span class="sc-text">
     <span class="sc-title">Chcete nový web?</span>
-    <span class="sc-sub">Nabídku připravím do 15 minut</span>
+    <span class="sc-sub">Ozvu se do 48 hodin, často ještě dnes</span>
   </span>
   <button type="button" class="sc-btn" data-slg-open aria-haspopup="dialog">Chci nabídku <span class="sc-btn-l">→</span></button>
   <button type="button" class="sc-close" id="stickyCtaClose" aria-label="Zavřít">✕</button>
@@ -1456,7 +1466,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle" aria-describedby="cookieText">
   <div class="cookie-header">
-    <div class="cookie-icon">🍪</div>
+    <div class="cookie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="9.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.6" fill="currentColor"/><circle cx="9" cy="15" r="0.6" fill="currentColor"/></svg></div>
     <div class="cookie-title" id="cookieTitle">Soubory cookies</div>
   </div>
   <p class="cookie-text" id="cookieText">
@@ -1507,7 +1517,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   </div>
 </div>
 
-<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies">🍪</button>
+<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies" title="Nastavení cookies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="9.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.6" fill="currentColor"/><circle cx="9" cy="15" r="0.6" fill="currentColor"/></svg></button>
 
 <script>
 const io = new IntersectionObserver((entries) => {
@@ -1719,11 +1729,47 @@ window.addEventListener('DOMContentLoaded', () => {
   var hero = document.querySelector('.hero');
   var contact = document.getElementById('kontakt');
   var heroVisible = true, contactVisible = false, dismissed = false;
-  function update() { bar.classList.toggle('show', !dismissed && !heroVisible && !contactVisible); }
+  function update() {
+    var show = !dismissed && !heroVisible && !contactVisible;
+    bar.classList.toggle('show', show);
+    document.body.classList.toggle('sticky-cta-on', show);
+  }
   var closeBtn = document.getElementById('stickyCtaClose');
   if (closeBtn) closeBtn.addEventListener('click', function(){ dismissed = true; update(); });
   if (hero) new IntersectionObserver(function(en){ heroVisible = en[0].isIntersecting; update(); }, { threshold: 0 }).observe(hero);
   if (contact) new IntersectionObserver(function(en){ contactVisible = en[0].isIntersecting; update(); }, { threshold: 0 }).observe(contact);
+})();
+
+(function(){
+  var burger = document.getElementById('navBurger');
+  var drawer = document.getElementById('navDrawer');
+  if (!burger || !drawer) return;
+  var lastFocus = null;
+  function isOpen(){ return burger.getAttribute('aria-expanded') === 'true'; }
+  function openMenu(){
+    drawer.hidden = false;
+    requestAnimationFrame(function(){ drawer.classList.add('open'); });
+    burger.setAttribute('aria-expanded', 'true');
+    burger.setAttribute('aria-label', 'Zavřít menu');
+    document.body.style.overflow = 'hidden';
+    lastFocus = document.activeElement;
+    var first = drawer.querySelector('a');
+    if (first) first.focus();
+  }
+  function closeMenu(){
+    drawer.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-label', 'Otevřít menu');
+    document.body.style.overflow = '';
+    setTimeout(function(){ drawer.hidden = true; }, 320);
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  burger.addEventListener('click', function(){ isOpen() ? closeMenu() : openMenu(); });
+  drawer.addEventListener('click', function(e){
+    if (e.target.closest('a') || e.target === drawer) closeMenu();
+  });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && isOpen()) closeMenu(); });
+  window.addEventListener('resize', function(){ if (isOpen() && window.innerWidth > 768) closeMenu(); });
 })();
 </script>
 <style>
@@ -1861,6 +1907,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
   .slg-opts.slg-2{grid-template-columns:1fr}
   .slg-fields{grid-template-columns:1fr}
   .slg-q{font-size:1.18rem}
+  .slg-in{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){
   .slg-fab,.slg-fab-dot,.slg-modal,.slg-step,.slg-done-ico,.slg-overlay{animation:none!important;transition:opacity .2s!important}
@@ -1944,10 +1991,10 @@ textarea.slg-in{resize:vertical;min-height:74px}
      modes:[
        {id:'once',label:'Jednorázově',ico:IC.card,sub:'Web je váš napořád, zaplatíte jednou.',
         opts:[
-          {v:'do 15 000 Kč',ico:IC.sprout},
-          {v:'15–30 000 Kč',ico:IC.herb},
-          {v:'30–60 000 Kč',ico:IC.tree},
-          {v:'60 000 Kč a víc',ico:IC.trophy},
+          {v:'do 30 000 Kč',ico:IC.sprout},
+          {v:'30–50 000 Kč',ico:IC.herb},
+          {v:'50–80 000 Kč',ico:IC.tree},
+          {v:'80 000 Kč a víc',ico:IC.trophy},
           {v:'Nechám na doporučení',ico:IC.handshake}
         ]},
        {id:'rent',label:'Měsíčně',ico:IC.repeat,sub:'Pronájem webu, měsíční paušál bez velké investice předem.',

@@ -25,6 +25,7 @@
 <meta property="og:title" content="Tvorba webových stránek Chrudim | Statly · Tomáš Tylich">
 <meta property="og:description" content="Tvořím weby, sociální sítě a videa pro firmy v Chrudimi a okolí. Místní webař z Litomyšle, 40 minut od tebe. Osobní přístup a výsledky, které je vidět.">
 <meta property="og:image" content="https://statly.cz/og-image.png">
+<meta property="og:image:alt" content="Statly – tvorba webů Chrudim">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="cs_CZ">
@@ -57,6 +58,12 @@
   "sameAs": ["https://statly.cz", "https://www.instagram.com/statly.cz", "https://www.facebook.com/profile.php?id=61570755123277"],
   "priceRange": "$$"
 }
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+{"@type":"ListItem","position":1,"name":"Domů","item":"https://statly.cz/"},
+{"@type":"ListItem","position":2,"name":"Chrudim","item":"https://statly.cz/chrudim"}
+]}
 </script>
 <script type="application/ld+json">
 {
@@ -92,6 +99,11 @@ body { font-family: 'Inter Tight', -apple-system, sans-serif; background: #0a141
 a { text-decoration: none; color: inherit; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+:focus-visible { outline: 2px solid var(--green-bright); outline-offset: 2px; border-radius: 4px; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+}
 :root {
   --green-deep: #0d3d2c; --green: #1B7F5F; --green-light: #2A9F7A; --green-bright: #22c47e;
   --gold: #FFB800; --gold-soft: #ffd166; --teal: #4dd9a2;
@@ -370,7 +382,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
 .cookie-banner { position: fixed; bottom: 1.25rem; left: 1.25rem; right: 1.25rem; max-width: 480px; background: rgba(13,26,20,0.96); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid var(--border-2); border-radius: 18px; padding: 1.5rem; box-shadow: 0 24px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(34,196,126,0.08); z-index: 10000; transform: translateY(120%); opacity: 0; transition: transform 0.5s cubic-bezier(0.22,1,0.36,1), opacity 0.5s; }
 .cookie-banner.show { transform: translateY(0); opacity: 1; }
 .cookie-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.7rem; }
-.cookie-icon { width: 32px; height: 32px; background: rgba(34,196,126,0.1); border: 1px solid rgba(34,196,126,0.25); border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+.cookie-icon { width: 32px; height: 32px; background: rgba(34,196,126,0.1); border: 1px solid rgba(34,196,126,0.25); border-radius: 9px; display: flex; align-items: center; justify-content: center; color: var(--green-bright); }
+.cookie-icon svg { width: 18px; height: 18px; }
+.cookie-fab svg { width: 18px; height: 18px; }
 .cookie-title { font-family: var(--sans); font-size: 0.98rem; font-weight: 700; color: #fff; }
 .cookie-text { font-size: 0.85rem; color: var(--text-dim); line-height: 1.55; margin-bottom: 1.25rem; }
 .cookie-text a { color: var(--green-bright); text-decoration: underline; cursor: pointer; }
@@ -665,7 +679,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
 </footer>
 
 <div class="cookie-banner" id="cookieBanner" role="dialog" aria-labelledby="cookieTitle">
-  <div class="cookie-header"><div class="cookie-icon">🍪</div><div class="cookie-title" id="cookieTitle">Soubory cookies</div></div>
+  <div class="cookie-header"><div class="cookie-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="9.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.6" fill="currentColor"/><circle cx="9" cy="15" r="0.6" fill="currentColor"/></svg></div><div class="cookie-title" id="cookieTitle">Soubory cookies</div></div>
   <p class="cookie-text">Používám cookies, aby web fungoval správně a abych mohl měřit, co návštěvníky zajímá. Marketingové a analytické cookies se aktivují pouze s vaším souhlasem. <a onclick="openCookieSettings()">Podrobné nastavení</a>.</p>
   <div class="cookie-actions">
     <button class="cookie-btn primary" onclick="acceptAllCookies()">Přijmout vše</button>
@@ -683,7 +697,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
     <div class="cookie-modal-actions"><button class="cookie-btn secondary" onclick="acceptNecessaryCookies()">Jen nezbytné</button><button class="cookie-btn primary" onclick="saveCookieSettings()">Uložit nastavení</button></div>
   </div>
 </div>
-<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies">🍪</button>
+<button class="cookie-fab" id="cookieFab" onclick="openCookieSettings()" aria-label="Nastavení cookies"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5z"/><circle cx="9.5" cy="9.5" r="0.6" fill="currentColor"/><circle cx="14.5" cy="13.5" r="0.6" fill="currentColor"/><circle cx="9" cy="15" r="0.6" fill="currentColor"/></svg></button>
 
 <script>
 (function(){const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));})();
@@ -830,6 +844,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
   .slg-opts.slg-2{grid-template-columns:1fr}
   .slg-fields{grid-template-columns:1fr}
   .slg-q{font-size:1.18rem}
+  .slg-in{font-size:16px}
 }
 @media (prefers-reduced-motion:reduce){
   .slg-fab,.slg-fab-dot,.slg-modal,.slg-step,.slg-done-ico,.slg-overlay{animation:none!important;transition:opacity .2s!important}
@@ -1064,7 +1079,7 @@ textarea.slg-in{resize:vertical;min-height:74px}
     nextBtn.classList.add('slg-loading');nextBtn.disabled=true;
     fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:a.name,company:a.company,email:a.email,phone:a.phone,
-        industry:a.industry,service:a.service||'Přes průvodce',message:msg,website:hp,gdpr:a.gdpr})})
+        industry:a.industry,service:a.service||'Přes průvodce',message:msg,website:hp,gdpr:a.gdpr,mesto:'Chrudim'})})
     .then(function(res){return res.json().catch(function(){return{};}).then(function(p){
       if(!res.ok)throw new Error(p.error||'Odeslání se nezdařilo.');return p;});})
     .then(function(){ state.done=true;try{if(window.gtag)gtag('event','generate_lead',{method:'guide',form_location:location.pathname});if(window.fbq)fbq('track','Lead');}catch(_){} success(); })

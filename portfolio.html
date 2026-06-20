@@ -184,7 +184,7 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .hero-bg { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
 .hero-bg::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 55% at 20% 30%, rgba(27,127,95,0.22) 0%, transparent 50%), radial-gradient(ellipse 55% 45% at 80% 75%, rgba(255,184,0,0.06) 0%, transparent 55%), radial-gradient(ellipse 80% 60% at 50% 100%, rgba(34,196,126,0.10) 0%, transparent 60%); animation: heroGlow 12s ease-in-out infinite alternate; }
 @keyframes heroGlow { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.1) rotate(2deg); } }
-.hero-bg::after { content: ''; position: absolute; inset: 0; background-image: linear-gradient(rgba(34,196,126,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(34,196,126,0.04) 1px, transparent 1px); background-size: 80px 80px; mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%); }
+.hero-bg::after { content: none; }
 .hero-inner { max-width: 920px; width: 100%; text-align: center; position: relative; z-index: 2; animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) both 0.15s; }
 @keyframes heroIn { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
 .heart-badge { display: inline-flex; align-items: center; gap: 0.55rem; background: rgba(34,196,126,0.08); border: 1px solid rgba(34,196,126,0.28); border-radius: 100px; color: var(--green-bright); font-family: var(--mono); font-size: 0.78rem; font-weight: 500; padding: 0.45rem 1.05rem; margin-bottom: 2.25rem; backdrop-filter: blur(8px); }

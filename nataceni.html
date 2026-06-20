@@ -262,10 +262,7 @@ nav {
 @keyframes heroGlow { 0% { transform: scale(1) rotate(0deg); } 100% { transform: scale(1.08) rotate(1.5deg); } }
 .hero-bg::after {
   content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(rgba(34,196,126,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34,196,126,0.04) 1px, transparent 1px);
-  background-size: 80px 80px;
+  background-image: none;
   mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, black 30%, transparent 80%);
 }

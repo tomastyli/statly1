@@ -1574,8 +1574,11 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 });
 
 document.querySelectorAll('.card').forEach(card => {
+  let r = null;
+  card.addEventListener('mouseenter', () => { r = card.getBoundingClientRect(); });
+  card.addEventListener('mouseleave', () => { r = null; });
   card.addEventListener('mousemove', (e) => {
-    const r = card.getBoundingClientRect();
+    if (!r) r = card.getBoundingClientRect();
     card.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
     card.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
   });

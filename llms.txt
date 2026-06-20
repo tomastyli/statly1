@@ -40,7 +40,3 @@
 - [Web pro zubařskou ordinaci](https://statly.cz/web-pro-zubarskou-ordinaci)
 - [Web pro stavební firmu](https://statly.cz/web-pro-stavebni-firmu)
 - [Úvodní video na web](https://statly.cz/uvodni-video-na-web)
-
-## Ostatní
-
-- [Ochrana osobních údajů](https://statly.cz/privacy)

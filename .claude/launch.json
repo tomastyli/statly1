@@ -3,9 +3,10 @@
   "configurations": [
     {
       "name": "statly",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["-m", "http.server", "8788"],
-      "port": 8788
+      "runtimeExecutable": "node",
+      "runtimeArgs": [".claude/serve.js"],
+      "port": 4602,
+      "autoPort": true
     }
   ]
 }

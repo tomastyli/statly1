@@ -1048,6 +1048,12 @@ textarea.slg-in{resize:vertical;min-height:74px}
     });
   }
 
+  var SLG_TS_KEY='0x4AAAAAADoV1ub-qNlXS4Jf', slgTsId=null;
+  function slgRenderTurnstile(){
+    var el=document.getElementById('slgTurnstile'); if(!el) return;
+    if(window.turnstile){ if(el.childElementCount===0){ try{ slgTsId=turnstile.render(el,{sitekey:SLG_TS_KEY,theme:'dark'}); }catch(e){} } }
+    else { setTimeout(slgRenderTurnstile,300); }
+  }
   function renderForm(s){
     nextLbl.textContent='Odeslat poptávku →';
     var a=state.answers;
@@ -1073,11 +1079,13 @@ textarea.slg-in{resize:vertical;min-height:74px}
       +'<label class="slg-consent"><input type="checkbox" id="slgGdpr"'+(a.gdpr?' checked':'')+'>'
       +'<span>Souhlasím se zpracováním osobních údajů za účelem vyřízení této poptávky. Více v <a href="/privacy" target="_blank" rel="noopener">zásadách</a>.</span></label>'
       +'<input type="text" id="slgHp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">'
+      +'<div class="slg-field slg-full" id="slgTsWrap"><div id="slgTurnstile"></div></div>'
       +'<div class="slg-err" id="slgErr"></div>'
       +'</div></div>';
     body.scrollTop=0;
     nextBtn.disabled=false;
     var nm=document.getElementById('slgName'); if(nm) setTimeout(function(){nm.focus();},60);
+    slgRenderTurnstile();
   }
 
   function next(){
@@ -1119,14 +1127,14 @@ textarea.slg-in{resize:vertical;min-height:74px}
     nextBtn.classList.add('slg-loading');nextBtn.disabled=true;
     fetch('/api/contact',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({name:a.name,company:a.company,email:a.email,phone:a.phone,
-        industry:a.industry,service:a.service||'Přes průvodce',message:msg,website:hp,gdpr:a.gdpr})})
+        industry:a.industry,service:a.service||'Přes průvodce',message:msg,website:hp,gdpr:a.gdpr,turnstileToken:(window.turnstile&&slgTsId!=null?turnstile.getResponse(slgTsId):"")})})
     .then(function(res){return res.json().catch(function(){return{};}).then(function(p){
       if(!res.ok)throw new Error(p.error||'Odeslání se nezdařilo.');return p;});})
     .then(function(){ state.done=true;
       try { if(window.gtag) gtag('event','generate_lead',{method:'guide',form_location:location.pathname});
             if(window.fbq)  fbq('track','Lead'); } catch(_){}
       success(); })
-    .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false;
+    .catch(function(err){ nextBtn.classList.remove('slg-loading');nextBtn.disabled=false; try{if(window.turnstile&&slgTsId!=null)turnstile.reset(slgTsId);}catch(e){}
       showErr(err.message||'Něco se pokazilo. Zkus to znovu, nebo napiš na e‑mail.'); });
   }
 
@@ -1347,5 +1355,6 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer></script>
 </body>
 </html>

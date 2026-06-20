@@ -29,7 +29,13 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Lokální SEO — Východní Čechy -->
+  <!-- Lokální SEO — Východní Čechy (regionální hub + města) -->
+  <url>
+    <loc>https://statly.cz/vychodni-cechy</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
   <url>
     <loc>https://statly.cz/litomysl</loc>
     <lastmod>2026-05-29</lastmod>
@@ -67,34 +73,10 @@
     <priority>0.7</priority>
   </url>
 
-  <!-- Lokální SEO — Slovácko -->
+  <!-- Lokální SEO — Slovácko (regionální hub) -->
   <url>
-    <loc>https://statly.cz/uherske-hradiste</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://statly.cz/uhersky-brod</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://statly.cz/hluk</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://statly.cz/stare-mesto</loc>
-    <lastmod>2026-05-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://statly.cz/kunovice</loc>
-    <lastmod>2026-05-29</lastmod>
+    <loc>https://statly.cz/slovacko</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -169,6 +151,30 @@
   <url>
     <loc>https://statly.cz/web-pro-stavebni-firmu</loc>
     <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://statly.cz/web-pro-detailing-aut</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://statly.cz/web-pro-autopujcovnu</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://statly.cz/web-pro-restauraci</loc>
+    <lastmod>2026-06-20</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://statly.cz/web-pro-penzion</loc>
+    <lastmod>2026-06-20</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>

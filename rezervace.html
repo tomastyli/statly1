@@ -253,6 +253,10 @@ footer a:hover { color: var(--green-bright); }
           </div>
 
           <div class="form-field full">
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAADoV1ub-qNlXS4Jf" data-theme="dark"></div>
+          </div>
+
+          <div class="form-field full">
             <button type="submit" class="form-submit" id="formSubmit">
               <span>
                 <span class="spinner"></span>
@@ -358,7 +362,8 @@ window.addEventListener('message', function(e) {
       service:  form.service.value,
       message:  form.message.value.trim(),
       website:  form.website.value,
-      gdpr:     form.gdpr.checked
+      gdpr:     form.gdpr.checked,
+      turnstileToken: (window.turnstile ? turnstile.getResponse() : '')
     };
 
     if (!data.name || data.name.length < 2) {
@@ -404,9 +409,11 @@ window.addEventListener('message', function(e) {
       setStatus('error', err.message || 'Něco se pokazilo. Zkuste to prosím znovu, nebo mi napište přímo na e‑mail.');
     } finally {
       setLoading(false);
+      try { if (window.turnstile) turnstile.reset(); } catch (_) {}
     }
   });
 })();
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

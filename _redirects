@@ -46,6 +46,10 @@
 /blog-11.html                               /web-pro-stavebni-firmu                     301
 /blog-11                                    /web-pro-stavebni-firmu                     301
 /web-pro-stavebni-firmu.html                /web-pro-stavebni-firmu                     301
+/web-pro-autopujcovnu.html                  /web-pro-autopujcovnu                       301
+/web-pro-detailing-aut.html                 /web-pro-detailing-aut                      301
+/web-pro-restauraci.html                    /web-pro-restauraci                         301
+/web-pro-penzion.html                       /web-pro-penzion                            301
 /blog-12.html                               /uvodni-video-na-web                        301
 /blog-12                                    /uvodni-video-na-web                        301
 /uvodni-video-na-web.html                   /uvodni-video-na-web                        301
@@ -54,16 +58,23 @@
 /webdesigner-litomysl.html                  /webdesigner-litomysl                       301
 /pronajem-nebo-koupe-webu.html              /pronajem-nebo-koupe-webu                   301
 
-# Stránky pro lokální SEO — Východní Čechy
+# Stránky pro lokální SEO — Východní Čechy (+ regionální hub /vychodni-cechy)
+/vychodni-cechy.html                /vychodni-cechy                     301
 /svitavy.html                       /svitavy                            301
 /policka.html                       /policka                            301
 /vysoke-myto.html                   /vysoke-myto                        301
 /chrudim.html                       /chrudim                            301
 /lanskroun.html                     /lanskroun                          301
 
-# Stránky pro lokální SEO — Slovácko
-/uherske-hradiste.html              /uherske-hradiste                   301
-/uhersky-brod.html                  /uhersky-brod                       301
-/hluk.html                          /hluk                               301
-/stare-mesto.html                   /stare-mesto                        301
-/kunovice.html                      /kunovice                           301
+# Slovácko — sloučeno do regionálního hubu /slovacko (hub model, anti-doorway)
+/slovacko.html                      /slovacko                           301
+/uherske-hradiste.html              /slovacko                           301
+/uherske-hradiste                   /slovacko                           301
+/uhersky-brod.html                  /slovacko                           301
+/uhersky-brod                       /slovacko                           301
+/hluk.html                          /slovacko                           301
+/hluk                               /slovacko                           301
+/stare-mesto.html                   /slovacko                           301
+/stare-mesto                        /slovacko                           301
+/kunovice.html                      /slovacko                           301
+/kunovice                           /slovacko                           301

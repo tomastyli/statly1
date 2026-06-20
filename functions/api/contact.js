@@ -77,6 +77,30 @@ function checkRateLimit(ip) {
   return true;
 }
 
+// Cloudflare Turnstile ověření.
+// Aktivní jen když je nastavená env proměnná TURNSTILE_SECRET_KEY.
+// Bez ní vrací { active: false } a formulář funguje jako dosud (honeypot + rate limit).
+async function verifyTurnstile(token, ip, secret) {
+  if (!secret) return { active: false, ok: true };
+  if (!token)  return { active: true,  ok: false };
+  try {
+    const body = new URLSearchParams();
+    body.append('secret', secret);
+    body.append('response', token);
+    if (ip && ip !== 'unknown') body.append('remoteip', ip);
+    const resp = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body
+    });
+    const out = await resp.json().catch(() => ({ success: false }));
+    return { active: true, ok: !!out.success };
+  } catch (err) {
+    console.error('Turnstile verify failed:', err);
+    return { active: true, ok: false };
+  }
+}
+
 // ── CORS preflight ───────────────────────────────────────
 export async function onRequestOptions({ request }) {
   return new Response(null, { status: 204, headers: corsHeaders(request.headers.get('Origin')) });
@@ -109,6 +133,12 @@ export async function onRequestPost({ request, env }) {
   //    (bot si myslí, že prošel, my máme klid)
   if (data.website && String(data.website).trim() !== '') {
     return jsonResponse(200, { ok: true });
+  }
+
+  // 3b) Turnstile – aktivní jen při nastaveném TURNSTILE_SECRET_KEY
+  const turnstile = await verifyTurnstile(data.turnstileToken, ip, env.TURNSTILE_SECRET_KEY);
+  if (turnstile.active && !turnstile.ok) {
+    return jsonResponse(400, { error: 'Nepodařilo se ověřit, že nejste robot. Načtěte prosím stránku znovu.' }, origin);
   }
 
   // 4) Sanitizace & validace

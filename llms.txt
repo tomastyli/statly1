@@ -1,19 +1,57 @@
 # Statly
 
-> Statly je webová agentura z Litomyšle. Stavím firmám weby, dělám marketing, natáčím video a létám s dronem. Cílím na majitele malých a středních firem ve východních Čechách. Píšu a pracuju osobně, ne jako anonymní agentura.
+> Statly je webové studio z Litomyšle. Stavím firmám weby, dělám marketing a sociální sítě, natáčím video a létám s dronem. Cílím na majitele malých a středních firem ve východních Čechách a na Slovácku. Píšu a pracuju osobně, sám navrhuju, stavím i odpovídám na e-maily.
+
+## Fakta o Statly
+
+- Zakladatel: Tomáš Tylich, Litomyšl (Pardubický kraj).
+- Hodnocení: 5,0 z 29 recenzí na Googlu (samé pětihvězdičkové).
+- 50+ klientů, odezva na poptávku do 48 hodin.
+- Oblast působení: východní Čechy a Slovácko, schůzka osobně i online.
+- Kontakt: tomas.tylich@seznam.cz, +420 737 372 708.
+
+## Služby
+
+- Tvorba webů na míru: rychlé, přehledné weby a redesigny; součástí jsou i rezervační a objednávkové systémy pro hotely, restaurace a služby, které je potřebují.
+- Sociální sítě: obsah a správa Instagramu a Facebooku, placené kampaně na Meta.
+- Natáčení videí: Reels, reklamy, produktová a letecká (dronová) videa pro sítě i web.
+- Grafický design: logo, vizitky, tisková i digitální grafika.
+
+## Ceny (orientačně)
+
+- Jednoduchý prezentační web: od 10 000 Kč.
+- Web s více stránkami, galerií a lokálním SEO: od 15 000 Kč.
+- Pronájem webu / servisní paušál: od 1 490 Kč měsíčně.
+- Přesnou cenu Tomáš řekne po krátké nezávazné konzultaci.
+
+## Realizace (ověřitelné)
+
+- Stěhování Leo (stěhovací firma, Litomyšl, https://stehovanileo.cz): redesign starého svépomocného webu na přehledný web na míru s funkčním formulářem a SEO základem. Klientovi od spuštění chodí nové poptávky přímo z webu. Recenze: „Skvělá komunikace. Vše proběhlo skvěle. Na čem jsme se domluvili to bylo splněno. Doporučuji." (Leo Tichý, 5★)
+- Kosmetika Klejchová (kosmetický salon, Litomyšl, https://kosmetika-klejchova.cz): kompletní redesign včetně nového loga a barevné palety, přehledná struktura, formulář a SEO základ. Recenze: „Doporučuji. Mám krásné webovky, které se všem líbí, moderní, přehledné. Skvělá komunikace." (Jindra Klejchová, 5★)
 
 ## Hlavní stránky
 
 - [Statly – úvod](https://statly.cz/): Tvorba webů, marketing a video pro malé firmy ve východních Čechách.
-- [Portfolio](https://statly.cz/portfolio): Ukázky hotových webů a projektů.
+- [Portfolio a realizace](https://statly.cz/portfolio): Hotové weby, projekty a case studies se skutečnými výsledky.
 - [Natáčení](https://statly.cz/nataceni): Video a dronové záběry pro firmy.
 - [Blog](https://statly.cz/blog): Články o webech, marketingu a podnikání online.
-- [Rezervace](https://statly.cz/rezervace): Domluvte si nezávaznou konzultaci.
+- [Rezervace](https://statly.cz/rezervace): Domluvte si nezávaznou konzultaci nebo pošlete poptávku.
 
-## Služby a rozcestníky pro města
+## Weby pro obory
+
+- [Web pro restauraci](https://statly.cz/web-pro-restauraci)
+- [Web pro penzion a ubytování](https://statly.cz/web-pro-penzion)
+- [Web pro autodetailing](https://statly.cz/web-pro-detailing-aut)
+- [Web pro autopůjčovnu](https://statly.cz/web-pro-autopujcovnu)
+- [Web pro zubařskou ordinaci](https://statly.cz/web-pro-zubarskou-ordinaci)
+- [Web pro stavební firmu](https://statly.cz/web-pro-stavebni-firmu)
+
+## Města a regiony
 
 - [Webdesigner Litomyšl](https://statly.cz/webdesigner-litomysl)
 - [Litomyšl](https://statly.cz/litomysl)
+- [Východní Čechy](https://statly.cz/vychodni-cechy)
+- [Slovácko](https://statly.cz/slovacko)
 - [Svitavy](https://statly.cz/svitavy)
 - [Polička](https://statly.cz/policka)
 - [Vysoké Mýto](https://statly.cz/vysoke-myto)
@@ -37,6 +75,4 @@
 - [Instagram pro malé firmy](https://statly.cz/instagram-pro-male-firmy)
 - [AI nástroje pro malé firmy](https://statly.cz/ai-nastroje-pro-male-firmy)
 - [Google Business Profile: návod](https://statly.cz/google-business-profile-navod)
-- [Web pro zubařskou ordinaci](https://statly.cz/web-pro-zubarskou-ordinaci)
-- [Web pro stavební firmu](https://statly.cz/web-pro-stavebni-firmu)
 - [Úvodní video na web](https://statly.cz/uvodni-video-na-web)

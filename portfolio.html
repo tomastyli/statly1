@@ -320,6 +320,31 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .folio-desc { font-size: 0.86rem; color: rgba(232,239,233,0.82); line-height: 1.5; margin-bottom: 0.9rem; }
 .folio-stack { display: flex; flex-wrap: wrap; gap: 0.32rem; }
 .folio-tech { font-family: var(--mono); font-size: 0.66rem; color: #cfe8dc; background: rgba(34,196,126,0.12); border: 1px solid rgba(34,196,126,0.24); border-radius: 6px; padding: 0.22rem 0.5rem; backdrop-filter: blur(4px); }
+.case { display: grid; grid-template-columns: 0.85fr 1fr; gap: 2.5rem; align-items: center; background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 2.2rem; position: relative; overflow: hidden; }
+.case-visual { position: relative; }
+.case-shot-link { display: block; position: relative; border-radius: 14px; overflow: hidden; border: 1px solid var(--border); }
+.case-shot { width: 100%; height: auto; display: block; }
+.case-live { position: absolute; left: 0.9rem; bottom: 0.9rem; display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.72rem; font-weight: 600; color: #fff; background: rgba(10,20,16,0.82); backdrop-filter: blur(8px); border: 1px solid rgba(255,255,255,0.12); border-radius: 100px; padding: 0.35rem 0.7rem; }
+.case-live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--green-bright); box-shadow: 0 0 0 0 rgba(34,196,126,0.6); animation: caseDot 2s ease-in-out infinite; }
+@keyframes caseDot { 0%,100% { box-shadow: 0 0 0 0 rgba(34,196,126,0.5); } 50% { box-shadow: 0 0 0 6px rgba(34,196,126,0); } }
+.case-head { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.4rem; }
+.case-logo { width: 46px; height: 46px; border-radius: 11px; object-fit: contain; background: #0c1410; border: 1px solid rgba(255,255,255,0.12); padding: 6px; flex-shrink: 0; }
+.case-name { font-family: var(--sans); font-size: 1.25rem; font-weight: 800; color: #fff; letter-spacing: -0.02em; margin: 0; }
+.case-cat { font-family: var(--mono); font-size: 0.74rem; color: var(--text-dim); }
+.case-block { margin-bottom: 1.1rem; }
+.case-k { display: inline-block; font-family: var(--mono); font-size: 0.66rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--green-bright); margin-bottom: 0.3rem; }
+.case-block p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+.case-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 1.3rem 0; }
+.case-quote { margin: 0; padding: 1.2rem 1.3rem; background: rgba(34,196,126,0.05); border: 1px solid rgba(34,196,126,0.18); border-radius: 14px; font-family: var(--sans); font-size: 0.96rem; line-height: 1.6; color: #e8efe9; }
+.case-stars { color: var(--gold); letter-spacing: 1.5px; font-size: 0.85rem; margin-bottom: 0.5rem; }
+.case-quote cite { display: block; margin-top: 0.7rem; font-style: normal; font-size: 0.82rem; color: var(--text-dim); }
+.case-quote cite a { color: var(--green-bright); }
+.case + .case { margin-top: 1.6rem; }
+.case-logo.light { background: #fff; border-color: rgba(0,0,0,0.08); }
+.case-rev { grid-template-columns: 1fr 0.85fr; }
+.case-rev .case-visual { order: 2; }
+.case-rev .case-body { order: 1; }
+@media (max-width: 820px) { .case { grid-template-columns: 1fr; gap: 1.6rem; padding: 1.6rem; } }
 
 .refs { padding: 7rem 2rem; background: var(--bg); position: relative; overflow: hidden; }
 .refs::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 40% at 20% 30%, rgba(34,196,126,0.08) 0%, transparent 55%), radial-gradient(ellipse 45% 35% at 80% 70%, rgba(255,184,0,0.05) 0%, transparent 55%); pointer-events: none; }
@@ -628,7 +653,87 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   <div class="wrap" style="position:relative; z-index:2;">
     <span class="sec-label reveal">Portfolio</span>
     <h1 class="sec-h reveal" style="font-size:clamp(2.2rem,5vw,3.6rem); margin-bottom:1.2rem;">Projekty, na kterých<br><em>si stojím.</em></h1>
-    <p class="sec-sub reveal" style="margin:0 auto;">Výběr webů a značek, které jsem dodal na míru, od strategie přes design až po nasazení. Každý projekt řeším od základu a s ohledem na reálné výsledky klienta.</p>
+    <p class="sec-sub reveal" style="margin:0 auto;">Výběr webů a značek, které jsem dodal od strategie přes design až po nasazení. Každý projekt řeším od základu a s ohledem na reálné výsledky klienta.</p>
+  </div>
+</section>
+
+<section class="sec" id="realizace">
+  <div class="wrap">
+    <span class="sec-label reveal">Realizace</span>
+    <h2 class="sec-h reveal">Jak to dopadlo <em>v reálu.</em></h2>
+    <p class="sec-sub reveal">Konkrétní příběh jedné zakázky. Žádná čísla z bubliny, jen co reálně bylo a co je k vidění živě.</p>
+
+    <article class="case reveal">
+      <div class="case-visual">
+        <a href="https://www.stehovanileo.cz/" target="_blank" rel="noopener" class="case-shot-link" aria-label="Otevřít web Stěhování Leo">
+          <img src="stehovani-leo.webp" alt="Web Stěhování Leo" class="case-shot" loading="lazy" width="900" height="1125">
+          <span class="case-live"><span class="case-live-dot"></span> Web je živý ↗</span>
+        </a>
+      </div>
+      <div class="case-body">
+        <div class="case-head">
+          <img src="logos/clients/stehovanileo.webp" class="case-logo" alt="Stěhování Leo" loading="lazy" width="46" height="46">
+          <div>
+            <h3 class="case-name">Stěhování Leo</h3>
+            <span class="case-cat">Stěhovací služby · Litomyšl</span>
+          </div>
+        </div>
+        <div class="case-block">
+          <span class="case-k">Zadání</span>
+          <p>Leo si web kdysi poskládal sám přes Webglobe. Fungoval, ale nevypadal profesionálně a hlavně mu z něj nechodily e-maily, takže o část poptávek přicházel.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-k">Co jsem udělal</span>
+          <p>Kompletní redesign: nový přehledný a rychlý web na míru stěhovací firmě, s formulářem, který poptávky reálně doručuje, a se základem pro Google.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-k">Výsledek</span>
+          <p>Od spuštění Leovi začaly chodit nové poptávky přímo z webu, a chodí dál.</p>
+        </div>
+        <div class="case-tags"><span class="folio-tech">Redesign</span><span class="folio-tech">Web na míru</span><span class="folio-tech">Formulář na poptávky</span><span class="folio-tech">SEO základ</span></div>
+        <blockquote class="case-quote">
+          <div class="case-stars" aria-label="5 z 5 hvězd">★★★★★</div>
+          „Skvělá komunikace. Vše proběhlo skvěle. Na čem jsme se domluvili to bylo splněno. Doporučuji.“
+          <cite>— Leo Tichý · <a href="https://www.google.com/search?q=statly+litomy%C5%A1l+recenze" target="_blank" rel="noopener">5★ na Googlu</a></cite>
+        </blockquote>
+      </div>
+    </article>
+
+    <article class="case case-rev reveal">
+      <div class="case-visual">
+        <a href="https://kosmetika-klejchova.cz/" target="_blank" rel="noopener" class="case-shot-link" aria-label="Otevřít web Kosmetika Klejchová">
+          <img src="kosmetika-klejchova.webp" alt="Web Kosmetika Klejchová" class="case-shot" loading="lazy" width="900" height="1125">
+          <span class="case-live"><span class="case-live-dot"></span> Web je živý ↗</span>
+        </a>
+      </div>
+      <div class="case-body">
+        <div class="case-head">
+          <img src="logos/clients/jindra.png" class="case-logo light" alt="Kosmetika Klejchová" loading="lazy" width="46" height="46">
+          <div>
+            <h3 class="case-name">Kosmetika Klejchová</h3>
+            <span class="case-cat">Kosmetický salon · Litomyšl</span>
+          </div>
+        </div>
+        <div class="case-block">
+          <span class="case-k">Zadání</span>
+          <p>Jindra měla starší web, který už neodpovídal dnešním standardům a hůř se v něm orientovalo.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-k">Co jsem udělal</span>
+          <p>Kompletní redesign včetně nového loga a barevné palety, přehledné struktury, formuláře a SEO základu pro Google.</p>
+        </div>
+        <div class="case-block">
+          <span class="case-k">Výsledek</span>
+          <p>Web je teď jednoduchý na orientaci a v Litomyšli se na něj dál odkazuje.</p>
+        </div>
+        <div class="case-tags"><span class="folio-tech">Redesign</span><span class="folio-tech">Logo</span><span class="folio-tech">Barevná paleta</span><span class="folio-tech">Formulář</span><span class="folio-tech">SEO základ</span></div>
+        <blockquote class="case-quote">
+          <div class="case-stars" aria-label="5 z 5 hvězd">★★★★★</div>
+          „Doporučuji. Mám krásné webovky, které se všem líbí, moderní, přehledné. Skvělá komunikace.“
+          <cite>— Jindra Klejchová · <a href="https://www.google.com/search?q=statly+litomy%C5%A1l+recenze" target="_blank" rel="noopener">5★ na Googlu</a></cite>
+        </blockquote>
+      </div>
+    </article>
   </div>
 </section>
 

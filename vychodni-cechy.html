@@ -63,7 +63,8 @@
     { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Natáčení videí a dron" } }
   ] },
   "sameAs": ["https://statly.cz", "https://www.instagram.com/statly.cz", "https://www.facebook.com/profile.php?id=61570755123277"],
-  "priceRange": "$$"
+  "priceRange": "$$",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "29", "bestRating": "5" }
 }
 </script>
 <script type="application/ld+json">
@@ -79,7 +80,7 @@
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Děláte weby i pro firmy ve východních Čechách?",
+      "name": "Děláš weby i pro firmy ve východních Čechách?",
       "acceptedAnswer": { "@type": "Answer", "text": "Ano. Sídlím v Litomyšli, takže Chrudim, Svitavy, Poličku, Lanškroun i Vysoké Mýto beru jako svůj region. Většina klientů je tady odsud. Sejdeme se osobně, nebo to vyřešíme po telefonu a online." }
     },
     {
@@ -94,13 +95,13 @@
     },
     {
       "@type": "Question",
-      "name": "Co všechno kromě webu zařídíte?",
+      "name": "Co všechno kromě webu zařídíš?",
       "acceptedAnswer": { "@type": "Answer", "text": "Kromě webů dělám i sociální sítě a video, včetně dronových záběrů. Web, sítě i video tak drží jednotný styl a táhnou za jeden provaz." }
     },
     {
       "@type": "Question",
       "name": "Jak poznám, že se web vyplatí?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Web měřím, takže uvidíte, odkud chodí poptávky, kolik lidí web navštíví a co je zajímá. Místo dohadů máte čísla." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Web měřím, takže uvidíš, odkud chodí poptávky, kolik lidí web navštíví a co je zajímá. Místo dohadů máš čísla." }
     }
   ]
 }
@@ -306,13 +307,25 @@ a.area-city:hover { color: var(--green-bright); border-color: rgba(34,196,126,0.
 .ref-quote::before { content: '"'; position: absolute; top: -1rem; left: 0.5rem; font-family: Georgia, serif; font-size: 3rem; color: var(--green-bright); opacity: 0.25; line-height: 1; }
 .ref-author { display: flex; align-items: center; gap: 1rem; padding-top: 1.5rem; border-top: 1px dashed var(--border); }
 .ref-logo { flex-shrink: 0; width: 52px; height: 52px; border-radius: 12px; background: var(--bg-2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 0.95rem; color: #fff; }
-.ref-logo.leo { background: linear-gradient(135deg, #2A9F7A, #1B7F5F); }
-.ref-logo.exp { background: linear-gradient(135deg, #4dd9a2, #2A9F7A); color: var(--green-deep); }
+.ref-logo.leo { background: #0a0a0a; border-color: rgba(255,255,255,0.15); }
+.ref-logo.exp { background: #0a0a0a; border-color: rgba(255,255,255,0.15); }
+        .ref-logo img { width: 100%; height: 100%; object-fit: contain; padding: 7px; display: block; }
 .ref-meta { display: flex; flex-direction: column; gap: 0.15rem; min-width: 0; }
 .ref-name { font-family: var(--sans); font-size: 0.98rem; font-weight: 700; color: #fff; letter-spacing: -0.015em; }
 .ref-role { font-family: var(--mono); font-size: 0.74rem; color: var(--text-dim); letter-spacing: 0.02em; }
 .ref-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 1.25rem; }
 .ref-tag { font-family: var(--mono); font-size: 0.7rem; padding: 0.22rem 0.55rem; background: rgba(34,196,126,0.07); border: 1px solid rgba(34,196,126,0.2); border-radius: 6px; color: var(--green-bright); }
+.greviews { margin-top: 2.4rem; }
+.greviews-h { font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.1rem; }
+.greviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+.grev { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 1.15rem 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.grev-top { display: flex; align-items: center; gap: 0.6rem; }
+.grev-av { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 0.7rem; color: #fff; flex-shrink: 0; letter-spacing: 0.02em; }
+.grev-name { font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: #fff; }
+.grev-stars { color: var(--gold); font-size: 0.82rem; letter-spacing: 1.5px; }
+.grev-text { font-size: 0.88rem; line-height: 1.55; color: var(--text-dim); margin: 0; }
+@media (max-width: 900px) { .greviews-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .greviews-grid { grid-template-columns: 1fr; } }
 .refs-note { margin-top: 2.5rem; text-align: center; font-family: var(--mono); font-size: 0.78rem; color: var(--text-dimmer); letter-spacing: 0.04em; }
 .refs-note a { color: var(--green-bright); text-decoration: underline; text-decoration-color: rgba(34,196,126,0.35); text-underline-offset: 3px; }
 
@@ -605,7 +618,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
       <div class="svc-mini-card reveal d2">
         <div class="svc-mini-num">/ 02</div>
         <h3 class="svc-mini-h">Sociální sítě</h3>
-        <p class="svc-mini-p">Instagram a Facebook s obsahem na míru tvým zákazníkům, ne podle šablony. Obsah, který dává smysl pro lidi z regionu.</p>
+        <p class="svc-mini-p">Instagram a Facebook s obsahem psaným tvým zákazníkům na tělo. Obsah, který dává smysl pro lidi z regionu.</p>
         <div class="svc-mini-tags"><span class="svc-mini-tag">Instagram</span><span class="svc-mini-tag">Facebook</span><span class="svc-mini-tag">Reels</span></div>
       </div>
       <div class="svc-mini-card reveal d3">
@@ -653,7 +666,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
       <article class="ref-card reveal">
         <p class="ref-quote">Skvělá komunikace. Vše proběhlo skvěle. Na čem jsme se domluvili to bylo splněno. Doporučuji.</p>
         <div class="ref-author">
-          <div class="ref-logo leo">LT</div>
+          <div class="ref-logo leo"><img src="logos/stehovani-leo.webp" alt="Stěhování Leo" width="400" height="400" loading="lazy"></div>
           <div class="ref-meta"><span class="ref-name">Leo Tichý</span><span class="ref-role">Stěhování Leo · Litomyšl</span></div>
         </div>
         <div class="ref-tags"><span class="ref-tag">tvorba webu</span><span class="ref-tag">SEO</span><span class="ref-tag">redesign</span></div>
@@ -661,11 +674,22 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
       <article class="ref-card reveal d2">
         <p class="ref-quote">Skvělá spolupráce od začátku do konce. Perfektní komunikace. Web je moderní, má skvělou strukturu a je vidět obrovský cit pro detail. Určitě doporučuji každému, kdo chce profi web.</p>
         <div class="ref-author">
-          <div class="ref-logo exp">eX</div>
+          <div class="ref-logo exp"><img src="logos/express-detailing.png" alt="eXpress Detailing" width="400" height="371" loading="lazy"></div>
           <div class="ref-meta"><span class="ref-name">eXpress Detailing</span><span class="ref-role">Autodetailing · východní Čechy</span></div>
         </div>
         <div class="ref-tags"><span class="ref-tag">tvorba webu</span><span class="ref-tag">design</span><span class="ref-tag">struktura</span></div>
       </article>
+    </div>
+    <div class="greviews reveal">
+      <p class="greviews-h">Čerstvé recenze z Googlu</p>
+      <div class="greviews-grid">
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#1e8e3e">JK</span><span class="grev-name">Jindra Klejchová</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Doporučuji. Mám krásné webovky, které se všem líbí, moderní, přehledné. Skvělá komunikace.</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#1a73e8">JR</span><span class="grev-name">Jiří Romer</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Stránky krásný, přístup skvělý. Můžu jen doporučit.</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#00897b">DP</span><span class="grev-name">Dan Prokeš</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Aura Floor i Flexi House se povedl. Díky za super spolupráci!</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#6a1b9a">TK</span><span class="grev-name">Tomáš Kučeřík</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Pan byl velice ochotný a trpělivý, výborná práce!</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#e91e63">JZ</span><span class="grev-name">Jana Zalešáková</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Dobrá komunikace, webové stránky jsou kvalitní, spokojenost.</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#ef6c00">LS</span><span class="grev-name">Lubo St</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Vše super, díky.</p></div>
+      </div>
     </div>
     <p class="refs-note reveal">Chceš vidět víc projektů? Mrkni na <a href="/portfolio">kompletní portfolio</a>.</p>
   </div>
@@ -706,7 +730,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
     <h2 class="sec-h reveal">Co se ptají <em>nejčastěji.</em></h2>
     <div class="faq-block reveal">
       <div class="faq-item">
-        <div class="faq-q">Děláte weby i pro firmy ve východních Čechách?</div>
+        <div class="faq-q">Děláš weby i pro firmy ve východních Čechách?</div>
         <div class="faq-a"><p>Ano. Sídlím v Litomyšli, takže Chrudim, Svitavy, Poličku, Lanškroun i Vysoké Mýto beru jako svůj region. Většina klientů je tady odsud. Sejdeme se osobně, nebo to vyřešíme po telefonu a online.</p></div>
       </div>
       <div class="faq-item">
@@ -718,12 +742,12 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
         <div class="faq-a"><p>Jednoduchý prezentační web zvládnu za 2 až 4 týdny od podkladů. Větší projekt s rezervacemi nebo e-shopem bere 6 až 10 týdnů. Začít obvykle dokážu do týdne.</p></div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">Co všechno kromě webu zařídíte?</div>
+        <div class="faq-q">Co všechno kromě webu zařídíš?</div>
         <div class="faq-a"><p>Kromě webů dělám i sociální sítě a video, včetně dronových záběrů. Web, sítě i video tak drží jednotný styl a táhnou za jeden provaz.</p></div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Jak poznám, že se web vyplatí?</div>
-        <div class="faq-a"><p>Web měřím, takže uvidíte, odkud chodí poptávky, kolik lidí web navštíví a co je zajímá. Místo dohadů máte čísla.</p></div>
+        <div class="faq-a"><p>Web měřím, takže uvidíš, odkud chodí poptávky, kolik lidí web navštíví a co je zajímá. Místo dohadů máš čísla.</p></div>
       </div>
     </div>
   </div>
@@ -775,9 +799,9 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 4rem
     <div>
       <p class="footer-h">Statly</p>
       <a href="/" class="footer-a">Hlavní web</a>
-      <a href="index.html#sluzby" class="footer-a">Služby</a>
+      <a href="/#sluzby" class="footer-a">Služby</a>
       <a href="/nataceni" class="footer-a">Natáčení videí</a>
-      <a href="index.html#portfolio" class="footer-a">Portfolio</a>
+      <a href="/#portfolio" class="footer-a">Portfolio</a>
       <a href="/blog" class="footer-a">Blog</a>
     </div>
     <div>

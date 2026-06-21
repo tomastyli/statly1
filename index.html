@@ -64,6 +64,12 @@
     "https://www.facebook.com/profile.php?id=61570755123277"
   ],
   "priceRange": "$$",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "29", "bestRating": "5" },
+  "review": [
+    { "@type": "Review", "author": { "@type": "Person", "name": "Jindra Klejchová" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Doporučuji. Mám krásné webovky, které se všem líbí, moderní, přehledné. Skvělá komunikace." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Jiří Romer" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Stránky krásný, přístup skvělý. Můžu jen doporučit." },
+    { "@type": "Review", "author": { "@type": "Person", "name": "Dan Prokeš" }, "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" }, "reviewBody": "Aura Floor i Flexi House se povedl. Díky za super spolupráci!" }
+  ],
   "areaServed": "Východní Čechy"
 }
 </script>
@@ -110,7 +116,7 @@
       "name": "Děláte i správu webu po jeho spuštění?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Ano, nabízím servisní paušál od 1500 Kč měsíčně. Zahrnuje aktualizace, drobné úpravy textů a obrázků, monitoring funkčnosti a zálohování."
+        "text": "Ano, nabízím servisní paušál od 1 490 Kč měsíčně. Zahrnuje aktualizace, drobné úpravy textů a obrázků, monitoring funkčnosti a zálohování."
       }
     }
   ]
@@ -282,15 +288,14 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 @keyframes particleDrift { 0% { transform: translate(0, 0); opacity: 0; } 20% { opacity: 0.7; } 50% { transform: translate(40px, -50px); opacity: 0.9; } 80% { opacity: 0.5; } 100% { transform: translate(80px, -100px); opacity: 0; } }
 .svc-section .wrap { position: relative; z-index: 1; }
 
-.svc-grid { display: grid; grid-template-columns: 1.25fr 1fr; grid-auto-rows: 1fr; gap: 1.25rem; }
+.svc-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; align-items: stretch; gap: 1.1rem; }
 .card { display: flex; flex-direction: column; background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2.2rem; position: relative; overflow: hidden; transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
 .card .tags { margin-top: auto; padding-top: 1.1rem; }
-.card-feat { grid-row: 1 / span 2; }
+.card-feat { background: linear-gradient(165deg, var(--bg-card-2) 0%, var(--bg-card) 70%); }
 .card-feat .card-ico { width: 60px; height: 60px; border-radius: 16px; }
 .card-feat .card-ico svg { width: 28px; height: 28px; }
 .card-feat .card-h { font-size: 1.5rem; }
 .card-feat .card-p { font-size: 1rem; }
-@media (max-width: 1024px) { .svc-grid .card-feat { grid-row: auto; } }
 .card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(34,196,126,0.5), transparent); opacity: 0; transition: opacity 0.4s; }
 .card::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(34,196,126,0.08), transparent 40%); opacity: 0; transition: opacity 0.4s; pointer-events: none; }
 .card:hover { transform: translateY(-4px); border-color: var(--border-2); background: var(--bg-card-2); }
@@ -307,49 +312,66 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; position: relative; z-index: 1; }
 .tag { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 6px; padding: 0.25rem 0.55rem; transition: all 0.25s; }
 .card:hover .tag { color: var(--green-bright); border-color: var(--border-2); background: rgba(34,196,126,0.06); }
+.card-num { position: absolute; top: 1.4rem; right: 1.5rem; font-family: var(--mono); font-size: 0.78rem; font-weight: 500; color: var(--text-dimmer); letter-spacing: 0.05em; z-index: 1; }
+.card-feat .card-num { font-size: 0.88rem; }
+.card-list li { align-items: flex-start; }
+.card-list svg { margin-top: 0.18rem; }
+.card-video { color: inherit; }
+.card-video::before { background: linear-gradient(90deg, transparent, rgba(255,184,0,0.55), transparent); }
+.card-video:hover { border-color: rgba(255,184,0,0.32); }
+.card-video:hover::after { background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(255,184,0,0.09), transparent 42%); }
+.card-ico-gold { background: rgba(255,184,0,0.1); border-color: rgba(255,184,0,0.22); }
+.card-ico-gold svg { color: var(--gold); }
+.card-video:hover .card-ico-gold { background: rgba(255,184,0,0.18); border-color: rgba(255,184,0,0.38); transform: scale(1.05) rotate(-3deg); }
+.card-rec { position: absolute; top: 1.5rem; right: 3.5rem; display: inline-flex; align-items: center; gap: 0.35rem; font-family: var(--mono); font-size: 0.62rem; font-weight: 600; letter-spacing: 0.14em; color: var(--gold); z-index: 1; }
+.card-rec-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(255,184,0,0.7); animation: pulseDot 2s ease-in-out infinite; }
+.card-link { margin-top: auto; display: inline-flex; align-items: center; gap: 0.45rem; padding-top: 1.1rem; font-family: var(--sans); font-weight: 600; font-size: 0.9rem; color: var(--gold); }
+.card-link .arrow { transition: transform 0.3s; }
+.card-video:hover .card-link .arrow { transform: translateX(4px); }
+.svc-secondary { margin-top: 1.1rem; display: flex; align-items: center; gap: 1.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 16px; padding: 1.35rem 1.8rem; position: relative; z-index: 1; transition: border-color 0.3s, background 0.3s; }
+.svc-secondary:hover { border-color: var(--border-2); background: rgba(255,255,255,0.035); }
+.svc-sec-ico { width: 44px; height: 44px; flex-shrink: 0; border-radius: 12px; background: rgba(255,255,255,0.04); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.svc-sec-ico svg { width: 21px; height: 21px; color: var(--text-dim); }
+.svc-sec-main { flex: 1; min-width: 0; }
+.svc-sec-h { display: flex; align-items: center; gap: 0.7rem; flex-wrap: wrap; font-family: var(--sans); font-size: 1.05rem; font-weight: 700; color: #fff; letter-spacing: -0.01em; margin-bottom: 0.3rem; }
+.svc-sec-flag { font-family: var(--mono); font-size: 0.64rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; color: var(--text-dim); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 100px; padding: 0.22rem 0.65rem; }
+.svc-sec-p { font-size: 0.88rem; color: var(--text-dim); line-height: 1.55; margin: 0; max-width: 660px; }
+.svc-sec-tags { display: flex; gap: 0.35rem; flex-shrink: 0; }
+.niche-band { margin-top: 1.1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 1.8rem 2rem; position: relative; z-index: 1; }
+.niche-band-eyebrow { font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-bright); }
+.niche-band-h { font-family: var(--sans); font-size: 1.1rem; font-weight: 700; color: #fff; letter-spacing: -0.015em; margin: 0.5rem 0 1.3rem; max-width: 640px; }
+.niche-pills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.niche-pill { display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--sans); font-size: 0.9rem; font-weight: 500; color: var(--text); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; padding: 0.6rem 1.05rem; transition: all 0.25s; }
+.niche-pill:hover { border-color: rgba(34,196,126,0.4); color: #fff; background: rgba(34,196,126,0.07); transform: translateY(-2px); }
+.niche-pill .arrow { color: var(--green-bright); transition: transform 0.25s; }
+.niche-pill:hover .arrow { transform: translateX(3px); }
+.refs-grade { display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.4rem; font-family: var(--mono); font-size: 0.82rem; color: var(--text-dim); background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 100px; padding: 0.5rem 1rem; transition: all 0.25s; }
+.refs-grade:hover { border-color: rgba(34,196,126,0.4); color: #fff; transform: translateY(-1px); }
+.refs-grade-stars { color: var(--gold); letter-spacing: 1px; }
+.refs-grade strong { color: #fff; font-weight: 700; }
+.refs-grade-arrow { color: var(--green-bright); }
+.greviews { margin-top: 2.4rem; }
+.greviews-h { font-family: var(--mono); font-size: 0.74rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 1.1rem; }
+.greviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.9rem; }
+.grev { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 1.15rem 1.25rem; display: flex; flex-direction: column; gap: 0.55rem; }
+.grev-top { display: flex; align-items: center; gap: 0.6rem; }
+.grev-av { width: 30px; height: 30px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-family: var(--sans); font-weight: 700; font-size: 0.7rem; color: #fff; flex-shrink: 0; letter-spacing: 0.02em; }
+.grev-name { font-family: var(--sans); font-size: 0.88rem; font-weight: 600; color: #fff; }
+.grev-stars { color: var(--gold); font-size: 0.82rem; letter-spacing: 1.5px; }
+.grev-text { font-size: 0.88rem; line-height: 1.55; color: var(--text-dim); margin: 0; }
+@media (max-width: 900px) { .greviews-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .greviews-grid { grid-template-columns: 1fr; } }
+.rz-teaser { display: flex; align-items: center; gap: 1.6rem; margin-top: 2.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 18px; padding: 1.4rem; }
+.rz-shot { flex-shrink: 0; width: 150px; height: 110px; border-radius: 10px; overflow: hidden; border: 1px solid var(--border); display: block; }
+.rz-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+.rz-eyebrow { font-family: var(--mono); font-size: 0.7rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-bright); }
+.rz-line { color: var(--text-dim); font-size: 0.95rem; line-height: 1.55; margin: 0.5rem 0 0.9rem; max-width: 560px; }
+.rz-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--sans); font-weight: 600; font-size: 0.92rem; color: var(--green-bright); }
+.rz-cta .arrow { transition: transform 0.25s; }
+.rz-cta:hover .arrow { transform: translateX(3px); }
+@media (max-width: 600px) { .rz-teaser { flex-direction: column; align-items: flex-start; } .rz-shot { width: 100%; height: 150px; } }
 
-.feature-card { margin-top: 1.25rem; position: relative; background: linear-gradient(135deg, #0f1f18 0%, #0c1a14 100%); border: 1px solid var(--border-2); border-radius: 24px; padding: 2.6rem 2.6rem; overflow: hidden; display: grid; grid-template-columns: 1.4fr 1fr; gap: 2.5rem; align-items: center; transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
-.feature-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 50% 80% at 0% 50%, rgba(34,196,126,0.10) 0%, transparent 60%), radial-gradient(ellipse 55% 90% at 100% 50%, rgba(255,184,0,0.08) 0%, transparent 60%); pointer-events: none; opacity: 0.85; transition: opacity 0.4s; }
-.feature-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(255,184,0,0.45), rgba(34,196,126,0.45), transparent); opacity: 0.7; }
-.feature-card:hover { transform: translateY(-3px); border-color: rgba(255,184,0,0.35); box-shadow: 0 24px 60px rgba(0,0,0,0.35), 0 0 0 1px rgba(255,184,0,0.08); }
-.feature-card:hover::before { opacity: 1; }
-.feature-left { position: relative; z-index: 1; }
-.feature-badge { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); background: rgba(255,184,0,0.08); border: 1px solid rgba(255,184,0,0.25); border-radius: 100px; padding: 0.35rem 0.85rem; margin-bottom: 1.1rem; }
-.feature-badge .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); box-shadow: 0 0 0 0 rgba(255,184,0,0.7); animation: pulseDot 2s ease-in-out infinite; }
 @keyframes pulseDot { 0%, 100% { box-shadow: 0 0 0 0 rgba(255,184,0,0.6); } 50% { box-shadow: 0 0 0 6px rgba(255,184,0,0); } }
-.feature-h { font-family: var(--sans); font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: #fff; margin-bottom: 0.85rem; }
-.feature-h em { font-style: italic; font-weight: 500; letter-spacing: -0.02em; background: linear-gradient(135deg, var(--gold) 0%, #ffd166 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-.feature-p { color: var(--text-dim); font-size: 0.98rem; line-height: 1.65; margin-bottom: 1.4rem; max-width: 520px; }
-.feature-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.5rem; }
-.feature-tag { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.72rem; font-weight: 500; color: var(--text-dim); background: rgba(255,255,255,0.04); border: 1px solid var(--border); border-radius: 7px; padding: 0.32rem 0.65rem; transition: all 0.25s; }
-.feature-tag svg { width: 12px; height: 12px; color: var(--green-bright); flex-shrink: 0; }
-.feature-card:hover .feature-tag { color: var(--text); border-color: var(--border-2); background: rgba(34,196,126,0.05); }
-.feature-cta { display: inline-flex; align-items: center; gap: 0.55rem; background: var(--gold); color: #1a0f00; font-weight: 700; font-size: 0.92rem; padding: 0.85rem 1.5rem; border-radius: 100px; letter-spacing: -0.005em; transition: all 0.25s ease; position: relative; overflow: hidden; }
-.feature-cta::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, #ffd166, var(--gold)); opacity: 0; transition: opacity 0.3s; }
-.feature-cta span { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 0.5rem; }
-.feature-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255,184,0,0.3); }
-.feature-cta:hover::before { opacity: 1; }
-.feature-cta .arrow { transition: transform 0.3s; }
-.feature-cta:hover .arrow { transform: translateX(4px); }
-
-.feature-visual { position: relative; z-index: 1; height: 280px; display: flex; align-items: center; justify-content: center; }
-.gear-stage { position: relative; width: 100%; height: 100%; }
-.gear-chip { position: absolute; background: rgba(13,26,20,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--border-2); border-radius: 14px; padding: 0.85rem 1rem; display: flex; align-items: center; gap: 0.7rem; box-shadow: 0 12px 30px rgba(0,0,0,0.35); animation: chipFloat 6s ease-in-out infinite; }
-.gear-chip-ico { width: 36px; height: 36px; border-radius: 9px; background: rgba(34,196,126,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.gear-chip-ico svg { width: 19px; height: 19px; color: var(--green-bright); }
-.gear-chip:nth-child(2) .gear-chip-ico svg { color: var(--gold); }
-.gear-chip-text { display: flex; flex-direction: column; gap: 0.1rem; }
-.gear-chip-name { font-family: var(--sans); font-size: 0.82rem; font-weight: 600; color: #fff; letter-spacing: -0.01em; }
-.gear-chip-sub { font-family: var(--mono); font-size: 0.68rem; color: var(--text-dim); }
-.gear-chip:nth-child(1) { top: 8%; left: 4%; animation-delay: 0s; }
-.gear-chip:nth-child(2) { top: 38%; right: 0%; animation-delay: 1s; border-color: rgba(255,184,0,0.3); }
-.gear-chip:nth-child(2) .gear-chip-ico { background: rgba(255,184,0,0.12); }
-.gear-chip:nth-child(3) { bottom: 6%; left: 14%; animation-delay: 2s; }
-.gear-chip:nth-child(4) { top: 64%; left: 50%; animation-delay: 3s; }
-@keyframes chipFloat { 0%, 100% { transform: translateY(0) rotate(-1deg); } 50% { transform: translateY(-6px) rotate(1deg); } }
-.rec-indicator { position: absolute; top: 0; right: 0; display: inline-flex; align-items: center; gap: 0.45rem; font-family: var(--mono); font-size: 0.7rem; font-weight: 600; color: #ff5277; background: rgba(255,82,119,0.08); border: 1px solid rgba(255,82,119,0.25); border-radius: 100px; padding: 0.3rem 0.7rem; letter-spacing: 0.05em; }
-.rec-indicator .rec-dot { width: 7px; height: 7px; border-radius: 50%; background: #ff5277; animation: recBlink 1.4s ease-in-out infinite; }
-@keyframes recBlink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
 .folio-section-head { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; gap: 1.5rem; }
 .folio-section-head .sec-sub { margin-bottom: 0; }
@@ -400,6 +422,8 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .ref-avatar.fh { background: linear-gradient(135deg, #2A9F7A 0%, #1B7F5F 100%); }
 .ref-avatar.af { background: linear-gradient(135deg, #4dd9a2 0%, #2A9F7A 100%); }
 .ref-avatar.sm { background: linear-gradient(135deg, #FFB800 0%, #d49600 100%); color: #1a0f00; }
+.ref-avatar.is-logo { background: #fff; }
+.ref-avatar.is-logo img { width: 100%; height: 100%; object-fit: contain; padding: 6px; display: block; }
 .ref-author-info { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
 .ref-name { font-family: var(--sans); font-size: 0.92rem; font-weight: 600; color: #fff; letter-spacing: -0.01em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ref-role { font-family: var(--mono); font-size: 0.72rem; color: var(--text-dim); letter-spacing: 0.02em; }
@@ -545,11 +569,11 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
 
 @media (max-width: 1024px) {
   .svc-grid { grid-template-columns: 1fr 1fr; }
+  .card-feat { grid-column: 1 / -1; }
+  .svc-secondary { flex-wrap: wrap; }
   .folio { flex: 0 0 340px; }
   .refs-grid { grid-template-columns: 1fr 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
-  .feature-card { grid-template-columns: 1fr; gap: 2rem; padding: 2.2rem; }
-  .feature-visual { height: 220px; max-width: 460px; margin: 0 auto; }
 }
 @media (max-width: 768px) {
   .nav-links { display: none; }
@@ -557,6 +581,8 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .nav-cta { margin-left: auto; }
   .nav-burger { display: flex; }
   .svc-grid { grid-template-columns: 1fr; }
+  .card-feat { grid-column: auto; }
+  .svc-secondary { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 1.5rem; }
   .folio { flex: 0 0 300px; }
   .folio-section-head { align-items: flex-start; flex-direction: column; gap: 1.2rem; }
   .folio-nav-btns { align-self: flex-end; }
@@ -569,13 +595,6 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
   .footer-btm { flex-direction: column; text-align: center; }
   .sec, .sec-alt { padding: 5rem 1.5rem; }
   .cookie-banner { left: 0.75rem; right: 0.75rem; bottom: 0.75rem; padding: 1.25rem; }
-  .feature-card { padding: 1.8rem 1.5rem; }
-  .feature-visual { height: 240px; }
-  .gear-chip { padding: 0.65rem 0.8rem; }
-  .gear-chip-ico { width: 30px; height: 30px; }
-  .gear-chip-ico svg { width: 16px; height: 16px; }
-  .gear-chip-name { font-size: 0.76rem; }
-  .gear-chip-sub { font-size: 0.62rem; }
 }
 @media (max-width: 480px) {
   .btn-row { flex-direction: column; align-items: stretch; }
@@ -700,7 +719,7 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
       <a href="/portfolio" class="btn-secondary">Prohlédnout práce</a>
     </div>
     <div class="hero-trust">
-      <span class="ht-star">★</span> <strong>5,0</strong>&nbsp;Google
+      <span class="ht-star">★</span> <strong>5,0</strong>&nbsp;z&nbsp;<strong>29</strong>&nbsp;recenzí&nbsp;Google
       <span class="ht-sep">·</span>
       <strong>50+</strong>&nbsp;klientů
       <span class="ht-sep">·</span>
@@ -789,21 +808,37 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
   <div class="wrap">
     <span class="sec-label reveal">Služby</span>
     <h2 class="sec-h reveal">Tři věci, co pro vás dělám<br>pořádně.</h2>
-    <p class="sec-sub reveal">Nedělám všechno pro všechny. Soustředím se na weby, sociální sítě a grafiku, pokaždé na míru tomu, co děláte. A když je potřeba čerstvý videoobsah, vyrazím ven natáčet sám.</p>
+    <p class="sec-sub reveal">Nedělám všechno pro všechny. Držím se tří věcí, které umím pořádně: weby, natáčení a sociální sítě, pokaždé na míru tomu, co děláte. Ke každé zakázce přidám grafiku, ať to celé drží pohromadě.</p>
     <div class="svc-grid">
-      <div class="card card-feat reveal d1">
+      <article class="card card-feat reveal d1">
+        <span class="card-num">01</span>
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18z"/></svg></div>
         <div class="card-h">Webové stránky</div>
-        <p class="card-p">Postavím vám web, za který se nebudete stydět a který vám pracuje, i když zrovna spíte. Rychlý, přehledný a postavený od základu pod to, co děláte. Hlavně mi jde o to, aby vám reálně nosil poptávky, ne aby jen hezky vypadal. Součástí je i redesign starého webu, SEO základ a údržba.</p>
+        <p class="card-p">Postavím vám web, za který se nebudete stydět a který vám nosí poptávky, i když zrovna spíte. Od jednoduché prezentace až po rezervační a objednávkové systémy pro hotely, restaurace a služby, které je potřebují. Rychlý, přehledný a postavený od základu pod to, co děláte.</p>
         <ul class="card-list">
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Na míru vaší firmě a oboru</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rezervační a objednávkové systémy</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Funguje na mobilu stejně dobře jako na počítači</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Rychlé načítání a základ pro Google</li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Formuláře, co vám vážně nosí poptávky</li>
         </ul>
-        <div class="tags"><span class="tag">Na míru</span><span class="tag">Mobile-first</span><span class="tag">SEO</span></div>
-      </div>
-      <div class="card reveal d2">
+        <div class="tags"><span class="tag">Na míru</span><span class="tag">Rezervace</span><span class="tag">Objednávky</span><span class="tag">SEO</span></div>
+      </article>
+      <a href="/nataceni" class="card card-video reveal d2" aria-label="Natáčení videí, přejít na detail">
+        <span class="card-num">02</span>
+        <span class="card-rec"><span class="card-rec-dot"></span> REC</span>
+        <div class="card-ico card-ico-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div>
+        <div class="card-h">Natáčení videí</div>
+        <p class="card-p">Vyrazím za vámi a natočím to sám. Stabilizovaný telefon, profi mikrofony a dron v terénu, střih a barvy doladím s ověřenými editory. Reels, reklamy i letecké záběry, hotové pro sociální sítě i váš web.</p>
+        <ul class="card-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Stabilizátor, mikrofony i dron</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Profi střih a barvy</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Hotové pro Reels, reklamy i web</li>
+        </ul>
+        <span class="card-link">Podrobnosti o natáčení <span class="arrow">→</span></span>
+      </a>
+      <article class="card reveal d3">
+        <span class="card-num">03</span>
         <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg></div>
         <div class="card-h">Sociální sítě</div>
         <p class="card-p">Postarám se vám o Instagram a Facebook tak, aby z nich chodily reálné poptávky, ne aby jen přibývaly lajky. Obsah, který sedí vašemu oboru, a kampaně, co mají hlavu a patu.</p>
@@ -813,48 +848,32 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Placené kampaně na Meta</li>
         </ul>
         <div class="tags"><span class="tag">Instagram</span><span class="tag">Facebook</span><span class="tag">Meta Ads</span></div>
-      </div>
-      <div class="card reveal d3">
-        <div class="card-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/></svg></div>
-        <div class="card-h">Grafický design</div>
-        <p class="card-p">Logo, vizitky, letáky i kompletní vizuál značky. Všechno, co vaší firmě dá jednotný a zapamatovatelný vzhled, ať vás lidi poznají na první pohled, kdekoli vás potkají.</p>
-        <ul class="card-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Logo a vizuální styl značky</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Tisková i digitální grafika</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Jednotný vzhled napříč kanály</li>
-        </ul>
-        <div class="tags"><span class="tag">Brand</span><span class="tag">Print</span><span class="tag">Digital</span></div>
-      </div>
+      </article>
     </div>
 
-    <a href="/nataceni" class="feature-card reveal d4" aria-label="Natáčení videí, přejít na detail">
-      <div class="feature-left">
-        <span class="feature-badge"><span class="pulse-dot"></span> Novinka · Bonus k službám</span>
-        <h3 class="feature-h">Natočím vám video <em>jako z reklamy.</em></h3>
-        <p class="feature-p">
-          Stabilizovaný telefon, profi mikrofony a dron v terénu. Střih a barvy dolaďuju s ověřenými editory, se kterými spolupracuji.
-          Reels, reklamy, produktová videa i letecké záběry, vše připravené pro sociální sítě i váš web.
-        </p>
-        <div class="feature-tags">
-          <span class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Stabilizátor</span>
-          <span class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Profi mikrofony</span>
-          <span class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Záběry z dronu</span>
-          <span class="feature-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Profi střih a barvy</span>
-        </div>
-        <span class="feature-cta">
-          <span>Podrobnosti o natáčení <span class="arrow">→</span></span>
-        </span>
+    <div class="svc-secondary reveal d4">
+      <div class="svc-sec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1 0 1.5-.8 1.5-1.6 0-.4-.2-.7-.4-1-.2-.2-.4-.6-.4-1 0-.8.7-1.5 1.5-1.5H16a5 5 0 0 0 5-5c0-4.4-4-8-9-8z"/><circle cx="7.5" cy="11.5" r="1"/><circle cx="10.5" cy="7.5" r="1"/><circle cx="14.5" cy="7.5" r="1"/><circle cx="17" cy="11" r="1"/></svg></div>
+      <div class="svc-sec-main">
+        <div class="svc-sec-h">Grafický design <span class="svc-sec-flag">doplněk k hlavním službám</span></div>
+        <p class="svc-sec-p">Logo, vizitky, letáky i jednotný vizuál značky. Přidám ke každé zakázce, ať vás lidi poznají na první pohled, kdekoli vás potkají.</p>
       </div>
-      <div class="feature-visual" aria-hidden="true">
-        <div class="gear-stage">
-          <div class="rec-indicator"><span class="rec-dot"></span> REC</div>
-          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10l5-3v10l-5-3z"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Stabilizátor</span><span class="gear-chip-sub">plynulý pohyb</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M6.4 6.4l3.1 3.1M17.6 6.4l-3.1 3.1M6.4 17.6l3.1-3.1M17.6 17.6l-3.1-3.1"/><rect x="9" y="9" width="6" height="6" rx="1"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Dron</span><span class="gear-chip-sub">letecké záběry</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Mikrofony</span><span class="gear-chip-sub">čistý zvuk</span></div></div>
-          <div class="gear-chip"><div class="gear-chip-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4 8.12 15.88M14.47 14.48 20 20M8.12 8.12 12 12"/></svg></div><div class="gear-chip-text"><span class="gear-chip-name">Editoři</span><span class="gear-chip-sub">střih a barvy</span></div></div>
-        </div>
+      <div class="svc-sec-tags"><span class="tag">Logo</span><span class="tag">Print</span><span class="tag">Brand</span></div>
+    </div>
+
+    <div class="niche-band reveal d5">
+      <div class="niche-band-head">
+        <span class="niche-band-eyebrow">Pro váš obor</span>
+        <p class="niche-band-h">Děláte v konkrétním oboru? Mám pro něj stránku na míru, i s tipy z praxe.</p>
       </div>
-    </a>
+      <div class="niche-pills">
+        <a href="/web-pro-restauraci" class="niche-pill">Restaurace a bistra <span class="arrow">→</span></a>
+        <a href="/web-pro-penzion" class="niche-pill">Penziony a ubytování <span class="arrow">→</span></a>
+        <a href="/web-pro-detailing-aut" class="niche-pill">Autodetailing <span class="arrow">→</span></a>
+        <a href="/web-pro-zubarskou-ordinaci" class="niche-pill">Ordinace <span class="arrow">→</span></a>
+        <a href="/web-pro-stavebni-firmu" class="niche-pill">Stavební firmy <span class="arrow">→</span></a>
+        <a href="/web-pro-autopujcovnu" class="niche-pill">Autopůjčovny <span class="arrow">→</span></a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -950,6 +969,11 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
     <span class="sec-label reveal">Reference</span>
     <h2 class="sec-h reveal">Co o spolupráci říkají<br><em>mí klienti.</em></h2>
     <p class="sec-sub reveal">Pár citací od lidí, kterým jsem nedávno dělal weby a videa. Skutečné jména, skutečné firmy z východních Čech.</p>
+    <a class="refs-grade reveal" href="https://www.google.com/search?q=statly+litomy%C5%A1l+recenze" target="_blank" rel="noopener" aria-label="5,0 z 29 recenzí na Googlu, otevře Google v novém okně">
+      <span class="refs-grade-stars" aria-hidden="true">★★★★★</span>
+      <span><strong>5,0</strong> z <strong>29 recenzí</strong> na Googlu</span>
+      <span class="refs-grade-arrow" aria-hidden="true">↗</span>
+    </a>
 
     <div class="refs-grid">
       <div class="ref-card featured reveal d1">
@@ -967,7 +991,7 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
           <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Videa</span>
         </div>
         <div class="ref-author">
-          <div class="ref-avatar fh" aria-hidden="true">FH</div>
+          <div class="ref-avatar is-logo"><img src="logos/clients/flexihouse.png" alt="Flexi House" width="44" height="44" loading="lazy"></div>
           <div class="ref-author-info"><span class="ref-name">Flexi House</span><span class="ref-role">Modulární domy</span></div>
         </div>
       </div>
@@ -985,7 +1009,7 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
           <span class="ref-tag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Web</span>
         </div>
         <div class="ref-author">
-          <div class="ref-avatar af" aria-hidden="true">AF</div>
+          <div class="ref-avatar is-logo"><img src="logos/clients/aurafloor.png" alt="AuraFloor" width="44" height="44" loading="lazy"></div>
           <div class="ref-author-info"><span class="ref-name">AuraFloor</span><span class="ref-role">Pokládka podlah</span></div>
         </div>
       </div>
@@ -1010,6 +1034,18 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
       </div>
     </div>
 
+    <div class="greviews reveal d4">
+      <p class="greviews-h">Čerstvé recenze z Googlu</p>
+      <div class="greviews-grid">
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#1e8e3e">JK</span><span class="grev-name">Jindra Klejchová</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Doporučuji. Mám krásné webovky, které se všem líbí, moderní, přehledné. Skvělá komunikace.</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#1a73e8">JR</span><span class="grev-name">Jiří Romer</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Stránky krásný, přístup skvělý. Můžu jen doporučit.</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#00897b">DP</span><span class="grev-name">Dan Prokeš</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Aura Floor i Flexi House se povedl. Díky za super spolupráci!</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#6a1b9a">TK</span><span class="grev-name">Tomáš Kučeřík</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Pan byl velice ochotný a trpělivý, výborná práce!</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#e91e63">JZ</span><span class="grev-name">Jana Zalešáková</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Dobrá komunikace, webové stránky jsou kvalitní, spokojenost.</p></div>
+        <div class="grev"><div class="grev-top"><span class="grev-av" style="background:#ef6c00">LS</span><span class="grev-name">Lubo St</span></div><div class="grev-stars" aria-label="5 z 5 hvězd">★★★★★</div><p class="grev-text">Vše super, díky.</p></div>
+      </div>
+    </div>
+
     <div class="refs-google-cta reveal d4">
       <a href="https://www.google.com/search?q=Statly+-+Tvorba+webov%C3%BDch+str%C3%A1nek" target="_blank" rel="noopener" class="refs-google-row" aria-label="Více recenzí na Google (otevře se v novém okně)">
         <svg class="refs-google-logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
@@ -1025,11 +1061,23 @@ body.sticky-cta-on .cookie-fab { opacity: 0; pointer-events: none; transition: o
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
         </div>
-        <span class="refs-google-text"><strong>Více recenzí na Google</strong></span>
+        <span class="refs-google-text"><strong>Všech 29 recenzí na Google</strong></span>
         <span class="refs-google-arrow">↗</span>
       </a>
       <span class="refs-google-note">Skutečné hodnocení od skutečných klientů</span>
     </div>
+
+    <div class="rz-teaser reveal">
+      <a href="/portfolio#realizace" class="rz-shot" aria-label="Realizace Stěhování Leo">
+        <img src="stehovani-leo.webp" alt="Web Stěhování Leo" loading="lazy" width="900" height="1125">
+      </a>
+      <div class="rz-body">
+        <span class="rz-eyebrow">Realizace · Stěhování Leo</span>
+        <p class="rz-line">Ze starého webu, ze kterého nechodily ani e-maily, je dnes přehledný web na míru s formulářem, co poptávky reálně doručuje. A poptávky chodí.</p>
+        <a href="/portfolio#realizace" class="rz-cta">Celé realizace <span class="arrow">→</span></a>
+      </div>
+    </div>
+
     <div class="mid-cta-wrap">
       <a href="#kontakt" class="mid-cta">Chcete podobné výsledky i pro svůj byznys? <strong>Ozvu se do 48 h</strong> <span class="arrow">→</span></a>
     </div>
@@ -1707,6 +1755,14 @@ window.addEventListener('DOMContentLoaded', () => {
     const g = e.target.closest('[data-slg-open]');
     if (g && window.gtag) {
       gtag('event', 'guide_open', { location: location.pathname });
+    }
+    const np = e.target.closest('.niche-pill');
+    if (np && window.gtag) {
+      gtag('event', 'select_content', { content_type: 'niche', item_id: (np.getAttribute('href') || '').replace(/^\//, '') });
+    }
+    const rz = e.target.closest('.rz-cta, .rz-shot');
+    if (rz && window.gtag) {
+      gtag('event', 'select_content', { content_type: 'realizace', item_id: 'stehovani-leo' });
     }
   }, true);
 })();

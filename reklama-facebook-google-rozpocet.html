@@ -159,7 +159,7 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .art-content em { font-style: italic; color: var(--text); }
 .art-content a { color: var(--green-bright); text-decoration: underline; text-decoration-color: rgba(34,196,126,0.35); text-underline-offset: 3px; transition: text-decoration-color 0.2s; }
 .art-content a:hover { text-decoration-color: var(--green-bright); }
-.pullquote { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.5rem; line-height: 1.4; color: #fff; margin: 2.5rem 0; padding: 1rem 0 1rem 2rem; border-left: 3px solid var(--green-bright); letter-spacing: -0.015em; }
+.pullquote { font-family: var(--sans); font-weight: 600; font-size: 1.5rem; line-height: 1.4; color: #fff; margin: 2.5rem 0; padding: 1rem 0 1rem 2rem; border-left: 3px solid var(--green-bright); letter-spacing: -0.015em; }
 .callout { background: var(--bg-card); border: 1px solid var(--border-2); border-radius: 14px; padding: 1.5rem 1.75rem; margin: 2rem 0; font-family: var(--sans); font-size: 1rem; line-height: 1.65; }
 .callout-head { display: flex; align-items: center; gap: 0.5rem; font-family: var(--mono); font-size: 0.74rem; color: var(--green-bright); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.7rem; font-weight: 600; }
 .callout p { margin-bottom: 0; color: var(--text); }
@@ -204,7 +204,7 @@ nav { position: fixed; top: 0; left: 0; width: 100%; background: rgba(10,20,16,0
 .art-cta::before { content: ''; position: absolute; top: -50%; left: 50%; width: 400px; height: 400px; margin-left: -200px; background: radial-gradient(circle, rgba(34,196,126,0.1), transparent 70%); pointer-events: none; }
 .art-cta h4 { font-family: var(--sans); font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: #fff; margin-bottom: 0.5rem; position: relative; }
 .art-cta p { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1.4rem; position: relative; font-family: var(--sans); }
-.art-cta-btn { background: var(--green-bright); color: var(--green-deep); padding: 0.85rem 1.6rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; font-family: var(--sans); transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem; position: relative; }
+.art-cta-btn { background: var(--green-bright); color: var(--green-deep) !important; text-decoration: none; padding: 0.85rem 1.6rem; border-radius: 100px; font-weight: 600; font-size: 0.9rem; font-family: var(--sans); transition: all 0.25s ease; display: inline-flex; align-items: center; gap: 0.5rem; position: relative; }
 .art-cta-btn:hover { background: var(--gold); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(255,184,0,0.25); }
 footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem 2rem 2rem; }
 .footer-grid { max-width: 1280px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1.2fr; gap: 3rem; margin-bottom: 3rem; padding-bottom: 3rem; border-bottom: 1px solid var(--border); }
@@ -412,15 +412,15 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <svg class="logo-mark" aria-hidden="true"><use href="#statly-mark"/></svg><span class="logo-word">statly</span>
     </a>
     <ul class="nav-links">
-      <li><a href="index.html#sluzby">Služby</a></li>
+      <li><a href="/#sluzby">Služby</a></li>
       <li><a href="/nataceni">Natáčení</a></li>
-      <li><a href="index.html#portfolio">Portfolio</a></li>
+      <li><a href="/#portfolio">Portfolio</a></li>
       <li><a href="/blog" class="active">Blog</a></li>
-      <li><a href="index.html#postup">Postup</a></li>
-      <li><a href="index.html#kontakt">Kontakt</a></li>
+      <li><a href="/#postup">Postup</a></li>
+      <li><a href="/#kontakt">Kontakt</a></li>
     </ul>
     <a href="/portfolio" class="nav-folio-m">Portfolio</a>
-    <a href="index.html#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
+    <a href="/#kontakt" class="nav-cta"><span>Chci nabídku →</span></a>
   </div>
 </nav>
 
@@ -526,7 +526,7 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
       <div class="art-cta">
         <h4>Plánuješ spustit reklamu?</h4>
         <p>Můžu se podívat na tvůj případ a říct, jestli má smysl jít do PPC a jaký rozpočet je realistický.</p>
-        <a href="index.html#kontakt" class="art-cta-btn">Domluvíme nezávaznou konzultaci →</a>
+        <a href="/rezervace#contactForm" class="art-cta-btn" data-slg-open>Domluvíme nezávaznou konzultaci →</a>
       </div>
 
       <h2 id="s6">6. Co skutečně sledovat</h2>
@@ -630,17 +630,17 @@ footer { background: #060c08; border-top: 1px solid var(--border); padding: 5rem
     </div>
     <div>
       <p class="footer-h">Služby</p>
-      <a href="index.html#sluzby" class="footer-a">Tvorba webů</a>
-      <a href="index.html#sluzby" class="footer-a">Sociální sítě</a>
-      <a href="index.html#sluzby" class="footer-a">Grafický design</a>
+      <a href="/#sluzby" class="footer-a">Tvorba webů</a>
+      <a href="/#sluzby" class="footer-a">Sociální sítě</a>
+      <a href="/#sluzby" class="footer-a">Grafický design</a>
       <a href="/nataceni" class="footer-a">Natáčení videí</a>
     </div>
     <div>
       <p class="footer-h">Navigace</p>
-      <a href="index.html#portfolio" class="footer-a">Portfolio</a>
+      <a href="/#portfolio" class="footer-a">Portfolio</a>
       <a href="/blog" class="footer-a">Blog</a>
-      <a href="index.html#postup" class="footer-a">Jak pracuju</a>
-      <a href="index.html#kontakt" class="footer-a">Kontakt</a>
+      <a href="/#postup" class="footer-a">Jak pracuju</a>
+      <a href="/#kontakt" class="footer-a">Kontakt</a>
     </div>
     <div>
       <p class="footer-h">Kontakt</p>
